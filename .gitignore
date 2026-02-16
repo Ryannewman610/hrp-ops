@@ -6,6 +6,7 @@ tracker/
 # Python
 __pycache__/
 *.pyc
+.venv/
 
 # OS
 Thumbs.db

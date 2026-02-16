@@ -32,9 +32,12 @@ try {
         Write-Host "Installing dependencies from requirements.txt ..."
         & $venvPython -m pip install -r $requirementsPath
     } else {
-        Write-Host "requirements.txt not found; installing pytest only ..."
-        & $venvPython -m pip install pytest
+        Write-Host "requirements.txt not found; installing fallback packages ..."
+        & $venvPython -m pip install pytest openpyxl beautifulsoup4 lxml playwright
     }
+
+    Write-Host "Installing Playwright Chromium browser ..."
+    & $venvPython -m playwright install chromium
 
     Write-Host "Running tests ..."
     & $venvPython -m pytest -q

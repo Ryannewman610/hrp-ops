@@ -8,10 +8,11 @@ Important:
 ## Setup + test (no activation required)
 
 ```powershell
-py -m venv .venv
-.\.venv\Scripts\python -m pip install -U pip pytest
-.\.venv\Scripts\python -m pytest -q
+.\scripts\bootstrap.ps1
+.\scripts\run_tests.ps1
 ```
+
+`bootstrap.ps1` creates `.venv`, installs dependencies from `requirements.txt`, installs Playwright Chromium, and runs tests.
 
 ## Run local scripts
 

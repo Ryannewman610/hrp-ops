@@ -72,6 +72,12 @@ Recommended:
 .\scripts\run_tests.ps1
 ```
 
+`bootstrap.ps1` will:
+- create `.venv` if missing
+- install/update pip + dependencies from `requirements.txt`
+- install Playwright Chromium automatically
+- run tests
+
 Run Python directly from the venv path instead of activation:
 
 ```powershell
