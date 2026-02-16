@@ -1,0 +1,6 @@
+{
+  "seed_urls": [],
+  "allow_external": false,
+  "delay_seconds_min": 2.0,
+  "delay_seconds_max": 4.0
+}

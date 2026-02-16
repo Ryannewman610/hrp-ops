@@ -1,0 +1,1 @@
+Run `powershell -ExecutionPolicy Bypass -File .\scripts\enable_session_autolog.ps1`, then read AGENTS.md.txt and SESSION_NOTES.md, then continue from the "Next Steps" section exactly.

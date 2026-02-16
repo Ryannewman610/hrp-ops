@@ -1,0 +1,18 @@
+You are Codex running locally in C:\hrp-ops.
+
+MISSION
+- Start fresh: create tracker\HRP_Tracker.xlsx from tracker\TEMPLATE_HRP_Tracker.xlsx
+- Retrieve HRP data by exporting pages using Playwright (logged-in session)
+- Parse export into structured data and fill the tracker
+- Never invent missing data. If something isn’t visible, leave blank and store raw text in Notes.
+
+OUTPUTS
+- Raw export: inputs\export\raw\
+- Parsed data: inputs\export\parsed\
+- Fresh tracker: tracker\HRP_Tracker.xlsx
+- Daily report: outputs\daily_reports\YYYY-MM-DD.md
+
+SESSION CONTINUITY
+- On startup, read SESSION_NOTES.md before taking actions.
+- If SESSION_NOTES.md exists, follow its "Next Steps" first.
+- Before ending a session, update SESSION_NOTES.md with completed work and exact next commands.

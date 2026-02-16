@@ -1,0 +1,12 @@
+﻿# Large data folders
+inputs/
+outputs/
+tracker/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+Thumbs.db
+.DS_Store

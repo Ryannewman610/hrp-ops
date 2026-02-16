@@ -1,0 +1,13 @@
+{
+  "forum_index_urls": [],
+  "thread_url_allow": [
+    "/forums/"
+  ],
+  "thread_url_deny": [
+    "login",
+    "register",
+    "reply",
+    "quote",
+    "print"
+  ]
+}
