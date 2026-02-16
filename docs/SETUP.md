@@ -60,3 +60,27 @@ The batch runner stops and tells you to run `01_login_save_state.py` if auth is 
 ```powershell
 py -m unittest
 ```
+
+## Windows PowerShell
+
+Prefer no-activation workflows to avoid `Activate.ps1` ExecutionPolicy issues.
+
+Recommended:
+
+```powershell
+.\scripts\bootstrap.ps1
+.\scripts\run_tests.ps1
+```
+
+Run Python directly from the venv path instead of activation:
+
+```powershell
+.\.venv\Scripts\python -m pytest -q
+.\.venv\Scripts\python .\tmp_check_counts.py
+```
+
+If you want activation, set policy once for your user:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
