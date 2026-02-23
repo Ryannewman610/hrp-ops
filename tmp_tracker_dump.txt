@@ -99,53 +99,68 @@
 | Date | Horse | Event | Track | Distance | Surface | Split1 | Split2 | FinalTime | Rider | WeightCarried | Start | Pace/Instr | Rank | Cond_Pre | Cond_Post | Stam_Pre | Stam_Post | Consist_Pre | Consist_Post | Dist_Pre | Dist_Post | Height_hh | Wt_Pre_lbs | Wt_Post_lbs | Notes | Source |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-## Horse_Profile  (35 data rows)
+## Horse_Profile  (36 data rows)
 | horse_id | horse_name | owner | status | age | foaling_month | sex_code | color_code | sire | dam | breeder | track | track_condition | condition_pct | stamina_pct | consistency_val | consistency_events_30d | distance_meter | height_hands | weight_lbs | source_dir |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | caros_compass | Caros Compass | Ire Iron Stables | Active | 3 | Jun | c | Gr | HRP-Caro | HRP-Aziyade | Ire Iron Stables (WV) | MouWV | Fast, Firm | 100 | 100 | 5 | 3 | 0 | 15.2 | 1126 | /mnt/data |
-| Blank_Sunset | Blank Sunset | Gr. f. 2 (Feb) | Comanche | Blank Slate | Ire Iron Stables | Ire Iron Stables (WV*) | MouWV | 0 | 15.0 | 1105 | 2026-02-16 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Caros_Compass | Caros Compass | Gr. c. 3 (Jun) | HRP-Caro | HRP-Aziyade | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1123 | 2026-01-25 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Cayuga_Lake | Cayuga Lake |  | Shadow Speed | Frolicsome | Ire Iron Stables | Fractious (Cal) | TUP | 0 | 16.0 | 1246 | 2026-02-07 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Class_A | Class A |  | Chai Latte | Rules Are Madness | Ire Iron Stables | Angelos Stable (Pa*) | HOU | 1 | 15.2 | 1180 | 2026-01-21 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Core_N_Light | Core N Light |  | Memory Upgrade | Jovani | Ire Iron Stables | Wood Duck Stables (Fla*) | MouWV | 0 | 15.3 | 1174 | 2025-04-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Cornswaggled | Cornswaggled |  | Expert Eye | Cherokee Halo | Ire Iron Stables | TwinTowersRacing (NY*) | HOU | 0 | 15.3 | 1220 | 2026-02-05 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Crowds_Ransom | Crowds Ransom |  | HRP-Crowd Pleaser | HRP-Quendom | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1125 | 2026-02-04 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Crypto_King | Crypto King |  | Crypto Investor $1.77 | Tanque Verde | Ire Iron Stables | LionKing Stables (Ky*) | TP | 0 | 16.0 | 1261 | 2026-01-14 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Damascus_Honey | Damascus Honey |  | HRP-Damascus | HRP-Honey Carlyle | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1159 | 2026-01-07 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Desert_Oath | Desert Oath |  | HRP-Abdos | HRP-Persian Maid | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1132 | 2026-01-10 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Dubai_Iron | Dubai Iron |  | HRP-Essence Of Dubai | HRP-Ill Get Along | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1124 | 2026-01-21 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Film_The_Scene | Film The Scene |  | Compress $1.99 | Enigma | Ire Iron Stables | Riggins Racing (Cal*) | MouWV | 0 | 15.2 | 1159 | 2026-02-01 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Golden_Shuvee | Golden Shuvee |  | HRP-Formal Gold | HRP-Shuvee | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.1 | 1106 | 2026-01-22 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Hardline_Anvil | Hardline Anvil |  | Hardline Dancer | Falling Aeneid | Ire Iron Stables | Jkk Racing Stables (Pa) | MouWV | 0 | 16.0 | 1219 | 2025-09-11 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Harsh_Frontier | Harsh Frontier |  | Researched(1) | Smart Mints(1) | Ire Iron Stables | First Street Stables (ON*) | TUP | 0 | 16.1 | 1270 | 2026-01-31 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Helios_Hustle | Helios Hustle |  | HRP-Helios | HRP-Foolish One | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 16.0 | 1136 | 2026-01-10 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Blank_Sunset | Blank Sunset | Gr. f. 2 (Feb) | Comanche | Blank Slate | Ire Iron Stables | Ire Iron Stables (WV*) | MouWV | 0 | 15.1 | 1110 | 2026-02-16 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Caros_Compass | Caros Compass | Gr. c. 3 (Jun) | HRP-Caro | HRP-Aziyade | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1127 | 2026-01-25 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Cayuga_Lake | Cayuga Lake |  | Shadow Speed | Frolicsome | Ire Iron Stables | Fractious (Cal) | TUP | 0 | 16.0 | 1245 | 2026-02-07 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Class_A | Class A |  | Chai Latte | Rules Are Madness | Ire Iron Stables | Angelos Stable (Pa*) | HOU | 0 | 15.2 | 1172 | 2026-02-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Core_N_Light | Core N Light |  | Memory Upgrade | Jovani | Ire Iron Stables | Wood Duck Stables (Fla*) | MouWV | 0 | 15.3 | 1179 | 2025-04-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Cornswaggled | Cornswaggled |  | Expert Eye | Cherokee Halo | Ire Iron Stables | TwinTowersRacing (NY*) | HOU | 0 | 15.3 | 1222 | 2026-02-05 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Crowds_Ransom | Crowds Ransom |  | HRP-Crowd Pleaser | HRP-Quendom | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1130 | 2026-02-04 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Crypto_King | Crypto King |  | Crypto Investor $1.77 | Tanque Verde | Ire Iron Stables | LionKing Stables (Ky*) | TP | 0 | 16.0 | 1256 | 2026-02-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Damascus_Honey | Damascus Honey |  | HRP-Damascus | HRP-Honey Carlyle | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1163 | 2026-01-07 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Desert_Oath | Desert Oath |  | HRP-Abdos | HRP-Persian Maid | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1137 | 2026-01-10 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Dubai_Iron | Dubai Iron |  | HRP-Essence Of Dubai | HRP-Ill Get Along | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1128 | 2026-01-21 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Film_The_Scene | Film The Scene |  | Compress $1.99 | Enigma | Ire Iron Stables | Riggins Racing (Cal*) | MouWV | 0 | 15.3 | 1162 | 2026-02-01 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Gen_Xpress | Gen Xpress | Gr. f. 2 (Feb) | Comanche | Generation X | Ire Iron Stables | Ire Iron Stables (WV*) | MouWV | 0 | 14.3 | 1105 | 2026-02-19 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Golden_Shuvee | Golden Shuvee |  | HRP-Formal Gold | HRP-Shuvee | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.1 | 1110 | 2026-01-22 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Hardline_Anvil | Hardline Anvil |  | Hardline Dancer | Falling Aeneid | Ire Iron Stables | Jkk Racing Stables (Pa) | MouWV | 0 | 16.0 | 1224 | 2025-09-11 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Harsh_Frontier | Harsh Frontier |  | Researched(1) | Smart Mints(1) | Ire Iron Stables | First Street Stables (ON*) | TUP | 0 | 16.1 | 1274 | 2026-02-24 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Helios_Hustle | Helios Hustle |  | HRP-Helios | HRP-Foolish One | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 16.0 | 1140 | 2026-01-10 | profile_allraces.html |  |  |  |  |  |  |  |  |
 | HipTag793004736512 | [HipTag793004736512] | Gr. f. 2 (Feb) | Comanche | Blank Slate | Ire Iron Stables | Ire Iron Stables (WV*) | MouWV | 0 | 15.0 | 1110 | 2026-02-16 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Hydration | Hydration |  | Residue | Solitude | Ire Iron Stables | Wood Duck Stables (Fla) | MouWV | 0 | 16.0 | 1253 | 2025-02-01 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Ideal_Sinissippi | Ideal Sinissippi | Gr. g. 3 (Mar) | Sinissippi Cherokee $2.75 | Ms Underpants | Ire Iron Stables | LionKing Stables (La*) | MouWV | 0 | 15.3 | 1157 | 2026-01-18 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Iron_Timekeeper | Iron Timekeeper |  | HRP-Time Bandit | HRP-Ouija | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1120 | 2026-02-04 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Jurors_Verdict | Jurors Verdict |  | HRP-Palestinian | HRP-Lady Juror | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1173 | 2026-01-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Kingston_Quickstep | Kingston Quickstep |  | HRP-La Farina | HRP-Cequillo | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.1 | 1074 | 2026-01-17 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Lo_And_Behold | Lo And Behold | Gr. f. 3 (Mar) | Cheveley Park | Queen Tron | Ire Iron Stables | Mo Mentum Farm (Fla) | TP | 1 | 15.3 | 1202 | 2026-01-25 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Looks_Like_Nicholas | Looks Like Nicholas |  | Neon Wolf $23.00 | Bushy Park(2) | Ire Iron Stables | Night Rider Stables (Ky) | MouWV | 0 | 15.0 | 1138 | 2026-02-03 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Migoli_Moonbeam | Migoli Moonbeam | Gr. f. 3 (Jun) | HRP-Migoli | HRP-Lithe | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1144 | 2026-01-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Neon_Reflection | Neon Reflection |  | Neon Artist $1.65 | Wuheida | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 14.3 | 1110 | 2026-02-07 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Port_Royal_Dash | Port Royal Dash |  | HRP-Our Babu | HRP-Blue Warbler | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1122 | 2026-01-28 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Sassy_Astray | Sassy Astray | Gr. f. 3 (Jan) | Sioux $5.00 | Coykendall(1) | Ire Iron Stables | Acber Farms (Ky*) | CT | 1 | 15.2 | 1225 | 2026-01-26 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Stormy_Sky | Stormy Sky |  | HRP-Valid Wager | HRP-Romanella | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1165 | 2026-01-05 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Strike_King | Strike King |  | Memory Upgrade | Change Up | Ire Iron Stables | Wood Duck Stables (Fla*) | TUP | 0 | 15.3 | 1219 | 2026-01-21 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Thats_Some_Bullship | Thats Some Bullship |  | Grange $1.00 | Ship House | Ire Iron Stables | TwinTowersRacing (Cal*) | TUP | 1 | 16.0 | 1249 | 2026-02-02 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Trieste_Ruler | Trieste Ruler |  | Dictator | Trieste Coast | Ire Iron Stables | Alabarda Stable (Fla*) | TAM | 1 | 15.3 | 1248 | 2026-01-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Triple_Love | Triple Love |  | Demon | Pineal Gland | Ire Iron Stables | Wood Duck Stables (Fla*) | MouWV | 0 | 15.2 | 1151 | 2025-02-01 | profile_allraces.html |  |  |  |  |  |  |  |  |
-| Urshalim_Craftwork | Urshalim Craftwork |  | HRP-Crafty Friend | HRP-Urshalim | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1117 | 2026-01-17 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Hydration | Hydration |  | Residue | Solitude | Ire Iron Stables | Wood Duck Stables (Fla) | MouWV | 0 | 16.0 | 1258 | 2025-02-01 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Ideal_Sinissippi | Ideal Sinissippi | Gr. g. 3 (Mar) | Sinissippi Cherokee $2.75 | Ms Underpants | Ire Iron Stables | LionKing Stables (La*) | MouWV | 0 | 15.3 | 1162 | 2026-01-18 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Iron_Timekeeper | Iron Timekeeper |  | HRP-Time Bandit | HRP-Ouija | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1124 | 2026-02-04 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Jurors_Verdict | Jurors Verdict |  | HRP-Palestinian | HRP-Lady Juror | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1177 | 2026-01-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Kingston_Quickstep | Kingston Quickstep |  | HRP-La Farina | HRP-Cequillo | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.1 | 1079 | 2026-01-17 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Lo_And_Behold | Lo And Behold | Gr. f. 3 (Mar) | Cheveley Park | Queen Tron | Ire Iron Stables | Mo Mentum Farm (Fla) | TP | 0 | 15.3 | 1210 | 2026-01-25 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Looks_Like_Nicholas | Looks Like Nicholas |  | Neon Wolf $23.00 | Bushy Park(2) | Ire Iron Stables | Night Rider Stables (Ky) | MouWV | 0 | 15.1 | 1139 | 2026-02-03 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Migoli_Moonbeam | Migoli Moonbeam | Gr. f. 3 (Jun) | HRP-Migoli | HRP-Lithe | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1148 | 2026-01-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Neon_Reflection | Neon Reflection |  | Neon Artist $1.65 | Wuheida | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 14.3 | 1112 | 2026-02-07 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Port_Royal_Dash | Port Royal Dash |  | HRP-Our Babu | HRP-Blue Warbler | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1128 | 2026-01-28 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Sassy_Astray | Sassy Astray | Gr. f. 3 (Jan) | Sioux $5.00 | Coykendall(1) | Ire Iron Stables | Acber Farms (Ky*) | CT | 1 | 15.2 | 1221 | 2026-02-21 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Stormy_Sky | Stormy Sky |  | HRP-Valid Wager | HRP-Romanella | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.3 | 1170 | 2026-01-05 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Strike_King | Strike King |  | Memory Upgrade | Change Up | Ire Iron Stables | Wood Duck Stables (Fla*) | TUP | 0 | 15.3 | 1214 | 2026-02-19 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Thats_Some_Bullship | Thats Some Bullship |  | Grange $1.00 | Ship House | Ire Iron Stables | TwinTowersRacing (Cal*) | TUP | 2 | 16.0 | 1244 | 2026-02-21 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Trieste_Ruler | Trieste Ruler |  | Dictator | Trieste Coast | Ire Iron Stables | Alabarda Stable (Fla*) | TAM | 0 | 15.3 | 1251 | 2026-01-20 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Triple_Love | Triple Love |  | Demon | Pineal Gland | Ire Iron Stables | Wood Duck Stables (Fla*) | MouWV | 0 | 15.2 | 1157 | 2025-02-01 | profile_allraces.html |  |  |  |  |  |  |  |  |
+| Urshalim_Craftwork | Urshalim Craftwork |  | HRP-Crafty Friend | HRP-Urshalim | Ire Iron Stables | Ire Iron Stables (WV) | MouWV | 0 | 15.2 | 1120 | 2026-01-17 | profile_allraces.html |  |  |  |  |  |  |  |  |
 
-## Meters_History  (1832 data rows)
+## Meters_History  (1967 data rows)
 | horse_id | horse_name | date | event | track | cond_pre | cond_post | cond_delta | stam_pre | stam_post | stam_delta | cons_pre | cons_post | cons_delta | dist_pre | dist_post | dist_delta | height_hands | wt_pre | wt_post | wt_delta |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Blank_Sunset | Blank Sunset | 2026-02-16 | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Fast/Firm  | No Headlines No Headlines |  |  |  |  |  |  |  |  |  |  | PRX Fast/Firm |  |  |  | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Fast/Firm  | meters.html |
-| Blank_Sunset | Blank Sunset | 2026-02-16 | Blank Sunset Owner: Ire Iron Stables Condition: 110% Stamina: 75% Consistency: 0 | Blank Sunset Owner: Ire Iron Stables Condition: 110% Stamina: 75% Consistency: 0 |  |  |  |  |  |  |  |  |  |  | Stamina: |  |  |  | Meters - Blank Sunset Blank Sunset Owner: Ire Iron Stables Condition: 110% Stami | meters.html |
+| Blank_Sunset | Blank Sunset | 2026-02-16 | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Muddy/Soft | No Headlines No Headlines |  |  |  |  |  |  |  |  |  |  | PRX Muddy/Soft |  |  |  | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Muddy/Soft | meters.html |
+| Blank_Sunset | Blank Sunset | 2026-02-16 | Blank Sunset Owner: Ire Iron Stables Condition: 100% Stamina: 100% Consistency:  | Blank Sunset Owner: Ire Iron Stables Condition: 100% Stamina: 100% Consistency:  |  |  |  |  |  |  |  |  |  |  | Stamina: |  |  |  | Meters - Blank Sunset Blank Sunset Owner: Ire Iron Stables Condition: 100% Stami | meters.html |
+| Blank_Sunset | Blank Sunset | 2026-02-23 | Maintenance | MouWV | 100 | 100 | 0 | 100 | 100 | 0 | 0 | 0 | 0 | 0 | 15.1 | 1110 | 1110 | 0 | 02/23/2026 | Maintenance | MouWV | 100 -> 100 [0] | 100 -> 100 [0] | 0 -> 0 | 0  | meters.html |
+| Blank_Sunset | Blank Sunset | 2026-02-22 | Maintenance | MouWV | 100 | 100 | 0 | 100 | 100 | 0 | 0 | 0 | 0 | 0 | 15.1 | 1109 | 1110 | 1 | 02/22/2026 | Maintenance | MouWV | 100 -> 100 [0] | 100 -> 100 [0] | 0 -> 0 | 0  | meters.html |
+| Blank_Sunset | Blank Sunset | 2026-02-21 | Maintenance | MouWV | 100 | 100 | 0 | 100 | 100 | 0 | 0 | 0 | 0 | 0 | 15.1 | 1109 | 1109 | 0 | 02/21/2026 | Maintenance | MouWV | 100 -> 100 [0] | 100 -> 100 [0] | 0 -> 0 | 0  | meters.html |
+| Blank_Sunset | Blank Sunset | 2026-02-20 | Maintenance | MouWV | 101 | 100 | -1 | 100 | 100 | 0 | 0 | 0 | 0 | 0 | 15.1 | 1109 | 1109 | 0 | 02/20/2026 | Maintenance | MouWV | 101 -> 100 [-1] | 100 -> 100 [0] | 0 -> 0 | 0 | meters.html |
+| Blank_Sunset | Blank Sunset | 2026-02-19 | Maintenance | MouWV | 104 | 101 | -3 | 92 | 100 | 8 | 0 | 0 | 0 | 0 | 15.1 | 1107 | 1109 | 2 | 02/19/2026 | Maintenance | MouWV | 104 -> 101 [-3] | 92 -> 100 [8] | 0 -> 0 | 0  | meters.html |
+| Blank_Sunset | Blank Sunset | 2026-02-18 | Maintenance | MouWV | 107 | 104 | -3 | 84 | 92 | 8 | 0 | 0 | 0 | 0 | 15.1 | 1106 | 1107 | 1 | 02/18/2026 | Maintenance | MouWV | 107 -> 104 [-3] | 84 -> 92 [8] | 0 -> 0 | 0 - | meters.html |
+| Blank_Sunset | Blank Sunset | 2026-02-17 | Maintenance | MouWV | 110 | 107 | -3 | 75 | 84 | 9 | 0 | 0 | 0 | 0 | 15.1 | 1105 | 1106 | 1 | 02/17/2026 | Maintenance | MouWV | 110 -> 107 [-3] | 75 -> 84 [9] | 0 -> 0 | 0 - | meters.html |
 | Blank_Sunset | Blank Sunset | 2026-02-16 | Timed Work | MouWV | 100 | 110 | 10 | 100 | 75 | -25 | 0 | 0 | 0 | 0 | 15.0 | 1110 | 1105 | -5 | 02/16/2026 | Timed Work | MouWV | 100 -> 110 [10] | 100 -> 75 [-25] | 0 -> 0 | 0 | meters.html |
-| Caros_Compass | Caros Compass | 2026-01-25 | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Fast/Firm  | No Headlines No Headlines |  |  |  |  |  |  |  |  |  |  | PRX Fast/Firm |  |  |  | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Fast/Firm  | meters.html |
-| Caros_Compass | Caros Compass | 2026-01-25 | Caros Compass Owner: Ire Iron Stables Condition: 105% Stamina: 94% Consistency:  | Caros Compass Owner: Ire Iron Stables Condition: 105% Stamina: 94% Consistency:  |  |  |  |  |  |  |  |  |  |  | Stamina: |  |  |  | Meters - Caros Compass Caros Compass Owner: Ire Iron Stables Condition: 105% Sta | meters.html |
+| Caros_Compass | Caros Compass | 2026-01-25 | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Muddy/Soft | No Headlines No Headlines |  |  |  |  |  |  |  |  |  |  | PRX Muddy/Soft |  |  |  | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Muddy/Soft | meters.html |
+| Caros_Compass | Caros Compass | 2026-01-25 | Caros Compass Owner: Ire Iron Stables Condition: 100% Stamina: 100% Consistency: | Caros Compass Owner: Ire Iron Stables Condition: 100% Stamina: 100% Consistency: |  |  |  |  |  |  |  |  |  |  | Stamina: |  |  |  | Meters - Caros Compass Caros Compass Owner: Ire Iron Stables Condition: 100% Sta | meters.html |
+| Caros_Compass | Caros Compass | 2026-02-23 | Maintenance | MouWV | 100 | 100 | 0 | 100 | 100 | 0 | +5 | +5 | 0 | 0 | 15.2 | 1126 | 1127 | 1 | 02/23/2026 | Maintenance | MouWV | 100 -> 100 [0] | 100 -> 100 [0] | +5 -> +5 |  | meters.html |
+| Caros_Compass | Caros Compass | 2026-02-22 | Maintenance | MouWV | 100 | 100 | 0 | 100 | 100 | 0 | +5 | +5 | 0 | 0 | 15.2 | 1126 | 1126 | 0 | 02/22/2026 | Maintenance | MouWV | 100 -> 100 [0] | 100 -> 100 [0] | +5 -> +5 |  | meters.html |
+| Caros_Compass | Caros Compass | 2026-02-21 | Maintenance | MouWV | 100 | 100 | 0 | 100 | 100 | 0 | +5 | +5 | 0 | 0 | 15.2 | 1126 | 1126 | 0 | 02/21/2026 | Maintenance | MouWV | 100 -> 100 [0] | 100 -> 100 [0] | +5 -> +5 |  | meters.html |
+| Caros_Compass | Caros Compass | 2026-02-20 | Maintenance | MouWV | 100 | 100 | 0 | 100 | 100 | 0 | +5 | +5 | 0 | 0 | 15.2 | 1126 | 1126 | 0 | 02/20/2026 | Maintenance | MouWV | 100 -> 100 [0] | 100 -> 100 [0] | +5 -> +5 |  | meters.html |
+| Caros_Compass | Caros Compass | 2026-02-19 | Maintenance | MouWV | 100 | 100 | 0 | 100 | 100 | 0 | +5 | +5 | 0 | 0 | 15.2 | 1125 | 1126 | 1 | 02/19/2026 | Maintenance | MouWV | 100 -> 100 [0] | 100 -> 100 [0] | +5 -> +5 |  | meters.html |
+| Caros_Compass | Caros Compass | 2026-02-18 | Maintenance | MouWV | 102 | 100 | -2 | 100 | 100 | 0 | +5 | +5 | 0 | 0 | 15.2 | 1125 | 1125 | 0 | 02/18/2026 | Maintenance | MouWV | 102 -> 100 [-2] | 100 -> 100 [0] | +5 -> +5 | | meters.html |
+| Caros_Compass | Caros Compass | 2026-02-17 | Maintenance | MouWV | 105 | 102 | -3 | 94 | 100 | 6 | +5 | +5 | 0 | 0 | 15.2 | 1123 | 1125 | 2 | 02/17/2026 | Maintenance | MouWV | 105 -> 102 [-3] | 94 -> 100 [6] | +5 -> +5 |  | meters.html |
 | Caros_Compass | Caros Compass | 2026-02-16 | Maintenance | MouWV | 107 | 105 | -2 | 84 | 94 | 10 | +5 | +5 | 0 | 0 | 15.2 | 1122 | 1123 | 1 | 02/16/2026 | Maintenance | MouWV | 107 -> 105 [-2] | 84 -> 94 [10] | +5 -> +5 |  | meters.html |
 | Caros_Compass | Caros Compass | 2026-02-15 | Maintenance | MouWV | 110 | 107 | -3 | 74 | 84 | 10 | +5 | +5 | 0 | 0 | 15.2 | 1121 | 1122 | 1 | 02/15/2026 | Maintenance | MouWV | 110 -> 107 [-3] | 74 -> 84 [10] | +5 -> +5 |  | meters.html |
 | Caros_Compass | Caros Compass | 2026-02-14 | Timed Work | MouWV | 100 | 110 | 10 | 100 | 74 | -26 | +5 | +5 | 0 | 0 | 15.2 | 1127 | 1121 | -6 | 02/14/2026 | Timed Work | MouWV | 100 -> 110 [10] | 100 -> 74 [-26] | +5 -> +5 | | meters.html |
@@ -172,111 +187,99 @@
 | Caros_Compass | Caros Compass | 2026-01-27 | Maintenance | MouWV | 107 | 104 | -3 | 86 | 96 | 10 | 0 | 0 | 0 | 0 | 15.2 | 1125 | 1127 | 2 | 01/27/2026 | Maintenance | MouWV | 107 -> 104 [-3] | 86 -> 96 [10] | 0 -> 0 | 0  | meters.html |
 | Caros_Compass | Caros Compass | 2026-01-26 | Maintenance | MouWV | 110 | 107 | -3 | 76 | 86 | 10 | 0 | 0 | 0 | 0 | 15.2 | 1125 | 1125 | 0 | 01/26/2026 | Maintenance | MouWV | 110 -> 107 [-3] | 76 -> 86 [10] | 0 -> 0 | 0  | meters.html |
 | Caros_Compass | Caros Compass | 2026-01-25 | Timed Work | MouWV | 100 | 110 | 10 | 100 | 76 | -24 | 0 | 0 | 0 | 0 | 15.2 | 1130 | 1125 | -5 | 01/25/2026 | Timed Work | MouWV | 100 -> 110 [10] | 100 -> 76 [-24] | 0 -> 0 | 0 | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-07 | No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Fast/Firm AQU Fast/Firm | No Headlines |  |  |  |  |  |  |  |  |  |  | PRX Fast/Firm |  |  |  | No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Fast/Firm AQU Fast/Firm | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-07 | Cayuga Lake Owner: Ire Iron Stables Condition: 106% Stamina: 86% Consistency: +5 | Cayuga Lake Owner: Ire Iron Stables Condition: 106% Stamina: 86% Consistency: +5 |  |  |  |  |  |  |  |  |  |  | Stamina: |  |  |  | Meters - Cayuga Lake Cayuga Lake Owner: Ire Iron Stables Condition: 106% Stamina | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-16 | Maintenance | TUP | 109 | 106 | -3 | 78 | 86 | 8 | +5 | +5 | 1S | 0 | 16.0 | 1245 | 1246 | 1 | 02/16/2026 | Maintenance | TUP | 109 -> 106 [-3] | 78 -> 86 [8] | +5 -> +5 | 1S  | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-15 | Timed Work | TUP | 98 | 109 | 11 | 103 | 78 | -25 | +5 | +5 | 1S | 1S | 16.0 | 1250 | 1245 | -5 | 02/15/2026 | Timed Work | TUP | 98 -> 109 [11] | 103 -> 78 [-25] | +5 -> +5 | 1S | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-15 | Maintenance | TUP | 101 | 98 | -3 | 94 | 103 | 9 | +5 | +5 | 1S | 1S | 16.0 | 1249 | 1250 | 1 | 02/15/2026 | Maintenance | TUP | 101 -> 98 [-3] | 94 -> 103 [9] | +5 -> +5 | 1S  | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-14 | Maintenance | TUP | 103 | 101 | -2 | 86 | 94 | 8 | +4 | +5 | 1S | 1S | 16.0 | 1248 | 1249 | 1 | 02/14/2026 | Maintenance | TUP | 103 -> 101 [-2] | 86 -> 94 [8] | +4 -> +5 | 1S  | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-13 | Train-Std S | TUP | 90 | 103 | 13 | 94 | 86 | -8 | +4 | +4 | 0 | 1S | 16.0 | 1250 | 1248 | -2 | 02/13/2026 | Train-Std S | TUP | 90 -> 103 [13] | 94 -> 86 [-8] | +4 -> +4 | 0 - | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-13 | Maintenance | TUP | 92 | 90 | -2 | 84 | 94 | 10 | +4 | +4 | 0 | 0 | 16.0 | 1249 | 1250 | 1 | 02/13/2026 | Maintenance | TUP | 92 -> 90 [-2] | 84 -> 94 [10] | +4 -> +4 | 0 -> | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-12 | Maintenance | TUP | 95 | 92 | -3 | 73 | 84 | 11 | +4 | +4 | 0 | 0 | 16.0 | 1247 | 1249 | 2 | 02/12/2026 | Maintenance | TUP | 95 -> 92 [-3] | 73 -> 84 [11] | +4 -> +4 | 0 -> | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-11 | Maintenance | TUP | 97 | 95 | -2 | 63 | 73 | 10 | +3 | +4 | 0 | 0 | 16.0 | 1246 | 1247 | 1 | 02/11/2026 | Maintenance | TUP | 97 -> 95 [-2] | 63 -> 73 [10] | +3 -> +4 | 0 -> | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-10 | Maintenance | TUP (2/3) | 100 | 97 | -3 | 55 | 63 | 8 | +3 | +3 | 0 | 0 | 16.0 | 1245 | 1246 | 1 | 02/10/2026 | Maintenance | TUP (2/3) | 100 -> 97 [-3] | 55 -> 63 [8] | +3 -> +3  | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-09 | Maintenance | TUP (1/3) | 103 | 100 | -3 | 46 | 55 | 9 | +3 | +3 | 0 | 0 | 16.0 | 1243 | 1245 | 2 | 02/09/2026 | Maintenance | TUP (1/3) | 103 -> 100 [-3] | 46 -> 55 [9] | +3 -> +3 | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-08 | Maintenance | BTP | 105 | 103 | -2 | 38 | 46 | 8 | +2 | +3 | 0 | 0 | 16.0 | 1242 | 1243 | 1 | 02/08/2026 | Maintenance | BTP | 105 -> 103 [-2] | 38 -> 46 [8] | +2 -> +3 | 0 - | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-07 | Race | BTP | 102 | 105 | 3 | 98 | 38 | -60 | +5 | +2 | 0 | 0 | 16.0 | 1251 | 1242 | -9 | 02/07/2026 | Race | BTP | 102 -> 105 [3] | 98 -> 38 [-60] | +5 -> +2 | 0 -> 0 |  | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-07 | Maintenance | BTP | 104 | 102 | -2 | 90 | 98 | 8 | +5 | +5 | 0 | 0 | 16.0 | 1249 | 1251 | 2 | 02/07/2026 | Maintenance | BTP | 104 -> 102 [-2] | 90 -> 98 [8] | +5 -> +5 | 0 - | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-06 | Maintenance | BTP | 107 | 104 | -3 | 80 | 90 | 10 | +5 | +5 | 0 | 0 | 16.0 | 1248 | 1249 | 1 | 02/06/2026 | Maintenance | BTP | 107 -> 104 [-3] | 80 -> 90 [10] | +5 -> +5 | 0  | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-05 | Maintenance | BTP | 110 | 107 | -3 | 71 | 80 | 9 | +5 | +5 | 0 | 0 | 16.0 | 1247 | 1248 | 1 | 02/05/2026 | Maintenance | BTP | 110 -> 107 [-3] | 71 -> 80 [9] | +5 -> +5 | 0 - | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-04 | Train-Std | BTP | 107 | 110 | 3 | 80 | 71 | -9 | +5 | +5 | 0 | 0 | 16.0 | 1248 | 1247 | -1 | 02/04/2026 | Train-Std | BTP | 107 -> 110 [3] | 80 -> 71 [-9] | +5 -> +5 | 0 ->  | meters.html |
-| Cayuga_Lake | Cayuga Lake | 2026-02-04 | Maintenance | BTP | 110 | 107 | -3 | 71 | 80 | 9 | +5 | +5 | 0 | 0 | 16.0 | 1246 | 1248 | 2 | 02/04/2026 | Maintenance | BTP | 110 -> 107 [-3] | 71 -> 80 [9] | +5 -> +5 | 0 - | meters.html |
+| Cayuga_Lake | Cayuga Lake | 2026-02-07 | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Muddy/Soft | No Headlines No Headlines |  |  |  |  |  |  |  |  |  |  | PRX Muddy/Soft |  |  |  | No Headlines No Headlines ALB Fast/XXXX FE Fast/Firm KD XXXX/Firm PRX Muddy/Soft | meters.html |
+| Cayuga_Lake | Cayuga Lake | 2026-02-07 | Cayuga Lake Owner: Ire Iron Stables Condition: 110% Stamina: 81% Consistency: +5 | Cayuga Lake Owner: Ire Iron Stables Condition: 110% Stamina: 81% Consistency: +5 |  |  |  |  |  |  |  |  |  |  | Stamina: |  |  |  | Meters - Cayuga Lake Cayuga Lake Owner: Ire Iron Stables Condition: 110% Stamina | meters.html |
+| Cayuga_Lake | Cayuga Lake | 2026-02-23 | Timed Work | TUP | 99 | 110 | 11 | 110 | 81 | -29 | +5 | +5 | 0 | 0 | 16.0 | 1251 | 1245 | -6 | 02/23/2026 | Timed Work | TUP | 99 -> 110 [11] | 110 -> 81 [-29] | +5 -> +5 | 0  | meters.html |
+| Cayuga_Lake | Cayuga Lake | 2026-02-23 | Maintenance | TUP | 102 | 99 | -3 | 110 | 110 | 0 | +5 | +5 | 0 | 0 | 16.0 | 1250 | 1251 | 1 | 02/23/2026 | Maintenance | TUP | 102 -> 99 [-3] | 110 -> 110 [0] | +5 -> +5 | 0  | meters.html |
+| Cayuga_Lake | Cayuga Lake | 2026-02-22 | Maintenance | TUP | 105 | 102 | -3 | 100 | 110 | 10 | +5 | +5 | 0 | 0 | 16.0 | 1249 | 1250 | 1 | 02/22/2026 | Maintenance | TUP | 105 -> 102 [-3] | 100 -> 110 [10] | +5 -> +5 |  | meters.html |
 
 ## Timed_Works  (0 data rows)
 | horse_id | horse_name | date | track | surface | going | distance | split_1 | split_2 | split_3 | final | rider | weight_assigned | start | pace | effort | rank | cond_pre | cond_post | cond_delta | stam_pre | stam_post | stam_delta | height_hands | wt_pre | wt_post | wt_delta |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-## Accessories_Log  (33 data rows)
+## Accessories_Log  (34 data rows)
 | horse_id | horse_name | snapshot_date | blinkers | shadow_roll | lasix | bute | gelded | col8 | col9 | col10 | col11 | col12 | col13 | col14 | col15 | col16 | col17 | col18 | col19 | col20 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Blank_Sunset | Blank Sunset | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Caros_Compass | Caros Compass | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Cayuga_Lake | Cayuga Lake | 2026-02-16 | TUP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Class_A | Class A | 2026-02-16 | HOU |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Core_N_Light | Core N Light | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Cornswaggled | Cornswaggled | 2026-02-16 | HOU |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Crowds_Ransom | Crowds Ransom | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Crypto_King | Crypto King | 2026-02-16 | TP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Damascus_Honey | Damascus Honey | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Desert_Oath | Desert Oath | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Dubai_Iron | Dubai Iron | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Film_The_Scene | Film The Scene | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Golden_Shuvee | Golden Shuvee | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Hardline_Anvil | Hardline Anvil | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Harsh_Frontier | Harsh Frontier | 2026-02-16 | TUP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Helios_Hustle | Helios Hustle | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Hydration | Hydration | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Ideal_Sinissippi | Ideal Sinissippi | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Iron_Timekeeper | Iron Timekeeper | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Jurors_Verdict | Jurors Verdict | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Kingston_Quickstep | Kingston Quickstep | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Lo_And_Behold | Lo And Behold | 2026-02-16 | TP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Looks_Like_Nicholas | Looks Like Nicholas | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Migoli_Moonbeam | Migoli Moonbeam | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Neon_Reflection | Neon Reflection | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Port_Royal_Dash | Port Royal Dash | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Sassy_Astray | Sassy Astray | 2026-02-16 | CT |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Stormy_Sky | Stormy Sky | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Strike_King | Strike King | 2026-02-16 | TUP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Thats_Some_Bullship | Thats Some Bullship | 2026-02-16 | TUP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Trieste_Ruler | Trieste Ruler | 2026-02-16 | TAM |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Triple_Love | Triple Love | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
-| Urshalim_Craftwork | Urshalim Craftwork | 2026-02-16 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Blank_Sunset | Blank Sunset | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Caros_Compass | Caros Compass | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Cayuga_Lake | Cayuga Lake | 2026-02-23 | TUP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Class_A | Class A | 2026-02-23 | HOU |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Core_N_Light | Core N Light | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Cornswaggled | Cornswaggled | 2026-02-23 | HOU |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Crowds_Ransom | Crowds Ransom | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Crypto_King | Crypto King | 2026-02-23 | TP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Damascus_Honey | Damascus Honey | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Desert_Oath | Desert Oath | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Dubai_Iron | Dubai Iron | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Film_The_Scene | Film The Scene | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Gen_Xpress | Gen Xpress | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Golden_Shuvee | Golden Shuvee | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Hardline_Anvil | Hardline Anvil | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Harsh_Frontier | Harsh Frontier | 2026-02-23 | TUP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Helios_Hustle | Helios Hustle | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Hydration | Hydration | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Ideal_Sinissippi | Ideal Sinissippi | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Iron_Timekeeper | Iron Timekeeper | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Jurors_Verdict | Jurors Verdict | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Kingston_Quickstep | Kingston Quickstep | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Lo_And_Behold | Lo And Behold | 2026-02-23 | TP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Looks_Like_Nicholas | Looks Like Nicholas | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Migoli_Moonbeam | Migoli Moonbeam | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Neon_Reflection | Neon Reflection | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Port_Royal_Dash | Port Royal Dash | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Sassy_Astray | Sassy Astray | 2026-02-23 | CT |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Stormy_Sky | Stormy Sky | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Strike_King | Strike King | 2026-02-23 | TUP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Thats_Some_Bullship | Thats Some Bullship | 2026-02-23 | TUP |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Trieste_Ruler | Trieste Ruler | 2026-02-23 | TAM |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Triple_Love | Triple Love | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
+| Urshalim_Craftwork | Urshalim Craftwork | 2026-02-23 | MouWV |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | accessories.html |  |
 
-## Conformation_Traits  (35 data rows)
+## Conformation_Traits  (36 data rows)
 | horse_id | horse_name | height_hands | weight_lbs | Lumbosacral | Stifles | Rear Triangle | Back Leg Soundness | Humerus | Humerus Angle | Front Leg Soundness | Forehand | col12 | col13 | col14 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | caros_compass | Caros Compass | 15.2 | 1126 | Very Good | Mid | Balanced | Good | Medium-Long | High-Medium | Very Good | Average |  |  |  |
-| Blank_Sunset | Blank Sunset | 2026-02-16 | 15.0 | 1105 lbs. | Ideal | Mid | Hip | Ideal | Medium-Long | Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Caros_Compass | Caros Compass | 2026-02-16 | 15.2 | 1123 lbs. | Very | Mid | Balanced | Good | Medium-Long | High-Medium | Very | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Cayuga_Lake | Cayuga Lake | 2026-02-16 | 16.0 | 1246 lbs. | Very | Mid | Balanced | Very | Medium-Long | Medium | Average | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Class_A | Class A | 2026-02-16 | 15.2 | 1180 lbs. | Very | High-Mid | Hip | Good | Medium | High-Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Core_N_Light | Core N Light | 2026-02-16 | 15.3 | 1174 lbs. | Ideal | Mid | Femur | Very | Medium-Long | Medium-Low | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Cornswaggled | Cornswaggled | 2026-02-16 | 15.3 | 1220 lbs. | Ideal | Mid | Femur | Ideal | Medium-Long | High-Medium | Good | Light Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
-| Crowds_Ransom | Crowds Ransom | 2026-02-16 | 15.2 | 1125 lbs. | Good | High-Mid | Ilium | Good | Medium | Medium | Very | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Crypto_King | Crypto King | 2026-02-16 | 16.0 | 1261 lbs. | Very | Mid | Balanced | Very | Medium | High-Medium | Good | Light Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
-| Damascus_Honey | Damascus Honey | 2026-02-16 | 15.2 | 1159 lbs. | Good | Mid-Low | Ilium | Good | Long | Medium | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Desert_Oath | Desert Oath | 2026-02-16 | 15.2 | 1132 lbs. | Very | Low | Femur | Average | Medium-Long | Medium-Low | Very | Average-Heavy Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Dubai_Iron | Dubai Iron | 2026-02-16 | 15.3 | 1124 lbs. | Very | Mid | Balanced | Good | Short-Medium | High-Medium | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Film_The_Scene | Film The Scene | 2026-02-16 | 15.2 | 1159 lbs. | Very | Mid-Low | Hip | Ideal | Medium | Medium | Ideal | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Golden_Shuvee | Golden Shuvee | 2026-02-16 | 15.1 | 1106 lbs. | Very | Mid-Low | Balanced | Ideal | Medium | Medium | Ideal | Light Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
-| Hardline_Anvil | Hardline Anvil | 2026-02-16 | 16.0 | 1219 lbs. | Ideal | Mid | Balanced | Very | Medium | High-Medium | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Harsh_Frontier | Harsh Frontier | 2026-02-16 | 16.1 | 1270 lbs. | Ideal | Mid | Balanced | Ideal | Medium | High-Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Helios_Hustle | Helios Hustle | 2026-02-16 | 16.0 | 1136 lbs. | Average | Mid-Low | Femur | Good | Medium-Long | Medium-Low | Poor | Average-Heavy Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Blank_Sunset | Blank Sunset | 2026-02-23 | 15.1 | 1110 lbs. | Ideal | Mid | Hip | Ideal | Medium-Long | Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Caros_Compass | Caros Compass | 2026-02-23 | 15.2 | 1127 lbs. | Very | Mid | Balanced | Good | Medium-Long | High-Medium | Very | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Cayuga_Lake | Cayuga Lake | 2026-02-23 | 16.0 | 1245 lbs. | Very | Mid | Balanced | Very | Medium-Long | Medium | Average | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Class_A | Class A | 2026-02-23 | 15.2 | 1172 lbs. | Very | High-Mid | Hip | Good | Medium | High-Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Core_N_Light | Core N Light | 2026-02-23 | 15.3 | 1179 lbs. | Ideal | Mid | Femur | Very | Medium-Long | Medium-Low | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Cornswaggled | Cornswaggled | 2026-02-23 | 15.3 | 1222 lbs. | Ideal | Mid | Femur | Ideal | Medium-Long | High-Medium | Good | Light Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
+| Crowds_Ransom | Crowds Ransom | 2026-02-23 | 15.2 | 1130 lbs. | Good | High-Mid | Ilium | Good | Medium | Medium | Very | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Crypto_King | Crypto King | 2026-02-23 | 16.0 | 1256 lbs. | Very | Mid | Balanced | Very | Medium | High-Medium | Good | Light Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
+| Damascus_Honey | Damascus Honey | 2026-02-23 | 15.2 | 1163 lbs. | Good | Mid-Low | Ilium | Good | Long | Medium | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Desert_Oath | Desert Oath | 2026-02-23 | 15.2 | 1137 lbs. | Very | Low | Femur | Average | Medium-Long | Medium-Low | Very | Average-Heavy Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Dubai_Iron | Dubai Iron | 2026-02-23 | 15.3 | 1128 lbs. | Very | Mid | Balanced | Good | Short-Medium | High-Medium | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Film_The_Scene | Film The Scene | 2026-02-23 | 15.3 | 1162 lbs. | Very | Mid-Low | Hip | Ideal | Medium | Medium | Ideal | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Gen_Xpress | Gen Xpress | 2026-02-23 | 14.3 | 1105 lbs. | Ideal | Mid-Low | Hip | Average | Long | High-Medium | Very | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Golden_Shuvee | Golden Shuvee | 2026-02-23 | 15.1 | 1110 lbs. | Very | Mid-Low | Balanced | Ideal | Medium | Medium | Ideal | Light Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
+| Hardline_Anvil | Hardline Anvil | 2026-02-23 | 16.0 | 1224 lbs. | Ideal | Mid | Balanced | Very | Medium | High-Medium | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Harsh_Frontier | Harsh Frontier | 2026-02-23 | 16.1 | 1274 lbs. | Ideal | Mid | Balanced | Ideal | Medium | High-Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Helios_Hustle | Helios Hustle | 2026-02-23 | 16.0 | 1140 lbs. | Average | Mid-Low | Femur | Good | Medium-Long | Medium-Low | Poor | Average-Heavy Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
 | HipTag793004736512 | [HipTag793004736512] | 2026-02-16 |  |  |  |  |  |  |  |  |  |  | conformation.html | Conformation traits uncertain; stored visible values only. |
-| Hydration | Hydration | 2026-02-16 | 16.0 | 1253 lbs. | Ideal | Low | Femur | Ideal | Long | Medium | Good | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Ideal_Sinissippi | Ideal Sinissippi | 2026-02-16 | 15.3 | 1157 lbs. | Ideal | Mid | Balanced | Ideal | Medium-Long | High-Medium | Ideal | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Iron_Timekeeper | Iron Timekeeper | 2026-02-16 | 15.2 | 1120 lbs. | Very | High-Mid | Femur | Good | Medium | High-Medium | Ideal | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Jurors_Verdict | Jurors Verdict | 2026-02-16 | 15.3 | 1173 lbs. | Very | Low | Hip | Very | Medium-Long | Medium | Good | Average-Heavy Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Kingston_Quickstep | Kingston Quickstep | 2026-02-16 | 15.1 | 1074 lbs. | Good | High | Hip | Average | Short-Medium | High | Poor | Average-Heavy Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Lo_And_Behold | Lo And Behold | 2026-02-16 | 15.3 | 1202 lbs. | Very | Mid | Ilium | Ideal | Medium | High-Medium | Good | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Looks_Like_Nicholas | Looks Like Nicholas | 2026-02-16 | 15.0 | 1138 lbs. | Very | Mid-Low | Balanced | Ideal | Medium | Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Migoli_Moonbeam | Migoli Moonbeam | 2026-02-16 | 15.3 | 1144 lbs. | Very | High | Ilium | Average | Medium | High-Medium | Average | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Neon_Reflection | Neon Reflection | 2026-02-16 | 14.3 | 1110 lbs. | Very | High-Mid | Hip | Very | Short-Medium | Medium | Ideal | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
-| Port_Royal_Dash | Port Royal Dash | 2026-02-16 | 15.3 | 1122 lbs. | Average | High | Hip | Good | Short | High-Medium | Average | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Sassy_Astray | Sassy Astray | 2026-02-16 | 15.2 | 1225 lbs. | Very | Mid | Balanced | Good | Medium | Medium | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Stormy_Sky | Stormy Sky | 2026-02-16 | 15.3 | 1165 lbs. | Average | Low | Hip | Poor | Medium-Long | Medium-Low | Average | Heavy Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
-| Strike_King | Strike King | 2026-02-16 | 15.3 | 1219 lbs. | Ideal | Mid-Low | Hip | Ideal | Short-Medium | High | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Thats_Some_Bullship | Thats Some Bullship | 2026-02-16 | 16.0 | 1249 lbs. | Ideal | Mid | Balanced | Ideal | Medium | Medium | Very | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Trieste_Ruler | Trieste Ruler | 2026-02-16 | 15.3 | 1248 lbs. | Ideal | Mid | Balanced | Very | Medium-Long | High-Medium | Very | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
-| Triple_Love | Triple Love | 2026-02-16 | 15.2 | 1151 lbs. | Very | Mid-Low | Balanced | Average | Medium | High-Medium | Very | Light Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
-| Urshalim_Craftwork | Urshalim Craftwork | 2026-02-16 | 15.2 | 1117 lbs. | Very | Mid-Low | Hip | Average | Long | High-Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Hydration | Hydration | 2026-02-23 | 16.0 | 1258 lbs. | Ideal | Low | Femur | Ideal | Long | Medium | Good | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Ideal_Sinissippi | Ideal Sinissippi | 2026-02-23 | 15.3 | 1162 lbs. | Ideal | Mid | Balanced | Ideal | Medium-Long | High-Medium | Ideal | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Iron_Timekeeper | Iron Timekeeper | 2026-02-23 | 15.2 | 1124 lbs. | Very | High-Mid | Femur | Good | Medium | High-Medium | Ideal | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Jurors_Verdict | Jurors Verdict | 2026-02-23 | 15.3 | 1177 lbs. | Very | Low | Hip | Very | Medium-Long | Medium | Good | Average-Heavy Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Kingston_Quickstep | Kingston Quickstep | 2026-02-23 | 15.1 | 1079 lbs. | Good | High | Hip | Average | Short-Medium | High | Poor | Average-Heavy Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Lo_And_Behold | Lo And Behold | 2026-02-23 | 15.3 | 1210 lbs. | Very | Mid | Ilium | Ideal | Medium | High-Medium | Good | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Looks_Like_Nicholas | Looks Like Nicholas | 2026-02-23 | 15.1 | 1139 lbs. | Very | Mid-Low | Balanced | Ideal | Medium | Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Migoli_Moonbeam | Migoli Moonbeam | 2026-02-23 | 15.3 | 1148 lbs. | Very | High | Ilium | Average | Medium | High-Medium | Average | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Neon_Reflection | Neon Reflection | 2026-02-23 | 14.3 | 1112 lbs. | Very | High-Mid | Hip | Very | Short-Medium | Medium | Ideal | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
+| Port_Royal_Dash | Port Royal Dash | 2026-02-23 | 15.3 | 1128 lbs. | Average | High | Hip | Good | Short | High-Medium | Average | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Sassy_Astray | Sassy Astray | 2026-02-23 | 15.2 | 1221 lbs. | Very | Mid | Balanced | Good | Medium | Medium | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Stormy_Sky | Stormy Sky | 2026-02-23 | 15.3 | 1170 lbs. | Average | Low | Hip | Poor | Medium-Long | Medium-Low | Average | Heavy Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
+| Strike_King | Strike King | 2026-02-23 | 15.3 | 1214 lbs. | Ideal | Mid-Low | Hip | Ideal | Short-Medium | High | Good | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Thats_Some_Bullship | Thats Some Bullship | 2026-02-23 | 16.0 | 1244 lbs. | Ideal | Mid | Balanced | Ideal | Medium | Medium | Very | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Trieste_Ruler | Trieste Ruler | 2026-02-23 | 15.3 | 1251 lbs. | Ideal | Mid | Balanced | Very | Medium-Long | High-Medium | Very | Average Dynamic Features - These traits change as the horse grows older. Height  | conformation.html |  |
+| Triple_Love | Triple Love | 2026-02-23 | 15.2 | 1157 lbs. | Very | Mid-Low | Balanced | Average | Medium | High-Medium | Very | Light Dynamic Features - These traits change as the horse grows older. Height -  | conformation.html |  |
+| Urshalim_Craftwork | Urshalim Craftwork | 2026-02-23 | 15.2 | 1120 lbs. | Very | Mid-Low | Hip | Average | Long | High-Medium | Very | Light-Average Dynamic Features - These traits change as the horse grows older. H | conformation.html |  |
 
 ## Body_Weight_Log  (0 data rows)
 | horse_id | horse_name | date | track | event | height_hands | weight_lbs | weight_delta | source |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-## Timed_Works_Log  (923 data rows)
+## Timed_Works_Log  (930 data rows)
 | horse_id | horse_name | date | track | surface | distance | splits | final_time | rider | assigned_weight | start_code | pace_instr_code | effort_code | rank | meters_join_status | meter_event | meter_condition_pre | meter_condition_post | meter_stamina_pre | meter_stamina_post | meter_consistency_pre | meter_consistency_post | raw_row | source_file |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Blank_Sunset | Blank Sunset | 2026-02-16 | MOUWV | FST | 5F | :24 | :50 | 1:05 | TRAINER | 120 | N | AA | B | 1 | matched_exact | Timed Work | 100 | 110 | 100 | 75 | 0 | 0 | 16FEB26-MOUWV FST 5F :24 2 :50 2 1:05 1 TRAINER 120 100% 100% 0 0 N AA B --- 15. | works_all.html |
@@ -284,6 +287,7 @@
 | Caros_Compass | Caros Compass | 2026-02-05 | MOUWV | FM | 6F | :24 | :48 | 1:00 | 1:13 | TRAINER | 120 | N | AA | B | 4 | matched_exact | Timed Work | 100 | 110 | 100 | 71 | +5 | +5 | 5FEB26-MOUWV FM 6F T :24 2 :48 3 1:00 4 1:13 4 TRAINER 120 100% 100% +5 0 N AA B | works_all.html |
 | Caros_Compass | Caros Compass | 2026-01-27 | MOUWV | FM | 4F | :23 | :48 | TRAINER | 120 | N | AA | B | 2 | matched_exact | Timed Work | 104 | 110 | 96 | 74 | 0 | 0 | 27JAN26-MOUWV FM 4F T :23 3 :48 2 TRAINER 120 104% 96% 0 0 N AA B --- 15.2 1127 | works_all.html |
 | Caros_Compass | Caros Compass | 2026-01-25 | MOUWV | FST | 4F | :24 | :51 | TRAINER | 120 | N | AA | B | 1 | matched_exact | Timed Work | 100 | 110 | 100 | 76 | 0 | 0 | 25JAN26-MOUWV FST 4F :24 2 :51 1 TRAINER 120 100% 100% 0 0 N AA B --- 15.2 1130 | works_all.html |
+| Cayuga_Lake | Cayuga Lake | 2026-02-23 | TUP | FST | 5F | :22 | :46 | :59 |  |  |  |  |  | 1 | matched_exact | Timed Work | 99 | 110 | 110 | 81 | +5 | +5 | 23FEB26-TUP FST 5F :22 4 :46 2 :59 1 TRAINER B 120 B 99% 110% +5 0 N F H 1/1 16. | works_all.html |
 | Cayuga_Lake | Cayuga Lake | 2026-02-15 | TUP | FST | 3F |  | :22 |  |  |  |  |  | 2 | matched_exact | Timed Work | 98 | 109 | 103 | 78 | +5 | +5 | 15FEB26-TUP FST 3F :22 2 :34 TRAINER B 120 B 98% 103% +5 1S N F H 1/5 16.0 1250  | works_all.html |
 | Cayuga_Lake | Cayuga Lake | 2026-01-30 | BTP | FST | 5F | :22 | :45 | :58 |  |  |  |  |  | 2 | matched_exact | Timed Work | 99 | 110 | 99 | 70 | +5 | +5 | 30JAN26-BTP FST 5F :22 3 :45 4 :58 2 JOCKEY 1526 B 120 B 99% 99% +5 0 N HL H 3/1 | works_all.html |
 | Cayuga_Lake | Cayuga Lake | 2026-01-23 | PRX | FST | 6F | :46 | :58 | 1:11 | JOCKEY | 626 | B | B | N | 2 | matched_exact | Timed Work | 100 | 110 | 100 | 70 | +5 | +5 | 23JAN26-PRX FST 6F :23 :46 2 :58 3 1:11 2 JOCKEY 626 B 120 B 100% 100% +5 0 N HL | works_all.html |
@@ -328,9 +332,8 @@
 | Cayuga_Lake | Cayuga Lake | 2024-10-18 | FL | FST | 5F | :22 | :46 |  |  |  |  |  | 1 | no_meter_match |  |  |  |  |  |  |  | 18OCT24-FL FST 5F :22 3 :46 1 :59 JOCKEY 609 B 120 99% 99% +5 0 N HL H 5/13 16.0 | works_all.html |
 | Cayuga_Lake | Cayuga Lake | 2024-10-08 | FL | FST | 5F | :22 | :46 | :59 | JOCKEY | 609 | B | N | HL | 3 | no_meter_match |  |  |  |  |  |  |  | 8OCT24-FL FST 5F :22 4 :46 3 :59 3 JOCKEY 609 B 120 102% 96% +5 0 N HL H 6/7 16. | works_all.html |
 | Cayuga_Lake | Cayuga Lake | 2024-09-29 | PRX | FST | 6F | :46 | :58 | 1:11 | JOCKEY | 626 | B | N | HL | 2 | no_meter_match |  |  |  |  |  |  |  | 29SEP24-PRX FST 6F :23 :46 2 :58 3 1:11 2 JOCKEY 626 B 120 100% 100% +5 0 N HL H | works_all.html |
-| Cayuga_Lake | Cayuga Lake | 2024-09-15 | EMMPA | FST | 6F | :23 | :47 | 1:00 | 1:13 |  |  |  |  |  | 4 | no_meter_match |  |  |  |  |  |  |  | 15SEP24-EMMPA FST 6F :23 2 :47 2 1:00 1 1:13 4 TRAINER B 120 100% 100% +5 0 N HL | works_all.html |
 
-## Race_Results  (105 data rows)
+## Race_Results  (110 data rows)
 | horse_id | horse_name | date | track | race_no | distance | surface | finish | raw_row | notes | source_file |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Cayuga_Lake | Cayuga Lake | 2026-02-07 | BTP | 11 | 5f | fst |  | 7Feb26-11BTP fst 5f :22 2 :45 2 :57 4+ Clm5.00N2L 5 1 hd 2 hd 4 1 102 98 5 0 --  |  | profile_printable.html |
@@ -340,6 +343,7 @@
 | Cayuga_Lake | Cayuga Lake | 2025-06-28 | FP | 2 | 5 1/2f | gd |  | 28Jun25-2FP gd 5 1/2f :22 1 :45 4 :58 1 1:04 2 MdSpWt8.00 7 2 1 2 1 21 2 1/2 105 |  | profile_printable.html |
 | Cayuga_Lake | Cayuga Lake | 2025-05-11 | LAD | 3 | 5 1/2f | fst |  | 11May25-3LAD fst 5 1/2f :22 1 :45 2 :57 1 1:03 MdSpWt16.00 4 2 1 4 2 43 5 4 101  |  | profile_printable.html |
 | Cayuga_Lake | Cayuga Lake | 2024-10-28 | FL | 3 | 5f | fst |  | 28Oct24-3FL fst 5f :22 2 :45 4 :57 3 MdSpWt16.00 1 2 no 2 nk 3 1/4 99 97 5 0 --  |  | profile_printable.html |
+| Class_A | Class A | 2026-02-20 | HOU | 3 | 1 | fst |  | 20Feb26-3HOU fst 1 :22 3 :46 1 1:11 1 1:36 1 Md7.50 3 4 5 4 5 31 1 1/4 106 108 5 |  | profile_printable.html |
 | Class_A | Class A | 2026-01-21 | TUP | 3 | 1 | fst |  | 21Jan26-3TUP fst 1 :23 2 :47 1:11 2 1:36 Md8.50 1 3 1 3 3 45 6 6 97 98 5 0 -- N  |  | profile_printable.html |
 | Class_A | Class A | 2026-01-09 | TAM | 2 | 1 T | fm |  | 9Jan26-2TAM fm 1 T :23 2 :46 4 1:10 1 1:33 2 Md6.25 7 7 4 6 6 65 4 3 100 100 0 0 |  | profile_printable.html |
 | Class_A | Class A | 2025-12-15 | PRX | 1 | 1 1/16 | fm |  | 15Dec25-1PRX fm 1 1/16 T :23 4 :47 3 1:11 2 1:40 3 MdSpWt27.72 3 4 4 4 6 46 4 8  |  | profile_printable.html |
@@ -358,6 +362,7 @@
 | Cornswaggled | Cornswaggled | 2024-08-08 | BTP | 1 | 1 | fst |  | 8Aug24-1BTP fst 1 :23 :47 1:11 3 1:36 2 MdSpWt8.00 5 2 1 2 2 22 3 6 97 99 5 0 -- |  | profile_printable.html |
 | Cornswaggled | Cornswaggled | 2024-04-14 | GG | 2 | 2f | fst |  | 14Apr24-2GG fst 2f :11 1 :22 MdSpWt16.00 10 8 1 9 2 99 101 5 0 -- N HL - -- 10 |  | profile_printable.html |
 | Crowds_Ransom | Crowds Ransom | 2026-02-04 | BTP | 5 | 1 | fst |  | 4Feb26-5BTP fst 1 :22 4 :46 4 1:11 2 1:36 3 Md5.00 7 5 3 4 3 913 9 36 103 110 5  |  | profile_printable.html |
+| Crypto_King | Crypto King | 2026-02-20 | TP | 1 | 6f | fst |  | 20Feb26-1TP fst 6f :22 :45 :56 4 1:08 2 4+ Alw49.00 8 3 1 3 3/4 41 7 3 104 104 5 |  | profile_printable.html |
 | Crypto_King | Crypto King | 2026-01-14 | GP | 2 | 6f | fst |  | 14Jan26-2GP fst 6f :22 1 :45 1 :56 4 1:08 2 4+ OClm62.5/N3X-N 7 1 nk 3 3/4 42 6  |  | profile_printable.html |
 | Crypto_King | Crypto King | 2025-11-28 | PRX | 4 | 6f | fst |  | 28Nov25-4PRX fst 6f :22 :45 :56 4 1:08 3 3+ Alw28.00s 2 3 1 2 1 21/4 1 1 100 100 |  | profile_printable.html |
 | Crypto_King | Crypto King | 2025-10-25 | AQU | 3 | 6f | fst |  | 25Oct25-3AQU fst 6f :22 1 :45 1 :57 1:08 3 3+ Clm25.00 2 2 1 2 1 1 hd 1 1 100 10 |  | profile_printable.html |
@@ -381,5 +386,3 @@
 | Harsh_Frontier | Harsh Frontier | 2024-12-26 | SA | 3 | 1 1/16 | fst |  | 26Dec24-3SA fst 1 1/16 :23 :46 3 1:10 3 1:40 4 3+ Pincay-G2 8 10 4 10 5 105 5 2  |  | profile_printable.html |
 | Harsh_Frontier | Harsh Frontier | 2024-11-22 | DMR | 4 | 1 | fst |  | 22Nov24-4DMR fst 1 :23 3 :47 1 1:10 3 1:34 3+ OClm40/N2X 3 3 nk 1 no 1 1/2 1 1 1 |  | profile_printable.html |
 | Harsh_Frontier | Harsh Frontier | 2024-10-19 | PRX | 10 | 1 | fst |  | 19Oct24-10PRX fst 1 :22 3 :46 1 1:10 1 1:34 2 3+ AppMil75.00 6 6 5 6 6 54 4 1 10 |  | profile_printable.html |
-| Harsh_Frontier | Harsh Frontier | 2024-09-20 | PID | 6 | 1 1/16 | fst |  | 20Sep24-6PID fst 1 1/16 :23 1 :46 4 1:10 3 1:40 4 3+ PIDMil150.00 1 2 3 2 4 33 5 |  | profile_printable.html |
-| Harsh_Frontier | Harsh Frontier | 2024-06-23 | WO | 1 | 7f | fst |  | 23Jun24-1WO fst 7f :23 1 :46 2 1:09 4 1:21 1 3+ OClm50/N4X-N 1 3 1 3 1 1 3/4 1 1 |  | profile_printable.html |
