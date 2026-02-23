@@ -1,12 +1,20 @@
-﻿# Large data folders
-inputs/
+﻿# Auto-generated outputs (data dumps, extracts)
 outputs/
+
+# Temp / debug files
+tmp_*
+*.log
+*.tmp
+
+# Large data folders (scraped inputs, tracker xlsx)
+inputs/
 tracker/
 
 # Python
 __pycache__/
 *.pyc
 .venv/
+.pytest_cache/
 
 # OS
 Thumbs.db
