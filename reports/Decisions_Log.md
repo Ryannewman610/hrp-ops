@@ -1,15 +1,79 @@
-# Decisions Log — Ire Iron Stables
+# 📋 Decisions Log — Ire Iron Stables
+> **Last updated:** Feb 23, 2026 14:55 ET
 
-> All decisions involving credit expenditure, ownership changes, or permanent horse alterations require explicit owner approval.
+---
 
-| Date | Proposed Action | Rationale / EV | Cost/Risk | Approval Status | Outcome / Notes |
-|------|-----------------|----------------|-----------|-----------------|-----------------| 
-| 2026-02-07 | Claim Cayuga Lake | $5 claim — proven Alw-level runner, 7yo but still competitive | $5 | ✅ Approved | Won claim; stam crashed to 38 post-race, rebuilding |
-| 2026-02-07 | Purchase Crypto King | $60 — best horse available; 4yo with G3/Alw form, won at AQU | $60 | ✅ Approved | Acquired from LionKing Stables; nominated 2/20 TP R1 |
-| 2026-02-07 | Stud fee: Neon Reflection | $1.65 — Neon Artist × Wuheida foal arrived | $1.65 | ✅ Approved | Foal in training at MouWV |
-| 2026-02-23 | **RECOMMEND SCRATCH** Cornswaggled 2/28 | Stamina at 45 — will not reach 75 by race day; auto-scratch risk | No cost to scratch | ⏳ Pending | — |
-| 2026-02-23 | Confirm run: Crypto King 2/20 TP R1 | 3-horse field at 4+Alw49.00 — highest EV race of the week | Entry fee TBD | ⏳ Pending | — |
-| 2026-02-23 | Confirm run: Sassy Astray 2/21 CT R2 | 2-horse field in fMd12.50 — near-guaranteed maiden breaker | Entry fee TBD | ⏳ Pending | — |
-| 2026-02-23 | Confirm run: Strike King 2/19 TUP R7 | 7/10 field in OClm10 — competitive but solid | Entry fee TBD | ⏳ Pending | — |
-| 2026-02-23 | Confirm run: Class A 2/20 HOU R3 | 5/10 field in Md7.50 — still maiden, decent class drop | Entry fee TBD | ⏳ Pending | — |
-| 2026-02-23 | Confirm run: Thats Some Bullship 2/21 TUP R5 | 4/10 field in 4+Clm7.50 — stamina at 91, monitor pre-race | Entry fee TBD | ⏳ Pending | — |
+## 🟢 APPROVED ACTIONS
+
+| Date | Decision | Status | Outcome |
+|------|----------|--------|---------|
+| 2/7 | Claim Cayuga Lake ($5.00 Clm) | ✅ Done | Added to roster, 7-1-2-1 career |
+| 2/19 | Enter Strike King OClm10/N2X-N at TUP | ✅ Done | **WON** by a neck (4th consecutive!) |
+| 2/20 | Enter Crypto King 4+ Alw49 at TP | ✅ Done | 3rd/3, competitive at Alw level |
+| 2/20 | Enter Class A Md7.50 at HOU | ✅ Done | Finished 1st! (maiden broken) |
+| 2/21 | Enter Sassy Astray fMd12.50 at CT | ✅ Done | Lost, stam crashed to 55 |
+| 2/21 | Enter Thats Some Bullship Clm7.50 at TUP | ✅ Done | Finished 4th, stam crashed to 63 |
+
+---
+
+## ⏳ PENDING APPROVAL
+
+### 1. Lo And Behold — Feb 27 at TP
+- **Race:** fMd5.00, 1-1/16 miles
+- **Field:** Currently **2/10** (near-guaranteed small field)
+- **Meters:** 96/110/+5
+- **Reasoning:** Best chance for first career win. Only 2 horses entered so far. She's been 2nd twice and 3rd once — this is the race to break through
+- **💰 Cost:** ~$0.50 entry fee
+- **🟢 RECOMMEND: RUN**
+
+### 2. Cornswaggled — Feb 28 at HOU
+- **Race:** Clm7.50N1Y, 1 mile 70 yards
+- **Meters:** 103/110/+5 (peak!)
+- **Reasoning:** Fully recovered after long layoff. Class drop from Alw$17 to Clm$7.50 should be very competitive. Won his maiden at DED by a head — experienced at this distance
+- **💰 Cost:** ~$0.50 entry fee
+- **⚠️ Risk:** If claimed, we lose him for $7.50. Good value given his record
+- **🟢 RECOMMEND: RUN**
+
+### 3. Trieste Ruler — Mar 7 at TAM
+- **Race:** Clm6.25N3L, 6 furlongs
+- **Field:** Currently **2/10**
+- **Meters:** 101/110/+5 (peak!)
+- **Reasoning:** 2 wins in 6 starts, dropping in class from Clm$12.50. Small field = high ITM chance. Won at Clm$10 by ¾ length previously
+- **💰 Cost:** ~$0.50 entry fee
+- **🟢 RECOMMEND: RUN**
+
+### 4. Ship Ideal Sinissippi to a racetrack
+- **Current location:** MouWV at 100/100/+5 (3)
+- **Conformation:** Ideal LS + humerus + forehand (best in stable!)
+- **Reasoning:** This is potentially our best prospect. Ideal conformation across the board, 6 races of experience (0 wins but finished 4th-6th against higher-class competition at MdSpWt$45 and Md$62.50). Needs a class-appropriate race
+- **Suggested:** Ship to TUP or TAM, enter Md$25-50 range dirt 6f-1m
+- **💰 Cost:** ~$1-2 shipping
+- **🟢 RECOMMEND: SHIP AND ENTER**
+
+### 5. Ship 3 more MouWV horses
+- **Candidates:** Caros Compass, Golden Shuvee, Desert Oath
+- **Reasoning:** 16 horses at MouWV 100/100/+5 are burning daylight. Each day they sit is wasted training and potential earnings
+- **💰 Cost:** ~$3-6 total shipping
+- **🟡 RECOMMEND: SHIP AT LEAST 3**
+
+---
+
+## 🔴 NOT RECOMMENDED
+
+### ❌ Don't race Sassy Astray for 10+ days
+- **Stam:** 55% — needs full recovery
+- **Reasoning:** Racing at this stamina level will produce a poor performance and further strain consistency
+
+### ❌ Don't enter Class A in higher class races
+- **Record:** 8-1-2-1 but mostly at bottom class
+- **Reasoning:** His recent win was at Md$7.50. Keep at Md or Clm$5-8 max. Don't step up until he strings 2+ wins together
+
+---
+
+## 📝 STRATEGIC NOTES
+
+1. **Strike King (5-4-0-1, 80% W%)** is our #1 horse. When he recovers (~Feb 27), find the best OClm$12-15 race at TUP. He's earned a class jump
+2. **Harsh Frontier** is a graded stakes veteran sitting at TUP fully race-ready. He should be entered in Alw or OClm$40+ this week
+3. **Balance of $39.59** is comfortable but thin. Two wins this week could push us above $50
+4. **Forum intel:** Race schedule gaps exist for turf fillies — consider developing Dubai Iron or Damascus Honey as turf specialists
+5. **Jerry Garcia Del Mar Trials** (~March 15) — enter Film The Scene and Looks Like Nicholas for free vouchers

@@ -1,67 +1,79 @@
-# Weekly Plan — Ire Iron Stables
-> **Week of:** Feb 23 – Mar 1, 2026  
-> **Data source:** Feb 8–16 snapshot (meters may have shifted)
+# 📅 Weekly Plan — Feb 23–Mar 1, 2026
+> **Live data:** Feb 23, 2026 14:55 ET | **Balance:** $39.59
 
 ---
 
-## Race Calendar This Week
+## 🎯 THIS WEEK'S RACE SCHEDULE
 
-### ✅ Confirmed Nominations
-| Day | Horse | Track | Race | Class | Dist | Field | Priority |
-|-----|-------|-------|------|-------|------|-------|----------|
-| **Wed 2/19** | Strike King | TUP | R7 | OClm10/N2X-N | 6.5f | 7/10 | ⭐ Run |
-| **Thu 2/20** | Class A | HOU | R3 | Md7.50 | 1m | 5/10 | ⭐ Run |
-| **Thu 2/20** | Crypto King | TP | R1 | 4+Alw49.00 | 6f | 3/10 | ⭐⭐ Key race — small field |
-| **Fri 2/21** | Thats Some Bullship | TUP | R5 | 4+Clm7.50 | 1m | 4/10 | ⭐ Run (monitor stam) |
-| **Fri 2/21** | Sassy Astray | CT | R2 | fMd12.50 | 6.5f | 2/10 | ⭐⭐ Best spot — tiny field |
+### Confirmed Nominations
+| Day | Horse | Track | Race | Meters | Priority |
+|-----|-------|-------|------|--------|----------|
+| **Thu 2/27** | **Lo And Behold** | TP | fMd5.00 1-1/16m | 96/110/+5 | ⭐ #1 — 2-horse field, maiden-breaker |
+| **Fri 2/28** | **Cornswaggled** | HOU | Clm7.50N1Y 1m70 | 103/110/+5 | ⭐ #2 — Peak form, class drop |
 
-### 📅 Coming Next Week
-| Day | Horse | Track | Race | Class | Dist | Field | Notes |
-|-----|-------|-------|------|-------|------|-------|-------|
-| **Fri 2/27** | Lo And Behold | TP | TBD | fMd5.00 | 1-1/16m | 2/10 | Should be walk-in maiden breaker |
-| **Sat 2/28** | Cornswaggled | HOU | R2 | Clm7.50N1Y | 1m70 | 5/10 | ⚠️ Scratch — stam 45 |
-| **Sat 3/07** | Trieste Ruler | TAM | R4 | Clm6.25N3L | 6f | 2/10 | Plenty of prep time |
+### Targets (Enter ASAP)
+| Day | Horse | Track | Race Type | Meters | Notes |
+|-----|-------|-------|-----------|--------|-------|
+| **~2/27** | **Strike King** ⭐ | TUP | OClm$12-15, 6.5f dirt | 100/80→100/+2 | Once stam recovers (~2/27). 4-win streak! |
+| **~2/28** | **Harsh Frontier** | TUP | Alw or OClm$40+, 6f-1m dirt | 104/101/+5 | Fully ready, 30-race veteran |
+| **~3/1** | **Cayuga Lake** | TUP | Clm$5-8, 5f-5.5f dirt | 110→100/81→100/+5 | Once stam recovers |
 
----
-
-## Training & Works Schedule
-
-### Horses Needing Timed Works (Consistency Maintenance)
-Target: 2–4 works+races per maintenance period
-
-| Horse | Cons | Last Work | Works Needed | Action |
-|-------|------|-----------|-------------|--------|
-| Kingston Quickstep | 0 (4) | — | 2+ timed works | Schedule 2 works this week |
-| Port Royal Dash | 0 (5) | — | 2+ timed works | Schedule 2 works this week |
-| Crowds Ransom | 0 (5) | — | 2 works AFTER stam recovers | Wait for stam > 80 |
-| Jurors Verdict | +1 (5) | — | 1–2 works | Schedule work |
-| Urshalim Craftwork | +1 (5) | — | 1–2 works | Schedule work |
-
-### Horses on Rest (Stamina Recovery)
-| Horse | Current Stam | Target Stam | Est. Days to Ready |
-|-------|-------------|-------------|-------------------|
-| Cayuga Lake | 38 | 95+ | ~6–7 days |
-| Cornswaggled | 45 | 95+ | ~5–6 days |
-| Crowds Ransom | 67 | 90+ | ~3 days |
-| Iron Timekeeper | 69 | 90+ | ~3 days |
-| Film The Scene (2yo) | 73 | 95+ | ~2–3 days |
-| Neon Reflection (2yo) | 73 | 95+ | ~2–3 days |
+### Recovering — DO NOT ENTER
+| Horse | Track | Stam | Est. Ready |
+|-------|-------|------|------------|
+| Crypto King | TP | 73% | ~Mar 1 |
+| Class A | HOU | 69% | ~Mar 1 |
+| Thats Some Bullship | TUP | 63% | ~Mar 3 |
+| Sassy Astray | CT | 55% | ~Mar 5 |
 
 ---
 
-## Breeding Actions
-- None planned this week
+## 🚚 SHIPPING PRIORITIES
 
-## Shipping
-- No ships needed — all nominated horses are at their race tracks
+**16 horses at MouWV are race-ready (100/100/+5) but have NOWHERE to race.** Ship at least 4 this week:
+
+| Priority | Horse | Best Fit | Suggested Track |
+|----------|-------|----------|-----------------|
+| 1 | **Ideal Sinissippi** | Ideal conformation, mid-dist | TUP or TAM (Md$50+ or Clm$25+) |
+| 2 | **Caros Compass** | VG, Med-Long humerus | CT or TP (Md$12-25, 7f dirt) |
+| 3 | **Golden Shuvee** | Ideal humerus+forehand | TAM or GP (Md$25+, versatile) |
+| 4 | **Desert Oath** | VG, Long humerus, Heavy | HOU or TAM (Md$7-12, 1m+ dirt) |
 
 ---
 
-## Owner Approval Needed
-- [ ] Confirm run: Strike King (2/19)
-- [ ] Confirm run: Class A (2/20)
-- [ ] Confirm run: Crypto King (2/20)
-- [ ] Confirm run: Thats Some Bullship (2/21)
-- [ ] Confirm run: Sassy Astray (2/21)
-- [ ] Confirm SCRATCH: Cornswaggled (2/28) — stam too low
-- [ ] Approve timed works for Kingston Quickstep, Port Royal Dash, Jurors Verdict, Urshalim Craftwork
+## 🏋️ TRAINING SCHEDULE
+
+### 2-Year-Olds (MouWV)
+| Horse | Cons | Action This Week |
+|-------|------|-----------------|
+| Film The Scene | +5 (4) | Ready! Consider maiden entry at TUP/TAM |
+| Looks Like Nicholas | +5 (3) | Ready! Consider maiden entry |
+| Neon Reflection | +5 (2) | 1 more work, then maiden eligible |
+| Blank Sunset | 0 (1) | Continue training works |
+| Gen Xpress | 0 (1) | Continue training works |
+
+### Bench Decisions Needed
+| Horse | Recommendation |
+|-------|---------------|
+| Core N Light | Sell or activate (cons +5/4 but never raced) |
+| Hydration | Activate — good conformation |
+| Triple Love | Sell or activate (cons +5/4 but never raced) |
+
+---
+
+## 💰 FINANCIAL OUTLOOK
+
+| Item | Amount |
+|------|--------|
+| Current Balance | $39.59 |
+| Upcoming Costs | Shipping (~$1-2 per horse), entries (~$0.50 each) |
+| Expected Revenue | Lo And Behold maiden purse (~$5), Cornswaggled claiming purse (~$7) |
+| Projected End-of-Week | ~$45-50 (if both noms win) |
+
+---
+
+## ⚠️ KEY RISKS
+1. **Strike King's consistency dropped to +2** — may need 2-3 more maintenance cycles before racing
+2. **Sassy Astray stam 55%** — needs 10+ days rest, consider moving to a cheaper track
+3. **Class A 0-for-8 lifetime** — consider dropping class significantly or selling
+4. **16 idle horses = wasted payroll** — shipping 4+ this week is critical
