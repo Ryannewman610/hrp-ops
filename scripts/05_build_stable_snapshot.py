@@ -203,6 +203,40 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
                 if noms:
                     record["nominations"] = noms
 
+    # Also try to find nominations from text pattern (backup)
+    if "nominations" not in record and profile_s:
+        strings = list(profile_s.stripped_strings)
+        in_noms = False
+        nom_data: Dict[str, str] = {}
+        noms_list: list = []
+        for i, s in enumerate(strings):
+            sl = s.strip()
+            if sl == "Nominations":
+                in_noms = True
+                continue
+            if in_noms:
+                if sl == "Entries":
+                    in_noms = False
+                    if nom_data.get("date"):
+                        noms_list.append(dict(nom_data))
+                    break
+                if sl == "DATE" and i + 1 < len(strings):
+                    if nom_data.get("date"):
+                        noms_list.append(dict(nom_data))
+                    nom_data = {"date": strings[i + 1].strip()}
+                elif sl == "TRACK" and i + 1 < len(strings):
+                    nom_data["track"] = strings[i + 1].strip()
+                elif sl == "DISTANCE" and i + 1 < len(strings):
+                    nom_data["distance"] = strings[i + 1].strip()
+                elif sl == "#/#(#)" and i + 1 < len(strings):
+                    nom_data["field"] = strings[i + 1].strip()
+                elif sl == "SURF" and i + 1 < len(strings):
+                    nom_data["surface"] = strings[i + 1].strip()
+        if in_noms and nom_data.get("date"):
+            noms_list.append(dict(nom_data))
+        if noms_list:
+            record["nominations"] = noms_list
+
     # Race record (LIFE line)
     life_match = re.search(r"LIFE\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)", profile_text)
     if life_match:
@@ -212,6 +246,41 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
             "places": life_match.group(3),
             "shows": life_match.group(4),
         }
+
+    # Parse individual race result lines from profile text
+    # Format: "3/4" (finish), "12Feb26 TUP" (date/track), "5f fst 1:00" (dist/surf/time)
+    if profile_s:
+        strings = list(profile_s.stripped_strings)
+        races: List[Dict[str, str]] = []
+        i = 0
+        while i < len(strings):
+            s = strings[i].strip()
+            # Match finish position pattern: digit/digit or digit-digit/digit-digit
+            finish_match = re.match(r"^(\d+)/(\d+)$", s)
+            if finish_match and i + 1 < len(strings):
+                finish_pos = finish_match.group(1)
+                field_size = finish_match.group(2)
+                # Next string should be date + track
+                next_s = strings[i + 1].strip() if i + 1 < len(strings) else ""
+                date_trk = re.match(r"(\d{1,2}\w{3}\d{2})\s+(\w+)", next_s)
+                if date_trk:
+                    race = {
+                        "finish": finish_pos,
+                        "field": field_size,
+                        "date": date_trk.group(1),
+                        "track": date_trk.group(2),
+                    }
+                    # Next should be distance/surface/time
+                    detail = strings[i + 2].strip() if i + 2 < len(strings) else ""
+                    dist_match = re.match(r"([\d/]+\s*[fm])\s+(\w+)\s+([\d:.]+)", detail)
+                    if dist_match:
+                        race["distance"] = dist_match.group(1)
+                        race["surface"] = dist_match.group(2)
+                        race["time"] = dist_match.group(3)
+                    races.append(race)
+            i += 1
+        if races:
+            record["recent_races"] = races[:10]  # keep last 10
 
     return record
 

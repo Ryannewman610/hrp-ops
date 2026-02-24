@@ -6,46 +6,98 @@
 |--------|-------|
 | Active Horses | 35 |
 | Balance | $24.74 |
-| With Nominations | 0 |
+| With Nominations | 35 |
+
+## 🎬 Today's Top 10 Actions
+
+1. 🛏️ **Crypto King** — Stamina critically low (65%). Rest to recover.
+2. 🛏️ **Lo And Behold** — Stamina critically low (69%). Rest to recover.
+3. 🛏️ **Sassy Astray** — Stamina critically low (64%). Rest to recover.
+4. 🏋️ **Class A** — Stamina low (79%). Light works to rebuild.
+5. 🏋️ **Thats Some Bullship** — Stamina low (72%). Light works to rebuild.
+6. ✅ **Blank Sunset** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
+7. ✅ **Caros Compass** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
+8. ✅ **Cayuga Lake** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
+9. ✅ **Core N Light** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
+10. ✅ **Cornswaggled** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
 
 ## Roster
 | Horse | Track | Cond | Stam | Consist | Mode | Noms |
 |-------|-------|------|------|---------|------|------|
-| Blank Sunset | MouWV | 100% | 100% | 0 | ? | — |
-| Caros Compass | MouWV | 100% | 100% | +5 | ? | — |
-| Cayuga Lake | TUP | 107% | 89% | +5 | ? | — |
-| Class A | HOU | 100% | 79% | +3 | ? | — |
-| Core N Light | TP(MouWV) | 100% | 100% | +5 | ? | — |
-| Cornswaggled | HOU | 100% | 110% | +5 | ? | — |
-| Crowds Ransom | MouWV | 100% | 100% | +5 | ? | — |
-| Crypto King | FG | 99% | 65% | +3 | ? | — |
-| Damascus Honey | MouWV | 100% | 100% | +5 | ? | — |
-| Desert Oath | MouWV | 100% | 100% | +5 | ? | — |
-| Dubai Iron | MouWV | 100% | 100% | +5 | ? | — |
-| Film The Scene | MouWV | 100% | 100% | +5 | ? | — |
-| Gen Xpress | MouWV | 100% | 100% | 0 | ? | — |
-| Golden Shuvee | GP(MouWV) | 100% | 100% | +5 | ? | — |
-| Hardline Anvil | CT(MouWV) | 100% | 100% | +5 | ? | — |
-| Harsh Frontier | TUP | 102% | 110% | +5 | ? | — |
-| Helios Hustle | MouWV | 100% | 100% | +5 | ? | — |
-| HipTag793004736512 | MouWV | ? | ? | ? | ? | — |
-| Hydration | HOU(MouWV) | 100% | 100% | +5 | ? | — |
-| Ideal Sinissippi | MouWV | 100% | 100% | +5 | ? | — |
-| Iron Timekeeper | MouWV | 100% | 100% | +5 | ? | — |
-| Jurors Verdict | MouWV | 100% | 100% | +5 | ? | — |
-| Kingston Quickstep | MouWV | 100% | 100% | +3 | ? | — |
-| Lo And Behold | TP | 110% | 69% | +5 | ? | — |
-| Looks Like Nicholas | MouWV | 100% | 100% | +5 | ? | — |
-| Migoli Moonbeam | MouWV | 100% | 100% | +5 | ? | — |
-| Neon Reflection | MouWV | 100% | 100% | +5 | ? | — |
-| Port Royal Dash | MouWV | 100% | 100% | +5 | ? | — |
-| Sassy Astray | CT | 102% | 64% | +3 | ? | — |
-| Stormy Sky | MouWV | 100% | 100% | +5 | ? | — |
-| Strike King | TUP | 98% | 88% | +2 | ? | — |
-| Thats Some Bullship | TUP | 98% | 72% | +3 | ? | — |
-| Trieste Ruler | TAM | 98% | 110% | +5 | ? | — |
-| Triple Love | MouWV | 100% | 100% | +5 | ? | — |
-| Urshalim Craftwork | MouWV | 100% | 100% | +5 | ? | — |
+| Blank Sunset | MouWV | 100% | 100% | 0 | ? | 1 |
+| Caros Compass | MouWV | 100% | 100% | +5 | ? | 1 |
+| Cayuga Lake | TUP | 107% | 89% | +5 | ? | 1 |
+| Class A | HOU | 100% | 79% | +3 | ? | 1 |
+| Core N Light | TP(MouWV) | 100% | 100% | +5 | ? | 1 |
+| Cornswaggled | HOU | 100% | 110% | +5 | ? | 1 |
+| Crowds Ransom | MouWV | 100% | 100% | +5 | ? | 1 |
+| Crypto King | FG | 99% | 65% | +3 | ? | 1 |
+| Damascus Honey | MouWV | 100% | 100% | +5 | ? | 1 |
+| Desert Oath | MouWV | 100% | 100% | +5 | ? | 1 |
+| Dubai Iron | MouWV | 100% | 100% | +5 | ? | 1 |
+| Film The Scene | MouWV | 100% | 100% | +5 | ? | 1 |
+| Gen Xpress | MouWV | 100% | 100% | 0 | ? | 1 |
+| Golden Shuvee | GP(MouWV) | 100% | 100% | +5 | ? | 1 |
+| Hardline Anvil | CT(MouWV) | 100% | 100% | +5 | ? | 1 |
+| Harsh Frontier | TUP | 102% | 110% | +5 | ? | 1 |
+| Helios Hustle | MouWV | 100% | 100% | +5 | ? | 1 |
+| HipTag793004736512 | MouWV | ? | ? | ? | ? | 1 |
+| Hydration | HOU(MouWV) | 100% | 100% | +5 | ? | 1 |
+| Ideal Sinissippi | MouWV | 100% | 100% | +5 | ? | 1 |
+| Iron Timekeeper | MouWV | 100% | 100% | +5 | ? | 1 |
+| Jurors Verdict | MouWV | 100% | 100% | +5 | ? | 1 |
+| Kingston Quickstep | MouWV | 100% | 100% | +3 | ? | 1 |
+| Lo And Behold | TP | 110% | 69% | +5 | ? | 1 |
+| Looks Like Nicholas | MouWV | 100% | 100% | +5 | ? | 1 |
+| Migoli Moonbeam | MouWV | 100% | 100% | +5 | ? | 1 |
+| Neon Reflection | MouWV | 100% | 100% | +5 | ? | 1 |
+| Port Royal Dash | MouWV | 100% | 100% | +5 | ? | 1 |
+| Sassy Astray | CT | 102% | 64% | +3 | ? | 1 |
+| Stormy Sky | MouWV | 100% | 100% | +5 | ? | 1 |
+| Strike King | TUP | 98% | 88% | +2 | ? | 1 |
+| Thats Some Bullship | TUP | 98% | 72% | +3 | ? | 1 |
+| Trieste Ruler | TAM | 98% | 110% | +5 | ? | 1 |
+| Triple Love | MouWV | 100% | 100% | +5 | ? | 1 |
+| Urshalim Craftwork | MouWV | 100% | 100% | +5 | ? | 1 |
+
+## Upcoming Races
+| Horse | Date | Track | Race |
+|-------|------|-------|------|
+| Blank Sunset | TIME | ## | ? |
+| Caros Compass | TIME | ## | ? |
+| Cayuga Lake | TIME | ## | ? |
+| Class A | TIME | ## | ? |
+| Core N Light | TIME | ## | ? |
+| Cornswaggled | TIME | ## | ? |
+| Crowds Ransom | TIME | ## | ? |
+| Crypto King | TIME | ## | ? |
+| Damascus Honey | TIME | ## | ? |
+| Desert Oath | TIME | ## | ? |
+| Dubai Iron | TIME | ## | ? |
+| Film The Scene | TIME | ## | ? |
+| Gen Xpress | TIME | ## | ? |
+| Golden Shuvee | TIME | ## | ? |
+| Hardline Anvil | TIME | ## | ? |
+| Harsh Frontier | TIME | ## | ? |
+| Helios Hustle | TIME | ## | ? |
+| HipTag793004736512 | TIME | ## | ? |
+| Hydration | TIME | ## | ? |
+| Ideal Sinissippi | TIME | ## | ? |
+| Iron Timekeeper | TIME | ## | ? |
+| Jurors Verdict | TIME | ## | ? |
+| Kingston Quickstep | TIME | ## | ? |
+| Lo And Behold | TIME | ## | ? |
+| Looks Like Nicholas | TIME | ## | ? |
+| Migoli Moonbeam | TIME | ## | ? |
+| Neon Reflection | TIME | ## | ? |
+| Port Royal Dash | TIME | ## | ? |
+| Sassy Astray | TIME | ## | ? |
+| Stormy Sky | TIME | ## | ? |
+| Strike King | TIME | ## | ? |
+| Thats Some Bullship | TIME | ## | ? |
+| Trieste Ruler | TIME | ## | ? |
+| Triple Love | TIME | ## | ? |
+| Urshalim Craftwork | TIME | ## | ? |
 
 ## ⚠️ Low Stamina
 - **Class A**: 79%

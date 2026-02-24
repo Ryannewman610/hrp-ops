@@ -1,11 +1,50 @@
 # 📅 Weekly Plan
 > **Week of:** 2026-02-24 | **Balance:** $24.74
 
+## Race Schedule
+| Date | Horse | Track | Race | Notes |
+|------|-------|-------|------|-------|
+| TIME | Blank Sunset | ## | ? |  |
+| TIME | Caros Compass | ## | ? |  |
+| TIME | Cayuga Lake | ## | ? |  |
+| TIME | Class A | ## | ? | ⚠️ Stam 79% |
+| TIME | Core N Light | ## | ? |  |
+| TIME | Cornswaggled | ## | ? |  |
+| TIME | Crowds Ransom | ## | ? |  |
+| TIME | Crypto King | ## | ? | ⚠️ Stam 65% |
+| TIME | Damascus Honey | ## | ? |  |
+| TIME | Desert Oath | ## | ? |  |
+| TIME | Dubai Iron | ## | ? |  |
+| TIME | Film The Scene | ## | ? |  |
+| TIME | Gen Xpress | ## | ? |  |
+| TIME | Golden Shuvee | ## | ? |  |
+| TIME | Hardline Anvil | ## | ? |  |
+| TIME | Harsh Frontier | ## | ? |  |
+| TIME | Helios Hustle | ## | ? |  |
+| TIME | HipTag793004736512 | ## | ? |  |
+| TIME | Hydration | ## | ? |  |
+| TIME | Ideal Sinissippi | ## | ? |  |
+| TIME | Iron Timekeeper | ## | ? |  |
+| TIME | Jurors Verdict | ## | ? |  |
+| TIME | Kingston Quickstep | ## | ? |  |
+| TIME | Lo And Behold | ## | ? | ⚠️ Stam 69% |
+| TIME | Looks Like Nicholas | ## | ? |  |
+| TIME | Migoli Moonbeam | ## | ? |  |
+| TIME | Neon Reflection | ## | ? |  |
+| TIME | Port Royal Dash | ## | ? |  |
+| TIME | Sassy Astray | ## | ? | ⚠️ Stam 64% |
+| TIME | Stormy Sky | ## | ? |  |
+| TIME | Strike King | ## | ? |  |
+| TIME | Thats Some Bullship | ## | ? | ⚠️ Stam 72% |
+| TIME | Trieste Ruler | ## | ? |  |
+| TIME | Triple Love | ## | ? |  |
+| TIME | Urshalim Craftwork | ## | ? |  |
+
 ## Financial Outlook
 | Item | Value |
 |------|-------|
 | Current Balance | $24.74 |
-| Nominations Active | 0 horses |
+| Nominations Active | 35 horses |
 
 ## Action Items
 - [ ] Review race entries and set jockey instructions
