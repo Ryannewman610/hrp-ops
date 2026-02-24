@@ -1,10 +1,10 @@
 # 📅 Weekly Plan
-> **Week of:** 2026-02-24 | **Balance:** $?
+> **Week of:** 2026-02-24 | **Balance:** $24.74
 
 ## Financial Outlook
 | Item | Value |
 |------|-------|
-| Current Balance | $? |
+| Current Balance | $24.74 |
 | Nominations Active | 0 horses |
 
 ## Action Items

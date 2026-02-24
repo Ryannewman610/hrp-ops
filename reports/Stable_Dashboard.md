@@ -1,11 +1,11 @@
 # 🏇 Stable Dashboard
-> **Generated:** 2026-02-24 | **Balance:** $? | **Horses:** 35
+> **Generated:** 2026-02-24 | **Balance:** $24.74 | **Horses:** 35
 
 ## Quick Stats
 | Metric | Value |
 |--------|-------|
 | Active Horses | 35 |
-| Balance | $? |
+| Balance | $24.74 |
 | With Nominations | 0 |
 
 ## Roster
@@ -13,37 +13,37 @@
 |-------|-------|------|------|---------|------|------|
 | Blank Sunset | MouWV | 100% | 100% | 0 | ? | — |
 | Caros Compass | MouWV | 100% | 100% | +5 | ? | — |
-| Cayuga Lake | TUP | 110% | 110% | +5 | ? | — |
-| Class A | HOU | 102% | 102% | +3 | ? | — |
-| Core N Light | MouWV | 100% | 100% | +5 | ? | — |
-| Cornswaggled | HOU | 103% | 103% | +5 | ? | — |
+| Cayuga Lake | TUP | 107% | 107% | +5 | ? | — |
+| Class A | HOU | 100% | 100% | +3 | ? | — |
+| Core N Light | TP(MouWV) | 100% | 100% | +5 | ? | — |
+| Cornswaggled | HOU | 100% | 100% | +5 | ? | — |
 | Crowds Ransom | MouWV | 100% | 100% | +5 | ? | — |
-| Crypto King | TP | 101% | 101% | +3 | ? | — |
+| Crypto King | FG | 99% | 99% | +3 | ? | — |
 | Damascus Honey | MouWV | 100% | 100% | +5 | ? | — |
 | Desert Oath | MouWV | 100% | 100% | +5 | ? | — |
 | Dubai Iron | MouWV | 100% | 100% | +5 | ? | — |
 | Film The Scene | MouWV | 100% | 100% | +5 | ? | — |
 | Gen Xpress | MouWV | 100% | 100% | 0 | ? | — |
-| Golden Shuvee | MouWV | 100% | 100% | +5 | ? | — |
-| Hardline Anvil | MouWV | 100% | 100% | +5 | ? | — |
-| Harsh Frontier | TUP | 104% | 104% | +5 | ? | — |
+| Golden Shuvee | GP(MouWV) | 100% | 100% | +5 | ? | — |
+| Hardline Anvil | CT(MouWV) | 100% | 100% | +5 | ? | — |
+| Harsh Frontier | TUP | 102% | 102% | +5 | ? | — |
 | Helios Hustle | MouWV | 100% | 100% | +5 | ? | — |
 | HipTag793004736512 | MouWV | ? | ? | ? | ? | — |
-| Hydration | MouWV | 100% | 100% | +5 | ? | — |
+| Hydration | HOU(MouWV) | 100% | 100% | +5 | ? | — |
 | Ideal Sinissippi | MouWV | 100% | 100% | +5 | ? | — |
 | Iron Timekeeper | MouWV | 100% | 100% | +5 | ? | — |
 | Jurors Verdict | MouWV | 100% | 100% | +5 | ? | — |
 | Kingston Quickstep | MouWV | 100% | 100% | +3 | ? | — |
-| Lo And Behold | TP | 96% | 96% | +5 | ? | — |
+| Lo And Behold | TP | 110% | 110% | +5 | ? | — |
 | Looks Like Nicholas | MouWV | 100% | 100% | +5 | ? | — |
 | Migoli Moonbeam | MouWV | 100% | 100% | +5 | ? | — |
 | Neon Reflection | MouWV | 100% | 100% | +5 | ? | — |
 | Port Royal Dash | MouWV | 100% | 100% | +5 | ? | — |
-| Sassy Astray | CT | 104% | 104% | +2 | ? | — |
+| Sassy Astray | CT | 102% | 102% | +3 | ? | — |
 | Stormy Sky | MouWV | 100% | 100% | +5 | ? | — |
-| Strike King | TUP | 100% | 100% | +2 | ? | — |
-| Thats Some Bullship | TUP | 100% | 100% | +3 | ? | — |
-| Trieste Ruler | TAM | 101% | 101% | +5 | ? | — |
+| Strike King | TUP | 98% | 98% | +2 | ? | — |
+| Thats Some Bullship | TUP | 98% | 98% | +3 | ? | — |
+| Trieste Ruler | TAM | 98% | 98% | +5 | ? | — |
 | Triple Love | MouWV | 100% | 100% | +5 | ? | — |
 | Urshalim Craftwork | MouWV | 100% | 100% | +5 | ? | — |
 

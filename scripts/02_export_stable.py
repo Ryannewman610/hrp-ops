@@ -16,7 +16,7 @@ URLS_PATH = ROOT / "scripts" / "hrp_urls.json"
 AUTH_PATH = ROOT / "inputs" / "export" / "auth.json"
 RAW_ROOT = ROOT / "inputs" / "export" / "raw"
 MANIFEST_PATH = ROOT / "inputs" / "export" / "export_manifest.json"
-DELAY_SECONDS = 12
+DELAY_SECONDS = 6
 GLOBAL_DIR = "_global"
 
 # All horse page types (used in weekly mode)
@@ -296,7 +296,8 @@ def assert_not_login_page(page, expected_url: str) -> None:
         raise RuntimeError(
             f"Safety abort: page content appears to be a login page while loading {expected_url}."
         )
-    if "/index.aspx" in current_url and "/stables/" in expected_url.lower():
+    # Catch redirect to site homepage (not /stables/index.aspx which is the roster)
+    if "/stables/" not in current_url and "/index.aspx" in current_url and "/stables/" in expected_url.lower():
         raise RuntimeError(
             f"Safety abort: redirected to site index while loading {expected_url}. Session may be invalid."
         )
@@ -396,8 +397,7 @@ def main() -> None:
         context = browser.new_context(storage_state=str(AUTH_PATH))
         page = context.new_page()
 
-        # --- Verify auth with roster page ---
-        polite_delay()
+        # --- Verify auth with roster page (no delay — go immediately) ---
         safe_goto(page, roster_url)
         try:
             assert_not_login_page(page, roster_url)
