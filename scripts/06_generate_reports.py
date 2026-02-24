@@ -87,7 +87,10 @@ def generate_dashboard(snapshot: Dict[str, Any]) -> str:
         lines.append("")
 
     # Horses needing attention
-    low_stam = [h for h in horses if h.get("stamina", "100%").replace("%", "").isdigit() and int(h["stamina"].replace("%", "")) < 80]
+    def stam_pct(h: Dict) -> int:
+        v = h.get("stamina", "100%").replace("%", "")
+        return int(v) if v.isdigit() else 100
+    low_stam = [h for h in horses if stam_pct(h) < 80]
     if low_stam:
         lines.append("## ⚠️ Low Stamina")
         for h in low_stam:
@@ -119,8 +122,9 @@ def generate_weekly_plan(snapshot: Dict[str, Any]) -> str:
         for h in nominated:
             for n in h["nominations"]:
                 notes = ""
-                stam = h.get("stamina", "")
-                if stam and stam.replace("%", "").isdigit() and int(stam.replace("%", "")) < 85:
+                stam = h.get("stamina", "100%")
+                stam_val = stam.replace("%", "")
+                if stam_val.isdigit() and int(stam_val) < 85:
                     notes = f"⚠️ Stam {stam}"
                 lines.append(f"| {n.get('date', '?')} | {h['name']} | {n.get('track', '?')} | {n.get('race', '?')} | {notes} |")
         lines.append("")
