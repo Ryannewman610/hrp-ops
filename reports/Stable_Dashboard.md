@@ -8,19 +8,6 @@
 | Balance | $24.74 |
 | With Nominations | 35 |
 
-## 🎬 Today's Top 10 Actions
-
-1. 🛏️ **Crypto King** — Stamina critically low (65%). Rest to recover.
-2. 🛏️ **Lo And Behold** — Stamina critically low (69%). Rest to recover.
-3. 🛏️ **Sassy Astray** — Stamina critically low (64%). Rest to recover.
-4. 🏋️ **Class A** — Stamina low (79%). Light works to rebuild.
-5. 🏋️ **Thats Some Bullship** — Stamina low (72%). Light works to rebuild.
-6. ✅ **Blank Sunset** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
-7. ✅ **Caros Compass** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
-8. ✅ **Cayuga Lake** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
-9. ✅ **Core N Light** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
-10. ✅ **Cornswaggled** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
-
 ## Roster
 | Horse | Track | Cond | Stam | Consist | Mode | Noms |
 |-------|-------|------|------|---------|------|------|
