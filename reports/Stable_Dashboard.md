@@ -61,43 +61,16 @@
 | Urshalim Craftwork | MouWV | 100% | 100% | +5 | ? | 1 |
 
 ## Upcoming Races
-| Horse | Date | Track | Race |
-|-------|------|-------|------|
-| Blank Sunset | TIME | ## | ? |
-| Caros Compass | TIME | ## | ? |
-| Cayuga Lake | TIME | ## | ? |
-| Class A | TIME | ## | ? |
-| Core N Light | TIME | ## | ? |
-| Cornswaggled | TIME | ## | ? |
-| Crowds Ransom | TIME | ## | ? |
-| Crypto King | TIME | ## | ? |
-| Damascus Honey | TIME | ## | ? |
-| Desert Oath | TIME | ## | ? |
-| Dubai Iron | TIME | ## | ? |
-| Film The Scene | TIME | ## | ? |
-| Gen Xpress | TIME | ## | ? |
-| Golden Shuvee | TIME | ## | ? |
-| Hardline Anvil | TIME | ## | ? |
-| Harsh Frontier | TIME | ## | ? |
-| Helios Hustle | TIME | ## | ? |
-| HipTag793004736512 | TIME | ## | ? |
-| Hydration | TIME | ## | ? |
-| Ideal Sinissippi | TIME | ## | ? |
-| Iron Timekeeper | TIME | ## | ? |
-| Jurors Verdict | TIME | ## | ? |
-| Kingston Quickstep | TIME | ## | ? |
-| Lo And Behold | TIME | ## | ? |
-| Looks Like Nicholas | TIME | ## | ? |
-| Migoli Moonbeam | TIME | ## | ? |
-| Neon Reflection | TIME | ## | ? |
-| Port Royal Dash | TIME | ## | ? |
-| Sassy Astray | TIME | ## | ? |
-| Stormy Sky | TIME | ## | ? |
-| Strike King | TIME | ## | ? |
-| Thats Some Bullship | TIME | ## | ? |
-| Trieste Ruler | TIME | ## | ? |
-| Triple Love | TIME | ## | ? |
-| Urshalim Craftwork | TIME | ## | ? |
+| Horse | Date | Track | Race# | Class |
+|-------|------|-------|-------|-------|
+| Strike King | 2026-02-19 00:00:00 | TUP | OClm10/N2X-N | ? |
+| Class A | 2026-02-20 00:00:00 | HOU | Md7.50 | ? |
+| Crypto King | 2026-02-20 00:00:00 | TP | 4+Alw49.00 | ? |
+| Thats Some Bullship | 2026-02-21 00:00:00 | TUP | 4+Clm7.50 | ? |
+| Sassy Astray | 2026-02-21 00:00:00 | CT | fMd12.50(12.5-10) | ? |
+| Lo And Behold | 2026-02-27 00:00:00 | TP | fMd5.00 | ? |
+| Cornswaggled | 2026-02-28 00:00:00 | HOU | 4+Clm7.50N1Y | ? |
+| Trieste Ruler | 2026-03-07 00:00:00 | TAM | Clm6.25N3L | ? |
 
 ## ⚠️ Low Stamina
 - **Class A**: 79%

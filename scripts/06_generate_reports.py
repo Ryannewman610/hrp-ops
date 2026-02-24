@@ -14,6 +14,31 @@ from typing import Any, Dict, List
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS_DIR = ROOT / "reports"
+TRACKER_PATH = ROOT / "tracker" / "HRP_Tracker.xlsx"
+
+
+def load_tracker_nominations() -> List[Dict[str, str]]:
+    """Load nominations from tracker XLSX Nominations sheet."""
+    if not TRACKER_PATH.exists():
+        return []
+    try:
+        import openpyxl
+        wb = openpyxl.load_workbook(str(TRACKER_PATH), read_only=True)
+        noms: List[Dict[str, str]] = []
+        if "Nominations" in wb.sheetnames:
+            ws = wb["Nominations"]
+            headers: list = []
+            for row in ws.iter_rows(values_only=True):
+                vals = [str(c).strip() if c else "" for c in row]
+                if not headers:
+                    headers = vals
+                    continue
+                if vals[0]:
+                    noms.append(dict(zip(headers, vals)))
+        wb.close()
+        return noms
+    except Exception:
+        return []
 
 
 def load_snapshot() -> Dict[str, Any]:
@@ -33,11 +58,12 @@ def load_snapshot() -> Dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def generate_dashboard(snapshot: Dict[str, Any]) -> str:
+def generate_dashboard(snapshot: Dict[str, Any], tracker_noms: List[Dict[str, str]] = None) -> str:
     """Generate Stable_Dashboard.md."""
     d = snapshot.get("date", date.today().isoformat())
     balance = snapshot.get("balance", "?")
     horses = snapshot.get("horses", [])
+    tracker_noms = tracker_noms or []
 
     lines = [
         f"# 🏇 Stable Dashboard",
@@ -45,9 +71,21 @@ def generate_dashboard(snapshot: Dict[str, Any]) -> str:
         "",
     ]
 
-    # Summary stats
-    in_training = sum(1 for h in horses if h.get("roster_mode", "").upper() in ["", "T"])
-    with_noms = sum(1 for h in horses if h.get("nominations"))
+    # Build nomination lookup from tracker (source of truth)
+    nom_by_horse: Dict[str, list] = {}
+    for n in tracker_noms:
+        horse = n.get("Horse", n.get("horse", ""))
+        if horse:
+            import re as _re
+            norm = _re.sub(r"[^a-z0-9]", "", horse.lower())
+            nom_by_horse.setdefault(norm, []).append(n)
+
+    # Count horses with nominations (from tracker OR snapshot)
+    with_noms = len(nom_by_horse)
+    snap_noms = sum(1 for h in horses if h.get("nominations"))
+    if snap_noms > with_noms:
+        with_noms = snap_noms
+
     lines.append("## Quick Stats")
     lines.append(f"| Metric | Value |")
     lines.append(f"|--------|-------|")
@@ -69,22 +107,41 @@ def generate_dashboard(snapshot: Dict[str, Any]) -> str:
         consist = h.get("consistency", h.get("roster_consist", "?"))
         mode_raw = h.get("roster_mode", "")
         mode = "🟢" if mode_raw and "R" not in mode_raw.upper() else "🔴" if mode_raw else "?"
-        noms = len(h.get("nominations", []))
+        import re as _re
+        h_norm = _re.sub(r"[^a-z0-9]", "", name.lower())
+        snap_noms_count = len(h.get("nominations", []))
+        tracker_noms_count = len(nom_by_horse.get(h_norm, []))
+        noms = max(snap_noms_count, tracker_noms_count)
         nom_str = str(noms) if noms else "—"
         lines.append(f"| {name} | {track} | {cond} | {stam} | {consist} | {mode} | {nom_str} |")
 
     lines.append("")
 
-    # Upcoming races (horses with nominations)
-    nominated = [h for h in horses if h.get("nominations")]
-    if nominated:
-        lines.append("## Upcoming Races")
-        lines.append("| Horse | Date | Track | Race |")
-        lines.append("|-------|------|-------|------|")
-        for h in nominated:
-            for n in h["nominations"]:
-                lines.append(f"| {h['name']} | {n.get('date', '?')} | {n.get('track', '?')} | {n.get('race', '?')} |")
+    # Upcoming races — merge snapshot + tracker nominations
+    lines.append("## Upcoming Races")
+    if tracker_noms:
+        lines.append("| Horse | Date | Track | Race# | Class |")
+        lines.append("|-------|------|-------|-------|-------|")
+        for n in tracker_noms:
+            horse = n.get("Horse", n.get("horse", "?"))
+            race_date = n.get("Race Date", n.get("Date", "?"))
+            track = n.get("Track", "?")
+            race_num = n.get("Race#", n.get("Race", "?"))
+            cls = n.get("Class", n.get("Conditions", "?"))
+            lines.append(f"| {horse} | {race_date} | {track} | {race_num} | {cls} |")
         lines.append("")
+    else:
+        nominated = [h for h in horses if h.get("nominations")]
+        if nominated:
+            lines.append("| Horse | Date | Track | Race |")
+            lines.append("|-------|------|-------|------|")
+            for h in nominated:
+                for n in h["nominations"]:
+                    lines.append(f"| {h['name']} | {n.get('date', '?')} | {n.get('track', '?')} | {n.get('race', '?')} |")
+            lines.append("")
+        else:
+            lines.append("*No nominations found. Run weekly export for full data.*")
+            lines.append("")
 
     # Horses needing attention
     def stam_pct(h: Dict) -> int:
@@ -113,21 +170,41 @@ def generate_weekly_plan(snapshot: Dict[str, Any]) -> str:
         "",
     ]
 
-    # Nominated horses → race schedule
-    nominated = [h for h in horses if h.get("nominations")]
-    if nominated:
+    # Race schedule from tracker nominations
+    tracker_noms = load_tracker_nominations()
+    if tracker_noms:
         lines.append("## Race Schedule")
-        lines.append("| Date | Horse | Track | Race | Notes |")
-        lines.append("|------|-------|-------|------|-------|")
-        for h in nominated:
-            for n in h["nominations"]:
-                notes = ""
-                stam = h.get("stamina", "100%")
-                stam_val = stam.replace("%", "")
-                if stam_val.isdigit() and int(stam_val) < 85:
-                    notes = f"⚠️ Stam {stam}"
-                lines.append(f"| {n.get('date', '?')} | {h['name']} | {n.get('track', '?')} | {n.get('race', '?')} | {notes} |")
+        lines.append("| Date | Horse | Track | Race# | Class | Notes |")
+        lines.append("|------|-------|-------|-------|-------|-------|")
+        for n in tracker_noms:
+            horse = n.get("Horse", n.get("horse", "?"))
+            race_date = n.get("Race Date", n.get("Date", "?"))
+            track = n.get("Track", "?")
+            race_num = n.get("Race#", n.get("Race", "?"))
+            cls = n.get("Class", n.get("Conditions", "?"))
+            # Check stamina for this horse
+            notes = ""
+            for h in horses:
+                import re as _re
+                if _re.sub(r"[^a-z0-9]", "", h.get("name", "").lower()) == _re.sub(r"[^a-z0-9]", "", horse.lower()):
+                    stam = h.get("stamina", "100%").replace("%", "")
+                    if stam.isdigit() and int(stam) < 85:
+                        notes = f"⚠️ Stam {stam}%"
+                    break
+            lines.append(f"| {race_date} | {horse} | {track} | {race_num} | {cls} | {notes} |")
         lines.append("")
+        nom_count = len(set(n.get("Horse", n.get("horse", "")) for n in tracker_noms))
+    else:
+        nominated = [h for h in horses if h.get("nominations")]
+        nom_count = len(nominated)
+        if nominated:
+            lines.append("## Race Schedule")
+            lines.append("| Date | Horse | Track | Race |")
+            lines.append("|------|-------|-------|------|")
+            for h in nominated:
+                for n in h["nominations"]:
+                    lines.append(f"| {n.get('date', '?')} | {h['name']} | {n.get('track', '?')} | {n.get('race', '?')} |")
+            lines.append("")
 
     # Training priorities
     no_noms = [h for h in horses if not h.get("nominations") and not h.get("record", {}).get("starts")]
@@ -142,7 +219,7 @@ def generate_weekly_plan(snapshot: Dict[str, Any]) -> str:
     lines.append(f"| Item | Value |")
     lines.append(f"|------|-------|")
     lines.append(f"| Current Balance | ${balance} |")
-    lines.append(f"| Nominations Active | {len(nominated)} horses |")
+    lines.append(f"| Nominations Active | {nom_count} horses |")
     lines.append("")
 
     # Action items
@@ -205,9 +282,11 @@ def main() -> None:
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     snapshot = load_snapshot()
     d = snapshot.get("date", "?")
+    tracker_noms = load_tracker_nominations()
+    print(f"  Tracker nominations loaded: {len(tracker_noms)} entries")
 
     # Dashboard (full rewrite)
-    dashboard = generate_dashboard(snapshot)
+    dashboard = generate_dashboard(snapshot, tracker_noms)
     (REPORTS_DIR / "Stable_Dashboard.md").write_text(dashboard, encoding="utf-8")
     print(f"  Stable_Dashboard.md — {len(dashboard)} chars")
 

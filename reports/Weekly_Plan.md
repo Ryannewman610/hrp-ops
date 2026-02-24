@@ -2,49 +2,22 @@
 > **Week of:** 2026-02-24 | **Balance:** $24.74
 
 ## Race Schedule
-| Date | Horse | Track | Race | Notes |
-|------|-------|-------|------|-------|
-| TIME | Blank Sunset | ## | ? |  |
-| TIME | Caros Compass | ## | ? |  |
-| TIME | Cayuga Lake | ## | ? |  |
-| TIME | Class A | ## | ? | ⚠️ Stam 79% |
-| TIME | Core N Light | ## | ? |  |
-| TIME | Cornswaggled | ## | ? |  |
-| TIME | Crowds Ransom | ## | ? |  |
-| TIME | Crypto King | ## | ? | ⚠️ Stam 65% |
-| TIME | Damascus Honey | ## | ? |  |
-| TIME | Desert Oath | ## | ? |  |
-| TIME | Dubai Iron | ## | ? |  |
-| TIME | Film The Scene | ## | ? |  |
-| TIME | Gen Xpress | ## | ? |  |
-| TIME | Golden Shuvee | ## | ? |  |
-| TIME | Hardline Anvil | ## | ? |  |
-| TIME | Harsh Frontier | ## | ? |  |
-| TIME | Helios Hustle | ## | ? |  |
-| TIME | HipTag793004736512 | ## | ? |  |
-| TIME | Hydration | ## | ? |  |
-| TIME | Ideal Sinissippi | ## | ? |  |
-| TIME | Iron Timekeeper | ## | ? |  |
-| TIME | Jurors Verdict | ## | ? |  |
-| TIME | Kingston Quickstep | ## | ? |  |
-| TIME | Lo And Behold | ## | ? | ⚠️ Stam 69% |
-| TIME | Looks Like Nicholas | ## | ? |  |
-| TIME | Migoli Moonbeam | ## | ? |  |
-| TIME | Neon Reflection | ## | ? |  |
-| TIME | Port Royal Dash | ## | ? |  |
-| TIME | Sassy Astray | ## | ? | ⚠️ Stam 64% |
-| TIME | Stormy Sky | ## | ? |  |
-| TIME | Strike King | ## | ? |  |
-| TIME | Thats Some Bullship | ## | ? | ⚠️ Stam 72% |
-| TIME | Trieste Ruler | ## | ? |  |
-| TIME | Triple Love | ## | ? |  |
-| TIME | Urshalim Craftwork | ## | ? |  |
+| Date | Horse | Track | Race# | Class | Notes |
+|------|-------|-------|-------|-------|-------|
+| 2026-02-19 00:00:00 | Strike King | TUP | OClm10/N2X-N | ? |  |
+| 2026-02-20 00:00:00 | Class A | HOU | Md7.50 | ? | ⚠️ Stam 79% |
+| 2026-02-20 00:00:00 | Crypto King | TP | 4+Alw49.00 | ? | ⚠️ Stam 65% |
+| 2026-02-21 00:00:00 | Thats Some Bullship | TUP | 4+Clm7.50 | ? | ⚠️ Stam 72% |
+| 2026-02-21 00:00:00 | Sassy Astray | CT | fMd12.50(12.5-10) | ? | ⚠️ Stam 64% |
+| 2026-02-27 00:00:00 | Lo And Behold | TP | fMd5.00 | ? | ⚠️ Stam 69% |
+| 2026-02-28 00:00:00 | Cornswaggled | HOU | 4+Clm7.50N1Y | ? |  |
+| 2026-03-07 00:00:00 | Trieste Ruler | TAM | Clm6.25N3L | ? |  |
 
 ## Financial Outlook
 | Item | Value |
 |------|-------|
 | Current Balance | $24.74 |
-| Nominations Active | 35 horses |
+| Nominations Active | 8 horses |
 
 ## Action Items
 - [ ] Review race entries and set jockey instructions
