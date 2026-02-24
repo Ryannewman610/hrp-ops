@@ -17,7 +17,9 @@ AUTH_PATH = ROOT / "inputs" / "export" / "auth.json"
 RAW_ROOT = ROOT / "inputs" / "export" / "raw"
 MANIFEST_PATH = ROOT / "inputs" / "export" / "export_manifest.json"
 DELAY_SECONDS = 12
+GLOBAL_DIR = "_global"
 
+# All horse page types (used in weekly mode)
 PAGE_SPECS = [
     ("profile_allraces", "/stables/viewhorse.aspx?horsename={horse}&AllRaces=Yes"),
     ("profile_printable", "/stables/viewhorseprintable.aspx?horsename={horse}&AllRaces=Yes"),
@@ -27,6 +29,22 @@ PAGE_SPECS = [
     ("conformation", "/stables/viewconformation.aspx?horsename={horse}"),
     ("accessories", "/stables/accessorieshorse.aspx?horsename={horse}"),
     ("foals", "/stables/viewfoals.aspx?horsename={horse}"),
+]
+
+# High-frequency pages only (used in daily mode)
+DAILY_PAGE_SPECS = [
+    ("profile_allraces", "/stables/viewhorse.aspx?horsename={horse}&AllRaces=Yes"),
+    ("works_all", "/stables/viewWorkdetails.aspx?horsename={horse}&AllWorks=Yes"),
+    ("meters", "/stables/viewmeters.aspx?horsename={horse}"),
+]
+
+# Global (non-horse) pages for planning
+GLOBAL_PAGES = [
+    ("race_calendar", "/races/index.aspx"),
+    ("stakes_calendar", "/races/stakes.aspx"),
+    ("weather", "/stables/extendedweather.aspx"),
+    ("account_history", "/myaccount/accounthistory.aspx"),
+    ("results", "/stats/results.aspx"),
 ]
 
 
@@ -295,7 +313,7 @@ def build_page_urls(roster_url: str, horse_name: str) -> List[Dict[str, str]]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Export HRP stable data")
     parser.add_argument(
         "--list-only",
         action="store_true",
@@ -307,7 +325,47 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Maximum number of horses to export.",
     )
+    parser.add_argument(
+        "--mode",
+        choices=["daily", "weekly"],
+        default="daily",
+        help="daily = roster + globals + 3 key pages/horse (~21 min). weekly = full 8-page export (~56 min).",
+    )
+    parser.add_argument(
+        "--skip-global",
+        action="store_true",
+        help="Skip global page exports (race calendar, weather, etc.).",
+    )
     return parser.parse_args()
+
+
+def export_global_pages(page, roster_url: str, manifest: dict) -> None:
+    """Export global (non-horse) pages for planning."""
+    origin = f"{urlparse(roster_url).scheme}://{urlparse(roster_url).netloc}"
+    global_dir = RAW_ROOT / GLOBAL_DIR
+    global_dir.mkdir(parents=True, exist_ok=True)
+    manifest["global_pages"] = {"saved": [], "failed": {}}
+
+    for page_type, rel_url in GLOBAL_PAGES:
+        url = f"{origin}{rel_url}"
+        polite_delay()
+        try:
+            safe_goto(page, url)
+            assert_not_login_page(page, url)
+            save_page(page, global_dir, page_type)
+            manifest["pages_exported"] += 1
+            manifest["global_pages"]["saved"].append(page_type)
+            print(f"  Global: {page_type} ✓")
+        except Exception as e:  # noqa: BLE001
+            msg = str(e).splitlines()[0]
+            print(f"  Global: {page_type} FAILED — {msg}")
+            manifest["global_pages"]["failed"][page_type] = msg
+
+
+def save_manifest(manifest: dict) -> None:
+    """Write manifest to disk (used for normal + partial saves)."""
+    MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
+    MANIFEST_PATH.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
 
 def main() -> None:
@@ -320,11 +378,17 @@ def main() -> None:
 
     RAW_ROOT.mkdir(parents=True, exist_ok=True)
 
-    manifest = {
+    # Choose page spec based on mode
+    active_specs = DAILY_PAGE_SPECS if args.mode == "daily" else PAGE_SPECS
+    print(f"Export mode: {args.mode} ({len(active_specs)} pages/horse)")
+
+    manifest: Dict = {
         "roster_url": roster_url,
+        "mode": args.mode,
         "horses_discovered": 0,
         "pages_exported": 0,
         "horses": [],
+        "status": "running",
     }
 
     with sync_playwright() as p:
@@ -332,16 +396,40 @@ def main() -> None:
         context = browser.new_context(storage_state=str(AUTH_PATH))
         page = context.new_page()
 
+        # --- Verify auth with roster page ---
         polite_delay()
         safe_goto(page, roster_url)
+        try:
+            assert_not_login_page(page, roster_url)
+        except RuntimeError:
+            print("\n❌ AUTH_EXPIRED: session is not valid. Re-run 01_login_save_state.py first.")
+            manifest["status"] = "auth_failed"
+            save_manifest(manifest)
+            context.close()
+            browser.close()
+            raise SystemExit(1)
+
         print(f"Final roster URL: {page.url}")
         debug_dir = ROOT / "outputs" / "debug"
         debug_dir.mkdir(parents=True, exist_ok=True)
         (debug_dir / "roster.html").write_text(page.content(), encoding="utf-8")
 
+        # --- Save roster page itself as a global page ---
+        roster_dir = RAW_ROOT / GLOBAL_DIR
+        roster_dir.mkdir(parents=True, exist_ok=True)
+        save_page(page, roster_dir, "stable_roster")
+        manifest["pages_exported"] += 1
+
+        # --- Export global pages ---
+        if not args.skip_global:
+            print("\n=== Exporting Global Pages ===")
+            export_global_pages(page, roster_url, manifest)
+
+        # --- Discover horses ---
+        safe_goto(page, roster_url)
         horse_links = discover_horse_urls(page, roster_url)
         manifest["horses_discovered"] = len(horse_links)
-        print(f"Discovered {len(horse_links)} horse profile links")
+        print(f"\nDiscovered {len(horse_links)} horse profile links")
 
         if args.list_only:
             print("First 10 horse URLs:")
@@ -357,7 +445,9 @@ def main() -> None:
             horse_links = horse_links[: args.limit]
 
         used_horse_dirs: Set[str] = set()
+        auth_expired = False
 
+        print(f"\n=== Exporting {len(horse_links)} Horses ({args.mode} mode) ===")
         for idx, horse in enumerate(horse_links, start=1):
             profile_url = horse["url"]
             horse_name = parse_horse_name_from_url(profile_url)
@@ -365,7 +455,7 @@ def main() -> None:
             horse_dir_name = ensure_unique_dir(base_dir_name, used_horse_dirs)
             horse_dir = RAW_ROOT / horse_dir_name
 
-            horse_record = {
+            horse_record: Dict = {
                 "horse_name": horse_name,
                 "horse_dir": horse_dir_name,
                 "source_profile_url": profile_url,
@@ -374,8 +464,12 @@ def main() -> None:
                 "failed_pages": {},
             }
 
-            print(f"[{idx}/{len(horse_links)}] Exporting horse: {horse_name}")
+            print(f"[{idx}/{len(horse_links)}] {horse_name}")
             page_targets = build_page_urls(roster_url, horse_name)
+
+            # Filter to active specs for this mode
+            active_types = {spec[0] for spec in active_specs}
+            page_targets = [t for t in page_targets if t["page_type"] in active_types]
 
             for target in page_targets:
                 polite_delay()
@@ -385,20 +479,42 @@ def main() -> None:
                     assert_not_login_page(page, target["url"])
                     manifest["pages_exported"] += save_page(page, horse_dir, target["page_type"])
                     horse_record["saved_pages"].append(target["page_type"])
+                except RuntimeError as e:
+                    msg = str(e).splitlines()[0]
+                    if "Safety abort" in msg:
+                        print(f"\n❌ SESSION EXPIRED after {idx - 1} horses.")
+                        print(f"   Re-run: python scripts/01_login_save_state.py")
+                        print(f"   Then:   python scripts/02_export_stable.py --mode {args.mode}")
+                        horse_record["failed_pages"][target["page_type"]] = msg
+                        manifest["horses"].append(horse_record)
+                        auth_expired = True
+                        break
+                    print(f"  WARN: {target['page_type']} — {msg}")
+                    horse_record["failed_pages"][target["page_type"]] = msg
                 except Exception as e:  # noqa: BLE001
                     msg = str(e).splitlines()[0]
-                    print(f"WARN: failed {target['page_type']} for {horse_name}: {msg}")
+                    print(f"  WARN: {target['page_type']} — {msg}")
                     horse_record["failed_pages"][target["page_type"]] = msg
 
             manifest["horses"].append(horse_record)
+            if auth_expired:
+                break
 
         context.close()
         browser.close()
 
-    MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
-    MANIFEST_PATH.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
-    print(f"Export finished. Manifest: {MANIFEST_PATH}")
+    manifest["status"] = "partial" if auth_expired else "complete"
+    save_manifest(manifest)
+
+    print(f"\nExport {'PARTIAL' if auth_expired else 'finished'}.")
+    print(f"  Mode: {args.mode}")
+    print(f"  Horses: {len(manifest['horses'])}/{manifest['horses_discovered']}")
+    print(f"  Pages: {manifest['pages_exported']}")
+    print(f"  Manifest: {MANIFEST_PATH}")
+    if auth_expired:
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":
     main()
+
