@@ -142,20 +142,27 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
     if track_match:
         record["track"] = track_match.group(1).strip()
 
-    # Condition/Stamina/Consistency from meters
-    for label in ["Condition", "Stamina"]:
-        m = re.search(rf"{label}.*?(\d+)%", meters_text)
-        if m:
-            record[label.lower()] = m.group(1) + "%"
-
-    consist_match = re.search(r"Consistency.*?([+-]?\d+)", meters_text)
-    if consist_match:
-        record["consistency"] = consist_match.group(1)
-
-    # Distance meter
-    dist_match = re.search(r"Distance.*?(\d+)", meters_text)
-    if dist_match:
-        record["distance_meter"] = dist_match.group(1)
+    # Condition/Stamina/Consistency/Distance from meters (line-by-line)
+    if meters_s:
+        strings = list(meters_s.stripped_strings)
+        for i, s in enumerate(strings):
+            sl = s.strip().lower().rstrip(":")
+            if sl == "condition" and i + 1 < len(strings):
+                val = strings[i + 1].strip()
+                if "%" in val:
+                    record["condition"] = val
+            elif sl == "stamina" and i + 1 < len(strings):
+                val = strings[i + 1].strip()
+                if "%" in val:
+                    record["stamina"] = val
+            elif sl == "consistency" and i + 1 < len(strings):
+                val = strings[i + 1].strip()
+                if re.match(r"[+-]?\d+", val):
+                    record["consistency"] = val
+            elif sl == "distance" and i + 1 < len(strings):
+                val = strings[i + 1].strip()
+                if val.isdigit():
+                    record["distance_meter"] = val
 
     # Works count
     if works_s:
