@@ -79,7 +79,13 @@ def score_race_fit(horse_model: Dict, race: Dict, works_feat: Dict = None) -> Di
     conditions = race.get("conditions", "").lower()
     race_class = race_type + " " + conditions
 
-    is_maiden_race = "maiden" in race_type or "maiden" in conditions
+    # CRITICAL: Maiden classification uses ONLY race_type, NOT conditions.
+    # The conditions field may contain misleading text like "Non Winners Of A
+    # Maiden Claiming Prize" in Allowance races, which is NOT a maiden race.
+    is_maiden_race = "maiden" in race_type
+    # Explicit override: Allowance is NEVER a maiden race
+    if "allowance" in race_type:
+        is_maiden_race = False
     is_allowance = "allowance" in race_type
     is_claiming = "claiming" in race_type and not is_maiden_race
     is_stakes = "stakes" in race_type or "handicap" in race_type
