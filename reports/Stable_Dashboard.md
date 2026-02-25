@@ -64,6 +64,25 @@
 - **Lo And Behold**: 78%
 - **Sassy Astray**: 72%
 
+## 🎯 Horse Ability Profiles
+| Horse | Speed | Surface | Distance | Wet | Class | W% |
+|-------|:-----:|---------|----------|:---:|-------|:--:|
+| Cayuga Lake | ⚡95 | 🏜️ Dirt | 🏃 Sprint | 💧95 | Allowance | 14% |
+| Crypto King | ⚡95 | 🏜️ Dirt | 🏃 Sprint | 💧97 | Allowance | 33% |
+| Harsh Frontier | ⚡95 | 🔄 Both | 🔄 Both | 77 | Stakes | 23% |
+| Strike King | ⚡93 | 🏜️ Dirt | 🏃 Sprint | ⚠️50 | Claiming | 80% |
+| Trieste Ruler | ⚡91 | 🏜️ Dirt | 🔄 Both | ⚠️50 | Claiming | 33% |
+| Ideal Sinissippi | ⚡90 | 🏜️ Dirt | 🏃 Sprint | ⚠️50 | Unknown | 0% |
+| Lo And Behold | 89 | 🏜️ Dirt | 🔄 Both | ⚠️50 | Unknown | 0% |
+| Cornswaggled | 88 | 🏜️ Dirt | 🏇 Route | ⚠️60 | Allowance | 10% |
+| Sassy Astray | 88 | 🏜️ Dirt | 🏃 Sprint | ⚠️50 | Unknown | 0% |
+| Thats Some Bullship | 88 | 🔄 Both | 🔄 Both | 💧93 | Claiming | 11% |
+| Class A | 87 | 🔄 Both | 🏇 Route | ⚠️50 | Unknown | 12% |
+| Iron Timekeeper | 84 | 🏜️ Dirt | 🏃 Sprint | ⚠️50 | Unknown | 0% |
+| Kingston Quickstep | 74 | 🏜️ Dirt | 🏃 Sprint | ⚠️50 | Unknown | 0% |
+| Urshalim Craftwork | 56 | 🏜️ Dirt | 🏃 Sprint | ⚠️50 | Unknown | 0% |
+| Crowds Ransom | 50 | 🏜️ Dirt | 🏇 Route | ⚠️50 | Unknown | 0% |
+
 ## 📊 Reports Hub
 | Report | Description |
 |--------|-------------|

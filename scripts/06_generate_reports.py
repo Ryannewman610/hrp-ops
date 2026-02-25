@@ -154,6 +154,33 @@ def generate_dashboard(snapshot: Dict[str, Any], tracker_noms: List[Dict[str, st
             lines.append(f"- **{h['name']}**: {h.get('stamina', '?')}")
         lines.append("")
 
+    # Horse ability profiles (from horse_abilities.json)
+    ab_path = ROOT / "outputs" / "horse_abilities.json"
+    if ab_path.exists():
+        abilities = json.loads(ab_path.read_text(encoding="utf-8"))
+        if abilities:
+            # Split into experienced (have speed) and unraced
+            experienced = [a for a in abilities if a.get("best_speed", 0) > 0]
+            experienced.sort(key=lambda x: -x.get("best_speed", 0))
+            if experienced:
+                lines.append("## 🎯 Horse Ability Profiles")
+                lines.append("| Horse | Speed | Surface | Distance | Wet | Class | W% |")
+                lines.append("|-------|:-----:|---------|----------|:---:|-------|:--:|")
+                for a in experienced:
+                    name = a["horse_name"]
+                    spd = a.get("best_speed", 0)
+                    spd_icon = "⚡" if spd >= 90 else ""
+                    surf = a.get("preferred_surface", "?")
+                    surf_icon = {"Turf": "🌿", "Dirt": "🏜️", "Both": "🔄"}.get(surf, "")
+                    dist = a.get("preferred_distance", "?")
+                    dist_icon = {"Sprint": "🏃", "Route": "🏇", "Both": "🔄"}.get(dist, "")
+                    wet = a.get("wet_ability", 50)
+                    wet_s = f"{'💧' if wet >= 85 else '⚠️' if wet < 70 else ''}{wet}"
+                    cls = a.get("class_level", "?")
+                    wr = a.get("win_rate", 0)
+                    lines.append(f"| {name} | {spd_icon}{spd} | {surf_icon} {surf} | {dist_icon} {dist} | {wet_s} | {cls} | {wr:.0f}% |")
+                lines.append("")
+
     # Report hub links
     lines.append("## 📊 Reports Hub")
     lines.append("| Report | Description |")
