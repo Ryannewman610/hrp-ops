@@ -36,7 +36,7 @@ Only approved items should be manually entered on HRP.
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Iron+Timekeeper)
 - [ ] **Migoli Moonbeam** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.5 | Win 5.2% | Top3 15.6% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 5 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Migoli Moonbeam**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Migoli+Moonbeam)
@@ -48,61 +48,61 @@ Only approved items should be manually entered on HRP.
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)
 - [ ] **Desert Oath** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.4 | Win 5.1% | Top3 15.3% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 6 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Desert Oath**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Desert+Oath)
 - [ ] **Caros Compass** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 4 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Caros Compass**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Caros+Compass)
 - [ ] **Dubai Iron** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 6 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Dubai Iron**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Dubai+Iron)
 - [ ] **Helios Hustle** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 5 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Helios Hustle**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Helios+Hustle)
 - [ ] **Looks Like Nicholas** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 3 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Looks Like Nicholas**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Looks+Like+Nicholas)
 - [ ] **Neon Reflection** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 2 works; MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Neon Reflection**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Neon+Reflection)
 - [ ] **Port Royal Dash** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 8 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Port Royal Dash**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Port+Royal+Dash)
 - [ ] **Triple Love** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 7 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Triple Love**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Triple+Love)
 - [ ] **Hardline Anvil** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.2 | Win 5.0% | Top3 15.0% | Form: READY
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 2 works; MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Hardline Anvil**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hardline+Anvil)
 - [ ] **Core N Light** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.1 | Win 5.0% | Top3 15.0% | Form: READY
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 7 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Core N Light**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Core+N+Light)
@@ -114,37 +114,37 @@ Only approved items should be manually entered on HRP.
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Crowds+Ransom)
 - [ ] **Damascus Honey** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.0 | Win 4.7% | Top3 14.1% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 6 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Damascus Honey**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Damascus+Honey)
 - [ ] **Film The Scene** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.0 | Win 4.7% | Top3 14.1% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 5 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Film The Scene**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Film+The+Scene)
 - [ ] **Jurors Verdict** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.0 | Win 4.7% | Top3 14.1% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 7 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Jurors Verdict**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Jurors+Verdict)
 - [ ] **Stormy Sky** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.0 | Win 4.7% | Top3 14.1% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 6 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Stormy Sky**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Stormy+Sky)
 - [ ] **Hydration** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 17.8 | Win 5.0% | Top3 15.0% | Form: READY
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 7 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Hydration**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hydration)
 - [ ] **Golden Shuvee** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 17.7 | Win 5.0% | Top3 15.0% | Form: READY
-  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Fit: 📋 5 works (prepared); MCL; Maiden eligible
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Golden Shuvee**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Golden+Shuvee)
@@ -156,13 +156,13 @@ Only approved items should be manually entered on HRP.
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
 - [ ] **Blank Sunset** → 2/25/2026 GP R#1 1m Maiden (Field: 8)
   - EV 13.3 | Win 5.0% | Top3 15.0% | Form: READY
-  - Fit: Maiden eligible; Mid (1m); ✅ READY
+  - Fit: 📋 1 works; Maiden eligible; Mid (1m)
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #1 → Enter **Blank Sunset**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Blank+Sunset)
 - [ ] **Gen Xpress** → 2/25/2026 GP R#1 1m Maiden (Field: 8)
   - EV 13.3 | Win 5.0% | Top3 15.0% | Form: READY
-  - Fit: Maiden eligible; Mid (1m); ✅ READY
+  - Fit: 📋 1 works; Maiden eligible; Mid (1m)
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #1 → Enter **Gen Xpress**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Gen+Xpress)

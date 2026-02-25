@@ -46,9 +46,9 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.5 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 26.5 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to GP |
-| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.5 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.5 | 📋 5 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 31.5 | 📋 5 works (prepared); Maiden eligible; Mid (1m) | Ship to GP |
+| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.5 | 📋 5 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Cayuga Lake — ELO 1200.2 | Win 5.0% | Top3 15.0% | EV 18.4
 *1W/7S · TUP · Stam 98%*
@@ -64,90 +64,90 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.4 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.4 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.4 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.4 | 📋 6 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.4 | 📋 6 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 31.4 | 📋 6 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Caros Compass — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 18.3
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.3 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.3 | 📋 4 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.3 | 📋 4 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 31.3 | 📋 4 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Dubai Iron — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 18.3
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.3 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to GP |
-| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.3 | 📋 6 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 31.3 | 📋 6 works (prepared); Maiden eligible; Mid (1m) | Ship to GP |
+| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.3 | 📋 6 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Helios Hustle — ELO 1203.2 | Win 5.0% | Top3 15.0% | EV 18.3
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.3 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.3 | 📋 5 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.3 | 📋 5 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 31.3 | 📋 5 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Looks Like Nicholas — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 18.3
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.3 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.3 | 📋 3 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.3 | 📋 3 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 31.3 | 📋 3 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Neon Reflection — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 18.3
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.3 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 30.3 | 📋 2 works; MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 28.3 | 📋 2 works; Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 28.3 | 📋 2 works; Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Port Royal Dash — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 18.3
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.3 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to GP |
-| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.3 | 📋 8 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 31.3 | 📋 8 works (prepared); Maiden eligible; Mid (1m) | Ship to GP |
+| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.3 | 📋 8 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Triple Love — ELO 1203.2 | Win 5.0% | Top3 15.0% | EV 18.3
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.3 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.3 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.3 | 📋 7 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.3 | 📋 7 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 31.3 | 📋 7 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### ✅ Hardline Anvil — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 18.2
 *0W/0S · CT · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.2 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 21.2 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 21.2 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 25.2 | 📋 2 works; MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 23.2 | 📋 2 works; Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 23.2 | 📋 2 works; Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### ✅ Core N Light — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 18.1
 *0W/0S · TP · Stam 98%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.1 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 21.1 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 21.1 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.1 | 📋 7 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.1 | 📋 7 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.1 | 📋 7 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Crowds Ransom — ELO 1190.4 | Win 4.8% | Top3 14.4% | EV 18.1
 *0W/1S · MouWV · Stam 100%*
@@ -161,54 +161,54 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.0 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 26.0 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to GP |
-| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.0 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.0 | 📋 6 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 31.0 | 📋 6 works (prepared); Maiden eligible; Mid (1m) | Ship to GP |
+| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.0 | 📋 6 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Film The Scene — ELO 1184.0 | Win 4.7% | Top3 14.1% | EV 18.0
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.0 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 26.0 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to GP |
-| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.0 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.0 | 📋 5 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 31.0 | 📋 5 works (prepared); Maiden eligible; Mid (1m) | Ship to GP |
+| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.0 | 📋 5 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Jurors Verdict — ELO 1184.0 | Win 4.7% | Top3 14.1% | EV 18.0
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.0 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 26.0 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to GP |
-| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.0 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.0 | 📋 7 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 31.0 | 📋 7 works (prepared); Maiden eligible; Mid (1m) | Ship to GP |
+| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.0 | 📋 7 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### 🔥 Stormy Sky — ELO 1184.0 | Win 4.7% | Top3 14.1% | EV 18.0
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.0 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.0 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.0 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 33.0 | 📋 6 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 31.0 | 📋 6 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 31.0 | 📋 6 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### ✅ Hydration — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 17.8
 *0W/0S · HOU · Stam 91%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 22.8 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 20.8 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 20.8 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 27.8 | 📋 7 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 25.8 | 📋 7 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 25.8 | 📋 7 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### ✅ Golden Shuvee — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 17.7
 *0W/0S · MouWV(GP) · Stam 89%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 20.7 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 18.7 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 18.7 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
+| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 25.7 | 📋 5 works (prepared); MCL; Maiden eligible | Ship to TAM |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 23.7 | 📋 5 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 23.7 | 📋 5 works (prepared); Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### ✅ Kingston Quickstep — ELO 1209.6 | Win 5.1% | Top3 15.3% | EV 16.4
 *0W/1S · MouWV · Stam 100%*
@@ -224,18 +224,18 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 16.3 | Maiden eligible; Mid (1m); ✅ READY | Ship to GP |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 16.3 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 16.3 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
+| 1 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 18.3 | 📋 1 works; Maiden eligible; Mid (1m) | Ship to GP |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 18.3 | 📋 1 works; Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 18.3 | 📋 1 works; Maiden eligible; Mid (1m) | Ship to BTP |
 
 ### ✅ Gen Xpress — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 13.3
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 16.3 | Maiden eligible; Mid (1m); ✅ READY | Ship to GP |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 16.3 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 16.3 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
+| 1 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 18.3 | 📋 1 works; Maiden eligible; Mid (1m) | Ship to GP |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 18.3 | 📋 1 works; Maiden eligible; Mid (1m) | Ship to BTP |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 18.3 | 📋 1 works; Maiden eligible; Mid (1m) | Ship to BTP |
 
 ## ❓ Ready — No Matching Races
 | Horse | ELO | Win% | EV | Form |

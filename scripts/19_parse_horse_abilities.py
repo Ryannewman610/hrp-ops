@@ -213,6 +213,41 @@ def parse_meters(horse_dir: Path) -> Dict[str, Any]:
             result["distance_counter"] = int(hdr.group(5))
             break
 
+    # --- Extract works and activity from event log ---
+    # Event log lines follow pattern: date, event_type, track, stats...
+    # Event types: "Maintenance", "Timed Work", "Race", "Train-Hvy", "Train-Std", etc.
+    work_count = 0
+    race_count = 0
+    work_tracks = []
+    race_tracks = []
+    activity_total = 0  # works + races
+    for line in lines:
+        if line == "Timed Work":
+            work_count += 1
+            activity_total += 1
+        elif line == "Race":
+            race_count += 1
+            activity_total += 1
+    
+    # Get tracks from event log — they appear on the line after event type
+    for i, line in enumerate(lines):
+        if line in ("Timed Work", "Race") and i + 1 < len(lines):
+            # Next line should be track code  
+            track_line = lines[i + 1] if i + 1 < len(lines) else ""
+            # Track codes are short (2-5 chars) and alphabetic
+            track_clean = re.sub(r"\s*\(.*\)", "", track_line)  # Remove (1/2) etc
+            if track_clean and len(track_clean) <= 8 and re.match(r"^[A-Za-z]+", track_clean):
+                if line == "Timed Work":
+                    work_tracks.append(track_clean)
+                else:
+                    race_tracks.append(track_clean)
+    
+    result["work_count"] = work_count
+    result["race_count"] = race_count
+    result["activity_total"] = activity_total
+    result["work_tracks"] = work_tracks
+    result["race_tracks"] = race_tracks
+
     return result
 
 
@@ -329,6 +364,10 @@ def derive_preferences(ability: Dict) -> Dict:
         "class_level": class_level,
         "win_rate": win_rate,
         "life_starts": life_starts,
+        # Works-based differentiation for maidens
+        "work_count": ability.get("work_count", 0),
+        "race_count": ability.get("race_count", 0),
+        "activity_total": ability.get("activity_total", 0),
     }
 
 

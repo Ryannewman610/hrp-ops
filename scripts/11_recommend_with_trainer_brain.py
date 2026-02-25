@@ -201,6 +201,19 @@ def score_race_fit(horse_model: Dict, race: Dict,
             reasons.append(f"Speed {ab_speed}")
         elif ab_speed < 70:
             risks.append(f"Slow {ab_speed}")
+    else:
+        # Unraced maiden — use works count for differentiation
+        work_count = ab.get("work_count", 0)
+        activity = ab.get("activity_total", 0)
+        if work_count >= 3:
+            score += 5
+            reasons.append(f"📋 {work_count} works (prepared)")
+        elif work_count >= 1:
+            score += 2
+            reasons.append(f"📋 {work_count} works")
+        else:
+            score -= 3
+            risks.append("No timed works yet")
 
     # Surface match
     race_surface = race.get("surface", "").lower()
