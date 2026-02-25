@@ -111,6 +111,21 @@ def main() -> None:
     else:
         fail("approval_queue.json missing")
 
+    # --- Check 6: Race_Opportunities has NO garbage labels ---
+    garbage_labels = ["handicapping", "stakes calendar", "wager pad", "track calendar"]
+    for report_name in ["Race_Opportunities.md", "Approval_Pack.md"]:
+        rp = ROOT / "reports" / report_name
+        if rp.exists():
+            content = rp.read_text(encoding="utf-8").lower()
+            for gl in garbage_labels:
+                if gl in content:
+                    fail(f"{report_name} contains garbage label: '{gl}'")
+            if not any(gl in content for gl in garbage_labels):
+                print(f"  OK: {report_name} has 0 garbage labels")
+        else:
+            if report_name == "Approval_Pack.md":
+                fail(f"{report_name} missing")
+
     # --- Result ---
     print()
     if FAIL:

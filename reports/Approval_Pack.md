@@ -1,0 +1,184 @@
+# 📋 Approval Pack
+> **Generated:** 2026-02-25 | **Model:** ELO + Form Cycle + Field Scout
+
+## Instructions
+Review each recommendation below. Check the box to approve, leave unchecked to skip.
+Only approved items should be manually entered on HRP.
+
+## ✅ Already Nominated (Review)
+- [ ] **Class A** — EV 8.5 | Win 0.8% | READY
+  - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Class+A)
+- [ ] **Cornswaggled** — EV 10.4 | Win 1.1% | PEAKING
+  - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cornswaggled)
+- [ ] **Strike King** — EV 8.2 | Win 0.6% | READY
+  - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Strike+King)
+- [ ] **Trieste Ruler** — EV 8.5 | Win 0.8% | READY
+  - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Trieste+Ruler)
+
+## 🎯 Recommended Entries (Approval Required)
+- [ ] **Iron Timekeeper** → 2/25/2026 TAM  Maiden Claiming
+  - EV 11.9 | Win 1.1% | Top3 3.2% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Iron Timekeeper
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Iron+Timekeeper)
+- [ ] **Cayuga Lake** → RACE TYPE 13:15 TAM 
+  - EV 11.5 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - Fit: 🔥 PEAKING
+  - Risks: Ship to 13:15
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select 13:15 → Find  → Enter Cayuga Lake
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)
+- [ ] **Crowds Ransom** → 2/25/2026 TAM  Maiden Claiming
+  - EV 11.3 | Win 0.6% | Top3 1.9% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Crowds Ransom
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Crowds+Ransom)
+- [ ] **Ideal Sinissippi** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.4 | Win 1.1% | Top3 3.2% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Ideal Sinissippi
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Ideal+Sinissippi)
+- [ ] **Migoli Moonbeam** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.4 | Win 1.1% | Top3 3.2% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Migoli Moonbeam
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Migoli+Moonbeam)
+- [ ] **Helios Hustle** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.1 | Win 0.8% | Top3 2.5% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Helios Hustle
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Helios+Hustle)
+- [ ] **Caros Compass** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Caros Compass
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Caros+Compass)
+- [ ] **Desert Oath** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Desert Oath
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Desert+Oath)
+- [ ] **Dubai Iron** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Dubai Iron
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Dubai+Iron)
+- [ ] **Harsh Frontier** → RACE TYPE 13:15 TAM 
+  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - Fit: 🔥 PEAKING
+  - Risks: Ship to 13:15
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select 13:15 → Find  → Enter Harsh Frontier
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Harsh+Frontier)
+- [ ] **Looks Like Nicholas** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Looks Like Nicholas
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Looks+Like+Nicholas)
+- [ ] **Neon Reflection** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Neon Reflection
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Neon+Reflection)
+- [ ] **Port Royal Dash** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Port Royal Dash
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Port+Royal+Dash)
+- [ ] **Triple Love** → 2/25/2026 TAM  Maiden Claiming
+  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Triple Love
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Triple+Love)
+- [ ] **Urshalim Craftwork** → 2/25/2026 TAM  Maiden Claiming
+  - EV 9.9 | Win 0.7% | Top3 2.2% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Urshalim Craftwork
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Urshalim+Craftwork)
+- [ ] **Damascus Honey** → 2/25/2026 TAM  Maiden Claiming
+  - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Damascus Honey
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Damascus+Honey)
+- [ ] **Film The Scene** → 2/25/2026 TAM  Maiden Claiming
+  - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Film The Scene
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Film+The+Scene)
+- [ ] **Jurors Verdict** → 2/25/2026 TAM  Maiden Claiming
+  - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Jurors Verdict
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Jurors+Verdict)
+- [ ] **Stormy Sky** → 2/25/2026 TAM  Maiden Claiming
+  - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
+  - Fit: Maiden eligible; 🔥 PEAKING; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Stormy Sky
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Stormy+Sky)
+- [ ] **Kingston Quickstep** → 2/25/2026 TAM  Maiden Claiming
+  - EV 8.7 | Win 0.9% | Top3 2.8% | Form: READY
+  - Fit: Maiden eligible; ✅ READY; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Kingston Quickstep
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
+- [ ] **Core N Light** → 2/25/2026 TAM  Maiden Claiming
+  - EV 8.5 | Win 0.8% | Top3 2.3% | Form: READY
+  - Fit: Maiden eligible; ✅ READY; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Core N Light
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Core+N+Light)
+- [ ] **Hardline Anvil** → 2/25/2026 TAM  Maiden Claiming
+  - EV 8.5 | Win 0.8% | Top3 2.3% | Form: READY
+  - Fit: Maiden eligible; ✅ READY; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Hardline Anvil
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hardline+Anvil)
+- [ ] **Golden Shuvee** → 2/25/2026 TAM  Maiden Claiming
+  - EV 7.0 | Win 0.8% | Top3 2.3% | Form: READY
+  - Fit: Maiden eligible; ✅ READY; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Golden Shuvee
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Golden+Shuvee)
+- [ ] **Hydration** → 2/25/2026 TAM  Maiden Claiming
+  - EV 7.0 | Win 0.8% | Top3 2.3% | Form: READY
+  - Fit: Maiden eligible; ✅ READY; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Hydration
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hydration)
+- [ ] **Blank Sunset** → 2/25/2026 TAM  Maiden Claiming
+  - EV 5.5 | Win 0.8% | Top3 2.3% | Form: READY
+  - Fit: Maiden eligible; ✅ READY; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Blank Sunset
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Blank+Sunset)
+- [ ] **Gen Xpress** → 2/25/2026 TAM  Maiden Claiming
+  - EV 5.5 | Win 0.8% | Top3 2.3% | Form: READY
+  - Fit: Maiden eligible; ✅ READY; Soft field (str=35.0)
+  - Risks: Ship to TAM
+  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select TAM → Find Maiden Claiming → Enter Gen Xpress
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Gen+Xpress)
+
+## 🏋️ Training / Rest (No Approval Needed)
+- [x] **Crypto King** — 🏋️ Timed Work: Stamina 73% (moderate); Condition 97% (good)
+- [x] **Lo And Behold** — 🏋️ Timed Work: Stamina 78% (moderate); Condition 107% (peak)
+- [x] **Sassy Astray** — 🏋️ Timed Work: Stamina 72% (moderate); Condition 99% (peak)
+- [x] **Thats Some Bullship** — 🏋️ Timed Work: Stamina 80% (moderate); Condition 96% (good)
+
+---
+*Approval Pack generated by Trainer Brain v1 — 2026-02-25*
+*SAFETY: No in-game actions taken. All entries require manual execution.*

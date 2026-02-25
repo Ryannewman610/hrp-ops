@@ -1,7 +1,8 @@
 """11_recommend_with_trainer_brain.py — Model-driven race recommendations.
 
-Uses Trainer Brain model outputs to produce:
-  - reports/Race_Opportunities.md (Win%/Top3%/EV Score per race)
+Uses Trainer Brain model outputs + Field Scout data to produce:
+  - reports/Race_Opportunities.md (Win%/Top3%/EV + Field Size + Softness)
+  - reports/Approval_Pack.md (checkboxes + direct links)
   - outputs/approval_queue.json
   - Updates Stable_Dashboard.md with Form Cycle tags
 """
@@ -74,8 +75,8 @@ def is_real_race(race: Dict) -> bool:
     return True
 
 
-def score_race_fit(horse_model: Dict, race: Dict) -> Dict:
-    """Score how well a race fits a horse using model data."""
+def score_race_fit(horse_model: Dict, race: Dict, field_data: Dict = None) -> Dict:
+    """Score how well a race fits a horse using model data + field scout."""
     score = horse_model["ev_score"]
     reasons = []
     risks = []
@@ -85,16 +86,15 @@ def score_race_fit(horse_model: Dict, race: Dict) -> Dict:
     if dist_text:
         dist_f = parse_distance_furlongs(dist_text)
         if dist_f > 0:
-            # Use consistency as distance preference proxy
             consist = horse_model.get("consistency", 0)
-            if dist_f <= 6.5:  # sprint
+            if dist_f <= 6.5:
                 if consist >= 3:
                     score += 5
-                    reasons.append(f"Sprint distance ({dist_text})")
-            elif dist_f <= 8.5:  # mid
-                reasons.append(f"Mid distance ({dist_text})")
+                    reasons.append(f"Sprint ({dist_text})")
+            elif dist_f <= 8.5:
+                reasons.append(f"Mid ({dist_text})")
                 score += 3
-            else:  # route
+            else:
                 reasons.append(f"Route ({dist_text})")
 
     # Track match
@@ -123,15 +123,30 @@ def score_race_fit(horse_model: Dict, race: Dict) -> Dict:
     cycle = horse_model.get("form_cycle", "")
     if cycle == "PEAKING":
         score += 5
-        reasons.append("🔥 PEAKING form")
+        reasons.append("🔥 PEAKING")
     elif cycle == "READY":
         reasons.append("✅ READY")
     elif cycle == "NEEDS_WORK":
         score -= 5
-        risks.append("⚠️ Needs more work")
+        risks.append("⚠️ Needs work")
     elif cycle == "REST_REQUIRED":
         score -= 20
         risks.append("🛏️ Rest required")
+
+    # Field softness bonus (from field scout)
+    if field_data:
+        strength = field_data.get("field_strength_score", 50)
+        softness = field_data.get("softness_rank", 0)
+        field_size = field_data.get("field_size", 0)
+        if strength < 40:
+            score += 10
+            reasons.append(f"Soft field (str={strength})")
+        elif strength < 50:
+            score += 5
+            reasons.append(f"Average field (str={strength})")
+        elif strength >= 65:
+            score -= 5
+            risks.append(f"Tough field (str={strength})")
 
     return {
         "score": round(score, 1),
@@ -165,6 +180,19 @@ def main() -> None:
     races = [r for r in races_all if is_real_race(r)]
     filtered_count = len(races_all) - len(races)
     print(f"Races: {len(races_all)} total, {filtered_count} filtered, {len(races)} valid")
+
+    # Load field scout data
+    scout_path = OUTPUTS / f"field_scout_{today}.json"
+    if not scout_path.exists():
+        scouts = sorted(OUTPUTS.glob("field_scout_*.json"), reverse=True)
+        if scouts:
+            scout_path = scouts[0]
+    field_data_by_id = {}
+    if scout_path.exists():
+        scout = json.loads(scout_path.read_text(encoding="utf-8"))
+        for sr in scout.get("races", []):
+            field_data_by_id[sr.get("race_id", "")] = sr
+        print(f"Field scout loaded: {len(field_data_by_id)} races scouted")
 
     # Load entries
     entries_path = OUTPUTS / f"upcoming_entries_{today}.json"
@@ -201,17 +229,24 @@ def main() -> None:
 
         already_entered = h_norm in entered_norms
 
-        # Score against all races
+        # Score against all races with field scout data
         race_scores = []
         for race in races:
-            fit = score_race_fit(model, race)
+            race_id = race.get("race_id", "")
+            fd = field_data_by_id.get(race_id)
+            fit = score_race_fit(model, race, fd)
             if fit["score"] > 0:
-                race_scores.append({
+                entry = {
                     "race": race,
                     "score": fit["score"],
                     "reasons": fit["reasons"],
                     "risks": fit["risks"],
-                })
+                }
+                if fd:
+                    entry["field_size"] = fd.get("field_size", 0)
+                    entry["field_strength"] = fd.get("field_strength_score", 50)
+                    entry["softness_rank"] = fd.get("softness_rank", 0)
+                race_scores.append(entry)
         race_scores.sort(key=lambda x: x["score"], reverse=True)
         top3 = race_scores[:3]
 
@@ -265,8 +300,8 @@ def main() -> None:
             lines.append(f"### {cycle_icon} {r['horse']} — ELO {r['elo']} | Win {r['win_pct']}% | Top3 {r['top3_pct']}% | EV {r['ev_score']}")
             lines.append(f"*{rec_str} · {r['track']} · Stam {r['stamina']}% · Factors: {'; '.join(r['form_factors'][:3])}*")
             lines.append("")
-            lines.append("| # | Race | Fit Score | Why | Risks |")
-            lines.append("|---|------|-----------|-----|-------|")
+            lines.append("| # | Race | Field | Soft# | Fit | Why | Risks |")
+            lines.append("|---|------|-------|-------|-----|-----|-------|")
             for i, tr in enumerate(r["top_races"], 1):
                 race = tr["race"]
                 parts = []
@@ -276,15 +311,15 @@ def main() -> None:
                     parts.append(race["track"])
                 if race.get("distance"):
                     parts.append(race["distance"])
-                if race.get("surface"):
-                    parts.append(race["surface"])
-                conds = race.get("conditions", "")[:45]
+                conds = race.get("conditions", "")[:35]
                 if conds:
                     parts.append(conds)
                 desc = " · ".join(parts)
+                fld = str(tr.get("field_size", "?"))
+                soft = f"#{tr.get('softness_rank', '?')}" if tr.get("softness_rank") else "?"
                 fit = "; ".join(tr["reasons"][:3])
                 risk = "; ".join(tr["risks"][:2]) if tr["risks"] else "—"
-                lines.append(f"| {i} | {desc} | {tr['score']} | {fit} | {risk} |")
+                lines.append(f"| {i} | {desc} | {fld} | {soft} | {tr['score']} | {fit} | {risk} |")
             lines.append("")
 
     # Ready but no races
@@ -404,6 +439,64 @@ def main() -> None:
                 dash += form_block
             dash_path.write_text(dash, encoding="utf-8")
             print("Dashboard updated with Form Cycle")
+
+    # ── Generate Approval Pack ────────────────────────────
+
+    pack_lines = [
+        "# 📋 Approval Pack",
+        f"> **Generated:** {today} | **Model:** ELO + Form Cycle + Field Scout",
+        "",
+        "## Instructions",
+        "Review each recommendation below. Check the box to approve, leave unchecked to skip.",
+        "Only approved items should be manually entered on HRP.",
+        "",
+    ]
+
+    # Entered horses first
+    entered_q = [q for q in queue if q.get("action") == "review_entry"]
+    if entered_q:
+        pack_lines.append("## ✅ Already Nominated (Review)")
+        for q in entered_q:
+            pack_lines.append(f"- [ ] **{q['horse']}** — EV {q.get('ev_score',0)} | Win {q.get('win_pct',0)}% | {q['form_cycle']}")
+            pack_lines.append(f"  - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse={q['horse'].replace(' ', '+')})")
+        pack_lines.append("")
+
+    # Race entries
+    entry_q = [q for q in queue if q.get("action") == "enter_race"]
+    if entry_q:
+        pack_lines.append("## 🎯 Recommended Entries (Approval Required)")
+        for q in sorted(entry_q, key=lambda x: -(x.get("ev_score", 0))):
+            cond = q.get('race_conditions', '')
+            track = q.get('race_track', '?')
+            race_date = q.get('race_date', '?')
+            dist = q.get('race_distance', '?')
+            pack_lines.append(f"- [ ] **{q['horse']}** → {race_date} {track} {dist} {cond}")
+            pack_lines.append(f"  - EV {q.get('ev_score',0)} | Win {q.get('win_pct',0)}% | Top3 {q.get('top3_pct',0)}% | Form: {q['form_cycle']}")
+            pack_lines.append(f"  - Fit: {'; '.join(q.get('reasons', [])[:3])}")
+            if q.get('risks'):
+                pack_lines.append(f"  - Risks: {'; '.join(q['risks'][:2])}")
+            pack_lines.append(f"  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select {track} → Find {cond[:30]} → Enter {q['horse']}")
+            pack_lines.append(f"  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse={q['horse'].replace(' ', '+')})")
+        pack_lines.append("")
+
+    # Work / Rest
+    work_q = [q for q in queue if q.get("action") in ("timed_work", "rest")]
+    if work_q:
+        pack_lines.append("## 🏋️ Training / Rest (No Approval Needed)")
+        for q in work_q:
+            action = "🛏️ Rest" if q["action"] == "rest" else "🏋️ Timed Work"
+            pack_lines.append(f"- [x] **{q['horse']}** — {action}: {q.get('reason', '')}")
+        pack_lines.append("")
+
+    pack_lines.extend([
+        "---",
+        f"*Approval Pack generated by Trainer Brain v1 — {today}*",
+        "*SAFETY: No in-game actions taken. All entries require manual execution.*",
+    ])
+
+    pack = "\n".join(pack_lines) + "\n"
+    (REPORTS / "Approval_Pack.md").write_text(pack, encoding="utf-8")
+    print(f"Approval_Pack.md: {len(pack)} chars")
 
     # Summary
     counts = {}
