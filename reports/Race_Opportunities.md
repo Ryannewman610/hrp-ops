@@ -1,146 +1,126 @@
 # 🏁 Race Opportunities
-> **Generated:** 2026-02-24 | **Races Parsed:** 52 | **Entries Found:** 43
+> **Generated:** 2026-02-25 | **Races Parsed:** 54 | **Entries Found:** 43
 
 ## ✅ Already Entered / Nominated
 | Horse | Track | Stam | Cond |
 |-------|-------|------|------|
-| Cornswaggled | HOU | 110% | 100% |
-| Strike King | TUP | 88% | 98% |
-| Trieste Ruler | TAM | 110% | 98% |
+| Class A | HOU | 89% | 98% |
+| Cornswaggled | HOU | 110% | 97% |
+| Strike King | TUP | 97% | 96% |
+| Trieste Ruler | TAM | 110% | 96% |
 
 ## 🎯 Ready — Top Race Targets (Approval Required)
-### Golden Shuvee (0W/0S) — GP(MouWV), Stam 100%
+### Golden Shuvee (0W/0S) — MouWV(GP), Stam 89%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
-| 1 | 2/25/2026 · GP · Purse $56.00 (plus up to $11.20 for FL-breds)  For | 35.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | — |
-| 2 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 3 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 1 | 2/25/2026 · GP · Maiden | 30.0 | Good stamina (89%); High consistency (+5); Home track (GP) | — |
+| 2 | 2/25/2026 · GP · Purse $56.00 (plus up to $11.20 for FL-breds)  For | 30.0 | Good stamina (89%); High consistency (+5); Home track (GP) | — |
+| 3 | 2/25/2026 · GP · Non-winners of a race other than maiden or claimin | 30.0 | Good stamina (89%); High consistency (+5); Home track (GP) | — |
 
 ### Harsh Frontier (7W/30S) — TUP, Stam 110%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
-| 1 | 2/24/2026 · TUP · Claiming Price $8.50 | 35.0 | Good stamina (110%); Peak condition (102%); High consistency (+5) | — |
-| 2 | 2/24/2026 · TUP · Claiming | 35.0 | Good stamina (110%); Peak condition (102%); High consistency (+5) | — |
-| 3 | 2/24/2026 · TUP · Four-year-olds 122 lbs.  Older 123 lbs. | 35.0 | Good stamina (110%); Peak condition (102%); High consistency (+5) | — |
-
-### Cayuga Lake (1W/7S) — TUP, Stam 89%
-| # | Race | Score | Fit | Risks |
-|---|------|-------|-----|-------|
-| 1 | 2/24/2026 · TUP · Claiming Price $8.50 | 30.0 | Good stamina (89%); Peak condition (107%); High consistency (+5) | — |
-| 2 | 2/24/2026 · TUP · Claiming | 30.0 | Good stamina (89%); Peak condition (107%); High consistency (+5) | — |
-| 3 | 2/24/2026 · TUP · Four-year-olds 122 lbs.  Older 123 lbs. | 30.0 | Good stamina (89%); Peak condition (107%); High consistency (+5) | — |
+| 1 | Stakes Calendar | 25.0 | Good stamina (110%); Peak condition (99%); High consistency (+5) | — |
+| 2 | Handicapping | 25.0 | Good stamina (110%); Peak condition (99%); High consistency (+5) | — |
+| 3 | Handicapping - Wager Pad | 25.0 | Good stamina (110%); Peak condition (99%); High consistency (+5) | — |
 
 ### Caros Compass (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-
-### Core N Light (0W/0S) — TP(MouWV), Stam 100%
-| # | Race | Score | Fit | Risks |
-|---|------|-------|-----|-------|
-| 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Damascus Honey (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Desert Oath (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Dubai Iron (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Film The Scene (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-
-### Hardline Anvil (0W/0S) — CT(MouWV), Stam 100%
-| # | Race | Score | Fit | Risks |
-|---|------|-------|-----|-------|
-| 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Helios Hustle (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-
-### Hydration (0W/0S) — HOU(MouWV), Stam 100%
-| # | Race | Score | Fit | Risks |
-|---|------|-------|-----|-------|
-| 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Jurors Verdict (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Looks Like Nicholas (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Migoli Moonbeam (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Neon Reflection (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Port Royal Dash (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Stormy Sky (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
 
 ### Triple Love (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 23.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | Ship to TAM |
+
+### Cayuga Lake (1W/7S) — TUP, Stam 98%
+| # | Race | Score | Fit | Risks |
+|---|------|-------|-----|-------|
+| 1 | Stakes Calendar | 20.0 | Good stamina (98%); Peak condition (104%); High consistency (+5) | — |
+| 2 | Handicapping | 20.0 | Good stamina (98%); Peak condition (104%); High consistency (+5) | — |
+| 3 | Handicapping - Wager Pad | 20.0 | Good stamina (98%); Peak condition (104%); High consistency (+5) | — |
 
 ### Crowds Ransom (0W/1S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
@@ -170,26 +150,47 @@
 | 2 | Handicapping | 20.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | — |
 | 3 | Handicapping - Wager Pad | 20.0 | Good stamina (100%); Peak condition (100%); High consistency (+5) | — |
 
+### Core N Light (0W/0S) — TP, Stam 98%
+| # | Race | Score | Fit | Risks |
+|---|------|-------|-----|-------|
+| 1 | MCL · ALL MAIDENS | 18.0 | Good stamina (98%); High consistency (+5); First-time starter | Ship to MCL |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 18.0 | Good stamina (98%); High consistency (+5); First-time starter | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 18.0 | Good stamina (98%); High consistency (+5); First-time starter | Ship to TAM |
+
+### Hardline Anvil (0W/0S) — CT, Stam 100%
+| # | Race | Score | Fit | Risks |
+|---|------|-------|-----|-------|
+| 1 | MCL · ALL MAIDENS | 18.0 | Good stamina (100%); High consistency (+5); First-time starter | Ship to MCL |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 18.0 | Good stamina (100%); High consistency (+5); First-time starter | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 18.0 | Good stamina (100%); High consistency (+5); First-time starter | Ship to TAM |
+
+### Hydration (0W/0S) — HOU, Stam 91%
+| # | Race | Score | Fit | Risks |
+|---|------|-------|-----|-------|
+| 1 | MCL · ALL MAIDENS | 18.0 | Good stamina (91%); High consistency (+5); First-time starter | Ship to MCL |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 18.0 | Good stamina (91%); High consistency (+5); First-time starter | Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 18.0 | Good stamina (91%); High consistency (+5); First-time starter | Ship to TAM |
+
 ### Blank Sunset (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TAM |
 
 ### Gen Xpress (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TAM |
 
 ### HipTag793004736512 (0W/0S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
 |---|------|-------|-----|-------|
 | 1 | MCL · ALL MAIDENS | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to MCL |
-| 2 | 2/24/2026 · TUP · Maiden | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TUP |
-| 3 | 2/24/2026 · TUP · Purse $16.00  For Maiden Three Year Olds. | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TUP |
+| 2 | 2/25/2026 · TAM · Maiden Claiming | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TAM |
+| 3 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year Olds. | 15.0 | Good stamina (100%); Peak condition (100%); First-time starter | Low consistency (0); Ship to TAM |
 
 ### Kingston Quickstep (0W/1S) — MouWV, Stam 100%
 | # | Race | Score | Fit | Risks |
@@ -199,13 +200,10 @@
 | 3 | Handicapping - Wager Pad | 15.0 | Good stamina (100%); Peak condition (100%) | — |
 
 ## 🏋️ Needs Work (Stamina 70-84%)
-- **Class A** — Stam 79%, Cond 100%
-- **Thats Some Bullship** — Stam 72%, Cond 98%
-
-## 🛏️ Rest Required (Stamina <70%)
-- **Crypto King** — Stam 65%, Cond 99%
-- **Lo And Behold** — Stam 69%, Cond 110%
-- **Sassy Astray** — Stam 64%, Cond 102%
+- **Crypto King** — Stam 73%, Cond 97%
+- **Lo And Behold** — Stam 78%, Cond 107%
+- **Sassy Astray** — Stam 72%, Cond 99%
+- **Thats Some Bullship** — Stam 80%, Cond 96%
 
 ---
-*Auto-generated by `recommend_races.py` on 2026-02-24*
+*Auto-generated by `recommend_races.py` on 2026-02-25*
