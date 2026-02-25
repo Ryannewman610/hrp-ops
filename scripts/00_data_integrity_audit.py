@@ -23,6 +23,14 @@ RAW_ROOT = ROOT / "inputs" / "export" / "raw"
 GLOBAL_DIR = RAW_ROOT / "_global"
 TRACKER_PATH = ROOT / "tracker" / "HRP_Tracker.xlsx"
 
+# Horses that appear in roster HTML but are no longer active
+# (roster page caches links even after retirement/claim)
+KNOWN_INACTIVE = {
+    "shebasbriar",          # Retired
+    "averyspluck",          # Claimed (lost)
+    "hiptag793004736512",   # Phantom export artifact (not a real horse)
+}
+
 
 def normalize(name: str) -> str:
     """Normalize horse name for comparison."""
@@ -46,11 +54,11 @@ def get_roster_horses() -> list[dict]:
             if name and len(name) > 1:
                 horses.append({"name": name, "href": href, "norm": normalize(name)})
 
-    # Deduplicate by normalized name
+    # Deduplicate by normalized name, excluding known inactive
     seen = set()
     unique = []
     for h in horses:
-        if h["norm"] not in seen:
+        if h["norm"] not in seen and h["norm"] not in KNOWN_INACTIVE:
             seen.add(h["norm"])
             unique.append(h)
     return unique
@@ -64,7 +72,9 @@ def get_exported_dirs() -> list[dict]:
     for d in sorted(RAW_ROOT.iterdir()):
         if d.is_dir() and d.name != "_global":
             name = d.name.replace("_", " ")
-            dirs.append({"name": name, "dir": d.name, "norm": normalize(name)})
+            n = normalize(name)
+            if n not in KNOWN_INACTIVE:
+                dirs.append({"name": name, "dir": d.name, "norm": n})
     return dirs
 
 
@@ -82,7 +92,9 @@ def get_snapshot_horses() -> list[dict]:
     if not snap_path.exists():
         return []
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
-    return [{"name": h["name"], "norm": normalize(h["name"])} for h in snap.get("horses", [])]
+    return [{"name": h["name"], "norm": normalize(h["name"])}
+            for h in snap.get("horses", [])
+            if normalize(h["name"]) not in KNOWN_INACTIVE]
 
 
 def get_tracker_horses() -> list[dict]:
