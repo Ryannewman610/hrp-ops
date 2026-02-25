@@ -1,5 +1,5 @@
-# 🏁 Race Opportunities — Trainer Brain v1
-> **Generated:** 2026-02-25 | **Model:** ELO + Form Cycle | **Races:** 23 valid (25 filtered)
+# 🏁 Race Opportunities — Trainer Brain v2
+> **Generated:** 2026-02-25 | **Model:** ELO + Form Cycle | **Races:** 10 valid
 
 ## ✅ Already Entered / Nominated
 | Horse | ELO | Win% | Top3% | EV | Form |
@@ -15,238 +15,238 @@
 
 ## 🎯 Race Targets (Approval Required)
 ### 🔥 Iron Timekeeper — ELO 1216.0 | Win 1.1% | Top3 3.2% | EV 11.9
-*0W/1S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/1S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 29.9 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 29.9 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 29.9 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 32.9 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 26.9 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 24.9 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Cayuga Lake — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 11.5
-*1W/7S · TUP · Stam 98% · Factors: Stamina 98% (excellent); Condition 104% (peak); Consistency +5 (high)*
+*1W/7S · TUP · Stam 98%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | RACE TYPE · 13:15 · TAM | 0 | #6 | 14.5 | 🔥 PEAKING | Ship to 13:15 |
-| 2 | 2/25/2026 · PRX · Claiming | 0 | #7 | 14.5 | 🔥 PEAKING | Ship to PRX |
-| 3 | 2/25/2026 · PRX · Claiming Price $25.00 | 0 | #8 | 14.5 | 🔥 PEAKING | Ship to PRX |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · PRX R1 · 1 1/16m Turf · Claiming | 9 | 17.5 | Mid (1 1/16m); 🔥 PEAKING | Ship to PRX |
+| 2 | 2/25/2026 · TAM R2 · 5f Turf · Claiming | 10 | 16.5 | Sprint (5f); 🔥 PEAKING | Ship to TAM; Large field (10) |
+| 3 | 2/25/2026 · TAM R3 · 1m Turf · Claiming | 10 | 14.5 | Mid (1m); 🔥 PEAKING | Ship to TAM; Large field (10) |
 
 ### 🔥 Crowds Ransom — ELO 1190.4 | Win 0.6% | Top3 1.9% | EV 11.3
-*0W/1S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/1S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 29.3 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 29.3 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 29.3 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 32.3 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 26.3 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 24.3 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Ideal Sinissippi — ELO 1216.0 | Win 1.1% | Top3 3.2% | EV 10.4
-*0W/6S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/6S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.4 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.4 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.4 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.4 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.4 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.4 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Migoli Moonbeam — ELO 1216.0 | Win 1.1% | Top3 3.2% | EV 10.4
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.4 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.4 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.4 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.4 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.4 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.4 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Helios Hustle — ELO 1203.2 | Win 0.8% | Top3 2.5% | EV 10.1
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.1 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.1 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.1 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.1 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.1 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.1 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Caros Compass — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.0 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.0 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.0 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Desert Oath — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.0 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.0 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.0 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Dubai Iron — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.0 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.0 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.0 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Harsh Frontier — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
-*7W/30S · TUP · Stam 110% · Factors: Stamina 110% (excellent); Condition 99% (peak); Consistency +5 (high)*
+*7W/30S · TUP · Stam 110%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | RACE TYPE · 13:15 · TAM | 0 | #6 | 13.0 | 🔥 PEAKING | Ship to 13:15 |
-| 2 | 2/25/2026 · PRX · Claiming | 0 | #7 | 13.0 | 🔥 PEAKING | Ship to PRX |
-| 3 | 2/25/2026 · PRX · Claiming Price $25.00 | 0 | #8 | 13.0 | 🔥 PEAKING | Ship to PRX |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · PRX R1 · 1 1/16m Turf · Claiming | 9 | 16.0 | Mid (1 1/16m); 🔥 PEAKING | Ship to PRX |
+| 2 | 2/25/2026 · TAM R2 · 5f Turf · Claiming | 10 | 15.0 | Sprint (5f); 🔥 PEAKING | Ship to TAM; Large field (10) |
+| 3 | 2/25/2026 · TAM R3 · 1m Turf · Claiming | 10 | 13.0 | Mid (1m); 🔥 PEAKING | Ship to TAM; Large field (10) |
 
 ### 🔥 Looks Like Nicholas — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.0 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.0 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.0 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Neon Reflection — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.0 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.0 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.0 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Port Royal Dash — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.0 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.0 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.0 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Triple Love — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 28.0 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 31.0 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 25.0 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 23.0 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Urshalim Craftwork — ELO 1196.8 | Win 0.7% | Top3 2.2% | EV 9.9
-*0W/1S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/1S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 27.9 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 27.9 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 27.9 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 30.9 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 24.9 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 22.9 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Damascus Honey — ELO 1184.0 | Win 0.6% | Top3 1.7% | EV 9.8
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 30.8 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 24.8 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 22.8 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Film The Scene — ELO 1184.0 | Win 0.6% | Top3 1.7% | EV 9.8
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 30.8 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 24.8 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 22.8 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Jurors Verdict — ELO 1184.0 | Win 0.6% | Top3 1.7% | EV 9.8
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 30.8 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 24.8 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 22.8 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### 🔥 Stormy Sky — ELO 1184.0 | Win 0.6% | Top3 1.7% | EV 9.8
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +5 (high)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 27.8 | Maiden eligible; 🔥 PEAKING; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 30.8 | Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 24.8 | Mid (1 1/16m); Maiden eligible; 🔥 PEAKING | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 22.8 | Sprint (5f); Maiden eligible; 🔥 PEAKING | Ship to TAM |
 
 ### ✅ Kingston Quickstep — ELO 1209.6 | Win 0.9% | Top3 2.8% | EV 8.7
-*0W/1S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency +3 (moderate)*
+*0W/1S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 21.7 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 21.7 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 21.7 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 24.7 | Sprint (6 1/2f); Maiden eligible; ✅ READY | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 18.7 | Mid (1 1/16m); Maiden eligible; ✅ READY | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 16.7 | Sprint (5f); Maiden eligible; ✅ READY | Ship to TAM |
 
 ### ✅ Core N Light — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 8.5
-*0W/0S · TP · Stam 98% · Factors: Stamina 98% (excellent); Condition 97% (good); Consistency +5 (high)*
+*0W/0S · TP · Stam 98%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 21.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 21.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 21.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 24.5 | Sprint (6 1/2f); Maiden eligible; ✅ READY | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 18.5 | Mid (1 1/16m); Maiden eligible; ✅ READY | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 16.5 | Sprint (5f); Maiden eligible; ✅ READY | Ship to TAM |
 
 ### ✅ Hardline Anvil — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 8.5
-*0W/0S · CT · Stam 100% · Factors: Stamina 100% (excellent); Condition 97% (good); Consistency +5 (high)*
+*0W/0S · CT · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 21.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 21.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 21.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 24.5 | Sprint (6 1/2f); Maiden eligible; ✅ READY | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 18.5 | Mid (1 1/16m); Maiden eligible; ✅ READY | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 16.5 | Sprint (5f); Maiden eligible; ✅ READY | Ship to TAM |
 
 ### ✅ Golden Shuvee — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 7.0
-*0W/0S · MouWV(GP) · Stam 89% · Factors: Stamina 89% (good); Condition 97% (good); Consistency +5 (high)*
+*0W/0S · MouWV(GP) · Stam 89%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 20.0 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 20.0 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 20.0 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 33.0 | Sprint (6 1/2f); Home track (GP); Maiden eligible | — |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 27.0 | Mid (1 1/16m); Home track (GP); Maiden eligible | — |
+| 3 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 23.0 | Mid (1m); Home track (GP); Maiden eligible | — |
 
 ### ✅ Hydration — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 7.0
-*0W/0S · HOU · Stam 91% · Factors: Stamina 91% (good); Condition 97% (good); Consistency +5 (high)*
+*0W/0S · HOU · Stam 91%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 20.0 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 20.0 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 20.0 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 23.0 | Sprint (6 1/2f); Maiden eligible; ✅ READY | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 17.0 | Mid (1 1/16m); Maiden eligible; ✅ READY | Ship to GP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 15.0 | Sprint (5f); Maiden eligible; ✅ READY | Ship to TAM |
 
 ### ✅ Blank Sunset — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 5.5
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency 0 (low)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 18.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 18.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 18.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 16.5 | Maiden eligible; ✅ READY; Small field (5) | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 15.5 | Mid (1 1/16m); Maiden eligible; ✅ READY | Ship to GP |
+| 3 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 11.5 | Mid (1m); Maiden eligible; ✅ READY | Ship to GP |
 
 ### ✅ Gen Xpress — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 5.5
-*0W/0S · MouWV · Stam 100% · Factors: Stamina 100% (excellent); Condition 100% (peak); Consistency 0 (low)*
+*0W/0S · MouWV · Stam 100%*
 
-| # | Race | Field | Soft# | Fit | Why | Risks |
-|---|------|-------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM · Maiden Claiming | 0 | #1 | 18.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 2 | 2/25/2026 · TAM · Purse $16.00  For Maiden Three Year | 0 | #2 | 18.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TAM |
-| 3 | 2/25/2026 · TRACK · Maiden | 0 | #3 | 18.5 | Maiden eligible; ✅ READY; Soft field (str=35.0) | Ship to TRACK |
+| # | Race | Field | Fit | Why | Risks |
+|---|------|-------|-----|-----|-------|
+| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 16.5 | Maiden eligible; ✅ READY; Small field (5) | Ship to GP |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 15.5 | Mid (1 1/16m); Maiden eligible; ✅ READY | Ship to GP |
+| 3 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 11.5 | Mid (1m); Maiden eligible; ✅ READY | Ship to GP |
 
 ## 🏋️ Needs Work
 - **Crypto King** — Stam 73%, Stamina 73% (moderate); Condition 97% (good)
@@ -255,4 +255,4 @@
 - **Thats Some Bullship** — Stam 80%, Stamina 80% (moderate); Condition 96% (good)
 
 ---
-*Trainer Brain v1 · ELO + Form Cycle · 2026-02-25*
+*Trainer Brain v2 · ELO + Form Cycle · 2026-02-25*

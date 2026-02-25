@@ -116,15 +116,40 @@ def main() -> None:
     for report_name in ["Race_Opportunities.md", "Approval_Pack.md"]:
         rp = ROOT / "reports" / report_name
         if rp.exists():
-            content = rp.read_text(encoding="utf-8").lower()
+            content = rp.read_text(encoding="utf-8")
+            content_lower = content.lower()
             for gl in garbage_labels:
-                if gl in content:
+                if gl in content_lower:
                     fail(f"{report_name} contains garbage label: '{gl}'")
-            if not any(gl in content for gl in garbage_labels):
+            if not any(gl in content_lower for gl in garbage_labels):
                 print(f"  OK: {report_name} has 0 garbage labels")
+
+            # v2 trust checks: no malformed race IDs
+            if "RACE TYPE" in content and "race_type" not in content:
+                fail(f"{report_name} contains 'RACE TYPE' as data (malformed)")
+            if "· TRACK ·" in content or "Ship to TRACK" in content:
+                fail(f"{report_name} contains 'TRACK' as track code (malformed)")
+            if "Select 13:" in content or "Select 1" in content.split("Steps:")[0] if "Steps:" in content else False:
+                fail(f"{report_name} contains time-as-track in Steps")
+
+            # v2: Field=0 is illegal
+            if "| 0 |" in content and "Field" in content:
+                # Check if it's in a race table (not just any 0)
+                for line in content.split("\n"):
+                    if "| 0 |" in line and ("Maiden" in line or "Claiming" in line or "Allowance" in line):
+                        fail(f"{report_name} has Field=0 in race row")
+                        break
+
         else:
             if report_name == "Approval_Pack.md":
                 fail(f"{report_name} missing")
+
+    # --- Check 7: Predictions log exists ---
+    pred_csv = ROOT / "outputs" / "predictions_log.csv"
+    if pred_csv.exists():
+        print(f"  OK: predictions_log.csv exists ({pred_csv.stat().st_size} bytes)")
+    else:
+        print("  INFO: predictions_log.csv not yet created (run 11_recommend)")
 
     # --- Result ---
     print()

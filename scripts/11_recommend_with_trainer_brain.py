@@ -1,17 +1,21 @@
 """11_recommend_with_trainer_brain.py — Model-driven race recommendations.
 
-Uses Trainer Brain model outputs + Field Scout data to produce:
-  - reports/Race_Opportunities.md (Win%/Top3%/EV + Field Size + Softness)
-  - reports/Approval_Pack.md (checkboxes + direct links)
+Uses Trainer Brain model + structured race calendar (with field sizes) to produce:
+  - reports/Race_Opportunities.md
+  - reports/Approval_Pack.md
   - outputs/approval_queue.json
-  - Updates Stable_Dashboard.md with Form Cycle tags
+  - outputs/predictions_log_YYYY-MM-DD.json (PHASE 1)
+  - outputs/predictions_log.csv (append-only)
+  - Updates Stable_Dashboard.md
 """
 
+import csv
 import json
+import os
 import re
 from datetime import date, datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_DIR = ROOT / "outputs" / "model"
@@ -40,43 +44,21 @@ def parse_distance_furlongs(dist: str) -> float:
     return round(val, 2)
 
 
-# Garbage filter: terms that indicate non-race entries in calendar
-GARBAGE_TERMS = [
-    "handicapping", "stakes calendar", "track condition", "weather",
-    "no headlines", "headlines", "toggle", "stables", "auctions",
-    "breeding", "farms", "credits", "retire", "purchase",
-    "month day year", "jan feb mar", "owner stats",
-]
-
-
 def is_real_race(race: Dict) -> bool:
-    """Filter out non-race entries from calendar."""
-    conditions = race.get("conditions", "").lower()
-    raw = race.get("raw_text", "").lower()
-    combined = conditions + " " + raw
-
-    # Must have a date
+    """With the new block parser, races are already validated.
+    Just double-check for obvious issues."""
     if not race.get("date"):
         return False
-
-    # Check for garbage terms
-    for term in GARBAGE_TERMS:
-        if term in combined:
-            return False
-
-    # Must have meaningful class/conditions text
-    class_keywords = ["clm", "oclm", "mdn", "mdspwt", "alw", "stk", "hcp",
-                      "claiming", "maiden", "allowance", "stakes", "handicap",
-                      "n1x", "n2x", "n3x", "statebred", "fillies",
-                      "year-old", "opt"]
-    if not any(kw in combined for kw in class_keywords):
+    if not race.get("track"):
         return False
-
+    # Track must not be "TRACK" or "RACE TYPE"
+    if race["track"] in ("TRACK", "RACE TYPE", "RACE"):
+        return False
     return True
 
 
-def score_race_fit(horse_model: Dict, race: Dict, field_data: Dict = None) -> Dict:
-    """Score how well a race fits a horse using model data + field scout."""
+def score_race_fit(horse_model: Dict, race: Dict) -> Dict:
+    """Score how well a race fits a horse."""
     score = horse_model["ev_score"]
     reasons = []
     risks = []
@@ -109,8 +91,10 @@ def score_race_fit(horse_model: Dict, race: Dict, field_data: Dict = None) -> Di
             risks.append(f"Ship to {race_track}")
 
     # Class check
+    race_type = race.get("race_type", "").lower()
     conditions = race.get("conditions", "").lower()
-    if "maiden" in conditions or "mdn" in conditions:
+    is_maiden = "maiden" in race_type or "maiden" in conditions
+    if is_maiden:
         record = horse_model.get("record", {})
         if int(record.get("wins", 0)) > 0:
             score -= 30
@@ -133,20 +117,18 @@ def score_race_fit(horse_model: Dict, race: Dict, field_data: Dict = None) -> Di
         score -= 20
         risks.append("🛏️ Rest required")
 
-    # Field softness bonus (from field scout)
-    if field_data:
-        strength = field_data.get("field_strength_score", 50)
-        softness = field_data.get("softness_rank", 0)
-        field_size = field_data.get("field_size", 0)
-        if strength < 40:
-            score += 10
-            reasons.append(f"Soft field (str={strength})")
-        elif strength < 50:
-            score += 5
-            reasons.append(f"Average field (str={strength})")
-        elif strength >= 65:
-            score -= 5
-            risks.append(f"Tough field (str={strength})")
+    # Field size bonus — uses data from calendar directly
+    field_size = race.get("field_size")
+    if field_size is not None:
+        if field_size <= 5:
+            score += 8
+            reasons.append(f"Small field ({field_size})")
+        elif field_size <= 7:
+            score += 4
+            reasons.append(f"Medium field ({field_size})")
+        elif field_size >= 10:
+            score -= 3
+            risks.append(f"Large field ({field_size})")
 
     return {
         "score": round(score, 1),
@@ -170,31 +152,15 @@ def main() -> None:
     # Load race calendar
     cal_path = OUTPUTS / f"race_calendar_{today}.json"
     if not cal_path.exists():
-        # Find most recent
         cals = sorted(OUTPUTS.glob("race_calendar_*.json"), reverse=True)
         if cals:
             cal_path = cals[0]
     races_all = json.loads(cal_path.read_text(encoding="utf-8")).get("races", []) if cal_path.exists() else []
 
-    # HARD FILTER: only real races
     races = [r for r in races_all if is_real_race(r)]
-    filtered_count = len(races_all) - len(races)
-    print(f"Races: {len(races_all)} total, {filtered_count} filtered, {len(races)} valid")
+    print(f"Races: {len(races_all)} total, {len(races)} valid")
 
-    # Load field scout data
-    scout_path = OUTPUTS / f"field_scout_{today}.json"
-    if not scout_path.exists():
-        scouts = sorted(OUTPUTS.glob("field_scout_*.json"), reverse=True)
-        if scouts:
-            scout_path = scouts[0]
-    field_data_by_id = {}
-    if scout_path.exists():
-        scout = json.loads(scout_path.read_text(encoding="utf-8"))
-        for sr in scout.get("races", []):
-            field_data_by_id[sr.get("race_id", "")] = sr
-        print(f"Field scout loaded: {len(field_data_by_id)} races scouted")
-
-    # Load entries
+    # Load entries from tracker nominations
     entries_path = OUTPUTS / f"upcoming_entries_{today}.json"
     if not entries_path.exists():
         ents = sorted(OUTPUTS.glob("upcoming_entries_*.json"), reverse=True)
@@ -229,23 +195,17 @@ def main() -> None:
 
         already_entered = h_norm in entered_norms
 
-        # Score against all races with field scout data
         race_scores = []
         for race in races:
-            race_id = race.get("race_id", "")
-            fd = field_data_by_id.get(race_id)
-            fit = score_race_fit(model, race, fd)
+            fit = score_race_fit(model, race)
             if fit["score"] > 0:
                 entry = {
                     "race": race,
                     "score": fit["score"],
                     "reasons": fit["reasons"],
                     "risks": fit["risks"],
+                    "field_size": race.get("field_size"),
                 }
-                if fd:
-                    entry["field_size"] = fd.get("field_size", 0)
-                    entry["field_strength"] = fd.get("field_strength_score", 50)
-                    entry["softness_rank"] = fd.get("softness_rank", 0)
                 race_scores.append(entry)
         race_scores.sort(key=lambda x: x["score"], reverse=True)
         top3 = race_scores[:3]
@@ -271,9 +231,9 @@ def main() -> None:
     # ── Generate Race_Opportunities.md ──────────────────
 
     lines = [
-        "# 🏁 Race Opportunities — Trainer Brain v1",
+        "# 🏁 Race Opportunities — Trainer Brain v2",
         f"> **Generated:** {today} | **Model:** ELO + Form Cycle | "
-        f"**Races:** {len(races)} valid ({filtered_count} filtered)",
+        f"**Races:** {len(races)} valid",
         "",
     ]
 
@@ -284,8 +244,8 @@ def main() -> None:
         lines.append("| Horse | ELO | Win% | Top3% | EV | Form |")
         lines.append("|-------|-----|------|-------|-----|------|")
         for r in sorted(entered, key=lambda x: -x["ev_score"]):
-            cycle_icon = {"PEAKING": "🔥", "READY": "✅", "NEEDS_WORK": "🏋️", "REST_REQUIRED": "🛏️"}.get(r["form_cycle"], "?")
-            lines.append(f"| {r['horse']} | {r['elo']} | {r['win_pct']}% | {r['top3_pct']}% | {r['ev_score']} | {cycle_icon} |")
+            ci = {"PEAKING": "🔥", "READY": "✅", "NEEDS_WORK": "🏋️", "REST_REQUIRED": "🛏️"}.get(r["form_cycle"], "?")
+            lines.append(f"| {r['horse']} | {r['elo']} | {r['win_pct']}% | {r['top3_pct']}% | {r['ev_score']} | {ci} |")
         lines.append("")
 
     # PEAKING + READY with race targets
@@ -296,30 +256,19 @@ def main() -> None:
         for r in sorted(active, key=lambda x: -x["ev_score"]):
             rec = r.get("record", {})
             rec_str = f"{rec.get('wins', 0)}W/{rec.get('starts', 0)}S" if rec.get("starts") else "Unraced"
-            cycle_icon = "🔥" if r["form_cycle"] == "PEAKING" else "✅"
-            lines.append(f"### {cycle_icon} {r['horse']} — ELO {r['elo']} | Win {r['win_pct']}% | Top3 {r['top3_pct']}% | EV {r['ev_score']}")
-            lines.append(f"*{rec_str} · {r['track']} · Stam {r['stamina']}% · Factors: {'; '.join(r['form_factors'][:3])}*")
+            ci = "🔥" if r["form_cycle"] == "PEAKING" else "✅"
+            lines.append(f"### {ci} {r['horse']} — ELO {r['elo']} | Win {r['win_pct']}% | Top3 {r['top3_pct']}% | EV {r['ev_score']}")
+            lines.append(f"*{rec_str} · {r['track']} · Stam {r['stamina']}%*")
             lines.append("")
-            lines.append("| # | Race | Field | Soft# | Fit | Why | Risks |")
-            lines.append("|---|------|-------|-------|-----|-----|-------|")
+            lines.append("| # | Race | Field | Fit | Why | Risks |")
+            lines.append("|---|------|-------|-----|-----|-------|")
             for i, tr in enumerate(r["top_races"], 1):
                 race = tr["race"]
-                parts = []
-                if race.get("date"):
-                    parts.append(race["date"])
-                if race.get("track"):
-                    parts.append(race["track"])
-                if race.get("distance"):
-                    parts.append(race["distance"])
-                conds = race.get("conditions", "")[:35]
-                if conds:
-                    parts.append(conds)
-                desc = " · ".join(parts)
-                fld = str(tr.get("field_size", "?"))
-                soft = f"#{tr.get('softness_rank', '?')}" if tr.get("softness_rank") else "?"
-                fit = "; ".join(tr["reasons"][:3])
-                risk = "; ".join(tr["risks"][:2]) if tr["risks"] else "—"
-                lines.append(f"| {i} | {desc} | {fld} | {soft} | {tr['score']} | {fit} | {risk} |")
+                desc = f"{race.get('date','?')} · {race.get('track','?')} R{race.get('race_num','?')} · {race.get('distance','')} {race.get('surface','')} · {race.get('race_type','')}"
+                fld = str(tr.get("field_size")) if tr.get("field_size") is not None else "?"
+                fit_txt = "; ".join(tr["reasons"][:3])
+                risk_txt = "; ".join(tr["risks"][:2]) if tr["risks"] else "—"
+                lines.append(f"| {i} | {desc} | {fld} | {tr['score']} | {fit_txt} | {risk_txt} |")
             lines.append("")
 
     # Ready but no races
@@ -350,7 +299,7 @@ def main() -> None:
         lines.append("")
 
     lines.append("---")
-    lines.append(f"*Trainer Brain v1 · ELO + Form Cycle · {today}*")
+    lines.append(f"*Trainer Brain v2 · ELO + Form Cycle · {today}*")
     opp = "\n".join(lines) + "\n"
     (REPORTS / "Race_Opportunities.md").write_text(opp, encoding="utf-8")
     print(f"Race_Opportunities.md: {len(opp)} chars")
@@ -392,10 +341,14 @@ def main() -> None:
             race = tr["race"]
             queue.append({
                 "horse": r["horse"], "action": "enter_race",
+                "race_id": race.get("race_id", ""),
                 "race_date": race.get("date", ""),
                 "race_track": race.get("track", ""),
+                "race_num": race.get("race_num", ""),
                 "race_distance": race.get("distance", ""),
-                "race_conditions": race.get("conditions", "")[:60],
+                "race_conditions": race.get("race_type", ""),
+                "race_purse": race.get("purse", ""),
+                "field_size": race.get("field_size"),
                 "fit_score": tr["score"],
                 "win_pct": r["win_pct"],
                 "top3_pct": r["top3_pct"],
@@ -412,47 +365,18 @@ def main() -> None:
     needs_approval = sum(1 for q in queue if q.get("approval_required"))
     print(f"approval_queue.json: {len(queue)} items ({needs_approval} need approval)")
 
-    # ── Update Dashboard with Form Cycle ─────────────────
-
-    dash_path = REPORTS / "Stable_Dashboard.md"
-    if dash_path.exists():
-        dash = dash_path.read_text(encoding="utf-8")
-        # Add Form Cycle section if not present
-        if "Form Cycle" not in dash:
-            form_lines = [
-                "",
-                "## 📊 Form Cycle Overview",
-                "| Horse | Form | ELO | Win% | Top3% | EV | Action |",
-                "|-------|------|-----|------|-------|----|--------|",
-            ]
-            for r in sorted(recommendations, key=lambda x: -x["ev_score"]):
-                cycle_icon = {"PEAKING": "🔥", "READY": "✅", "NEEDS_WORK": "🏋️", "REST_REQUIRED": "🛏️"}.get(r["form_cycle"], "?")
-                form_lines.append(
-                    f"| {r['horse']} | {cycle_icon} {r['form_cycle']} | {r['elo']} | "
-                    f"{r['win_pct']}% | {r['top3_pct']}% | {r['ev_score']} | {r['next_action']} |")
-            form_lines.append("")
-            form_block = "\n".join(form_lines)
-            # Insert before the footer
-            if "---\n*Auto-generated" in dash:
-                dash = dash.replace("---\n*Auto-generated", form_block + "\n---\n*Auto-generated")
-            else:
-                dash += form_block
-            dash_path.write_text(dash, encoding="utf-8")
-            print("Dashboard updated with Form Cycle")
-
-    # ── Generate Approval Pack ────────────────────────────
+    # ── Approval Pack ──────────────────────────────────
 
     pack_lines = [
         "# 📋 Approval Pack",
-        f"> **Generated:** {today} | **Model:** ELO + Form Cycle + Field Scout",
+        f"> **Generated:** {today} | **Model:** ELO + Form Cycle v2",
         "",
         "## Instructions",
-        "Review each recommendation below. Check the box to approve, leave unchecked to skip.",
+        "Review each recommendation. Check box to approve, leave unchecked to skip.",
         "Only approved items should be manually entered on HRP.",
         "",
     ]
 
-    # Entered horses first
     entered_q = [q for q in queue if q.get("action") == "review_entry"]
     if entered_q:
         pack_lines.append("## ✅ Already Nominated (Review)")
@@ -461,25 +385,26 @@ def main() -> None:
             pack_lines.append(f"  - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse={q['horse'].replace(' ', '+')})")
         pack_lines.append("")
 
-    # Race entries
     entry_q = [q for q in queue if q.get("action") == "enter_race"]
     if entry_q:
         pack_lines.append("## 🎯 Recommended Entries (Approval Required)")
         for q in sorted(entry_q, key=lambda x: -(x.get("ev_score", 0))):
-            cond = q.get('race_conditions', '')
-            track = q.get('race_track', '?')
-            race_date = q.get('race_date', '?')
-            dist = q.get('race_distance', '?')
-            pack_lines.append(f"- [ ] **{q['horse']}** → {race_date} {track} {dist} {cond}")
+            track = q.get("race_track", "?")
+            race_date = q.get("race_date", "?")
+            race_num = q.get("race_num", "?")
+            dist = q.get("race_distance", "?")
+            cond = q.get("race_conditions", "")
+            fld = q.get("field_size")
+            fld_str = f" (Field: {fld})" if fld else ""
+            pack_lines.append(f"- [ ] **{q['horse']}** → {race_date} {track} R#{race_num} {dist} {cond}{fld_str}")
             pack_lines.append(f"  - EV {q.get('ev_score',0)} | Win {q.get('win_pct',0)}% | Top3 {q.get('top3_pct',0)}% | Form: {q['form_cycle']}")
             pack_lines.append(f"  - Fit: {'; '.join(q.get('reasons', [])[:3])}")
-            if q.get('risks'):
+            if q.get("risks"):
                 pack_lines.append(f"  - Risks: {'; '.join(q['risks'][:2])}")
-            pack_lines.append(f"  - **Steps:** Go to [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select {track} → Find {cond[:30]} → Enter {q['horse']}")
+            pack_lines.append(f"  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **{track}** → Race #{race_num} → Enter **{q['horse']}**")
             pack_lines.append(f"  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse={q['horse'].replace(' ', '+')})")
         pack_lines.append("")
 
-    # Work / Rest
     work_q = [q for q in queue if q.get("action") in ("timed_work", "rest")]
     if work_q:
         pack_lines.append("## 🏋️ Training / Rest (No Approval Needed)")
@@ -490,7 +415,7 @@ def main() -> None:
 
     pack_lines.extend([
         "---",
-        f"*Approval Pack generated by Trainer Brain v1 — {today}*",
+        f"*Approval Pack generated by Trainer Brain v2 — {today}*",
         "*SAFETY: No in-game actions taken. All entries require manual execution.*",
     ])
 
@@ -498,7 +423,59 @@ def main() -> None:
     (REPORTS / "Approval_Pack.md").write_text(pack, encoding="utf-8")
     print(f"Approval_Pack.md: {len(pack)} chars")
 
-    # Summary
+    # ── PHASE 1: Predictions Log ──────────────────────
+
+    predictions = []
+    for r in recommendations:
+        if not r["top_races"]:
+            continue
+        for tr in r["top_races"]:
+            race = tr["race"]
+            predictions.append({
+                "generated_at": datetime.now().isoformat(),
+                "horse_name": r["horse"],
+                "race_id": race.get("race_id", ""),
+                "track": race.get("track", ""),
+                "date": race.get("date", ""),
+                "race_num": race.get("race_num", ""),
+                "distance": race.get("distance", ""),
+                "surface": race.get("surface", ""),
+                "race_type": race.get("race_type", ""),
+                "conditions": race.get("conditions", "")[:100],
+                "form_tag": r["form_cycle"],
+                "predicted_win_prob": r["win_pct"],
+                "predicted_top3_prob": r["top3_pct"],
+                "ev_score": r["ev_score"],
+                "fit_score": tr["score"],
+                "field_size": race.get("field_size"),
+                "purse": race.get("purse", ""),
+                "approved": "",
+            })
+
+    # Save daily JSON
+    pred_json_path = OUTPUTS / f"predictions_log_{today}.json"
+    pred_json_path.write_text(json.dumps(predictions, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"predictions_log_{today}.json: {len(predictions)} predictions")
+
+    # Append to CSV (create if not exists)
+    csv_path = OUTPUTS / "predictions_log.csv"
+    csv_exists = csv_path.exists()
+    fieldnames = [
+        "generated_at", "horse_name", "race_id", "track", "date", "race_num",
+        "distance", "surface", "race_type", "conditions", "form_tag",
+        "predicted_win_prob", "predicted_top3_prob", "ev_score", "fit_score",
+        "field_size", "purse", "approved",
+    ]
+    with open(csv_path, "a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        if not csv_exists:
+            writer.writeheader()
+        for p in predictions:
+            writer.writerow(p)
+    print(f"predictions_log.csv: appended {len(predictions)} rows")
+
+    # ── Summary ────────────────────────────────────────
+
     counts = {}
     for r in recommendations:
         counts[r["form_cycle"]] = counts.get(r["form_cycle"], 0) + 1

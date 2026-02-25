@@ -3,7 +3,13 @@
 Input:  inputs/export/raw/_global/race_calendar.html
 Output: outputs/race_calendar_YYYY-MM-DD.json
 
-HARD FILTERS: Explicitly excludes navigation labels and non-race text.
+HRP race calendar uses repeating blocks:
+  RACE DATE / TIME / DEADLINE / TRACK / RACE ## / DISTANCE / SURFACE / RACE TYPE
+  [value for each header]
+  [conditions lines...]
+  Owners: N / Field Size: N
+
+This parser extracts each block into a structured race record.
 """
 
 import json
@@ -19,250 +25,159 @@ ROOT = Path(__file__).resolve().parents[1]
 GLOBAL_DIR = ROOT / "inputs" / "export" / "raw" / "_global"
 OUTPUTS = ROOT / "outputs"
 
-# ── Garbage filter ──────────────────────────────────────────
-# These terms, if found in a candidate line, disqualify it as a race
-GARBAGE_EXACT = {
-    "handicapping", "handicapping - wager pad", "stakes calendar",
-    "track calendar", "wager pad", "track condition", "weather",
-    "no headlines", "toggle", "stables", "auctions", "breeding",
-    "farms", "credits", "retire", "purchase", "bulk move",
-    "bulk train", "owner stats", "private sales", "purchase horse",
-    "purchase srf", "retire horse", "sitemap", "privacy",
-    "my stable", "month day year", "budgeted views",
+# Block headers that signal a new race
+BLOCK_HEADERS = ["RACE DATE", "TIME", "DEADLINE", "TRACK", "RACE ##", "DISTANCE", "SURFACE", "RACE TYPE"]
+
+# Known HRP track codes
+TRACK_CODES = {
+    "ALB", "AP", "AQU", "ARP", "ASD", "ATL", "BEL", "BEU", "BM", "BOI",
+    "BTP", "CBY", "CD", "CLS", "CNL", "CRC", "CT", "DED", "DEL", "DMR",
+    "ELP", "EMD", "EVD", "FE", "FER", "FG", "FL", "FMT", "FNO", "FON",
+    "FP", "FPX", "GG", "GP", "GRP", "HAW", "HOL", "HOO", "HOU", "HPO",
+    "HST", "IND", "KD", "KEE", "LA", "LAD", "LNN", "LRL", "LS", "MAN",
+    "MD", "MED", "MNR", "MTH", "NP", "OP", "PEN", "PID", "PIM", "PLN",
+    "PM", "PRM", "PRX", "RD", "RET", "RIL", "RP", "RUI", "SA", "SAC",
+    "SAR", "SR", "SRP", "STK", "SUD", "SUF", "SUN", "TAM", "TDN", "TP",
+    "TUP", "WO", "YAV", "ZIA",
 }
 
-GARBAGE_SUBSTRINGS = [
-    "handicapping", "wager pad", "stakes calendar", "track calendar",
-    "headlines", "toggle", "privacy", "sitemap", "budgeted",
-    "bulk move", "bulk train", "owner stats", "purchase horse",
-    "purchase srf", "retire horse", "private sales",
-]
 
-# Valid race class keywords (must appear for a line to be a race)
-RACE_CLASS_KEYWORDS = [
-    "clm", "oclm", "mdn", "mdspwt", "alw", "stk", "hcp", "wcl",
-    "opt", "maiden", "claiming", "allowance", "stakes", "handicap",
-    "statebred", "fillies", "colts", "geldings",
-    "n1x", "n2x", "n3x", "n1l", "n2l", "n3l",
-    "year-old", "three-year", "four-year", "two-year",
-]
-
-
-def is_garbage(text: str) -> bool:
-    """Check if text is a navigation/menu item, not a race."""
-    t = text.strip().lower()
-    if t in GARBAGE_EXACT:
-        return True
-    for sub in GARBAGE_SUBSTRINGS:
-        if sub in t:
-            return True
-    return False
-
-
-def has_race_class(text: str) -> bool:
-    """Check if text contains valid race classification keywords."""
-    t = text.lower()
-    return any(kw in t for kw in RACE_CLASS_KEYWORDS)
-
-
-def make_race_id(date_str: str, track: str, conditions: str) -> str:
-    """Generate synthetic race ID from components."""
-    raw = f"{date_str}_{track}_{conditions}".lower()
+def make_race_id(date_str: str, track: str, race_num: str, post_time: str) -> str:
+    """Stable race ID from date + track + race number + time."""
+    raw = f"{date_str}_{track}_{race_num}_{post_time}".lower().strip()
     return md5(raw.encode()).hexdigest()[:12]
 
 
-def parse_distance_furlongs(dist: str) -> Optional[float]:
-    """Convert '5f', '6 1/2f', '1m' to furlongs."""
-    dist = dist.strip().lower()
-    m = re.match(r"(\d+)\s*(\d+/\d+)?\s*([fm])", dist)
-    if not m:
-        return None
-    whole = int(m.group(1))
-    frac = 0.0
-    if m.group(2):
-        num, den = m.group(2).split("/")
-        frac = int(num) / int(den)
-    val = whole + frac
-    if m.group(3) == "m":
-        val *= 8
-    return round(val, 2)
-
-
-# ── Table-based Parser ──────────────────────────────────────
-
-def parse_from_tables(soup: BeautifulSoup) -> List[Dict[str, Any]]:
-    """Extract races from HTML tables."""
-    races = []
-    for table in soup.find_all("table"):
-        rows = table.find_all("tr")
-        if len(rows) < 2:
-            continue
-
-        header_cells = rows[0].find_all(["th", "td"])
-        headers = [c.get_text(" ", strip=True).upper() for c in header_cells]
-
-        race_keywords = {"RACE", "TRACK", "DISTANCE", "TIME", "CLASS", "#", "SURF", "SURFACE", "CONDITIONS"}
-        if not any(k in " ".join(headers) for k in race_keywords):
-            continue
-
-        for row in rows[1:]:
-            cells = row.find_all(["td", "th"])
-            if len(cells) < 3:
-                continue
-            cell_texts = [c.get_text(" ", strip=True) for c in cells]
-            raw_text = " | ".join(cell_texts)
-
-            if is_garbage(raw_text):
-                continue
-
-            race: Dict[str, Any] = {"raw_text": raw_text}
-            for i, hdr in enumerate(headers):
-                if i >= len(cell_texts):
-                    break
-                val = cell_texts[i].strip()
-                if not val:
-                    continue
-                if "DATE" in hdr:
-                    race["date"] = val
-                elif "TIME" in hdr:
-                    race["post_time"] = val
-                elif "TRACK" in hdr:
-                    race["track"] = val
-                elif "DIST" in hdr:
-                    race["distance"] = val
-                    race["distance_f"] = parse_distance_furlongs(val)
-                elif "SURF" in hdr:
-                    race["surface"] = val
-                elif "CLASS" in hdr or "COND" in hdr:
-                    race.setdefault("conditions", val)
-                elif hdr.strip() in ("#", "##", "RACE#", "RACE"):
-                    if val.isdigit():
-                        race["race_num"] = val
-                    else:
-                        race.setdefault("conditions", val)
-                elif "PURSE" in hdr or "FEE" in hdr:
-                    race["purse"] = val
-
-            # Validate: must have track or conditions that look like a real race
-            if race.get("track") and (race.get("distance") or race.get("conditions")):
-                if not is_garbage(race.get("conditions", "")):
-                    race["race_id"] = make_race_id(
-                        race.get("date", ""), race.get("track", ""), race.get("conditions", ""))
-                    races.append(race)
-
-    return races
-
-
-# ── Text-based Parser (fallback) ─────────────────────────────
-
-def parse_from_text(soup: BeautifulSoup) -> List[Dict[str, Any]]:
-    """Extract races from page text using pattern matching."""
-    text = soup.get_text("\n", strip=True)
-    lines = [l.strip() for l in text.split("\n") if l.strip()]
-
-    races = []
-    current_date = ""
-    current_track = ""
-
-    for line in lines:
-        if not line or len(line) < 3:
-            continue
-
-        # Skip garbage
-        if is_garbage(line):
-            continue
-
-        # Date pattern
-        date_m = re.match(r"^(\d{1,2}/\d{1,2}/\d{2,4})$", line)
-        if date_m:
-            current_date = date_m.group(1)
-            continue
-
-        # Track pattern (3-4 uppercase letters alone)
-        track_m = re.match(r"^([A-Z]{2,5})$", line)
-        if track_m and len(line) <= 5:
-            current_track = track_m.group(1)
-            continue
-
-        # Must contain race class keywords and NOT be garbage
-        if has_race_class(line) and len(line) > 5:
-            race: Dict[str, Any] = {
-                "conditions": line,
-                "raw_text": line,
-            }
-
-            if current_date:
-                race["date"] = current_date
-            if current_track:
-                race["track"] = current_track
-
-            # Extract distance
-            dist_m = re.search(r"(\d+\s*\d*/?\d*\s*[fm])\b", line)
-            if dist_m:
-                race["distance"] = dist_m.group(1).strip()
-                race["distance_f"] = parse_distance_furlongs(dist_m.group(1))
-
-            # Extract surface
-            if "Turf" in line:
-                race["surface"] = "Turf"
-            elif "Dirt" in line:
-                race["surface"] = "Dirt"
-
-            # Extract purse
-            purse_m = re.search(r"\$[\d,.]+", line)
-            if purse_m:
-                race["purse"] = purse_m.group(0)
-
-            # Extract post time
-            time_m = re.search(r"(\d{1,2}:\d{2})\s*(AM|PM)?", line, re.I)
-            if time_m:
-                race["post_time"] = time_m.group(0)
-
-            # Generate race ID
-            race["race_id"] = make_race_id(
-                race.get("date", ""), race.get("track", ""), race.get("conditions", ""))
-
-            races.append(race)
-
-    return races
-
-
-# ── Main ─────────────────────────────────────────────────
-
 def parse_race_calendar() -> List[Dict[str, Any]]:
-    """Parse race calendar with garbage filtering and dedup."""
+    """Parse race calendar by extracting repeating header→value blocks."""
     cal_path = GLOBAL_DIR / "race_calendar.html"
     if not cal_path.exists():
         print(f"  WARN: {cal_path} not found")
         return []
 
     soup = BeautifulSoup(cal_path.read_text(encoding="utf-8", errors="replace"), "html.parser")
+    text = soup.get_text("\n", strip=True)
+    lines = [l.strip() for l in text.split("\n") if l.strip()]
 
-    # Run BOTH parsers and merge (tables may find some, text finds others)
-    table_races = parse_from_tables(soup)
-    text_races = parse_from_text(soup)
-    all_races = table_races + text_races
+    races: List[Dict[str, Any]] = []
+    i = 0
+    n = len(lines)
 
-    # Final dedup by raw_text
-    seen = set()
-    unique = []
-    for r in all_races:
-        key = r.get("raw_text", "")
-        if key and key not in seen:
-            seen.add(key)
-            unique.append(r)
+    while i < n:
+        # Look for the start of a race block: "RACE DATE" header
+        if lines[i] == "RACE DATE":
+            # Read the 8 headers and their values
+            # Headers: RACE DATE, TIME, DEADLINE, TRACK, RACE ##, DISTANCE, SURFACE, RACE TYPE
+            # The headers appear first (L505-L512), then values follow (L513-L520+)
+            # But they repeat as a group for each race block
 
-    # Final garbage sweep
-    clean = []
-    for r in unique:
-        cond = r.get("conditions", "").lower()
-        raw = r.get("raw_text", "").lower()
-        combined = cond + " " + raw
-        if is_garbage(combined):
-            continue
-        clean.append(r)
+            # Verify we have enough lines for headers
+            if i + 7 >= n:
+                break
 
-    return clean
+            # Check that lines i..i+7 are the expected headers
+            expected = ["RACE DATE", "TIME", "DEADLINE", "TRACK", "RACE ##", "DISTANCE", "SURFACE", "RACE TYPE"]
+            headers_match = True
+            for k, exp in enumerate(expected):
+                if i + k >= n or lines[i + k] != exp:
+                    headers_match = False
+                    break
+
+            if not headers_match:
+                i += 1
+                continue
+
+            # Values follow immediately after the 8 headers
+            val_start = i + 8
+            if val_start + 7 >= n:
+                break
+
+            race_date = lines[val_start] if val_start < n else ""
+            post_time = lines[val_start + 1] if val_start + 1 < n else ""
+            deadline = lines[val_start + 2] if val_start + 2 < n else ""
+            track = lines[val_start + 3] if val_start + 3 < n else ""
+            race_num_raw = lines[val_start + 4] if val_start + 4 < n else ""
+            distance = lines[val_start + 5] if val_start + 5 < n else ""
+            surface = lines[val_start + 6] if val_start + 6 < n else ""
+            race_type = lines[val_start + 7] if val_start + 7 < n else ""
+
+            # Validate track code
+            if track.upper() not in TRACK_CODES:
+                i += 1
+                continue
+
+            # Validate date
+            if not re.match(r"\d{1,2}/\d{1,2}/\d{2,4}", race_date):
+                i += 1
+                continue
+
+            # Extract race number
+            race_num_m = re.search(r"#(\d+)", race_num_raw)
+            race_num = race_num_m.group(1) if race_num_m else ""
+
+            # Collect conditions text (everything after RACE TYPE value until next "Owners:" or "RACE DATE")
+            conditions_lines = []
+            j = val_start + 8
+            field_size = None
+            owners_count = None
+
+            while j < n:
+                line = lines[j]
+                if line == "RACE DATE":
+                    break  # Next race block
+                if line.startswith("Owners:"):
+                    j += 1
+                    if j < n and lines[j].isdigit():
+                        owners_count = int(lines[j])
+                    j += 1
+                    continue
+                if line.startswith("Field Size:"):
+                    j += 1
+                    if j < n and lines[j].isdigit():
+                        field_size = int(lines[j])
+                    j += 1
+                    continue
+                # Skip if it's a block header (next race)
+                if line in BLOCK_HEADERS:
+                    break
+                conditions_lines.append(line)
+                j += 1
+
+            conditions = " ".join(conditions_lines).strip()
+
+            # Build race record
+            race_id = make_race_id(race_date, track.upper(), race_num, post_time)
+            race: Dict[str, Any] = {
+                "race_id": race_id,
+                "date": race_date,
+                "post_time": post_time,
+                "deadline": deadline,
+                "track": track.upper(),
+                "race_num": race_num,
+                "distance": distance,
+                "surface": surface,
+                "race_type": race_type,
+                "conditions": conditions,
+                "field_size": field_size,
+                "owners": owners_count,
+            }
+
+            # Add purse if visible
+            purse_m = re.search(r"Purse \$([0-9,.]+)", conditions)
+            if purse_m:
+                race["purse"] = purse_m.group(1)
+
+            # Add claiming price if visible
+            claim_m = re.search(r"Claiming Price \$([0-9,.]+)", conditions)
+            if claim_m:
+                race["claiming_price"] = claim_m.group(1)
+
+            races.append(race)
+            i = j  # Skip to where we left off
+        else:
+            i += 1
+
+    return races
 
 
 def main() -> None:
@@ -280,20 +195,41 @@ def main() -> None:
     out_path = OUTPUTS / f"race_calendar_{today}.json"
     out_path.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Race calendar: {out_path}")
-    print(f"  Races parsed: {len(races)}")
+    print(f"  Total: {len(races)} valid races")
 
-    # Verify no garbage
+    # Validation checks
+    errors = 0
+    field_zeros = 0
     for r in races:
-        cond = r.get("conditions", "")
-        if any(g in cond.lower() for g in ["handicapping", "stakes calendar", "wager pad"]):
-            print(f"  ERROR: Garbage leaked: {cond}")
+        track = r.get("track", "")
+        dt = r.get("date", "")
+        if track in ("TRACK", "RACE TYPE") or dt in ("RACE TYPE", "TRACK"):
+            print(f"  ERROR: Malformed race: track={track} date={dt}")
+            errors += 1
+        if r.get("field_size") == 0:
+            field_zeros += 1
 
+    if errors:
+        print(f"  {errors} MALFORMED ERRORS!")
+    else:
+        print("  CLEAN: No malformed entries ✓")
+
+    if field_zeros:
+        print(f"  WARN: {field_zeros} races with field_size=0")
+
+    # Stats
+    tracks = set(r["track"] for r in races)
+    field_sizes = [r["field_size"] for r in races if r.get("field_size")]
+    print(f"\n  Tracks: {sorted(tracks)}")
+    if field_sizes:
+        print(f"  Field sizes: min={min(field_sizes)} max={max(field_sizes)} avg={sum(field_sizes)/len(field_sizes):.1f}")
+
+    # Sample
     if races:
         print(f"\n  Sample races:")
         for r in races[:5]:
-            parts = [r.get("date", "?"), r.get("track", "?"),
-                     r.get("distance", "?"), r.get("conditions", "?")[:40]]
-            print(f"    {' | '.join(parts)}")
+            print(f"    {r['date']:12s} {r['post_time']:6s} {r['track']:5s} R#{r['race_num']:2s} "
+                  f"{r['distance']:8s} {r['surface']:5s} {r['race_type']:20s} F={r.get('field_size','?')}")
 
 
 if __name__ == "__main__":
