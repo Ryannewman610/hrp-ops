@@ -19,27 +19,27 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 37.7 | Allowance fit (7W); Sprint (6 1/2f); 🔥 PEAKING | Ship to GP |
-| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 31.7 | Allowance fit (7W); Mid (1 1/16m); 🔥 PEAKING | Ship to GP |
-| 3 | 2/25/2026 · TAM R4 · 5f Turf · Allowance | ? | 29.7 | Allowance fit (7W); Sprint (5f); 🔥 PEAKING | Ship to TAM |
+| 1 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 57.7 | ⚡ Speed 95; 🌿 Turf specialist; Allowance fit (7W) | Ship to GP |
+| 2 | 2/25/2026 · TAM R4 · 5f Turf · Allowance | ? | 53.7 | ⚡ Speed 95; 🌿 Turf specialist; Allowance fit (7W) | Ship to TAM |
+| 3 | 2/25/2026 · GP R2 · 6 1/2f Dirt · Allowance | 5 | 51.7 | ⚡ Speed 95; Allowance fit (7W); Versatile (6 1/2f) | Ship to GP |
 
 ### 🔥 Ideal Sinissippi — ELO 1216.0 | Win 5.2% | Top3 15.6% | EV 18.5
 *0W/6S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 31.5 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 29.5 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 29.5 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 37.5 | ⚡ Speed 90; 🏜️ Dirt preferred; Maiden eligible | Sprinter going long (1m); Ship to BTP |
+| 2 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 36.5 | ⚡ Speed 90; MCL; Maiden eligible | ⚠️ Weak on turf (50%); Ship to TAM |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 24.5 | ⚡ Speed 90; Maiden eligible; 🔥 PEAKING | ⚠️ Weak on turf (50%); Sprinter going long (1m) |
 
 ### 🔥 Iron Timekeeper — ELO 1216.0 | Win 5.2% | Top3 15.6% | EV 18.5
 *0W/1S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.5 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.5 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.5 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 28.5 | Speed 84; 🏜️ Dirt preferred; Maiden eligible | Sprinter going long (1m); Ship to BTP |
+| 2 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 27.5 | Speed 84; MCL; Maiden eligible | ⚠️ Weak on turf (50%); Ship to TAM |
+| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 15.5 | Speed 84; Maiden eligible; 🔥 PEAKING | ⚠️ Weak on turf (50%); Sprinter going long (1m) |
 
 ### 🔥 Migoli Moonbeam — ELO 1216.0 | Win 5.2% | Top3 15.6% | EV 18.5
 *0W/0S · MouWV · Stam 100%*
@@ -55,9 +55,9 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 26.4 | First allowance try; Mid (1 1/16m); 🔥 PEAKING | Ship to GP; 📉 Works declining |
-| 2 | 2/25/2026 · PRX R1 · 1 1/16m Turf · Claiming | 9 | 21.4 | Mid (1 1/16m); 🔥 PEAKING | Ship to PRX; 📉 Works declining |
-| 3 | 2/25/2026 · TAM R2 · 5f Turf · Claiming | 10 | 20.4 | Sprint (5f); 🔥 PEAKING | Ship to TAM; Large field (10) |
+| 1 | 2/25/2026 · TAM R2 · 5f Turf · Claiming | 10 | 30.4 | ⚡ Speed 95; 🏃 Sprint fit (5f); 🔥 PEAKING | ⚠️ Weak on turf (50%); Ship to TAM |
+| 2 | 2/25/2026 · GP R3 · 1 1/16m Turf · Allowance/Claiming | 7 | 26.4 | ⚡ Speed 95; First allowance try; 🔥 PEAKING | ⚠️ Weak on turf (50%); Sprinter going long (1 1/16m) |
+| 3 | 2/25/2026 · PRX R1 · 1 1/16m Turf · Claiming | 9 | 21.4 | ⚡ Speed 95; 🔥 PEAKING | ⚠️ Weak on turf (50%); Sprinter going long (1 1/16m) |
 
 ### 🔥 Desert Oath — ELO 1208.0 | Win 5.1% | Top3 15.3% | EV 18.4
 *0W/0S · MouWV · Stam 100%*
@@ -140,15 +140,6 @@
 | 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 21.2 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
 | 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 21.2 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
 
-### 🔥 Urshalim Craftwork — ELO 1196.8 | Win 4.9% | Top3 14.7% | EV 18.2
-*0W/1S · MouWV · Stam 100%*
-
-| # | Race | Field | Fit | Why | Risks |
-|---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 26.2 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 24.2 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to GP |
-| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 24.2 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-
 ### ✅ Core N Light — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 18.1
 *0W/0S · TP · Stam 98%*
 
@@ -163,9 +154,7 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 28.1 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 26.1 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
-| 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 26.1 | Maiden eligible; Mid (1m); 🔥 PEAKING | Ship to BTP |
+| 1 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 6.1 | 🏜️ Dirt preferred; Maiden eligible; 🏇 Route fit (1m) | Slow 50; Ship to BTP |
 
 ### 🔥 Damascus Honey — ELO 1184.0 | Win 4.7% | Top3 14.1% | EV 18.0
 *0W/0S · MouWV · Stam 100%*
@@ -226,9 +215,9 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 19.4 | MCL; Maiden eligible; Sprint (5f) | Ship to TAM |
-| 2 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 17.4 | Maiden eligible; Mid (1m); ✅ READY | Ship to GP |
-| 3 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 17.4 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
+| 1 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 9.4 | 🏜️ Dirt preferred; Maiden eligible; ✅ READY | Sprinter going long (1m); Ship to GP |
+| 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 9.4 | 🏜️ Dirt preferred; Maiden eligible; ✅ READY | Sprinter going long (1m); Ship to BTP |
+| 3 | 2/25/2026 · TAM R1 · 5f Turf · Maiden Claiming | 9 | 8.4 | MCL; Maiden eligible; 🏃 Sprint fit (5f) | ⚠️ Weak on turf (50%); Ship to TAM |
 
 ### ✅ Blank Sunset — ELO 1200.0 | Win 5.0% | Top3 15.0% | EV 13.3
 *0W/0S · MouWV · Stam 100%*
@@ -247,6 +236,11 @@
 | 1 | 2/25/2026 · GP R1 · 1m Dirt · Maiden | 8 | 16.3 | Maiden eligible; Mid (1m); ✅ READY | Ship to GP |
 | 2 | 2/25/2026 · BTP R1 · 1m Dirt · Maiden | 9 | 16.3 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
 | 3 | 2/25/2026 · BTP R2 · 1m Turf · Maiden | 9 | 16.3 | Maiden eligible; Mid (1m); ✅ READY | Ship to BTP |
+
+## ❓ Ready — No Matching Races
+| Horse | ELO | Win% | EV | Form |
+|-------|-----|------|-----|------|
+| Urshalim Craftwork | 1196.8 | 4.9% | 18.2 | PEAKING |
 
 ## 🏋️ Needs Work
 - **Crypto King** — Stam 73%, Stamina 73% (moderate); Condition 97% (good)

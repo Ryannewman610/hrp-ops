@@ -16,23 +16,23 @@ Only approved items should be manually entered on HRP.
   - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Trieste+Ruler)
 
 ## 🎯 Recommended Entries (Approval Required)
-- [ ] **Harsh Frontier** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+- [ ] **Harsh Frontier** → 2/25/2026 GP R#3 1 1/16m Allowance/Claiming (Field: 7)
   - EV 18.7 | Win 4.9% | Top3 14.7% | Form: PEAKING
-  - Fit: Allowance fit (7W); Sprint (6 1/2f); 🔥 PEAKING
+  - Fit: ⚡ Speed 95; 🌿 Turf specialist; Allowance fit (7W)
   - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Harsh Frontier**
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #3 → Enter **Harsh Frontier**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Harsh+Frontier)
-- [ ] **Ideal Sinissippi** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
+- [ ] **Ideal Sinissippi** → 2/25/2026 BTP R#1 1m Maiden (Field: 9)
   - EV 18.5 | Win 5.2% | Top3 15.6% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
-  - Risks: Ship to TAM
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Ideal Sinissippi**
+  - Fit: ⚡ Speed 90; 🏜️ Dirt preferred; Maiden eligible
+  - Risks: Sprinter going long (1m); Ship to BTP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Ideal Sinissippi**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Ideal+Sinissippi)
-- [ ] **Iron Timekeeper** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
+- [ ] **Iron Timekeeper** → 2/25/2026 BTP R#1 1m Maiden (Field: 9)
   - EV 18.5 | Win 5.2% | Top3 15.6% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
-  - Risks: Ship to TAM
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Iron Timekeeper**
+  - Fit: Speed 84; 🏜️ Dirt preferred; Maiden eligible
+  - Risks: Sprinter going long (1m); Ship to BTP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Iron Timekeeper**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Iron+Timekeeper)
 - [ ] **Migoli Moonbeam** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.5 | Win 5.2% | Top3 15.6% | Form: PEAKING
@@ -40,11 +40,11 @@ Only approved items should be manually entered on HRP.
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Migoli Moonbeam**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Migoli+Moonbeam)
-- [ ] **Cayuga Lake** → 2/25/2026 GP R#3 1 1/16m Allowance/Claiming (Field: 7)
+- [ ] **Cayuga Lake** → 2/25/2026 TAM R#2 5f Claiming (Field: 10)
   - EV 18.4 | Win 5.0% | Top3 15.0% | Form: PEAKING
-  - Fit: First allowance try; Mid (1 1/16m); 🔥 PEAKING
-  - Risks: Ship to GP; 📉 Works declining
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #3 → Enter **Cayuga Lake**
+  - Fit: ⚡ Speed 95; 🏃 Sprint fit (5f); 🔥 PEAKING
+  - Risks: ⚠️ Weak on turf (50%); Ship to TAM
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #2 → Enter **Cayuga Lake**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)
 - [ ] **Desert Oath** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.4 | Win 5.1% | Top3 15.3% | Form: PEAKING
@@ -100,23 +100,17 @@ Only approved items should be manually entered on HRP.
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Hardline Anvil**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hardline+Anvil)
-- [ ] **Urshalim Craftwork** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
-  - EV 18.2 | Win 4.9% | Top3 14.7% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
-  - Risks: Ship to TAM
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Urshalim Craftwork**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Urshalim+Craftwork)
 - [ ] **Core N Light** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.1 | Win 5.0% | Top3 15.0% | Form: READY
   - Fit: MCL; Maiden eligible; Sprint (5f)
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Core N Light**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Core+N+Light)
-- [ ] **Crowds Ransom** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
+- [ ] **Crowds Ransom** → 2/25/2026 BTP R#1 1m Maiden (Field: 9)
   - EV 18.1 | Win 4.8% | Top3 14.4% | Form: PEAKING
-  - Fit: MCL; Maiden eligible; Sprint (5f)
-  - Risks: Ship to TAM
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Crowds Ransom**
+  - Fit: 🏜️ Dirt preferred; Maiden eligible; 🏇 Route fit (1m)
+  - Risks: Slow 50; Ship to BTP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Crowds Ransom**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Crowds+Ransom)
 - [ ] **Damascus Honey** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
   - EV 18.0 | Win 4.7% | Top3 14.1% | Form: PEAKING
@@ -154,11 +148,11 @@ Only approved items should be manually entered on HRP.
   - Risks: Ship to TAM
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Golden Shuvee**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Golden+Shuvee)
-- [ ] **Kingston Quickstep** → 2/25/2026 TAM R#1 5f Maiden Claiming (Field: 9)
+- [ ] **Kingston Quickstep** → 2/25/2026 GP R#1 1m Maiden (Field: 8)
   - EV 16.4 | Win 5.1% | Top3 15.3% | Form: READY
-  - Fit: MCL; Maiden eligible; Sprint (5f)
-  - Risks: Ship to TAM
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Kingston Quickstep**
+  - Fit: 🏜️ Dirt preferred; Maiden eligible; ✅ READY
+  - Risks: Sprinter going long (1m); Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #1 → Enter **Kingston Quickstep**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
 - [ ] **Blank Sunset** → 2/25/2026 GP R#1 1m Maiden (Field: 8)
   - EV 13.3 | Win 5.0% | Top3 15.0% | Form: READY

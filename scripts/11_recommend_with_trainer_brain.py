@@ -57,7 +57,9 @@ def is_real_race(race: Dict) -> bool:
     return True
 
 
-def score_race_fit(horse_model: Dict, race: Dict, works_feat: Dict = None) -> Dict:
+def score_race_fit(horse_model: Dict, race: Dict,
+                   works_feat: Dict = None,
+                   abilities: Dict = None) -> Dict:
     """Score how well a race fits a horse, with hard eligibility checks.
 
     HRP Rules enforced:
@@ -66,11 +68,14 @@ def score_race_fit(horse_model: Dict, race: Dict, works_feat: Dict = None) -> Di
       3. Condition and stamina must both be >= 75 to race
       4. Timed work within 90 days required (checked separately)
       5. Age/sex restrictions on some races
+    Uses horse abilities (speed ratings, surface/distance preferences) for
+    differentiated scoring when available.
     """
     score = horse_model["ev_score"]
     reasons = []
     risks = []
     wf = works_feat or {}
+    ab = abilities or {}
 
     # ═══════════════════════════════════════════════
     # HARD ELIGIBILITY CHECKS (instant disqualification)
@@ -178,6 +183,59 @@ def score_race_fit(horse_model: Dict, race: Dict, works_feat: Dict = None) -> Di
     # SOFT SCORING (for eligible horses only)
     # ═══════════════════════════════════════════════
 
+    # === ABILITY-BASED SCORING ===
+    ab_speed = ab.get("best_speed", 0)
+    ab_surf = ab.get("preferred_surface", "Dirt")
+    ab_dist = ab.get("preferred_distance", "Unknown")
+    ab_turf_pct = ab.get("turf_ability", 50)
+    ab_wet_pct = ab.get("wet_ability", 50)
+
+    # Speed-based score adjustment (replaces flat ELO for experienced horses)
+    if ab_speed > 0:
+        # Speed ratings range 56-95; center at 80, scale to -12..+15
+        speed_adj = (ab_speed - 80) * 1.0
+        score += speed_adj
+        if ab_speed >= 90:
+            reasons.append(f"⚡ Speed {ab_speed}")
+        elif ab_speed >= 80:
+            reasons.append(f"Speed {ab_speed}")
+        elif ab_speed < 70:
+            risks.append(f"Slow {ab_speed}")
+
+    # Surface match
+    race_surface = race.get("surface", "").lower()
+    is_turf_race = "turf" in race_surface or "fm" in race_surface
+    is_dirt_race = not is_turf_race
+
+    if ab_speed > 0:  # Only apply if horse has actual data
+        if is_turf_race:
+            if ab_surf == "Turf" or ab_turf_pct >= 95:
+                score += 10
+                reasons.append("🌿 Turf specialist")
+            elif ab_surf == "Both" or ab_turf_pct >= 80:
+                score += 4
+                reasons.append("Turf OK")
+            elif ab_turf_pct < 70:
+                score -= 8
+                risks.append(f"⚠️ Weak on turf ({ab_turf_pct}%)")
+        else:  # Dirt race
+            if ab_surf == "Dirt":
+                score += 5
+                reasons.append("🏜️ Dirt preferred")
+            elif ab_surf == "Turf":
+                score -= 5
+                risks.append("Turf horse on dirt")
+
+    # Wet track check (race conditions)
+    track_cond = race.get("track_condition", "").lower()
+    if any(w in track_cond for w in ("mud", "slop", "wet", "yield", "soft")):
+        if ab_wet_pct >= 85:
+            score += 5
+            reasons.append(f"💧 Handles wet ({ab_wet_pct}%)")
+        elif ab_wet_pct < 70 and ab_speed > 0:
+            score -= 8
+            risks.append(f"⚠️ Weak in wet ({ab_wet_pct}%)")
+
     # Class appropriateness
     if is_maiden_race:
         if "special weight" in race_class:
@@ -203,21 +261,43 @@ def score_race_fit(horse_model: Dict, race: Dict, works_feat: Dict = None) -> Di
             score -= 5
             risks.append("Stakes too ambitious")
 
-    # Distance fit
+    # Distance fit (enhanced with ability data)
     dist_text = race.get("distance", "")
     if dist_text:
         dist_f = parse_distance_furlongs(dist_text)
         if dist_f > 0:
-            consist = horse_model.get("consistency", 0)
-            if dist_f <= 6.5:
-                if consist >= 3:
-                    score += 5
-                    reasons.append(f"Sprint ({dist_text})")
-            elif dist_f <= 8.5:
-                reasons.append(f"Mid ({dist_text})")
-                score += 3
+            is_sprint = dist_f <= 7
+            is_route = dist_f > 7
+
+            # Ability-based distance matching
+            if ab_speed > 0 and ab_dist != "Unknown":
+                if is_sprint and ab_dist == "Sprint":
+                    score += 8
+                    reasons.append(f"🏃 Sprint fit ({dist_text})")
+                elif is_route and ab_dist == "Route":
+                    score += 8
+                    reasons.append(f"🏇 Route fit ({dist_text})")
+                elif ab_dist == "Both":
+                    score += 4
+                    reasons.append(f"Versatile ({dist_text})")
+                elif is_sprint and ab_dist == "Route":
+                    score -= 4
+                    risks.append(f"Router in sprint ({dist_text})")
+                elif is_route and ab_dist == "Sprint":
+                    score -= 4
+                    risks.append(f"Sprinter going long ({dist_text})")
             else:
-                reasons.append(f"Route ({dist_text})")
+                # Fallback for unraced horses
+                consist = horse_model.get("consistency", 0)
+                if dist_f <= 6.5:
+                    if consist >= 3:
+                        score += 5
+                        reasons.append(f"Sprint ({dist_text})")
+                elif dist_f <= 8.5:
+                    reasons.append(f"Mid ({dist_text})")
+                    score += 3
+                else:
+                    reasons.append(f"Route ({dist_text})")
 
     # Track match
     horse_track = horse_model.get("track", "")
@@ -357,6 +437,12 @@ def main() -> None:
     wf_by_norm = {norm(f["horse_name"]): f for f in works_features}
     print(f"Works features loaded: {len(works_features)} horses")
 
+    # Load horse abilities
+    ab_path = OUTPUTS / "horse_abilities.json"
+    abilities_all = json.loads(ab_path.read_text(encoding="utf-8")) if ab_path.exists() else []
+    ab_by_norm = {norm(a["horse_name"]): a for a in abilities_all}
+    print(f"Abilities loaded: {len(abilities_all)} horses")
+
     # Score each horse against each valid race
     recommendations: List[Dict] = []
     eligible_count = 0
@@ -372,12 +458,13 @@ def main() -> None:
         model["record"] = snap_h.get("record", {})
         model["_snap"] = snap_h  # Pass full snapshot for eligibility checks
         wf = wf_by_norm.get(h_norm, {})
+        ab = ab_by_norm.get(h_norm, {})
 
         already_entered = h_norm in entered_norms
 
         race_scores = []
         for race in races:
-            fit = score_race_fit(model, race, wf)
+            fit = score_race_fit(model, race, wf, ab)
             # Hard filter: skip ineligible races entirely
             if not fit.get("eligible", True):
                 ineligible_count += 1
