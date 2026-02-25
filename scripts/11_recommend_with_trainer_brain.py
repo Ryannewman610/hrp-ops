@@ -58,11 +58,144 @@ def is_real_race(race: Dict) -> bool:
 
 
 def score_race_fit(horse_model: Dict, race: Dict, works_feat: Dict = None) -> Dict:
-    """Score how well a race fits a horse, integrating works intelligence."""
+    """Score how well a race fits a horse, with hard eligibility checks.
+
+    HRP Rules enforced:
+      1. Maidens (0 wins) can ONLY enter maiden races (MSW / MCL)
+      2. Winners (1+ wins) are INELIGIBLE for maiden races
+      3. Condition and stamina must both be >= 75 to race
+      4. Timed work within 90 days required (checked separately)
+      5. Age/sex restrictions on some races
+    """
     score = horse_model["ev_score"]
     reasons = []
     risks = []
     wf = works_feat or {}
+
+    # ═══════════════════════════════════════════════
+    # HARD ELIGIBILITY CHECKS (instant disqualification)
+    # ═══════════════════════════════════════════════
+    race_type = race.get("race_type", "").lower()
+    conditions = race.get("conditions", "").lower()
+    race_class = race_type + " " + conditions
+
+    is_maiden_race = "maiden" in race_type or "maiden" in conditions
+    is_allowance = "allowance" in race_type
+    is_claiming = "claiming" in race_type and not is_maiden_race
+    is_stakes = "stakes" in race_type or "handicap" in race_type
+
+    record = horse_model.get("record", {})
+    wins = int(record.get("wins", 0))
+    is_maiden_horse = wins == 0
+
+    # CHECK 1: Maiden horse in non-maiden race → INELIGIBLE
+    if is_maiden_horse and not is_maiden_race:
+        return {
+            "score": -999,
+            "reasons": [],
+            "risks": ["🚫 INELIGIBLE: maiden cannot enter non-maiden race"],
+            "confidence": "N/A",
+            "eligible": False,
+        }
+
+    # CHECK 2: Winner in maiden race → INELIGIBLE
+    if not is_maiden_horse and is_maiden_race:
+        return {
+            "score": -999,
+            "reasons": [],
+            "risks": ["🚫 INELIGIBLE: winner cannot enter maiden race"],
+            "confidence": "N/A",
+            "eligible": False,
+        }
+
+    # CHECK 3: Condition/Stamina gates (HRP: both must be >=75)
+    snap_data = horse_model.get("_snap", {})
+    cond_raw = snap_data.get("condition", horse_model.get("condition", "100%"))
+    stam_raw = snap_data.get("stamina", horse_model.get("stamina", "100%"))
+    try:
+        cond_val = float(str(cond_raw).replace("%", ""))
+    except ValueError:
+        cond_val = 100.0
+    try:
+        stam_val = float(str(stam_raw).replace("%", ""))
+    except ValueError:
+        stam_val = 100.0
+
+    if stam_val < 75:
+        return {
+            "score": -999,
+            "reasons": [],
+            "risks": [f"🚫 INELIGIBLE: stamina {stam_val:.0f}% < 75% threshold"],
+            "confidence": "N/A",
+            "eligible": False,
+        }
+    if cond_val < 75:
+        return {
+            "score": -999,
+            "reasons": [],
+            "risks": [f"🚫 INELIGIBLE: condition {cond_val:.0f}% < 75% threshold"],
+            "confidence": "N/A",
+            "eligible": False,
+        }
+
+    # CHECK 4: Age restrictions
+    horse_age = snap_data.get("age", "")
+    race_age = race.get("age_restriction", "").lower() if race.get("age_restriction") else ""
+    # Parse age number from "3 Year Olds" or "3+"
+    if horse_age and race_age:
+        try:
+            h_age = int(re.sub(r"[^0-9]", "", str(horse_age))[:1])
+        except (ValueError, IndexError):
+            h_age = 0
+        if "3 year" in race_class and h_age > 3:
+            return {
+                "score": -999,
+                "reasons": [],
+                "risks": [f"🚫 INELIGIBLE: age {h_age} in 3YO-only race"],
+                "confidence": "N/A",
+                "eligible": False,
+            }
+
+    # CHECK 5: Sex restrictions
+    horse_sex = snap_data.get("sex", "").lower()
+    if "fillies" in race_class or "f&m" in race_class or "filly" in race_class:
+        if horse_sex and horse_sex not in ("f", "filly", "mare"):
+            return {
+                "score": -999,
+                "reasons": [],
+                "risks": ["🚫 INELIGIBLE: fillies/mares only race"],
+                "confidence": "N/A",
+                "eligible": False,
+            }
+
+    # ═══════════════════════════════════════════════
+    # SOFT SCORING (for eligible horses only)
+    # ═══════════════════════════════════════════════
+
+    # Class appropriateness
+    if is_maiden_race:
+        if "special weight" in race_class:
+            score += 3
+            reasons.append("MSW (no claim risk)")
+        elif "claiming" in race_class:
+            reasons.append("MCL")
+        reasons.append("Maiden eligible")
+
+    if is_allowance:
+        if wins >= 2:
+            score += 3
+            reasons.append(f"Allowance fit ({wins}W)")
+        elif wins == 1:
+            reasons.append("First allowance try")
+            score += 1
+
+    if is_stakes:
+        if wins >= 3:
+            score += 5
+            reasons.append(f"Stakes caliber ({wins}W)")
+        elif wins < 2:
+            score -= 5
+            risks.append("Stakes too ambitious")
 
     # Distance fit
     dist_text = race.get("distance", "")
@@ -90,19 +223,6 @@ def score_race_fit(horse_model: Dict, race: Dict, works_feat: Dict = None) -> Di
         else:
             score -= 2
             risks.append(f"Ship to {race_track}")
-
-    # Class check
-    race_type = race.get("race_type", "").lower()
-    conditions = race.get("conditions", "").lower()
-    is_maiden = "maiden" in race_type or "maiden" in conditions
-    if is_maiden:
-        record = horse_model.get("record", {})
-        if int(record.get("wins", 0)) > 0:
-            score -= 30
-            risks.append("Ineligible: winner in maiden")
-        else:
-            score += 5
-            reasons.append("Maiden eligible")
 
     # Form bonus
     cycle = horse_model.get("form_cycle", "")
@@ -172,6 +292,7 @@ def score_race_fit(horse_model: Dict, race: Dict, works_feat: Dict = None) -> Di
         "reasons": reasons,
         "risks": risks,
         "confidence": confidence,
+        "eligible": True,
     }
 
 
@@ -232,6 +353,9 @@ def main() -> None:
 
     # Score each horse against each valid race
     recommendations: List[Dict] = []
+    eligible_count = 0
+    ineligible_count = 0
+
     for name, model in horse_models.items():
         h_norm = norm(name)
         if h_norm in INACTIVE:
@@ -240,6 +364,7 @@ def main() -> None:
         snap_h = snap_by_norm.get(h_norm, {})
         model["track"] = snap_h.get("track", "?")
         model["record"] = snap_h.get("record", {})
+        model["_snap"] = snap_h  # Pass full snapshot for eligibility checks
         wf = wf_by_norm.get(h_norm, {})
 
         already_entered = h_norm in entered_norms
@@ -247,6 +372,11 @@ def main() -> None:
         race_scores = []
         for race in races:
             fit = score_race_fit(model, race, wf)
+            # Hard filter: skip ineligible races entirely
+            if not fit.get("eligible", True):
+                ineligible_count += 1
+                continue
+            eligible_count += 1
             if fit["score"] > 0:
                 entry = {
                     "race": race,
