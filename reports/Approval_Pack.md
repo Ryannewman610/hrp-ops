@@ -43,7 +43,7 @@ Only approved items should be manually entered on HRP.
 - [ ] **Cayuga Lake** → 2/25/2026 PRX R#1 1 1/16m Claiming (Field: 9)
   - EV 18.4 | Win 5.0% | Top3 15.0% | Form: PEAKING
   - Fit: Mid (1 1/16m); 🔥 PEAKING
-  - Risks: Ship to PRX
+  - Risks: Ship to PRX; 📉 Works declining
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **PRX** → Race #1 → Enter **Cayuga Lake**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)
 - [ ] **Desert Oath** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)

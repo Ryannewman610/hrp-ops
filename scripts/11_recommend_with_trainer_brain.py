@@ -57,11 +57,12 @@ def is_real_race(race: Dict) -> bool:
     return True
 
 
-def score_race_fit(horse_model: Dict, race: Dict) -> Dict:
-    """Score how well a race fits a horse."""
+def score_race_fit(horse_model: Dict, race: Dict, works_feat: Dict = None) -> Dict:
+    """Score how well a race fits a horse, integrating works intelligence."""
     score = horse_model["ev_score"]
     reasons = []
     risks = []
+    wf = works_feat or {}
 
     # Distance fit
     dist_text = race.get("distance", "")
@@ -117,7 +118,7 @@ def score_race_fit(horse_model: Dict, race: Dict) -> Dict:
         score -= 20
         risks.append("🛏️ Rest required")
 
-    # Field size bonus — uses data from calendar directly
+    # Field size bonus
     field_size = race.get("field_size")
     if field_size is not None:
         if field_size <= 5:
@@ -130,10 +131,47 @@ def score_race_fit(horse_model: Dict, race: Dict) -> Dict:
             score -= 3
             risks.append(f"Large field ({field_size})")
 
+    # === Works Intelligence Integration ===
+    readiness = wf.get("readiness_index", 50)
+    sharpness = wf.get("sharpness_index", 50)
+    fatigue = wf.get("fatigue_proxy", 30)
+    trend = wf.get("work_trend", "unknown")
+
+    if readiness >= 75:
+        score += 6
+        reasons.append(f"🎯 Ready {readiness}")
+    elif readiness >= 55:
+        score += 2
+    elif readiness < 35:
+        score -= 8
+        risks.append(f"⚠️ Low readiness {readiness}")
+
+    if fatigue >= 60:
+        score -= 5
+        risks.append(f"😓 Fatigue {fatigue}")
+
+    if trend == "improving":
+        score += 3
+        reasons.append("📈 Works improving")
+    elif trend == "declining":
+        score -= 3
+        risks.append("📉 Works declining")
+
+    # Confidence badge
+    data_points = sum(1 for k in ["readiness_index", "sharpness_index", "work_trend"]
+                      if k in wf)
+    if data_points >= 2 and readiness >= 60:
+        confidence = "HIGH"
+    elif data_points >= 1:
+        confidence = "MED"
+    else:
+        confidence = "LOW"
+
     return {
         "score": round(score, 1),
         "reasons": reasons,
         "risks": risks,
+        "confidence": confidence,
     }
 
 
@@ -182,6 +220,16 @@ def main() -> None:
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
     snap_by_norm = {norm(h["name"]): h for h in snap.get("horses", [])}
 
+    # Load works features
+    wf_path = OUTPUTS / f"works_features_{today}.json"
+    if not wf_path.exists():
+        wfs = sorted(OUTPUTS.glob("works_features_*.json"), reverse=True)
+        if wfs:
+            wf_path = wfs[0]
+    works_features = json.loads(wf_path.read_text(encoding="utf-8")) if wf_path.exists() else []
+    wf_by_norm = {norm(f["horse_name"]): f for f in works_features}
+    print(f"Works features loaded: {len(works_features)} horses")
+
     # Score each horse against each valid race
     recommendations: List[Dict] = []
     for name, model in horse_models.items():
@@ -192,12 +240,13 @@ def main() -> None:
         snap_h = snap_by_norm.get(h_norm, {})
         model["track"] = snap_h.get("track", "?")
         model["record"] = snap_h.get("record", {})
+        wf = wf_by_norm.get(h_norm, {})
 
         already_entered = h_norm in entered_norms
 
         race_scores = []
         for race in races:
-            fit = score_race_fit(model, race)
+            fit = score_race_fit(model, race, wf)
             if fit["score"] > 0:
                 entry = {
                     "race": race,
