@@ -6,167 +6,167 @@ Review each recommendation. Check box to approve, leave unchecked to skip.
 Only approved items should be manually entered on HRP.
 
 ## ✅ Already Nominated (Review)
-- [ ] **Class A** — EV 8.5 | Win 0.8% | READY
+- [ ] **Class A** — EV 15.9 | Win 5.2% | READY
   - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Class+A)
-- [ ] **Cornswaggled** — EV 10.4 | Win 1.1% | PEAKING
+- [ ] **Cornswaggled** — EV 18.9 | Win 5.2% | PEAKING
   - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cornswaggled)
-- [ ] **Strike King** — EV 8.2 | Win 0.6% | READY
+- [ ] **Strike King** — EV 15.8 | Win 4.8% | READY
   - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Strike+King)
-- [ ] **Trieste Ruler** — EV 8.5 | Win 0.8% | READY
+- [ ] **Trieste Ruler** — EV 18.7 | Win 5.0% | READY
   - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Trieste+Ruler)
 
 ## 🎯 Recommended Entries (Approval Required)
-- [ ] **Iron Timekeeper** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 11.9 | Win 1.1% | Top3 3.2% | Form: PEAKING
-  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Iron Timekeeper**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Iron+Timekeeper)
-- [ ] **Cayuga Lake** → 2/25/2026 PRX R#1 1 1/16m Claiming (Field: 9)
-  - EV 11.5 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: Mid (1 1/16m); 🔥 PEAKING
-  - Risks: Ship to PRX
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **PRX** → Race #1 → Enter **Cayuga Lake**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)
-- [ ] **Crowds Ransom** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 11.3 | Win 0.6% | Top3 1.9% | Form: PEAKING
-  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Crowds Ransom**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Crowds+Ransom)
-- [ ] **Ideal Sinissippi** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.4 | Win 1.1% | Top3 3.2% | Form: PEAKING
-  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Ideal Sinissippi**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Ideal+Sinissippi)
-- [ ] **Migoli Moonbeam** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.4 | Win 1.1% | Top3 3.2% | Form: PEAKING
-  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Migoli Moonbeam**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Migoli+Moonbeam)
-- [ ] **Helios Hustle** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.1 | Win 0.8% | Top3 2.5% | Form: PEAKING
-  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Helios Hustle**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Helios+Hustle)
-- [ ] **Caros Compass** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Caros Compass**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Caros+Compass)
-- [ ] **Desert Oath** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Desert Oath**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Desert+Oath)
-- [ ] **Dubai Iron** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Dubai Iron**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Dubai+Iron)
 - [ ] **Harsh Frontier** → 2/25/2026 PRX R#1 1 1/16m Claiming (Field: 9)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - EV 18.7 | Win 4.9% | Top3 14.7% | Form: PEAKING
   - Fit: Mid (1 1/16m); 🔥 PEAKING
   - Risks: Ship to PRX
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **PRX** → Race #1 → Enter **Harsh Frontier**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Harsh+Frontier)
+- [ ] **Ideal Sinissippi** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.5 | Win 5.2% | Top3 15.6% | Form: PEAKING
+  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Ideal Sinissippi**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Ideal+Sinissippi)
+- [ ] **Iron Timekeeper** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.5 | Win 5.2% | Top3 15.6% | Form: PEAKING
+  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Iron Timekeeper**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Iron+Timekeeper)
+- [ ] **Migoli Moonbeam** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.5 | Win 5.2% | Top3 15.6% | Form: PEAKING
+  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Migoli Moonbeam**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Migoli+Moonbeam)
+- [ ] **Cayuga Lake** → 2/25/2026 PRX R#1 1 1/16m Claiming (Field: 9)
+  - EV 18.4 | Win 5.0% | Top3 15.0% | Form: PEAKING
+  - Fit: Mid (1 1/16m); 🔥 PEAKING
+  - Risks: Ship to PRX
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **PRX** → Race #1 → Enter **Cayuga Lake**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)
+- [ ] **Desert Oath** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.4 | Win 5.1% | Top3 15.3% | Form: PEAKING
+  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Desert Oath**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Desert+Oath)
+- [ ] **Caros Compass** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
+  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Caros Compass**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Caros+Compass)
+- [ ] **Dubai Iron** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
+  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Dubai Iron**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Dubai+Iron)
+- [ ] **Helios Hustle** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
+  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Helios Hustle**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Helios+Hustle)
 - [ ] **Looks Like Nicholas** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
   - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Looks Like Nicholas**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Looks+Like+Nicholas)
 - [ ] **Neon Reflection** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
   - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Neon Reflection**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Neon+Reflection)
 - [ ] **Port Royal Dash** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
   - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Port Royal Dash**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Port+Royal+Dash)
 - [ ] **Triple Love** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
+  - EV 18.3 | Win 5.0% | Top3 15.0% | Form: PEAKING
   - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Triple Love**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Triple+Love)
+- [ ] **Hardline Anvil** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.2 | Win 5.0% | Top3 15.0% | Form: READY
+  - Fit: Sprint (6 1/2f); Maiden eligible; ✅ READY
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Hardline Anvil**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hardline+Anvil)
 - [ ] **Urshalim Craftwork** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 9.9 | Win 0.7% | Top3 2.2% | Form: PEAKING
+  - EV 18.2 | Win 4.9% | Top3 14.7% | Form: PEAKING
   - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Urshalim Craftwork**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Urshalim+Craftwork)
+- [ ] **Core N Light** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.1 | Win 5.0% | Top3 15.0% | Form: READY
+  - Fit: Sprint (6 1/2f); Maiden eligible; ✅ READY
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Core N Light**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Core+N+Light)
+- [ ] **Crowds Ransom** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 18.1 | Win 4.8% | Top3 14.4% | Form: PEAKING
+  - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Crowds Ransom**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Crowds+Ransom)
 - [ ] **Damascus Honey** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
+  - EV 18.0 | Win 4.7% | Top3 14.1% | Form: PEAKING
   - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Damascus Honey**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Damascus+Honey)
 - [ ] **Film The Scene** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
+  - EV 18.0 | Win 4.7% | Top3 14.1% | Form: PEAKING
   - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Film The Scene**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Film+The+Scene)
 - [ ] **Jurors Verdict** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
+  - EV 18.0 | Win 4.7% | Top3 14.1% | Form: PEAKING
   - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Jurors Verdict**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Jurors+Verdict)
 - [ ] **Stormy Sky** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
+  - EV 18.0 | Win 4.7% | Top3 14.1% | Form: PEAKING
   - Fit: Sprint (6 1/2f); Maiden eligible; 🔥 PEAKING
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Stormy Sky**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Stormy+Sky)
-- [ ] **Kingston Quickstep** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 8.7 | Win 0.9% | Top3 2.8% | Form: READY
-  - Fit: Sprint (6 1/2f); Maiden eligible; ✅ READY
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Kingston Quickstep**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
-- [ ] **Core N Light** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 8.5 | Win 0.8% | Top3 2.3% | Form: READY
-  - Fit: Sprint (6 1/2f); Maiden eligible; ✅ READY
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Core N Light**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Core+N+Light)
-- [ ] **Hardline Anvil** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 8.5 | Win 0.8% | Top3 2.3% | Form: READY
-  - Fit: Sprint (6 1/2f); Maiden eligible; ✅ READY
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Hardline Anvil**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hardline+Anvil)
-- [ ] **Golden Shuvee** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 7.0 | Win 0.8% | Top3 2.3% | Form: READY
-  - Fit: Sprint (6 1/2f); Home track (GP); Maiden eligible
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Golden Shuvee**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Golden+Shuvee)
 - [ ] **Hydration** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 7.0 | Win 0.8% | Top3 2.3% | Form: READY
+  - EV 17.8 | Win 5.0% | Top3 15.0% | Form: READY
   - Fit: Sprint (6 1/2f); Maiden eligible; ✅ READY
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Hydration**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hydration)
+- [ ] **Golden Shuvee** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 17.7 | Win 5.0% | Top3 15.0% | Form: READY
+  - Fit: Sprint (6 1/2f); Home track (GP); Maiden eligible
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Golden Shuvee**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Golden+Shuvee)
+- [ ] **Kingston Quickstep** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
+  - EV 16.4 | Win 5.1% | Top3 15.3% | Form: READY
+  - Fit: Sprint (6 1/2f); Maiden eligible; ✅ READY
+  - Risks: Ship to GP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Kingston Quickstep**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
 - [ ] **Blank Sunset** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 5.5 | Win 0.8% | Top3 2.3% | Form: READY
+  - EV 13.3 | Win 5.0% | Top3 15.0% | Form: READY
   - Fit: Maiden eligible; ✅ READY; Small field (5)
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Blank Sunset**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Blank+Sunset)
 - [ ] **Gen Xpress** → 2/25/2026 GP R#2 6 1/2f Allowance (Field: 5)
-  - EV 5.5 | Win 0.8% | Top3 2.3% | Form: READY
+  - EV 13.3 | Win 5.0% | Top3 15.0% | Form: READY
   - Fit: Maiden eligible; ✅ READY; Small field (5)
   - Risks: Ship to GP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #2 → Enter **Gen Xpress**

@@ -151,6 +151,29 @@ def main() -> None:
     else:
         print("  INFO: predictions_log.csv not yet created (run 11_recommend)")
 
+    # --- Check 8: Training_Plan.md exists ---
+    tp = ROOT / "reports" / "Training_Plan.md"
+    if tp.exists():
+        print(f"  OK: Training_Plan.md exists ({tp.stat().st_size} bytes)")
+    else:
+        print("  INFO: Training_Plan.md not yet created (run 17_peak_planner)")
+
+    # --- Check 9: Planner never races under stamina threshold ---
+    import glob
+    plan_files = sorted(glob.glob(str(ROOT / "outputs" / "peak_plan_*.json")), reverse=True)
+    if plan_files:
+        plan = json.loads(Path(plan_files[0]).read_text(encoding="utf-8"))
+        for p in plan.get("plans", []):
+            stam = p.get("stamina", 100)
+            if stam < 70:
+                for d in p.get("daily_plan", []):
+                    if d.get("action") in ("RACE", "RACE_TARGET"):
+                        fail(f"Planner schedules racing for {p['horse_name']} with stamina {stam}% < 70%")
+                        break
+        print(f"  OK: Planner validates stamina threshold ({len(plan.get('plans', []))} plans checked)")
+    else:
+        print("  INFO: No peak_plan file yet (run 17_peak_planner)")
+
     # --- Result ---
     print()
     if FAIL:
