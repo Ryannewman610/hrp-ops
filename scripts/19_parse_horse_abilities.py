@@ -213,40 +213,61 @@ def parse_meters(horse_dir: Path) -> Dict[str, Any]:
             result["distance_counter"] = int(hdr.group(5))
             break
 
-    # --- Extract works and activity from event log ---
+    # --- Extract works and activity from event log (Audit Holes #2, #3) ---
     # Event log lines follow pattern: date, event_type, track, stats...
+    # Format: lines[i-1]=date, lines[i]="Timed Work"/"Race", lines[i+1]=track
     # Event types: "Maintenance", "Timed Work", "Race", "Train-Hvy", "Train-Std", etc.
     work_count = 0
     race_count = 0
     work_tracks = []
     race_tracks = []
     activity_total = 0  # works + races
-    for line in lines:
-        if line == "Timed Work":
-            work_count += 1
-            activity_total += 1
-        elif line == "Race":
-            race_count += 1
-            activity_total += 1
-    
-    # Get tracks from event log — they appear on the line after event type
+    last_work_by_track: Dict[str, str] = {}  # track -> most recent work date
+    last_work_date = ""  # most recent work date overall
+
     for i, line in enumerate(lines):
-        if line in ("Timed Work", "Race") and i + 1 < len(lines):
-            # Next line should be track code  
-            track_line = lines[i + 1] if i + 1 < len(lines) else ""
-            # Track codes are short (2-5 chars) and alphabetic
-            track_clean = re.sub(r"\s*\(.*\)", "", track_line)  # Remove (1/2) etc
-            if track_clean and len(track_clean) <= 8 and re.match(r"^[A-Za-z]+", track_clean):
-                if line == "Timed Work":
+        if line in ("Timed Work", "Race"):
+            if line == "Timed Work":
+                work_count += 1
+            else:
+                race_count += 1
+            activity_total += 1
+
+            # Extract date from line before event type
+            event_date = ""
+            if i - 1 >= 0:
+                date_m = re.match(r"(\d{2}/\d{2}/\d{4})", lines[i - 1])
+                if date_m:
+                    event_date = date_m.group(1)
+
+            # Extract track from line after event type
+            track_clean = ""
+            if i + 1 < len(lines):
+                track_line = lines[i + 1]
+                track_clean = re.sub(r"\s*\(.*\)", "", track_line)  # Remove (1/2) etc
+                if not (track_clean and len(track_clean) <= 8 and re.match(r"^[A-Za-z]+", track_clean)):
+                    track_clean = ""
+
+            if line == "Timed Work":
+                if track_clean:
                     work_tracks.append(track_clean)
-                else:
+                # Track most recent work date per track (for 90-day check)
+                if event_date and track_clean:
+                    if track_clean not in last_work_by_track or event_date > last_work_by_track[track_clean]:
+                        last_work_by_track[track_clean] = event_date
+                if event_date and (not last_work_date or event_date > last_work_date):
+                    last_work_date = event_date
+            else:
+                if track_clean:
                     race_tracks.append(track_clean)
-    
+
     result["work_count"] = work_count
     result["race_count"] = race_count
     result["activity_total"] = activity_total
     result["work_tracks"] = work_tracks
     result["race_tracks"] = race_tracks
+    result["last_work_by_track"] = last_work_by_track
+    result["last_work_date"] = last_work_date
 
     return result
 

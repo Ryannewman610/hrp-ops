@@ -20,150 +20,108 @@ Only approved items should be manually entered on HRP.
   - [Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Trieste+Ruler)
 
 ## 🎯 Recommended Entries (Approval Required)
-- [ ] **Iron Timekeeper** → 2/26/2026 BTP R#4 5 1/2f Maiden (Field: 6)
+- [ ] **Iron Timekeeper** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 11.9 | Win 1.1% | Top3 3.2% | Form: PEAKING
-  - Fit: Speed 84; 🏜️ Dirt preferred; Maiden eligible
-  - Risks: Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #4 → Enter **Iron Timekeeper**
+  - Fit: AdjSpd 84; Maiden eligible; 📍 Worked at BTP
+  - Risks: ⚠️ Weak on turf (50%); Ship to BTP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Iron Timekeeper**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Iron+Timekeeper)
 - [ ] **Cayuga Lake** → 2/26/2026 GP R#1 5f Claiming (Field: 7)
   - EV 11.5 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: ⚡ Speed 95; 🏃 Sprint fit (5f); 🔥 PEAKING
-  - Risks: ⚠️ Weak on turf (50%); Ship to GP
+  - Fit: ⚡ AdjSpd 95 (raw 95, wt 124); 🏃 Sprint fit (5f); 🔥 PEAKING
+  - Risks: ⚠️ Weak on turf (50%); ⚠️ New track GP (home: TUP)
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #1 → Enter **Cayuga Lake**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)
-- [ ] **Ideal Sinissippi** → 2/26/2026 BTP R#4 5 1/2f Maiden (Field: 6)
+- [ ] **Ideal Sinissippi** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 10.4 | Win 1.1% | Top3 3.2% | Form: PEAKING
-  - Fit: ⚡ Speed 90; 🏜️ Dirt preferred; Maiden eligible
-  - Risks: Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #4 → Enter **Ideal Sinissippi**
+  - Fit: ⚡ AdjSpd 90 (raw 90, wt 122); Maiden eligible; 🏃 Sprint fit (5f)
+  - Risks: ⚠️ Weak on turf (50%); ⚠️ New track BTP (home: MouWV)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Ideal Sinissippi**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Ideal+Sinissippi)
 - [ ] **Migoli Moonbeam** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 10.4 | Win 1.1% | Top3 3.2% | Form: PEAKING
   - Fit: 📋 5 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Migoli Moonbeam**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Migoli+Moonbeam)
 - [ ] **Helios Hustle** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 10.1 | Win 0.8% | Top3 2.5% | Form: PEAKING
   - Fit: 📋 5 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Helios Hustle**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Helios+Hustle)
 - [ ] **Caros Compass** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
   - Fit: 📋 4 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Caros Compass**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Caros+Compass)
-- [ ] **Desert Oath** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
+- [ ] **Desert Oath** → 2/26/2026 FG R#1 5 1/2f Maiden (Field: 9)
   - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: 📋 6 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Desert Oath**
+  - Fit: 📋 6 works (prepared); Maiden eligible; 📍 Worked at FG
+  - Risks: Ship to FG
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **FG** → Race #1 → Enter **Desert Oath**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Desert+Oath)
 - [ ] **Dubai Iron** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
   - Fit: 📋 6 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Dubai Iron**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Dubai+Iron)
-- [ ] **Looks Like Nicholas** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: 📋 3 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Looks Like Nicholas**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Looks+Like+Nicholas)
-- [ ] **Neon Reflection** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
-  - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: 📋 2 works; Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Neon Reflection**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Neon+Reflection)
 - [ ] **Port Royal Dash** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: 📋 8 works (prepared); Maiden eligible; Sprint (5f)
+  - Fit: 📋 8 works (prepared); Maiden eligible; 📍 Worked at BTP
   - Risks: Ship to BTP
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Port Royal Dash**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Port+Royal+Dash)
 - [ ] **Triple Love** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
   - Fit: 📋 7 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Triple Love**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Triple+Love)
-- [ ] **Urshalim Craftwork** → 2/26/2026 BTP R#4 5 1/2f Maiden (Field: 6)
-  - EV 9.9 | Win 0.7% | Top3 2.2% | Form: PEAKING
-  - Fit: 🏜️ Dirt preferred; Maiden eligible; 🏃 Sprint fit (5 1/2f)
-  - Risks: Slow 56; Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #4 → Enter **Urshalim Craftwork**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Urshalim+Craftwork)
 - [ ] **Damascus Honey** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
   - Fit: 📋 6 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Damascus Honey**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Damascus+Honey)
-- [ ] **Film The Scene** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
-  - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
-  - Fit: 📋 5 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Film The Scene**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Film+The+Scene)
 - [ ] **Jurors Verdict** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
   - Fit: 📋 7 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Jurors Verdict**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Jurors+Verdict)
 - [ ] **Stormy Sky** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 9.8 | Win 0.6% | Top3 1.7% | Form: PEAKING
   - Fit: 📋 6 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Stormy Sky**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Stormy+Sky)
-- [ ] **Kingston Quickstep** → 2/26/2026 BTP R#4 5 1/2f Maiden (Field: 6)
+- [ ] **Kingston Quickstep** → 2/26/2026 BTP R#5 1m 70 Maiden Claiming (Field: 7)
   - EV 8.7 | Win 0.9% | Top3 2.8% | Form: READY
-  - Fit: 🏜️ Dirt preferred; Maiden eligible; 🏃 Sprint fit (5 1/2f)
-  - Risks: Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #4 → Enter **Kingston Quickstep**
+  - Fit: 🏜️ Dirt preferred; MCL; Maiden eligible
+  - Risks: Sprinter going long (1m 70); Ship to BTP
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #5 → Enter **Kingston Quickstep**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
 - [ ] **Core N Light** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 8.5 | Win 0.8% | Top3 2.3% | Form: READY
   - Fit: 📋 7 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: TP); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Core N Light**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Core+N+Light)
 - [ ] **Hardline Anvil** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 8.5 | Win 0.8% | Top3 2.3% | Form: READY
   - Fit: 📋 2 works; Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: CT); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Hardline Anvil**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hardline+Anvil)
-- [ ] **Harsh Frontier** → 2/26/2026 GP R#1 5f Claiming (Field: 7)
-  - EV 8.5 | Win 0.8% | Top3 2.3% | Form: READY
-  - Fit: ⚡ Speed 95; 🌿 Turf specialist; Versatile (5f)
-  - Risks: Ship to GP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #1 → Enter **Harsh Frontier**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Harsh+Frontier)
 - [ ] **Hydration** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 8.5 | Win 0.8% | Top3 2.3% | Form: READY
   - Fit: 📋 7 works (prepared); Maiden eligible; Sprint (5f)
-  - Risks: Ship to BTP
+  - Risks: ⚠️ New track BTP (home: HOU); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Hydration**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hydration)
-- [ ] **Blank Sunset** → 2/26/2026 BTP R#5 1m 70 Maiden Claiming (Field: 7)
-  - EV 5.5 | Win 0.8% | Top3 2.3% | Form: READY
-  - Fit: 📋 1 works; MCL; Maiden eligible
-  - Risks: Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #5 → Enter **Blank Sunset**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Blank+Sunset)
-- [ ] **Gen Xpress** → 2/26/2026 BTP R#5 1m 70 Maiden Claiming (Field: 7)
-  - EV 5.5 | Win 0.8% | Top3 2.3% | Form: READY
-  - Fit: 📋 1 works; MCL; Maiden eligible
-  - Risks: Ship to BTP
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #5 → Enter **Gen Xpress**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Gen+Xpress)
 
 ## 🏋️ Training / Rest (No Approval Needed)
 - [x] **Crypto King** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 95% (good)

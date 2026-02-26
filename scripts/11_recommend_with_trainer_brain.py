@@ -44,6 +44,72 @@ def parse_distance_furlongs(dist: str) -> float:
     return round(val, 2)
 
 
+def parse_conditions(conditions: str) -> Dict[str, Any]:
+    """Extract structured eligibility & weight data from race conditions text.
+
+    HRP conditions strings contain real eligibility gates and weight rules
+    that we were previously ignoring (Audit Hole #4).
+
+    Examples parsed:
+      'Have won less than 3 races'          -> max_wins: 2
+      'Have not won either 4 races other..' -> max_non_maiden_wins: 3
+      'Weight 124 lbs'                      -> base_weight: 124
+      'Non-winners of a race since ..2 lbs' -> weight_allowances present
+      'For Four Year Olds And Upward'       -> min_age: 4
+      'For Fillies Three Years Old'         -> sex_restriction: 'f'
+    """
+    result: Dict[str, Any] = {}
+    c = conditions.lower() if conditions else ""
+
+    # --- Wins cap: "Have won less than N races" ---
+    m = re.search(r"have won less than (\d+) races?", c)
+    if m:
+        result["max_wins"] = int(m.group(1)) - 1  # "less than 3" = max 2
+
+    # --- Non-maiden wins cap: "Have not won either N races other than maiden..." ---
+    m = re.search(r"have not won (?:either )?(\d+) races? other than", c)
+    if m:
+        result["max_non_maiden_wins"] = int(m.group(1)) - 1
+
+    # --- Base weight: "Weight 124 lbs" ---
+    m = re.search(r"weight (\d+) lbs", c)
+    if m:
+        result["base_weight"] = int(m.group(1))
+
+    # --- Weight allowances: "Non-winners of a race since DATE N lbs" ---
+    allowances = re.findall(
+        r"non-winners of a race[^.]*?since\s+[\d/]+\s+(\d+)\s*lbs", c
+    )
+    if allowances:
+        result["weight_allowances"] = [int(a) for a in allowances]
+
+    # --- Age: "For ... Three Year Olds" / "Four Year Olds And Upward" ---
+    age_words = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6}
+    m = re.search(r"for[^.]*?(two|three|four|five|six)\s+year", c)
+    if m:
+        result["min_age"] = age_words.get(m.group(1), 3)
+        if "upward" in c:
+            result["max_age"] = 99
+        else:
+            result["max_age"] = result["min_age"]
+
+    # --- Sex restriction ---
+    if "fillies and mares" in c or "f&m" in c:
+        result["sex_restriction"] = "f_and_m"
+    elif "fillies" in c or "filly" in c:
+        result["sex_restriction"] = "f"
+    elif "colts and geldings" in c:
+        result["sex_restriction"] = "c_and_g"
+
+    # --- State-bred bonus ---
+    m = re.search(r"plus up to \$(\d+\.?\d*) for (\w+)-breds", c)
+    if m:
+        result["state_bred_bonus"] = float(m.group(1))
+        result["state_bred_state"] = m.group(2).upper()
+
+    return result
+
+
 def is_real_race(race: Dict) -> bool:
     """With the new block parser, races are already validated.
     Just double-check for obvious issues."""
@@ -179,6 +245,56 @@ def score_race_fit(horse_model: Dict, race: Dict,
                 "eligible": False,
             }
 
+    # CHECK 6: Wins cap from conditions text (Audit Hole #4)
+    cond_parsed = parse_conditions(conditions)
+    max_wins = cond_parsed.get("max_wins")
+    if max_wins is not None and wins > max_wins:
+        return {
+            "score": -999,
+            "reasons": [],
+            "risks": [f"🚫 INELIGIBLE: {wins} wins exceeds cap of {max_wins}"],
+            "confidence": "N/A",
+            "eligible": False,
+        }
+    max_nm_wins = cond_parsed.get("max_non_maiden_wins")
+    if max_nm_wins is not None:
+        # Count non-maiden wins (approximate: total wins for winners)
+        nm_wins = wins  # All wins count for non-maiden cap
+        if nm_wins > max_nm_wins:
+            return {
+                "score": -999,
+                "reasons": [],
+                "risks": [f"🚫 INELIGIBLE: {nm_wins} non-maiden wins exceeds cap of {max_nm_wins}"],
+                "confidence": "N/A",
+                "eligible": False,
+            }
+
+    # CHECK 7: Parsed age from conditions (more precise than race_class text)
+    cond_min_age = cond_parsed.get("min_age")
+    cond_max_age = cond_parsed.get("max_age", 99)
+    if cond_min_age and horse_age:
+        try:
+            h_age_val = int(re.sub(r"[^0-9]", "", str(horse_age)))
+        except (ValueError, IndexError):
+            h_age_val = 0
+        if h_age_val > 0:
+            if h_age_val < cond_min_age:
+                return {
+                    "score": -999,
+                    "reasons": [],
+                    "risks": [f"🚫 INELIGIBLE: age {h_age_val} below minimum {cond_min_age}"],
+                    "confidence": "N/A",
+                    "eligible": False,
+                }
+            if h_age_val > cond_max_age:
+                return {
+                    "score": -999,
+                    "reasons": [],
+                    "risks": [f"🚫 INELIGIBLE: age {h_age_val} above maximum {cond_max_age}"],
+                    "confidence": "N/A",
+                    "eligible": False,
+                }
+
     # ═══════════════════════════════════════════════
     # SOFT SCORING (for eligible horses only)
     # ═══════════════════════════════════════════════
@@ -190,17 +306,21 @@ def score_race_fit(horse_model: Dict, race: Dict,
     ab_turf_pct = ab.get("turf_ability", 50)
     ab_wet_pct = ab.get("wet_ability", 50)
 
-    # Speed-based score adjustment (replaces flat ELO for experienced horses)
+    # Speed-based score adjustment with weight adjustment (Audit Hole #1)
+    # HRP formula: Adjusted Speed = speed + ((126 - weight_carried) × 0.10)
+    base_weight = cond_parsed.get("base_weight", 126)
+    adj_speed = ab_speed + ((126 - base_weight) * 0.10) if ab_speed > 0 else 0
+
     if ab_speed > 0:
-        # Speed ratings range 56-95; center at 80, scale to -12..+15
-        speed_adj = (ab_speed - 80) * 1.0
+        # Use adjusted speed for scoring (accounts for weight)
+        speed_adj = (adj_speed - 80) * 1.0
         score += speed_adj
-        if ab_speed >= 90:
-            reasons.append(f"⚡ Speed {ab_speed}")
-        elif ab_speed >= 80:
-            reasons.append(f"Speed {ab_speed}")
-        elif ab_speed < 70:
-            risks.append(f"Slow {ab_speed}")
+        if adj_speed >= 90:
+            reasons.append(f"⚡ AdjSpd {adj_speed:.0f} (raw {ab_speed}, wt {base_weight})")
+        elif adj_speed >= 80:
+            reasons.append(f"AdjSpd {adj_speed:.0f}")
+        elif adj_speed < 70:
+            risks.append(f"Slow adj {adj_speed:.0f}")
     else:
         # Unraced maiden — use works count for differentiation
         work_count = ab.get("work_count", 0)
@@ -273,6 +393,42 @@ def score_race_fit(horse_model: Dict, race: Dict,
         elif wins < 2:
             score -= 5
             risks.append("Stakes too ambitious")
+
+    # Track familiarity (Audit Hole #3) & 90-day work check (Audit Hole #2)
+    race_track = race.get("track", "")
+    horse_current_track = ab.get("current_track", "")
+    last_work_by_track = ab.get("last_work_by_track", {})
+    work_tracks_set = set(ab.get("work_tracks", []))
+
+    if race_track:
+        if race_track == horse_current_track:
+            score += 5
+            reasons.append(f"🏠 Home track ({race_track})")
+        elif race_track in work_tracks_set:
+            score += 3
+            reasons.append(f"📍 Worked at {race_track}")
+        else:
+            score -= 3
+            risks.append(f"⚠️ New track {race_track} (home: {horse_current_track})")
+
+        # 90-day timed work eligibility warning
+        last_work_at_track = last_work_by_track.get(race_track, "")
+        if last_work_at_track:
+            try:
+                from datetime import datetime as _dt
+                work_date = _dt.strptime(last_work_at_track, "%m/%d/%Y")
+                days_since = (_dt.now() - work_date).days
+                if days_since > 90:
+                    score -= 10
+                    risks.append(f"🚫 Last work at {race_track}: {days_since}d ago (>90d!)")
+                elif days_since > 60:
+                    score -= 3
+                    risks.append(f"⚠️ Last work at {race_track}: {days_since}d ago")
+            except (ValueError, TypeError):
+                pass
+        elif ab.get("work_count", 0) > 0:
+            # Has works but none at this track
+            risks.append(f"⚠️ No works at {race_track} — may need timed work first")
 
     # Distance fit (enhanced with ability data)
     dist_text = race.get("distance", "")
