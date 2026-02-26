@@ -19,8 +19,8 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 25.3 | AdjSpd 84; Maiden eligible; 📍 Worked at BTP | ⚠️ Weak on turf (50%); 📉 Consistency dropping (5, 0 acts/7d) |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 18.3 | AdjSpd 84; Maiden eligible; 🏃 Sprint fit (5 1/2f) | ⚠️ Weak on turf (50%); ⚠️ New track FG (home: MouWV) |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 28.3 | AdjSpd 84; Maiden eligible; 📍 Worked at BTP | ⚠️ Weak on turf (50%); 📉 Consistency dropping (5, 0 acts/7d) |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 21.3 | AdjSpd 84; Maiden eligible; 🏃 Sprint fit (5 1/2f) | ⚠️ Weak on turf (50%); ⚠️ New track FG (home: MouWV) |
 
 ### 🔥 Cayuga Lake — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 11.5
 *1W/7S · TUP · Stam 107%*
@@ -35,110 +35,110 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 28.8 | ⚡ AdjSpd 90 (raw 90, wt 122); Maiden eligible; 🏃 Sprint fit (5f) | ⚠️ Weak on turf (50%); ⚠️ New track BTP (home: MouWV) |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 27.8 | ⚡ AdjSpd 90 (raw 90, wt 122); Maiden eligible; 🏃 Sprint fit (5 1/2f) | ⚠️ Weak on turf (50%); ⚠️ New track FG (home: MouWV) |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 31.8 | ⚡ AdjSpd 90 (raw 90, wt 122); Maiden eligible; 🏃 Sprint fit (5f) | ⚠️ Weak on turf (50%); ⚠️ New track BTP (home: MouWV) |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 30.8 | ⚡ AdjSpd 90 (raw 90, wt 122); Maiden eligible; 🏃 Sprint fit (5 1/2f) | ⚠️ Weak on turf (50%); ⚠️ New track FG (home: MouWV) |
 
 ### 🔥 Migoli Moonbeam — ELO 1216.0 | Win 1.1% | Top3 3.2% | EV 10.4
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 25.4 | 📋 5 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 24.4 | 📋 5 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
-| 3 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 23.4 | 📋 5 works (prepared); MCL; Maiden eligible | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 30.4 | 📋 5 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 29.4 | 📋 5 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
+| 3 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 26.4 | 📋 5 works (prepared); MCL; Maiden eligible | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
 
 ### 🔥 Helios Hustle — ELO 1203.2 | Win 0.8% | Top3 2.5% | EV 10.1
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 25.1 | 📋 5 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 24.1 | 📋 5 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 28.1 | 📋 5 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 27.1 | 📋 5 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
 
 ### 🔥 Caros Compass — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 25.0 | 📋 4 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 24.0 | 📋 4 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 28.0 | 📋 4 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 27.0 | 📋 4 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
 
 ### 🔥 Desert Oath — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 30.0 | 📋 6 works (prepared); Maiden eligible; 📍 Worked at FG | 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d |
-| 2 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 25.0 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 1 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 33.0 | 📋 6 works (prepared); Maiden eligible; 📍 Worked at FG | 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d |
+| 2 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 28.0 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
 
 ### 🔥 Dubai Iron — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 25.0 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 24.0 | 📋 6 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
-| 3 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 23.0 | 📋 6 works (prepared); MCL; Maiden eligible | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 30.0 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 29.0 | 📋 6 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
+| 3 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 26.0 | 📋 6 works (prepared); MCL; Maiden eligible | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
 
 ### 🔥 Port Royal Dash — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 31.0 | 📋 8 works (prepared); Maiden eligible; 📍 Worked at BTP | 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d |
-| 2 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 29.0 | 📋 8 works (prepared); MCL; Maiden eligible | 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d |
-| 3 | 2/26/2026 · BTP R2 · 1m Turf · Maiden | 9 | 25.0 | 📋 8 works (prepared); Maiden eligible; 📍 Worked at BTP | 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 36.0 | 📋 8 works (prepared); Maiden eligible; 📍 Worked at BTP | 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d |
+| 2 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 32.0 | 📋 8 works (prepared); MCL; Maiden eligible | 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d |
+| 3 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 29.0 | 📋 8 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
 
 ### 🔥 Triple Love — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 10.0
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 25.0 | 📋 7 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 24.0 | 📋 7 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 28.0 | 📋 7 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 27.0 | 📋 7 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
 
 ### 🔥 Damascus Honey — ELO 1184.0 | Win 0.6% | Top3 1.7% | EV 9.8
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 24.8 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 23.8 | 📋 6 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
-| 3 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 22.8 | 📋 6 works (prepared); MCL; Maiden eligible | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 29.8 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 28.8 | 📋 6 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
+| 3 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 25.8 | 📋 6 works (prepared); MCL; Maiden eligible | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
 
 ### 🔥 Jurors Verdict — ELO 1184.0 | Win 0.6% | Top3 1.7% | EV 9.8
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 24.8 | 📋 7 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 23.8 | 📋 7 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
-| 3 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 22.8 | 📋 7 works (prepared); MCL; Maiden eligible | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 29.8 | 📋 7 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 28.8 | 📋 7 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
+| 3 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 25.8 | 📋 7 works (prepared); MCL; Maiden eligible | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
 
 ### 🔥 Stormy Sky — ELO 1184.0 | Win 0.6% | Top3 1.7% | EV 9.8
 *0W/0S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 24.8 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 23.8 | 📋 6 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 27.8 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 26.8 | 📋 6 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: MouWV); ⚠️ No works at FG — may need timed work first |
 
 ### ✅ Kingston Quickstep — ELO 1209.6 | Win 0.9% | Top3 2.8% | EV 8.7
 *0W/1S · MouWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 8.1 | 🏜️ Dirt preferred; MCL; Maiden eligible | Sprinter going long (1m 70); 📉 Consistency dropping (3, 0 acts/7d) |
-| 2 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 7.1 | Maiden eligible; 📍 Worked at BTP; 🏃 Sprint fit (5f) | ⚠️ Weak on turf (50%); 📉 Consistency dropping (3, 0 acts/7d) |
-| 3 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 0.1 | Maiden eligible; 🏃 Sprint fit (5 1/2f); 💰 SB bonus +$6.75 (LA-bred) | ⚠️ Weak on turf (50%); ⚠️ New track FG (home: MouWV) |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 12.1 | Maiden eligible; 📍 Worked at BTP; 🏃 Sprint fit (5f) | ⚠️ Weak on turf (50%); 📉 Consistency dropping (3, 0 acts/7d) |
+| 2 | 2/26/2026 · BTP R5 · 1m 70 Dirt · Maiden Claiming | 7 | 11.1 | 🏜️ Dirt preferred; MCL; Maiden eligible | Sprinter going long (1m 70); 📉 Consistency dropping (3, 0 acts/7d) |
+| 3 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 5.1 | Maiden eligible; 🏃 Sprint fit (5 1/2f); 💰 SB bonus +$6.75 (LA-bred) | ⚠️ Weak on turf (50%); ⚠️ New track FG (home: MouWV) |
 
 ### ✅ Core N Light — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 8.5
 *0W/0S · TP · Stam 105%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 18.5 | 📋 7 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: TP); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 17.5 | 📋 7 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: TP); ⚠️ No works at FG — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 21.5 | 📋 7 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: TP); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 20.5 | 📋 7 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: TP); ⚠️ No works at FG — may need timed work first |
 
 ### ✅ Hardline Anvil — ELO 1200.0 | Win 0.8% | Top3 2.3% | EV 8.5
 *0W/0S · CT · Stam 109%*
@@ -153,8 +153,8 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 18.5 | 📋 7 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: HOU); ⚠️ No works at BTP — may need timed work first |
-| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 17.5 | 📋 7 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: HOU); ⚠️ No works at FG — may need timed work first |
+| 1 | 2/26/2026 · BTP R1 · 5f Turf · Maiden | 6 | 21.5 | 📋 7 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track BTP (home: HOU); ⚠️ No works at BTP — may need timed work first |
+| 2 | 2/26/2026 · FG R1 · 5 1/2f Turf · Maiden | 9 | 20.5 | 📋 7 works (prepared); Maiden eligible; Sprint (5 1/2f) | ⚠️ New track FG (home: HOU); ⚠️ No works at FG — may need timed work first |
 
 ## ❓ Ready — No Matching Races
 | Horse | ELO | Win% | EV | Form |

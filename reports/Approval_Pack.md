@@ -98,11 +98,11 @@ Only approved items should be manually entered on HRP.
   - Risks: ⚠️ New track BTP (home: MouWV); ⚠️ No works at BTP — may need timed work first
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Stormy Sky**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Stormy+Sky)
-- [ ] **Kingston Quickstep** → 2/26/2026 BTP R#5 1m 70 Maiden Claiming (Field: 7)
+- [ ] **Kingston Quickstep** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 8.7 | Win 0.9% | Top3 2.8% | Form: READY
-  - Fit: 🏜️ Dirt preferred; MCL; Maiden eligible
-  - Risks: Sprinter going long (1m 70); 📉 Consistency dropping (3, 0 acts/7d)
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #5 → Enter **Kingston Quickstep**
+  - Fit: Maiden eligible; 📍 Worked at BTP; 🏃 Sprint fit (5f)
+  - Risks: ⚠️ Weak on turf (50%); 📉 Consistency dropping (3, 0 acts/7d)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Kingston Quickstep**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
 - [ ] **Core N Light** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 8.5 | Win 0.8% | Top3 2.3% | Form: READY

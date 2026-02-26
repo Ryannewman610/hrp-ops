@@ -537,6 +537,47 @@ def score_race_fit(horse_model: Dict, race: Dict,
         except (ValueError, TypeError):
             pass
 
+    # === OFFICIAL HRP RULES INTEGRATION ===
+
+    # Rule: Filly/Mare weight allowance in open (mixed-sex) races
+    # Official: females get 3-5 lbs less weight vs males in non-handicap races
+    # This is a real competitive edge — lower weight = faster adjusted speed
+    if horse_sex in ("f", "filly", "mare"):
+        sex_restricted = "fillies" in race_class or "f&m" in race_class or "filly" in race_class
+        is_handicap = "handicap" in race_type
+        if not sex_restricted and not is_handicap:
+            # Open race — filly gets 3-5 lb weight break vs colts
+            score += 2
+            try:
+                h_age_val2 = int(re.sub(r"[^0-9]", "", str(horse_age))[:1])
+                wt_break = 5 if (h_age_val2 >= 3 and datetime.now().month < 9) else 3
+            except (ValueError, TypeError, IndexError):
+                wt_break = 3
+            reasons.append(f"♀ Filly weight edge (-{wt_break}lbs vs colts)")
+
+    # Rule: Condition degradation warning
+    # Official: "If the condition meter drops below 50 your horse will actually
+    # start degrading." — This is a critical health warning.
+    if cond_val < 50:
+        score -= 10
+        risks.append(f"🚨 CONDITION {cond_val:.0f}% < 50 — horse is DEGRADING (Official Rule)")
+
+    # Rule: Optimal meter fitness bonus
+    # Official: 95-105 condition and stamina is equivalent/optimal
+    if 95 <= cond_val <= 105 and 95 <= stam_val <= 105:
+        score += 3
+        reasons.append(f"💪 Peak fitness (C:{cond_val:.0f} S:{stam_val:.0f})")
+
+    # Rule: Stamina depletion risk for long races
+    # Official race stamina losses: 6f=54-65, 1m=56-67, 1 1/4m=58-69
+    # If horse stamina is borderline, longer races are riskier
+    if stam_val < 85:
+        race_dist = race.get("distance", "")
+        dist_f = parse_distance_furlongs(race_dist) if race_dist else 0
+        if dist_f >= 8.0:  # 1 mile+
+            score -= 3
+            risks.append(f"⚠️ Low stamina {stam_val:.0f}% for route ({race_dist})")
+
     # Form bonus
     cycle = horse_model.get("form_cycle", "")
     if cycle == "PEAKING":
