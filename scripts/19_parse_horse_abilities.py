@@ -269,6 +269,37 @@ def parse_meters(horse_dir: Path) -> Dict[str, Any]:
     result["last_work_by_track"] = last_work_by_track
     result["last_work_date"] = last_work_date
 
+    # --- Consistency projection (Audit Hole #5) ---
+    # HRP rule: consistency +1 if works+races = 2-4 per period, -1 if 0-1 or 6+
+    # Count activity in last 7 days (approximates maintenance period)
+    from datetime import datetime as _dt
+    recent_activity = 0
+    days_since_last_work = 999
+    try:
+        now = _dt.now()
+        for i_ev, line_ev in enumerate(lines):
+            if line_ev in ("Timed Work", "Race") and i_ev - 1 >= 0:
+                dm = re.match(r"(\d{2}/\d{2}/\d{4})", lines[i_ev - 1])
+                if dm:
+                    ev_date = _dt.strptime(dm.group(1), "%m/%d/%Y")
+                    day_diff = (now - ev_date).days
+                    if day_diff <= 7:
+                        recent_activity += 1
+                    if line_ev == "Timed Work" and day_diff < days_since_last_work:
+                        days_since_last_work = day_diff
+    except (ValueError, TypeError):
+        pass
+
+    result["recent_activity_7d"] = recent_activity
+    result["days_since_last_work"] = days_since_last_work if days_since_last_work < 999 else -1
+    # Predict consistency change
+    if 2 <= recent_activity <= 4:
+        result["consistency_trend"] = "+1"
+    elif recent_activity == 5:
+        result["consistency_trend"] = "stable"
+    else:
+        result["consistency_trend"] = "-1"
+
     return result
 
 

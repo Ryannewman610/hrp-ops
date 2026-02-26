@@ -23,7 +23,7 @@ Only approved items should be manually entered on HRP.
 - [ ] **Iron Timekeeper** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 11.9 | Win 1.1% | Top3 3.2% | Form: PEAKING
   - Fit: AdjSpd 84; Maiden eligible; 📍 Worked at BTP
-  - Risks: ⚠️ Weak on turf (50%); Ship to BTP
+  - Risks: ⚠️ Weak on turf (50%); 📉 Consistency dropping (5, 0 acts/7d)
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Iron Timekeeper**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Iron+Timekeeper)
 - [ ] **Cayuga Lake** → 2/26/2026 GP R#1 5f Claiming (Field: 7)
@@ -59,7 +59,7 @@ Only approved items should be manually entered on HRP.
 - [ ] **Desert Oath** → 2/26/2026 FG R#1 5 1/2f Maiden (Field: 9)
   - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
   - Fit: 📋 6 works (prepared); Maiden eligible; 📍 Worked at FG
-  - Risks: Ship to FG
+  - Risks: 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **FG** → Race #1 → Enter **Desert Oath**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Desert+Oath)
 - [ ] **Dubai Iron** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
@@ -71,7 +71,7 @@ Only approved items should be manually entered on HRP.
 - [ ] **Port Royal Dash** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
   - EV 10.0 | Win 0.8% | Top3 2.3% | Form: PEAKING
   - Fit: 📋 8 works (prepared); Maiden eligible; 📍 Worked at BTP
-  - Risks: Ship to BTP
+  - Risks: 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Port Royal Dash**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Port+Royal+Dash)
 - [ ] **Triple Love** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)
@@ -101,7 +101,7 @@ Only approved items should be manually entered on HRP.
 - [ ] **Kingston Quickstep** → 2/26/2026 BTP R#5 1m 70 Maiden Claiming (Field: 7)
   - EV 8.7 | Win 0.9% | Top3 2.8% | Form: READY
   - Fit: 🏜️ Dirt preferred; MCL; Maiden eligible
-  - Risks: Sprinter going long (1m 70); Ship to BTP
+  - Risks: Sprinter going long (1m 70); 📉 Consistency dropping (3, 0 acts/7d)
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #5 → Enter **Kingston Quickstep**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
 - [ ] **Core N Light** → 2/26/2026 BTP R#1 5f Maiden (Field: 6)

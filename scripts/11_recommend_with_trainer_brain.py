@@ -468,16 +468,36 @@ def score_race_fit(horse_model: Dict, race: Dict,
                 else:
                     reasons.append(f"Route ({dist_text})")
 
-    # Track match
-    horse_track = horse_model.get("track", "")
-    race_track = race.get("track", "")
-    if horse_track and race_track:
-        if race_track.upper() in horse_track.upper():
-            score += 8
-            reasons.append(f"Home track ({race_track})")
-        else:
-            score -= 2
-            risks.append(f"Ship to {race_track}")
+    # Consistency trend warning (Audit Hole #5)
+    consistency_trend = ab.get("consistency_trend", "")
+    current_consistency = ab.get("consistency", 0)
+    days_since_work = ab.get("days_since_last_work", -1)
+    if consistency_trend == "-1" and current_consistency > 0:
+        score -= 3
+        risks.append(f"📉 Consistency dropping ({current_consistency}, {ab.get('recent_activity_7d', 0)} acts/7d)")
+    elif consistency_trend == "+1":
+        score += 2
+        reasons.append(f"📈 Consistency rising ({current_consistency})")
+    if days_since_work > 14:
+        score -= 2
+        risks.append(f"⚠️ Stale ({days_since_work}d since last work)")
+
+    # Shipping cost flag (Audit Hole #7)
+    # If race track differs from current track, flag potential stamina hit
+    if race_track and horse_current_track and race_track != horse_current_track:
+        # Check race deadline vs shipping time
+        race_deadline = race.get("deadline", "")
+        if race_deadline:
+            try:
+                from datetime import datetime as _dt2
+                dl = _dt2.strptime(race_deadline.split()[0], "%m/%d/%Y")
+                days_to_deadline = (dl - _dt2.now()).days
+                if days_to_deadline <= 1:
+                    risks.append(f"⚠️ Must regular-ship (stamina hit) — deadline {days_to_deadline}d")
+                elif days_to_deadline <= 2:
+                    reasons.append(f"Slow-ship possible ({days_to_deadline}d to deadline)")
+            except (ValueError, TypeError, IndexError):
+                pass
 
     # Form bonus
     cycle = horse_model.get("form_cycle", "")
