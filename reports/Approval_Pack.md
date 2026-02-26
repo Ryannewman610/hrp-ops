@@ -28,7 +28,7 @@ Only approved items should be manually entered on HRP.
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Iron+Timekeeper)
 - [ ] **Cayuga Lake** → 2/26/2026 GP R#1 5f Claiming (Field: 7)
   - EV 11.5 | Win 0.8% | Top3 2.3% | Form: PEAKING
-  - Fit: ⚡ AdjSpd 95 (raw 95, wt 124); 🏃 Sprint fit (5f); 🔥 PEAKING
+  - Fit: ⚡ AdjSpd 95 (raw 95, wt 124); 🏃 Sprint fit (5f); 💰 SB bonus +$5.60 (FL-bred)
   - Risks: ⚠️ Weak on turf (50%); ⚠️ New track GP (home: TUP)
   - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **GP** → Race #1 → Enter **Cayuga Lake**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)

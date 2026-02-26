@@ -499,6 +499,44 @@ def score_race_fit(horse_model: Dict, race: Dict,
             except (ValueError, TypeError, IndexError):
                 pass
 
+    # === FORUM EXPERT INTELLIGENCE ===
+
+    # Statebred ATM strategy: SB races give bonus purse AND don't count toward
+    # allowance conditions. Forum experts call this "an ATM machine"
+    state_bred_bonus = cond_parsed.get("state_bred_bonus", 0)
+    if state_bred_bonus > 0:
+        score += 3
+        state = cond_parsed.get("state_bred_state", "?")
+        reasons.append(f"💰 SB bonus +${state_bred_bonus:.2f} ({state}-bred)")
+
+    # Race frequency: experts say every 4-6 weeks is optimal, 2 weeks is aggressive
+    # 10 days rest minimum after a race per forum advice
+    last_race_date = ab.get("last_work_date", "")  # Use last event as proxy
+    if last_race_date and ab.get("race_count", 0) > 0:
+        try:
+            from datetime import datetime as _dt3
+            lr = _dt3.strptime(last_race_date, "%m/%d/%Y")
+            days_since_race = (_dt3.now() - lr).days
+            if days_since_race < 10:
+                score -= 3
+                risks.append(f"⚠️ Too soon ({days_since_race}d since last activity)")
+        except (ValueError, TypeError):
+            pass
+
+    # Weight advantage for 3-year-olds: conditions give them 2-4 lbs less
+    # Forum intel: "The threes turn four and lose the weight advantage"
+    if cond_parsed.get("min_age") == 4 or "upward" in conditions.lower():
+        # Check if horse is 3 years old — they get weight break
+        try:
+            h_age_val = int(re.sub(r"[^0-9]", "", str(horse_age)))
+            cond_base_wt = cond_parsed.get("base_weight", 126)
+            if h_age_val == 3 and cond_base_wt > 120:
+                # 3YOs typically carry 2-4 lbs less in "X and upward" races
+                score += 2
+                reasons.append(f"📊 3YO weight edge vs older")
+        except (ValueError, TypeError):
+            pass
+
     # Form bonus
     cycle = horse_model.get("form_cycle", "")
     if cycle == "PEAKING":
