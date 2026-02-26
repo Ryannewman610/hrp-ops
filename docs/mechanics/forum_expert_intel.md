@@ -1,6 +1,7 @@
 # Forum Expert Intel — Training & Racing Strategy
 
-> Extracted from 1,264 HRP forum threads. Insights from veteran players.
+> Extracted from 1,264 General/Breeding threads + 439 Ask The Experts pages.
+> Insights from veteran HRP players.
 
 ## Race Frequency & Rest Cycles
 
@@ -8,6 +9,8 @@
 - **Post-race recovery:** 10 days rest after a race, then 2 works in the next 14 days → 90% ready
 - **Monthly pattern:** 2-5 works per month at normal distances, race once per month
 - **Three weeks rest** before a big race (e.g., stakes at Santa Anita) is common prep
+
+- **Stakes-level recovery:** 4-5 weeks before a major race (confirmed by ATE Thread 28131)
 
 ## Virgin Work Benchmarks (3f)
 
@@ -22,17 +25,29 @@
 - It takes "a few months" for the development curve to catch up
 - Veterans reap benefits until ~March, then 4-year-olds catch up
 
-## Gelding
+## Gelding (Speed Mechanic — ATE Thread 28333)
 
 - **Geld early** if no breeding plans — "ungelded colts don't win the big races most of the time"
-- A lot of horses **do NOT need gelding** to reach full speed potential
-- Decision should be made based on breeding value vs racing performance
+- "Some horses may show **significant speed improvements** after being gelded"
+- "It is quite possible that some horses may **never reach full speed potential** without being gelded"
+- A lot of horses **do NOT need gelding** — it's horse-specific
+- Decision: check if horse is plateauing on speed → try gelding
 
 ## Statebred Strategy (💰 ATM Machine)
 
-- Win a **SB MSW** (statebred maiden special weight) and a **SB NON-WINNERS** race
-- You still retain **all allowance conditions** in open races
+- Win a **SB MSW** and a **SB NON-WINNERS** race → retain ALL open allowance conditions
 - Effectively doubles earning opportunities: statebred + open track
+
+### State Rankings (ATE Thread 28150)
+| Tier | States | Notes |
+|------|--------|-------|
+| S | **NY, CA, ON** | Most popular, best purses, always fill |
+| A | **FL** | FL Stallion Stakes (FSS) has big purses |
+| B | **WV** | "As good as any for bringing on young horses" |
+| C | **KY** | No SB races, only bonuses for KY-bred wins in KY |
+| — | **TX** | Races stopped filling (avoid) |
+
+- Weight impost in SB races is a disadvantage (community wants removal)
 - FL-bred and CA-bred bonuses add 15-30% purse uplift
 
 ## Claiming & Starter Strategy
