@@ -89,7 +89,7 @@ def parse_profile_races(html_path: Path, horse_name: str) -> List[Dict]:
     i = 0
     while i < len(lines):
         # Match date pattern: 14Feb26
-        date_match = re.match(r"(\d{1,2}[A-Z][a-z]{2}\d{2})\s+(\S+)", lines[i])
+        date_match = re.match(r"(\d{1,2}[A-Z][a-z]{2}\d{2})[\s\-]+(\S+)", lines[i])
         if date_match:
             race_date = parse_hrp_date(date_match.group(1))
             track = date_match.group(2).replace("\xa0", " ").strip()
@@ -180,8 +180,8 @@ def parse_works(html_path: Path, horse_name: str) -> List[Dict]:
             continue
 
         if found_works_section:
-            # Work pattern: 14Feb26 MouWV
-            date_match = re.match(r"(\d{1,2}[A-Z][a-z]{2}\d{2})\s+(\S+)", line)
+            # Work pattern: 14Feb26-MouWV or 14Feb26 MouWV
+            date_match = re.match(r"(\d{1,2}[A-Z][a-z]{2}\d{2})[\s\-]+(\S+)", line)
             if date_match:
                 work_date = parse_hrp_date(date_match.group(1))
                 track = date_match.group(2).replace("\xa0", " ").strip()
@@ -192,27 +192,56 @@ def parse_works(html_path: Path, horse_name: str) -> List[Dict]:
                 rank = ""
                 work_type = ""
 
-                # Next lines: distance/surface/time, rank, type (b=breeze, h=handily, etc.)
-                for j in range(i + 1, min(i + 5, len(lines))):
+                # HRP works format: separate lines for surface, distance, fractional times, rank, final time
+                # e.g.: sly / 5f / :25 / :51 / 2 / 1:06
+                # or combined: 5f fst 1:00
+                for j in range(i + 1, min(i + 12, len(lines))):
                     wline = lines[j].strip()
-                    # Distance line: 5f fst 1:00
+                    # If we hit another date pattern, stop
+                    if re.match(r"\d{1,2}[A-Z][a-z]{2}\d{2}", wline):
+                        break
+                    # If we hit a new section (like a horse name or "Works:"), stop
+                    if wline.lower() == "works:":
+                        break
+
+                    # Combined distance line: 5f fst 1:00
                     dist_m = re.match(r"(\d+\s*\d*/?\d*\s*[fm])\s+(\w+)\s+([\d:.]+)", wline)
                     if dist_m:
                         dist = dist_m.group(1).strip()
                         surface = dist_m.group(2).strip()
                         time_str = dist_m.group(3).strip()
                         continue
-                    # Rank: single digit
-                    if re.match(r"^\d+$", wline) and len(wline) <= 3:
+
+                    # Surface only: fst, gd, sly, my, yl, fm (for turf 'firm')
+                    if re.match(r"^(fst|gd|sly|my|yl|fm|sy|wf|sf)$", wline, re.I):
+                        surface = wline
+                        continue
+                    # Distance only: 3f, 4f, 5f, 6f, 7f, 1m, etc.
+                    if re.match(r"^\d+\s*\d*/?\d*\s*[fm]$", wline, re.I):
+                        dist = wline
+                        continue
+                    # Full time (with minutes): 1:06, 1:12.4, etc.
+                    if re.match(r"^\d+:\d{2}(\.\d+)?$", wline):
+                        time_str = wline  # Keep overwriting; last full time is final time
+                        continue
+                    # Fractional time: :25, :51 (quarter/half splits) — skip these
+                    if re.match(r"^:\d{2}(\.\d+)?$", wline):
+                        continue
+                    # Rank: 1-3 digit number
+                    if re.match(r"^\d{1,3}$", wline):
                         rank = wline
                         continue
-                    # Type: single letter (b, h, etc.)
-                    if re.match(r"^[a-z]$", wline):
+                    # Type: single letter (b=breeze, h=handily, etc.)
+                    if re.match(r"^[a-zA-Z]$", wline):
                         work_type = wline
                         continue
-                    # If we hit another date, stop
-                    if re.match(r"\d{1,2}[A-Z][a-z]{2}\d{2}", wline):
-                        break
+                    # Percentage like 80% — likely a meter reading, skip
+                    if re.match(r"^\d+%$", wline):
+                        continue
+                    # 'T' for turf indicator
+                    if wline == "T":
+                        surface = "fm"  # turf = firm
+                        continue
 
                 if work_date:
                     works.append({
