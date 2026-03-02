@@ -15,6 +15,14 @@ from typing import Any, Dict, List, Optional
 
 from bs4 import BeautifulSoup
 
+# Import shared parser (single source of truth for PP parsing)
+from hrp_parser import (
+    norm,
+    parse_hrp_date,
+    parse_distance_furlongs,
+    parse_profile_html,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 RAW_ROOT = ROOT / "inputs" / "export" / "raw"
 MODEL_DIR = ROOT / "outputs" / "model"
@@ -23,177 +31,33 @@ MODEL_DIR = ROOT / "outputs" / "model"
 INACTIVE = {"shebasbriar", "averyspluck", "hiptag793004736512"}
 
 
-def norm(name: str) -> str:
-    return re.sub(r"[^a-z0-9]", "", name.lower())
-
-
-def parse_hrp_date(d: str) -> Optional[str]:
-    """Parse HRP date format '14Feb26' to ISO '2026-02-14'."""
-    m = re.match(r"(\d{1,2})([A-Z][a-z]{2})(\d{2})", d.strip())
-    if not m:
-        return None
-    day, mon, yr = m.groups()
-    months = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
-              "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
-              "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
-    mo = months.get(mon)
-    if not mo:
-        return None
-    return f"20{yr}-{mo}-{int(day):02d}"
-
-
-def parse_distance_furlongs(dist: str) -> Optional[float]:
-    """Convert '5f', '6 1/2f', '1m', '1 1/16m' to furlongs."""
-    dist = dist.strip().lower()
-    m = re.match(r"(\d+)\s*(\d+/\d+)?\s*([fm])", dist)
-    if not m:
-        return None
-    whole = int(m.group(1))
-    frac = 0.0
-    if m.group(2):
-        num, den = m.group(2).split("/")
-        frac = int(num) / int(den)
-    val = whole + frac
-    if m.group(3) == "m":
-        val *= 8
-    return round(val, 2)
-
-
-# ── Profile Page Parsing ────────────────────────────────────
-
 def parse_profile_races(html_path: Path, horse_name: str) -> List[Dict]:
-    """Extract race results from profile_allraces.html with SRF speed figures."""
-    if not html_path.exists():
-        return []
-    soup = BeautifulSoup(html_path.read_text(encoding="utf-8", errors="replace"), "html.parser")
-    text = soup.get_text("\n", strip=True)
-    lines = [l.strip() for l in text.split("\n") if l.strip()]
-
-    # Surface mapping
-    surf_map = {
-        "fst": ("Fast", "Dirt"), "gd": ("Good", "Dirt"),
-        "sly": ("Sloppy", "Dirt"), "mdy": ("Muddy", "Dirt"),
-        "fm": ("Firm", "Turf"), "yl": ("Yielding", "Turf"), "sft": ("Soft", "Turf"),
-    }
-
-    # Race class pattern
-    class_re = re.compile(
-        r'^(?:f)?(?:Clm|OClm|Alw|MdSpWt|MdClm|Md|Stk|Stakes|HCap)'
-        r'[A-Za-z0-9./()_-]*$', re.IGNORECASE
-    )
-
-    # Find PP start lines
-    pp_starts = []
-    for i, line in enumerate(lines):
-        m = re.match(r'^(\d{1,2}[A-Z][a-z]{2}\d{2})-(\d+)([A-Z]{2,5})$', line)
-        if m:
-            pp_starts.append((i, m.group(1), m.group(2), m.group(3)))
-
-    races: List[Dict] = []
-    for idx, (start_i, date_str, race_num, track) in enumerate(pp_starts):
-        end_i = pp_starts[idx + 1][0] if idx + 1 < len(pp_starts) else min(start_i + 40, len(lines))
-        block = lines[start_i + 1: end_i]
-        if len(block) < 5:
-            continue
-
-        race: Dict = {
-            "horse_name": horse_name,
-            "date": parse_hrp_date(date_str),
-            "track": track,
-            "race_num": race_num,
-        }
-
-        # Surface
-        if block[0].lower() in surf_map:
-            surf_name, surf_type = surf_map[block[0].lower()]
-            race["surface"] = surf_name
-            race["surface_type"] = surf_type
-
-        # Distance
-        dist = block[1] if len(block) > 1 else ""
-        race["distance"] = dist
-        race["distance_f"] = parse_distance_furlongs(dist) if dist else None
-
-        # Race class
-        class_idx = None
-        for bi, bline in enumerate(block):
-            if class_re.match(bline) or re.match(r'^(?:f)?(?:Clm|OClm|Alw|MdSpWt|Md)\d', bline):
-                race["race_class"] = bline
-                class_idx = bi
-                break
-
-        if class_idx is None:
-            races.append(race)
-            continue
-
-        after = block[class_idx + 1:]
-
-        # SRF = first token after class
-        srf_raw = after[0] if after else ""
-        if re.match(r'^\d{2,3}$', srf_raw):
-            val = int(srf_raw)
-            if 50 <= val <= 120:
-                race["srf"] = val
-
-        # Find jockey
-        jockey_idx = None
-        for ai, aline in enumerate(after):
-            if aline.startswith("Jockey"):
-                race["jockey"] = aline
-                jockey_idx = ai
-                break
-
-        # Running line + finish between SRF and Jockey
-        if jockey_idx is not None and jockey_idx > 1:
-            running = after[1:jockey_idx]
-            # Post position
-            if running and re.match(r'^\d+$', running[0]):
-                race["post_position"] = int(running[0])
-            # Finish = last numeric before jockey
-            for token in reversed(running):
-                if re.match(r'^\d+$', token):
-                    val = int(token)
-                    if 1 <= val <= 20:
-                        race["finish"] = str(val)
-                        break
-
-            # After jockey: weight, odds, condition-stamina, field size
-            post_jockey = after[jockey_idx + 1:]
-            for pj in post_jockey:
-                if re.match(r'^\d{3}$', pj):
-                    val = int(pj)
-                    if 100 <= val <= 140:
-                        race["weight"] = val
-                elif re.match(r'^\d{2,3}-\d{1,2}$', pj):
-                    parts = pj.split('-')
-                    race["race_condition"] = int(parts[0])
-                    race["race_stamina"] = int(parts[1])
-                elif re.match(r'^\d{1,2}$', pj):
-                    val = int(pj)
-                    if 2 <= val <= 16:
-                        race["field_size"] = str(val)
-
-        races.append(race)
-
+    """Extract race results using the shared hrp_parser module."""
+    result = parse_profile_html(html_path, horse_name)
+    races = result.get("races", [])
+    # Map field names to match dataset expectations
+    for r in races:
+        # hrp_parser uses 'finish_position'; dataset expects 'finish'
+        if "finish_position" in r:
+            r["finish"] = str(r["finish_position"])
+        # hrp_parser uses 'srf' as int or None; keep as-is
+        if "srf" in r and r["srf"] is not None:
+            r["srf"] = r["srf"]
     return races
 
 
 def parse_profile_record(html_path: Path) -> Dict:
-    """Extract LIFE record from profile page."""
+    """Extract LIFE record using the shared hrp_parser module."""
     if not html_path.exists():
         return {"starts": 0, "wins": 0, "places": 0, "shows": 0}
-    soup = BeautifulSoup(html_path.read_text(encoding="utf-8", errors="replace"), "html.parser")
-    text = soup.get_text("\n", strip=True)
-    lines = [l.strip() for l in text.split("\n") if l.strip()]
-
-    for i, line in enumerate(lines):
-        if line == "LIFE":
-            for j in range(i + 1, min(i + 20, len(lines))):
-                nums = re.findall(r"\d+", lines[j])
-                if len(nums) >= 4:
-                    return {"starts": int(nums[0]), "wins": int(nums[1]),
-                            "places": int(nums[2]), "shows": int(nums[3])}
-    return {"starts": 0, "wins": 0, "places": 0, "shows": 0}
+    result = parse_profile_html(html_path, "")
+    life = result.get("life_record", {})
+    return {
+        "starts": life.get("starts", 0),
+        "wins": life.get("wins", 0),
+        "places": life.get("places", 0),
+        "shows": life.get("shows", 0),
+    }
 
 
 # ── Works Parsing ────────────────────────────────────────

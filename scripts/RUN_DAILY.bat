@@ -95,14 +95,25 @@ echo [8/10] Works intelligence + peak planner...
 
 REM Step 8: Execution log + outcomes
 echo.
-echo [9/10] Execution log + outcomes + scoreboard...
+echo [9/12] Execution log + outcomes + scoreboard...
 .venv\Scripts\python.exe scripts\18_execution_log.py
 .venv\Scripts\python.exe scripts\13_ingest_outcomes.py
 .venv\Scripts\python.exe scripts\14_trainer_scoreboard.py
 
-REM Step 9: Trust gate + sanity checks
+REM Step 9: Deep intelligence
 echo.
-echo [10/10] Running trust gate + sanity checks...
+echo [10/12] Deep analysis + stable audit...
+.venv\Scripts\python.exe scripts\deep_analysis.py
+.venv\Scripts\python.exe scripts\stable_audit.py
+
+REM Step 10: Daily decisions (executive summary)
+echo.
+echo [11/12] Building daily decision dashboard...
+.venv\Scripts\python.exe scripts\daily_decisions.py
+
+REM Step 11: Trust gate + sanity checks
+echo.
+echo [12/12] Running trust gate + sanity checks...
 .venv\Scripts\python.exe scripts\trust_gate.py
 if errorlevel 1 (
     echo.
@@ -122,9 +133,8 @@ if errorlevel 1 (
 echo.
 echo ========================================
 echo  Daily run complete! All checks passed.
-echo  Check: reports\Stable_Dashboard.md
-echo         reports\Race_Readiness.md
-echo         reports\2YO_Deep_Dive.md
+echo  Check: reports\Daily_Decisions.md
+echo         reports\Stable_Dashboard.md
 echo         reports\Trainer_Brain_Model_Card.md
 echo ========================================
 pause
