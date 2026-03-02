@@ -6,10 +6,11 @@ Open: http://localhost:5050
 
 import csv
 import json
+import os
 import subprocess
 import sys
 import threading
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
@@ -39,8 +40,15 @@ def load_csv_rows(path):
 
 
 def find_latest_snapshot():
+    """Find latest snapshot and return data with metadata."""
     for d in sorted(ROOT.glob("inputs/20*-*-*/stable_snapshot.json"), reverse=True):
-        return load_json(d)
+        data = load_json(d)
+        # Add snapshot metadata
+        mod_time = datetime.fromtimestamp(d.stat().st_mtime)
+        data["_snapshot_date"] = d.parent.name  # e.g., "2026-03-01"
+        data["_snapshot_age"] = (datetime.now() - mod_time).total_seconds() / 3600  # hours
+        data["_snapshot_path"] = str(d)
+        return data
     return {}
 
 
@@ -81,10 +89,16 @@ def api_stable():
             "next_action": rating.get("next_action", ""),
             "elo": rating.get("elo", 1200),
         })
+    # Snapshot metadata
+    snap_date = snap.get("_snapshot_date", "unknown")
+    snap_age_hrs = snap.get("_snapshot_age", 0)
+    age_str = f"{snap_age_hrs:.0f}h ago" if snap_age_hrs < 48 else f"{snap_age_hrs/24:.0f}d ago"
     return jsonify({
         "horses": sorted(horses, key=lambda x: -x["srf_power"]),
         "balance": snap.get("balance", "?"),
         "horse_count": len(snap.get("horses", [])),
+        "snapshot_date": snap_date,
+        "snapshot_age": age_str,
     })
 
 
@@ -125,6 +139,7 @@ def api_outcomes():
 
 @app.route("/api/refresh", methods=["POST"])
 def api_refresh():
+    """Quick refresh: re-run analysis on existing data."""
     def run_pipeline():
         scripts = [
             "scripts/09_build_model_dataset.py",
@@ -141,6 +156,41 @@ def api_refresh():
 
     threading.Thread(target=run_pipeline, daemon=True).start()
     return jsonify({"status": "refreshing"})
+
+
+@app.route("/api/full-refresh", methods=["POST"])
+def api_full_refresh():
+    """Full refresh: re-export from HRP, then re-run analysis."""
+    def run_full_pipeline():
+        # Step 1: Export fresh data from HRP
+        export_scripts = [
+            "scripts/01_login_save_state.py",
+            "scripts/02_export_stable.py",
+        ]
+        for s in export_scripts:
+            result = subprocess.run(
+                [sys.executable, str(ROOT / s)],
+                cwd=str(ROOT), capture_output=True, text=True
+            )
+            if result.returncode != 0:
+                print(f"Export failed: {s}: {result.stderr[:200]}")
+                return
+        # Step 2: Run analysis
+        analysis_scripts = [
+            "scripts/09_build_model_dataset.py",
+            "scripts/10_fit_trainer_brain.py",
+            "scripts/deep_analysis.py",
+            "scripts/stable_audit.py",
+            "scripts/daily_decisions.py",
+        ]
+        for s in analysis_scripts:
+            subprocess.run(
+                [sys.executable, str(ROOT / s)],
+                cwd=str(ROOT), capture_output=True, text=True
+            )
+
+    threading.Thread(target=run_full_pipeline, daemon=True).start()
+    return jsonify({"status": "full_refreshing"})
 
 
 @app.route("/api/action", methods=["POST"])

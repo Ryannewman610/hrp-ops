@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,139 +8,167 @@
     <link rel="stylesheet" href="/static/dashboard.css">
     <meta name="description" content="HRP Stable Management Dashboard — Power Rankings, Daily Decisions, Horse Cards">
 </head>
+
 <body>
 
-<!-- Header -->
-<header class="header">
-    <div class="header-left">
-        <div>
-            <div class="logo">🏇 HRP Command Center</div>
-            <div class="logo-sub">Ire Iron Stables</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div>
+                <div class="logo">🏇 HRP Command Center</div>
+                <div class="logo-sub">Ire Iron Stables</div>
+            </div>
+        </div>
+        <div class="header-stats">
+            <div class="stat-pill">💰 Balance: <span class="value" id="balance">—</span></div>
+            <div class="stat-pill">🐴 Horses: <span class="value" id="horse-count">—</span></div>
+            <div class="stat-pill">📊 Win Rate: <span class="value" id="win-rate">—</span></div>
+            <div class="stat-pill" id="snapshot-age" style="border-color: var(--accent-yellow);">
+                📅 Data: <span class="value" id="data-age">—</span>
+            </div>
+            <button class="btn-refresh" onclick="refreshData()" title="Quick: re-run analysis on existing data">
+                <span class="icon">🔄</span> Quick Refresh
+            </button>
+            <button class="btn-refresh" onclick="fullRefreshData()"
+                style="background: linear-gradient(135deg, #22c55e, #059669);"
+                title="Full: re-export from HRP + re-run analysis">
+                <span class="icon">⭐</span> Full Refresh (HRP)
+            </button>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Power Rankings -->
+        <section class="panel rankings" id="rankings-panel">
+            <div class="panel-title"><span class="icon">🏆</span> SRF Power Rankings</div>
+            <table class="rank-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Horse</th>
+                        <th>SRF Power</th>
+                        <th>Trend</th>
+                        <th>Win%</th>
+                        <th>EV</th>
+                        <th>Form</th>
+                    </tr>
+                </thead>
+                <tbody id="rankings-body"></tbody>
+            </table>
+        </section>
+
+        <!-- Decisions -->
+        <section class="panel decisions" id="decisions-panel">
+            <div class="panel-title"><span class="icon">⚡</span> Daily Decisions</div>
+            <div id="decisions-content"></div>
+        </section>
+
+        <!-- Stable Grid -->
+        <section class="panel stable-grid" id="stable-panel">
+            <div class="panel-title"><span class="icon">🐴</span> Stable — All Horses</div>
+            <div class="tab-bar">
+                <button class="tab-btn active" onclick="filterHorses('all', this)">All</button>
+                <button class="tab-btn" onclick="filterHorses('rated', this)">SRF Rated</button>
+                <button class="tab-btn" onclick="filterHorses('unrated', this)">Unrated</button>
+                <button class="tab-btn" onclick="filterHorses('rest', this)">Needs Rest</button>
+            </div>
+            <div class="horse-grid" id="horse-grid"></div>
+        </section>
+
+        <!-- Insights -->
+        <section class="panel insights" id="insights-panel">
+            <div class="panel-title"><span class="icon">🔬</span> Deep Insights</div>
+            <div id="insights-content"></div>
+        </section>
+
+    </main>
+
+    <!-- Action Modal -->
+    <div class="modal-overlay" id="action-modal">
+        <div class="modal">
+            <h2 id="modal-title">Queue Action</h2>
+            <input type="hidden" id="modal-horse">
+            <select id="action-type">
+                <option value="">Select Action...</option>
+                <option value="timed_work">🏃 Schedule Timed Work</option>
+                <option value="enter_race">🏁 Enter Race</option>
+                <option value="geld">🔧 Geld Horse</option>
+                <option value="ship">🚚 Ship to Track</option>
+                <option value="rest">😴 Rest (No Activity)</option>
+            </select>
+            <input type="text" id="action-detail" placeholder="Details (track, distance, etc.)">
+            <button class="btn-submit" onclick="submitAction()">Queue Action</button>
+            <button class="btn-cancel" onclick="closeModal()">Cancel</button>
         </div>
     </div>
-    <div class="header-stats">
-        <div class="stat-pill">💰 Balance: <span class="value" id="balance">—</span></div>
-        <div class="stat-pill">🐴 Horses: <span class="value" id="horse-count">—</span></div>
-        <div class="stat-pill">📊 Win Rate: <span class="value" id="win-rate">—</span></div>
-        <button class="btn-refresh" id="btn-refresh" onclick="refreshData()">
-            <span class="icon">🔄</span> Refresh Data
-        </button>
-    </div>
-</header>
 
-<!-- Main -->
-<main class="main">
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
 
-    <!-- Power Rankings -->
-    <section class="panel rankings" id="rankings-panel">
-        <div class="panel-title"><span class="icon">🏆</span> SRF Power Rankings</div>
-        <table class="rank-table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Horse</th>
-                    <th>SRF Power</th>
-                    <th>Trend</th>
-                    <th>Win%</th>
-                    <th>EV</th>
-                    <th>Form</th>
-                </tr>
-            </thead>
-            <tbody id="rankings-body"></tbody>
-        </table>
-    </section>
+    <script>
+        // ── State ──────────────────────────────
+        let stableData = { horses: [], balance: '?', horse_count: 0 };
+        let currentFilter = 'all';
 
-    <!-- Decisions -->
-    <section class="panel decisions" id="decisions-panel">
-        <div class="panel-title"><span class="icon">⚡</span> Daily Decisions</div>
-        <div id="decisions-content"></div>
-    </section>
+        // ── Fetch Helpers ──────────────────────
+        async function fetchJSON(url) {
+            const res = await fetch(url);
+            return res.json();
+        }
 
-    <!-- Stable Grid -->
-    <section class="panel stable-grid" id="stable-panel">
-        <div class="panel-title"><span class="icon">🐴</span> Stable — All Horses</div>
-        <div class="tab-bar">
-            <button class="tab-btn active" onclick="filterHorses('all', this)">All</button>
-            <button class="tab-btn" onclick="filterHorses('rated', this)">SRF Rated</button>
-            <button class="tab-btn" onclick="filterHorses('unrated', this)">Unrated</button>
-            <button class="tab-btn" onclick="filterHorses('rest', this)">Needs Rest</button>
-        </div>
-        <div class="horse-grid" id="horse-grid"></div>
-    </section>
+        // ── Initialize ─────────────────────────
+        async function init() {
+            await Promise.all([
+                loadStable(),
+                loadRankings(),
+                loadDecisions(),
+                loadInsights(),
+                loadMetrics(),
+            ]);
+        }
 
-    <!-- Insights -->
-    <section class="panel insights" id="insights-panel">
-        <div class="panel-title"><span class="icon">🔬</span> Deep Insights</div>
-        <div id="insights-content"></div>
-    </section>
+        // ── Load Stable Data ───────────────────
+        async function loadStable() {
+            stableData = await fetchJSON('/api/stable');
+            document.getElementById('balance').textContent = '$' + stableData.balance;
+            document.getElementById('horse-count').textContent = stableData.horse_count;
+            // Show snapshot age
+            const ageEl = document.getElementById('data-age');
+            ageEl.textContent = stableData.snapshot_age || 'unknown';
+            // Color-code based on freshness
+            const agePill = document.getElementById('snapshot-age');
+            const ageText = stableData.snapshot_age || '';
+            if (ageText.includes('d ')) {
+                agePill.style.borderColor = 'var(--accent-red)';
+                ageEl.style.color = 'var(--accent-red)';
+            } else {
+                const hrs = parseInt(ageText);
+                if (hrs > 12) {
+                    agePill.style.borderColor = 'var(--accent-yellow)';
+                    ageEl.style.color = 'var(--accent-yellow)';
+                } else {
+                    agePill.style.borderColor = 'var(--accent-green)';
+                    ageEl.style.color = 'var(--accent-green)';
+                }
+            }
+            renderHorseGrid(stableData.horses);
+        }
 
-</main>
-
-<!-- Action Modal -->
-<div class="modal-overlay" id="action-modal">
-    <div class="modal">
-        <h2 id="modal-title">Queue Action</h2>
-        <input type="hidden" id="modal-horse">
-        <select id="action-type">
-            <option value="">Select Action...</option>
-            <option value="timed_work">🏃 Schedule Timed Work</option>
-            <option value="enter_race">🏁 Enter Race</option>
-            <option value="geld">🔧 Geld Horse</option>
-            <option value="ship">🚚 Ship to Track</option>
-            <option value="rest">😴 Rest (No Activity)</option>
-        </select>
-        <input type="text" id="action-detail" placeholder="Details (track, distance, etc.)">
-        <button class="btn-submit" onclick="submitAction()">Queue Action</button>
-        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-    </div>
-</div>
-
-<!-- Toast -->
-<div class="toast" id="toast"></div>
-
-<script>
-// ── State ──────────────────────────────
-let stableData = { horses: [], balance: '?', horse_count: 0 };
-let currentFilter = 'all';
-
-// ── Fetch Helpers ──────────────────────
-async function fetchJSON(url) {
-    const res = await fetch(url);
-    return res.json();
-}
-
-// ── Initialize ─────────────────────────
-async function init() {
-    await Promise.all([
-        loadStable(),
-        loadRankings(),
-        loadDecisions(),
-        loadInsights(),
-        loadMetrics(),
-    ]);
-}
-
-// ── Load Stable Data ───────────────────
-async function loadStable() {
-    stableData = await fetchJSON('/api/stable');
-    document.getElementById('balance').textContent = '$' + stableData.balance;
-    document.getElementById('horse-count').textContent = stableData.horse_count;
-    renderHorseGrid(stableData.horses);
-}
-
-// ── Load Rankings ──────────────────────
-async function loadRankings() {
-    const rankings = await fetchJSON('/api/rankings');
-    const tbody = document.getElementById('rankings-body');
-    tbody.innerHTML = rankings.map((h, i) => {
-        const srfClass = h.srf_power >= 87 ? 'srf-elite' :
-                         h.srf_power >= 80 ? 'srf-good' : 'srf-low';
-        const trendIcon = h.srf_trend === 'improving' ? '📈' :
-                          h.srf_trend === 'declining' ? '📉' : '➡️';
-        const trendClass = h.srf_trend === 'improving' ? 'trend-up' :
-                           h.srf_trend === 'declining' ? 'trend-down' : 'trend-flat';
-        const form = formBadge(h.form_status);
-        return `<tr class="rank-row" onclick="openModal('${h.name}')">
+        // ── Load Rankings ──────────────────────
+        async function loadRankings() {
+            const rankings = await fetchJSON('/api/rankings');
+            const tbody = document.getElementById('rankings-body');
+            tbody.innerHTML = rankings.map((h, i) => {
+                const srfClass = h.srf_power >= 87 ? 'srf-elite' :
+                    h.srf_power >= 80 ? 'srf-good' : 'srf-low';
+                const trendIcon = h.srf_trend === 'improving' ? '📈' :
+                    h.srf_trend === 'declining' ? '📉' : '➡️';
+                const trendClass = h.srf_trend === 'improving' ? 'trend-up' :
+                    h.srf_trend === 'declining' ? 'trend-down' : 'trend-flat';
+                const form = formBadge(h.form_status);
+                return `<tr class="rank-row" onclick="openModal('${h.name}')">
             <td class="rank-num">${i + 1}</td>
             <td class="rank-name">${h.name}</td>
             <td><span class="srf-badge ${srfClass}">${h.srf_power.toFixed(1)}</span></td>
@@ -148,112 +177,112 @@ async function loadRankings() {
             <td>${h.ev_score.toFixed(0)}</td>
             <td>${form}</td>
         </tr>`;
-    }).join('');
-}
-
-// ── Load Decisions ─────────────────────
-async function loadDecisions() {
-    const data = await fetchJSON('/api/decisions');
-    const container = document.getElementById('decisions-content');
-    const lines = data.content.split('\n').filter(l => l.trim());
-    let html = '';
-    for (const line of lines) {
-        if (line.startsWith('# ')) continue; // Skip title
-        if (line.startsWith('## ')) {
-            html += `<div style="margin-top:16px;margin-bottom:8px;font-weight:700;font-size:14px;">${line.replace('## ', '')}</div>`;
-        } else if (line.startsWith('- 🔴') || line.startsWith('- ⚠️')) {
-            html += `<div class="decision-card alert-red"><div class="detail">${line.replace('- ', '')}</div></div>`;
-        } else if (line.startsWith('- 💤') || line.startsWith('- 🟡')) {
-            html += `<div class="decision-card alert-yellow"><div class="detail">${line.replace('- ', '')}</div></div>`;
-        } else if (line.startsWith('- ✅') || line.startsWith('- **')) {
-            html += `<div class="decision-card alert-green"><div class="detail">${line.replace('- ', '')}</div></div>`;
-        } else if (line.startsWith('|') && !line.includes('---')) {
-            // Table row — simplified
-            const cells = line.split('|').filter(c => c.trim());
-            html += `<div class="decision-card"><div class="detail">${cells.join(' · ')}</div></div>`;
-        } else if (line.startsWith('- ')) {
-            html += `<div class="decision-card"><div class="detail">${line.replace('- ', '')}</div></div>`;
+            }).join('');
         }
-    }
-    container.innerHTML = html;
-}
 
-// ── Load Insights ──────────────────────
-async function loadInsights() {
-    const data = await fetchJSON('/api/deep-analysis');
-    const container = document.getElementById('insights-content');
-    let html = '';
+        // ── Load Decisions ─────────────────────
+        async function loadDecisions() {
+            const data = await fetchJSON('/api/decisions');
+            const container = document.getElementById('decisions-content');
+            const lines = data.content.split('\n').filter(l => l.trim());
+            let html = '';
+            for (const line of lines) {
+                if (line.startsWith('# ')) continue; // Skip title
+                if (line.startsWith('## ')) {
+                    html += `<div style="margin-top:16px;margin-bottom:8px;font-weight:700;font-size:14px;">${line.replace('## ', '')}</div>`;
+                } else if (line.startsWith('- 🔴') || line.startsWith('- ⚠️')) {
+                    html += `<div class="decision-card alert-red"><div class="detail">${line.replace('- ', '')}</div></div>`;
+                } else if (line.startsWith('- 💤') || line.startsWith('- 🟡')) {
+                    html += `<div class="decision-card alert-yellow"><div class="detail">${line.replace('- ', '')}</div></div>`;
+                } else if (line.startsWith('- ✅') || line.startsWith('- **')) {
+                    html += `<div class="decision-card alert-green"><div class="detail">${line.replace('- ', '')}</div></div>`;
+                } else if (line.startsWith('|') && !line.includes('---')) {
+                    // Table row — simplified
+                    const cells = line.split('|').filter(c => c.trim());
+                    html += `<div class="decision-card"><div class="detail">${cells.join(' · ')}</div></div>`;
+                } else if (line.startsWith('- ')) {
+                    html += `<div class="decision-card"><div class="detail">${line.replace('- ', '')}</div></div>`;
+                }
+            }
+            container.innerHTML = html;
+        }
 
-    // Best jockeys
-    if (data.best_jockeys && data.best_jockeys.length > 0) {
-        html += '<div style="font-weight:600;font-size:13px;margin-bottom:8px;">🏇 Top Jockeys</div>';
-        data.best_jockeys.slice(0, 5).forEach(j => {
-            html += `<div class="insight-row">
+        // ── Load Insights ──────────────────────
+        async function loadInsights() {
+            const data = await fetchJSON('/api/deep-analysis');
+            const container = document.getElementById('insights-content');
+            let html = '';
+
+            // Best jockeys
+            if (data.best_jockeys && data.best_jockeys.length > 0) {
+                html += '<div style="font-weight:600;font-size:13px;margin-bottom:8px;">🏇 Top Jockeys</div>';
+                data.best_jockeys.slice(0, 5).forEach(j => {
+                    html += `<div class="insight-row">
                 <span class="insight-label">${j.jockey}</span>
                 <span class="insight-value">${j.wins}w/${j.starts}st (${j.win_pct}%)</span>
             </div>`;
-        });
-    }
+                });
+            }
 
-    // Track strengths
-    if (data.track_strengths) {
-        html += '<div style="font-weight:600;font-size:13px;margin:16px 0 8px;">🏟️ Best Tracks</div>';
-        const tracks = Object.entries(data.track_strengths)
-            .sort((a, b) => b[1].win_pct - a[1].win_pct)
-            .slice(0, 6);
-        tracks.forEach(([track, d]) => {
-            const color = d.win_pct >= 30 ? 'var(--accent-green)' :
-                         d.win_pct > 0 ? 'var(--accent-yellow)' : 'var(--accent-red)';
-            html += `<div class="insight-row">
+            // Track strengths
+            if (data.track_strengths) {
+                html += '<div style="font-weight:600;font-size:13px;margin:16px 0 8px;">🏟️ Best Tracks</div>';
+                const tracks = Object.entries(data.track_strengths)
+                    .sort((a, b) => b[1].win_pct - a[1].win_pct)
+                    .slice(0, 6);
+                tracks.forEach(([track, d]) => {
+                    const color = d.win_pct >= 30 ? 'var(--accent-green)' :
+                        d.win_pct > 0 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+                    html += `<div class="insight-row">
                 <span class="insight-label">${track} (${d.starts}st)</span>
                 <span class="insight-value" style="color:${color}">${d.win_pct}%W</span>
             </div>`;
-        });
-    }
+                });
+            }
 
-    // Optimal condition
-    if (data.optimal_condition) {
-        html += '<div style="font-weight:600;font-size:13px;margin:16px 0 8px;">📊 Key Stats</div>';
-        html += `<div class="insight-row">
+            // Optimal condition
+            if (data.optimal_condition) {
+                html += '<div style="font-weight:600;font-size:13px;margin:16px 0 8px;">📊 Key Stats</div>';
+                html += `<div class="insight-row">
             <span class="insight-label">Optimal Condition</span>
             <span class="insight-value">${data.optimal_condition.avg_win_condition}%</span>
         </div>`;
-    }
+            }
 
-    container.innerHTML = html;
-}
+            container.innerHTML = html;
+        }
 
-// ── Load Metrics ───────────────────────
-async function loadMetrics() {
-    const m = await fetchJSON('/api/metrics');
-    if (m.win_rate) {
-        document.getElementById('win-rate').textContent = m.win_rate + '%';
-    }
-}
+        // ── Load Metrics ───────────────────────
+        async function loadMetrics() {
+            const m = await fetchJSON('/api/metrics');
+            if (m.win_rate) {
+                document.getElementById('win-rate').textContent = m.win_rate + '%';
+            }
+        }
 
-// ── Render Horse Grid ──────────────────
-function renderHorseGrid(horses) {
-    const grid = document.getElementById('horse-grid');
-    let filtered = horses;
-    if (currentFilter === 'rated') filtered = horses.filter(h => h.srf_power > 0);
-    if (currentFilter === 'unrated') filtered = horses.filter(h => h.srf_power === 0);
-    if (currentFilter === 'rest') filtered = horses.filter(h => {
-        const stam = parseInt(String(h.stamina).replace('%', ''));
-        return !isNaN(stam) && stam < 70;
-    });
+        // ── Render Horse Grid ──────────────────
+        function renderHorseGrid(horses) {
+            const grid = document.getElementById('horse-grid');
+            let filtered = horses;
+            if (currentFilter === 'rated') filtered = horses.filter(h => h.srf_power > 0);
+            if (currentFilter === 'unrated') filtered = horses.filter(h => h.srf_power === 0);
+            if (currentFilter === 'rest') filtered = horses.filter(h => {
+                const stam = parseInt(String(h.stamina).replace('%', ''));
+                return !isNaN(stam) && stam < 70;
+            });
 
-    grid.innerHTML = filtered.map(h => {
-        const cond = parseInt(String(h.condition).replace('%', '')) || 0;
-        const stam = parseInt(String(h.stamina).replace('%', '')) || 0;
-        const cons = parseInt(String(h.consistency).replace(/[^0-9]/g, '')) || 0;
-        const starts = h.record?.starts || 0;
-        const wins = h.record?.wins || 0;
-        const form = formBadge(h.form_status);
-        const srfDisplay = h.srf_power > 0 ?
-            `<span class="srf-badge ${h.srf_power >= 87 ? 'srf-elite' : h.srf_power >= 80 ? 'srf-good' : 'srf-low'}">${h.srf_power.toFixed(1)}</span>` :
-            '<span style="color:var(--text-muted);font-size:11px;">No SRF</span>';
+            grid.innerHTML = filtered.map(h => {
+                const cond = parseInt(String(h.condition).replace('%', '')) || 0;
+                const stam = parseInt(String(h.stamina).replace('%', '')) || 0;
+                const cons = parseInt(String(h.consistency).replace(/[^0-9]/g, '')) || 0;
+                const starts = h.record?.starts || 0;
+                const wins = h.record?.wins || 0;
+                const form = formBadge(h.form_status);
+                const srfDisplay = h.srf_power > 0 ?
+                    `<span class="srf-badge ${h.srf_power >= 87 ? 'srf-elite' : h.srf_power >= 80 ? 'srf-good' : 'srf-low'}">${h.srf_power.toFixed(1)}</span>` :
+                    '<span style="color:var(--text-muted);font-size:11px;">No SRF</span>';
 
-        return `<div class="horse-card" onclick="openModal('${h.name}')">
+                return `<div class="horse-card" onclick="openModal('${h.name}')">
             <div class="horse-header">
                 <div>
                     <div class="horse-name">${h.name}</div>
@@ -297,91 +326,95 @@ function renderHorseGrid(horses) {
                 </div>
             </div>
         </div>`;
-    }).join('');
-}
+            }).join('');
+        }
 
-// ── Form Badge Helper ──────────────────
-function formBadge(status) {
-    const map = {
-        'PEAKING': '<span class="form-badge form-peaking">🔥 Peak</span>',
-        'READY': '<span class="form-badge form-ready">✅ Ready</span>',
-        'REST_REQUIRED': '<span class="form-badge form-rest">🛏️ Rest</span>',
-        'NEEDS_WORK': '<span class="form-badge form-work">🏋️ Work</span>',
-    };
-    return map[status] || '<span class="form-badge" style="background:var(--bg-glass);color:var(--text-muted);">—</span>';
-}
+        // ── Form Badge Helper ──────────────────
+        function formBadge(status) {
+            const map = {
+                'PEAKING': '<span class="form-badge form-peaking">🔥 Peak</span>',
+                'READY': '<span class="form-badge form-ready">✅ Ready</span>',
+                'REST_REQUIRED': '<span class="form-badge form-rest">🛏️ Rest</span>',
+                'NEEDS_WORK': '<span class="form-badge form-work">🏋️ Work</span>',
+            };
+            return map[status] || '<span class="form-badge" style="background:var(--bg-glass);color:var(--text-muted);">—</span>';
+        }
 
-// ── Filter Horses ──────────────────────
-function filterHorses(filter, btn) {
-    currentFilter = filter;
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderHorseGrid(stableData.horses);
-}
+        // ── Filter Horses ──────────────────────
+        function filterHorses(filter, btn) {
+            currentFilter = filter;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderHorseGrid(stableData.horses);
+        }
 
-// ── Refresh ────────────────────────────
-async function refreshData() {
-    const btn = document.getElementById('btn-refresh');
-    btn.classList.add('loading');
-    btn.innerHTML = '<span class="icon">⏳</span> Refreshing...';
-    showToast('Pipeline running... Data will refresh in ~15s');
+        // ── Quick Refresh (analysis only) ────────
+        async function refreshData() {
+            showToast('⚡ Quick refresh: re-analyzing existing data...');
+            await fetch('/api/refresh', { method: 'POST' });
+            setTimeout(async () => {
+                await init();
+                showToast('✅ Analysis refreshed! (data from ' + (stableData.snapshot_age || '?') + ')');
+            }, 8000);
+        }
 
-    await fetch('/api/refresh', { method: 'POST' });
+        // ── Full Refresh (export from HRP + analysis)
+        async function fullRefreshData() {
+            showToast('🌐 Full refresh: pulling live data from HRP... this takes ~2 min');
+            await fetch('/api/full-refresh', { method: 'POST' });
+            setTimeout(async () => {
+                await init();
+                showToast('✅ Live data refreshed from HRP!');
+            }, 120000);
+        }
 
-    setTimeout(async () => {
-        await init();
-        btn.classList.remove('loading');
-        btn.innerHTML = '<span class="icon">🔄</span> Refresh Data';
-        showToast('✅ Data refreshed!');
-    }, 15000);
-}
+        // ── Action Modal ───────────────────────
+        function openModal(horseName) {
+            document.getElementById('modal-title').textContent = horseName;
+            document.getElementById('modal-horse').value = horseName;
+            document.getElementById('action-type').value = '';
+            document.getElementById('action-detail').value = '';
+            document.getElementById('action-modal').classList.add('active');
+        }
 
-// ── Action Modal ───────────────────────
-function openModal(horseName) {
-    document.getElementById('modal-title').textContent = horseName;
-    document.getElementById('modal-horse').value = horseName;
-    document.getElementById('action-type').value = '';
-    document.getElementById('action-detail').value = '';
-    document.getElementById('action-modal').classList.add('active');
-}
+        function closeModal() {
+            document.getElementById('action-modal').classList.remove('active');
+        }
 
-function closeModal() {
-    document.getElementById('action-modal').classList.remove('active');
-}
+        async function submitAction() {
+            const horse = document.getElementById('modal-horse').value;
+            const type = document.getElementById('action-type').value;
+            const detail = document.getElementById('action-detail').value;
 
-async function submitAction() {
-    const horse = document.getElementById('modal-horse').value;
-    const type = document.getElementById('action-type').value;
-    const detail = document.getElementById('action-detail').value;
+            if (!type) { showToast('⚠️ Select an action type'); return; }
 
-    if (!type) { showToast('⚠️ Select an action type'); return; }
+            await fetch('/api/action', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ horse, action: type, detail })
+            });
 
-    await fetch('/api/action', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ horse, action: type, detail })
-    });
+            closeModal();
+            showToast(`✅ Action queued: ${type} for ${horse}`);
+        }
 
-    closeModal();
-    showToast(`✅ Action queued: ${type} for ${horse}`);
-}
+        // ── Toast ──────────────────────────────
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
 
-// ── Toast ──────────────────────────────
-function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3000);
-}
+        // ── Close modal on overlay click ───────
+        document.getElementById('action-modal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeModal();
+        });
 
-// ── Close modal on overlay click ───────
-document.getElementById('action-modal').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) closeModal();
-});
-
-// ── Boot ───────────────────────────────
-init();
-</script>
+        // ── Boot ───────────────────────────────
+        init();
+    </script>
 
 </body>
+
 </html>
