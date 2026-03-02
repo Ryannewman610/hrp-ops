@@ -35,6 +35,16 @@ DIST_MAP = {
 }
 
 PLAN = {
+    1: {
+        "name": "Scarlet Smoke — Baseline 3f Works",
+        "earliest": "2026-03-02",
+        "description": "Baseline 3f farm works for new foal. First work done 2/27 (:36.2b). Rest 2 days between works.",
+        "horses": {
+            "Scarlet Smoke":        {"distance": "3", "surface": "0", "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse"},
+        }
+    },
+    # Scarlet Smoke Phase 1 schedule: Run phase 1 on Mar 2, 5, 8 (re-run 3x)
+    # Then she joins Phase 2+ with the other horses for 5f works
     2: {
         "name": "Surface Discovery",
         "earliest": "2026-03-01",
@@ -45,6 +55,7 @@ PLAN = {
             "Film The Scene":       {"distance": "7", "surface": "1", "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse"},
             "Blank Sunset":         {"distance": "7", "surface": "1", "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse"},
             "Gen Xpress":           {"distance": "7", "surface": "1", "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse"},
+            "Scarlet Smoke":        {"distance": "7", "surface": "1", "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse"},
         }
     },
     3: {
@@ -57,6 +68,7 @@ PLAN = {
             "Film The Scene":       {"distance": "7", "surface": "TBD", "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse", "add_blinkers": True},
             "Blank Sunset":         {"distance": "7", "surface": "0",   "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse", "add_blinkers": True},
             "Gen Xpress":           {"distance": "7", "surface": "0",   "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse", "add_blinkers": True},
+            "Scarlet Smoke":        {"distance": "7", "surface": "0",   "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse", "add_blinkers": True},
         }
     },
     4: {
@@ -69,6 +81,7 @@ PLAN = {
             "Film The Scene":       {"distance": "7", "surface": "TBD", "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse", "add_lasix": True},
             "Blank Sunset":         {"distance": "3", "surface": "0",   "effort": "Handily",  "weight": "120", "startpace": "2", "pace": "TimeHorse", "add_lasix": True},
             "Gen Xpress":           {"distance": "7", "surface": "0",   "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse", "add_shadowroll": True},
+            "Scarlet Smoke":        {"distance": "7", "surface": "0",   "effort": "Breezing", "weight": "120", "startpace": "2", "pace": "TimeHorse", "add_lasix": True},
         }
     },
 }

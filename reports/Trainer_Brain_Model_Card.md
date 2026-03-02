@@ -1,5 +1,5 @@
 # 🧠 Trainer Brain — Model Card
-> **Generated:** 2026-02-26 | **Model:** ELO + Form Cycle
+> **Generated:** 2026-03-02 | **Model:** ELO + Form Cycle
 
 ## What It Does
 Predicts win probability (Win%), top-3 probability (Top3%), and expected value (EV Score)
@@ -20,50 +20,54 @@ for each horse in the stable against typical race fields.
 ## Current Ratings
 | Horse | ELO | Win% | Top3% | EV | Form Cycle |
 |-------|-----|------|-------|-----|------------|
-| Iron Timekeeper | 1216.0 | 1.1% | 3.2% | 11.9 | 🔥 PEAKING |
-| Cayuga Lake | 1200.0 | 0.8% | 2.3% | 11.5 | 🔥 PEAKING |
-| Crowds Ransom | 1190.4 | 0.6% | 1.9% | 11.3 | 🔥 PEAKING |
-| Cornswaggled | 1216.0 | 1.1% | 3.2% | 10.4 | 🔥 PEAKING |
+| Thats Some Bullship | 1216.0 | 1.1% | 3.2% | 13.4 | 🔥 PEAKING |
+| Cayuga Lake | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
+| Class A | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
+| Hydration | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
+| Looks Like Nicholas | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
+| Trieste Ruler | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
+| Film The Scene | 1184.0 | 0.6% | 1.7% | 12.8 | 🔥 PEAKING |
+| Crypto King | 1216.0 | 1.1% | 3.2% | 11.9 | 🔥 PEAKING |
+| Desert Oath | 1200.0 | 0.8% | 2.3% | 11.5 | 🔥 PEAKING |
+| Hardline Anvil | 1200.0 | 0.8% | 2.3% | 11.5 | 🔥 PEAKING |
+| Neon Reflection | 1200.0 | 0.8% | 2.3% | 11.5 | 🔥 PEAKING |
+| Triple Love | 1200.0 | 0.8% | 2.3% | 11.5 | 🔥 PEAKING |
+| Stormy Sky | 1184.0 | 0.6% | 1.7% | 11.2 | 🔥 PEAKING |
 | Ideal Sinissippi | 1216.0 | 1.1% | 3.2% | 10.4 | 🔥 PEAKING |
 | Migoli Moonbeam | 1216.0 | 1.1% | 3.2% | 10.4 | 🔥 PEAKING |
-| Helios Hustle | 1203.2 | 0.8% | 2.5% | 10.1 | 🔥 PEAKING |
 | Caros Compass | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
-| Desert Oath | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
-| Dubai Iron | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
-| Looks Like Nicholas | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
-| Neon Reflection | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
+| Core N Light | 1200.0 | 0.8% | 2.3% | 10.0 | 🏋️ NEEDS_WORK |
+| Harsh Frontier | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
 | Port Royal Dash | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
-| Triple Love | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
+| Sassy Astray | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
 | Urshalim Craftwork | 1196.8 | 0.7% | 2.2% | 9.9 | 🔥 PEAKING |
-| Damascus Honey | 1184.0 | 0.6% | 1.7% | 9.8 | 🔥 PEAKING |
-| Film The Scene | 1184.0 | 0.6% | 1.7% | 9.8 | 🔥 PEAKING |
 | Jurors Verdict | 1184.0 | 0.6% | 1.7% | 9.8 | 🔥 PEAKING |
-| Stormy Sky | 1184.0 | 0.6% | 1.7% | 9.8 | 🔥 PEAKING |
-| Kingston Quickstep | 1209.6 | 0.9% | 2.8% | 8.7 | ✅ READY |
-| Class A | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
-| Core N Light | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
-| Hardline Anvil | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
-| Harsh Frontier | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
-| Hydration | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
-| Trieste Ruler | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
-| Lo And Behold | 1184.0 | 0.6% | 1.7% | 8.2 | ✅ READY |
-| Strike King | 1184.0 | 0.6% | 1.7% | 8.2 | ✅ READY |
-| Thats Some Bullship | 1216.0 | 1.1% | 3.2% | 7.4 | ✅ READY |
-| Crypto King | 1216.0 | 1.1% | 3.2% | 5.9 | 🏋️ NEEDS_WORK |
-| Blank Sunset | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
-| Gen Xpress | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
-| Golden Shuvee | 1200.0 | 0.8% | 2.3% | 5.5 | 🏋️ NEEDS_WORK |
-| Sassy Astray | 1200.0 | 0.8% | 2.3% | 5.5 | 🏋️ NEEDS_WORK |
+| Strike King | 1184.0 | 0.6% | 1.7% | 9.8 | 🔥 PEAKING |
+| Iron Timekeeper | 1216.0 | 1.1% | 3.2% | 8.9 | 🏋️ NEEDS_WORK |
+| Helios Hustle | 1203.2 | 0.8% | 2.5% | 8.6 | 🏋️ NEEDS_WORK |
+| Blank Sunset | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
+| Golden Shuvee | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
+| Crowds Ransom | 1190.4 | 0.6% | 1.9% | 8.3 | 🏋️ NEEDS_WORK |
+| Damascus Honey | 1184.0 | 0.6% | 1.7% | 8.2 | 🏋️ NEEDS_WORK |
+| Kingston Quickstep | 1209.6 | 0.9% | 2.8% | 7.2 | 🏋️ NEEDS_WORK |
+| Gen Xpress | 1200.0 | 0.8% | 2.3% | 7.0 | ✅ READY |
+| Drinkers Drought | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
+| Favorite Indian | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
+| Hi How Are Ya | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
+| Scarlet Smoke | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
+| Dubai Iron | 1200.0 | 0.8% | 2.3% | 4.0 | 🛏️ REST_REQUIRED |
+| Lo And Behold | 1184.0 | 0.6% | 1.7% | 2.2 | 🛏️ REST_REQUIRED |
+| Cornswaggled | 1216.0 | 1.1% | 3.2% | -0.1 | 🛏️ REST_REQUIRED |
 
 ## Dataset Stats
 | Metric | Value |
 |--------|-------|
-| Total races | 143 |
+| Total races | 253 |
 | Labeled (with finish position) | 52 |
 | Actual win rate | 30.8% |
 | Actual top3 rate | 53.8% |
-| Timed works | 59 |
-| Horses rated | 34 |
+| Timed works | 932 |
+| Horses rated | 38 |
 
 ## Limitations
 - ELO is based only on races where finish positions were parsed
@@ -73,4 +77,4 @@ for each horse in the stable against typical race fields.
 - No jockey/trainer data available
 
 ---
-*Auto-generated by `10_fit_trainer_brain.py` on 2026-02-26*
+*Auto-generated by `10_fit_trainer_brain.py` on 2026-03-02*

@@ -1,0 +1,83 @@
+{
+    "track_tiers": {
+        "premium": [
+            "GP",
+            "SA",
+            "KEE",
+            "CD",
+            "BEL",
+            "AQU",
+            "SAR",
+            "DMR"
+        ],
+        "good": [
+            "TAM",
+            "FG",
+            "LRL",
+            "OP",
+            "PIM",
+            "DEL",
+            "PRX",
+            "WO"
+        ],
+        "fair": [
+            "BTP",
+            "MNR",
+            "CT",
+            "PEN",
+            "MED",
+            "TDN",
+            "TP",
+            "CNL",
+            "IND"
+        ],
+        "skip": [
+            "ALB",
+            "ASD",
+            "FL",
+            "FNO",
+            "FON",
+            "PLN",
+            "ZIA",
+            "RUI",
+            "SUN",
+            "RIL"
+        ]
+    },
+    "claim_price_range": [
+        5,
+        20
+    ],
+    "max_age": 6,
+    "preferred_sex": [
+        "filly",
+        "mare",
+        "colt"
+    ],
+    "min_score_threshold": 40,
+    "max_races_to_scout": 50,
+    "max_horses_to_profile": 30,
+    "known_good_sires": [
+        "Neon Wolf",
+        "Con Artist",
+        "Commanding",
+        "Chai Latte",
+        "Fire N Fury",
+        "Charley Farley",
+        "Cherokee Sunset",
+        "Count The Stars",
+        "Fusaichi Pegasus",
+        "Steel Ball",
+        "Catch A Rising Star",
+        "Pinnacle West",
+        "Shark Force"
+    ],
+    "scoring_weights": {
+        "age_upside": 0.25,
+        "breeding_value": 0.20,
+        "form_trajectory": 0.20,
+        "earnings_efficiency": 0.15,
+        "class_drop": 0.10,
+        "pedigree_conformation": 0.10
+    }
+}
