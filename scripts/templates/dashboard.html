@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRP Command Center</title>
     <link rel="stylesheet" href="/static/dashboard.css">
-    <meta name="description" content="HRP Stable Management Dashboard — Power Rankings, Daily Decisions, Horse Cards">
+    <meta name="description"
+        content="HRP Stable Management Dashboard — Power Rankings, Daily Decisions, Horse Intelligence">
 </head>
 
 <body>
@@ -20,15 +21,15 @@
             </div>
         </div>
         <div class="header-stats">
-            <div class="stat-pill">💰 Balance: <span class="value" id="balance">—</span></div>
-            <div class="stat-pill">🐴 Horses: <span class="value" id="horse-count">—</span></div>
-            <div class="stat-pill">📊 Win Rate: <span class="value" id="win-rate">—</span></div>
-            <div class="stat-pill" id="snapshot-age" style="border-color: var(--accent-yellow);">
-                📅 Data: <span class="value" id="data-age">—</span>
+            <div class="stat-pill">💰 <span class="value money" id="balance">—</span></div>
+            <div class="stat-pill">🐴 <span class="value" id="horse-count">—</span></div>
+            <div class="stat-pill">📊 <span class="value" id="win-rate">—</span> W%</div>
+            <div class="stat-pill" id="snapshot-age">
+                📅 <span class="value" id="data-age">—</span>
             </div>
-            <span id="refresh-status" style="font-size:12px;color:var(--text-muted);max-width:200px;"></span>
-            <button class="btn-refresh" id="btn-refresh" onclick="refreshData()">
-                <span class="icon">🔄</span> Sync with HRP
+            <span id="refresh-status"></span>
+            <button class="btn-sync" id="btn-refresh" onclick="refreshData()">
+                🔄 Sync with HRP
             </button>
         </div>
     </header>
@@ -36,67 +37,133 @@
     <!-- Main -->
     <main class="main">
 
-        <!-- Power Rankings -->
-        <section class="panel rankings" id="rankings-panel">
-            <div class="panel-title"><span class="icon">🏆</span> SRF Power Rankings</div>
-            <table class="rank-table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Horse</th>
-                        <th>SRF Power</th>
-                        <th>Trend</th>
-                        <th>Win%</th>
-                        <th>EV</th>
-                        <th>Form</th>
-                    </tr>
-                </thead>
-                <tbody id="rankings-body"></tbody>
-            </table>
-        </section>
+        <!-- LEFT COLUMN -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
 
-        <!-- Decisions -->
-        <section class="panel decisions" id="decisions-panel">
-            <div class="panel-title"><span class="icon">⚡</span> Daily Decisions</div>
-            <div id="decisions-content"></div>
-        </section>
+            <!-- Power Rankings -->
+            <section class="panel rankings" id="rankings-panel">
+                <div class="panel-header">
+                    <div class="panel-title"><span class="icon">🏆</span> SRF Power Rankings</div>
+                    <span class="panel-badge" id="ranked-count">0 rated</span>
+                </div>
+                <table class="rank-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Horse</th>
+                            <th>SRF PWR</th>
+                            <th>Best</th>
+                            <th>Last</th>
+                            <th>Trend</th>
+                            <th>Win%</th>
+                            <th>EV</th>
+                            <th>Form</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankings-body"></tbody>
+                </table>
+            </section>
 
-        <!-- Stable Grid -->
-        <section class="panel stable-grid" id="stable-panel">
-            <div class="panel-title"><span class="icon">🐴</span> Stable — All Horses</div>
-            <div class="tab-bar">
-                <button class="tab-btn active" onclick="filterHorses('all', this)">All</button>
-                <button class="tab-btn" onclick="filterHorses('rated', this)">SRF Rated</button>
-                <button class="tab-btn" onclick="filterHorses('unrated', this)">Unrated</button>
-                <button class="tab-btn" onclick="filterHorses('rest', this)">Needs Rest</button>
-            </div>
-            <div class="horse-grid" id="horse-grid"></div>
-        </section>
+            <!-- Stable Grid -->
+            <section class="panel stable-grid" id="stable-panel">
+                <div class="panel-header">
+                    <div class="panel-title"><span class="icon">🐴</span> Stable</div>
+                    <span class="panel-badge" id="total-horses">0 horses</span>
+                </div>
+                <div class="tab-bar">
+                    <button class="tab-btn active" onclick="filterHorses('all', this)">All</button>
+                    <button class="tab-btn" onclick="filterHorses('rated', this)">SRF Rated</button>
+                    <button class="tab-btn" onclick="filterHorses('unrated', this)">2YO / Unraced</button>
+                    <button class="tab-btn" onclick="filterHorses('danger', this)">⚠️ Needs Attention</button>
+                </div>
+                <div class="horse-grid" id="horse-grid"></div>
+            </section>
 
-        <!-- Insights -->
-        <section class="panel insights" id="insights-panel">
-            <div class="panel-title"><span class="icon">🔬</span> Deep Insights</div>
-            <div id="insights-content"></div>
-        </section>
+        </div>
 
+        <!-- RIGHT SIDEBAR -->
+        <div class="sidebar">
+
+            <!-- Daily Decisions -->
+            <section class="panel" id="decisions-panel">
+                <div class="panel-header">
+                    <div class="panel-title"><span class="icon">⚡</span> Daily Decisions</div>
+                </div>
+                <div id="decisions-content"></div>
+            </section>
+
+            <!-- Deep Insights -->
+            <section class="panel" id="insights-panel">
+                <div class="panel-header">
+                    <div class="panel-title"><span class="icon">🔬</span> Intelligence</div>
+                </div>
+                <div id="insights-content"></div>
+            </section>
+
+            <!-- Pending Actions -->
+            <section class="panel" id="actions-panel" style="display:none;">
+                <div class="panel-header">
+                    <div class="panel-title"><span class="icon">📋</span> Action Queue</div>
+                    <span class="panel-badge" id="action-count">0</span>
+                </div>
+                <div id="actions-content"></div>
+            </section>
+
+        </div>
     </main>
 
-    <!-- Action Modal -->
-    <div class="modal-overlay" id="action-modal">
+    <!-- Horse Detail Modal -->
+    <div class="modal-overlay" id="horse-modal">
         <div class="modal">
-            <h2 id="modal-title">Queue Action</h2>
-            <input type="hidden" id="modal-horse">
-            <select id="action-type">
-                <option value="">Select Action...</option>
-                <option value="timed_work">🏃 Schedule Timed Work</option>
-                <option value="enter_race">🏁 Enter Race</option>
-                <option value="geld">🔧 Geld Horse</option>
-                <option value="ship">🚚 Ship to Track</option>
-                <option value="rest">😴 Rest (No Activity)</option>
-            </select>
-            <input type="text" id="action-detail" placeholder="Details (track, distance, etc.)">
-            <button class="btn-submit" onclick="submitAction()">Queue Action</button>
-            <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+            <div class="modal-horse-header">
+                <div>
+                    <h2 id="modal-horse-name"></h2>
+                    <div class="modal-meta" id="modal-horse-meta"></div>
+                </div>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+
+            <!-- SRF Overview -->
+            <div class="modal-section" id="modal-srf-section">
+                <div class="modal-section-title">SRF Performance</div>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;" id="modal-srf-stats"></div>
+            </div>
+
+            <!-- Meters -->
+            <div class="modal-section">
+                <div class="modal-section-title">Current Status</div>
+                <div class="meter-group" id="modal-meters"></div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="modal-section">
+                <div class="modal-section-title">AI Recommendations</div>
+                <div class="modal-recs" id="modal-recs"></div>
+            </div>
+
+            <!-- Race Record -->
+            <div class="modal-section">
+                <div class="modal-section-title">Record</div>
+                <div id="modal-record"></div>
+            </div>
+
+            <!-- Queue Action -->
+            <div class="modal-section">
+                <div class="modal-section-title">Queue Action</div>
+                <div class="action-form">
+                    <input type="hidden" id="modal-horse-input">
+                    <select id="action-type">
+                        <option value="">Select Action...</option>
+                        <option value="timed_work">🏃 Schedule Timed Work</option>
+                        <option value="enter_race">🏁 Enter Race</option>
+                        <option value="geld">🔧 Geld Horse</option>
+                        <option value="ship">🚚 Ship to Track</option>
+                        <option value="rest">😴 Rest (No Activity)</option>
+                    </select>
+                    <input type="text" id="action-detail" placeholder="Details (track, distance, etc.)">
+                    <button class="btn-action" onclick="submitAction()">⚡ Queue Action</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -110,8 +177,10 @@
 
         // ── Fetch Helpers ──────────────────────
         async function fetchJSON(url) {
-            const res = await fetch(url);
-            return res.json();
+            try {
+                const res = await fetch(url);
+                return res.json();
+            } catch (e) { return {}; }
         }
 
         // ── Initialize ─────────────────────────
@@ -122,6 +191,7 @@
                 loadDecisions(),
                 loadInsights(),
                 loadMetrics(),
+                loadActions(),
             ]);
         }
 
@@ -130,23 +200,24 @@
             stableData = await fetchJSON('/api/stable');
             document.getElementById('balance').textContent = '$' + stableData.balance;
             document.getElementById('horse-count').textContent = stableData.horse_count;
-            // Show snapshot age
+            document.getElementById('total-horses').textContent = stableData.horse_count + ' horses';
+
+            // Show snapshot age with color
             const ageEl = document.getElementById('data-age');
             ageEl.textContent = stableData.snapshot_age || 'unknown';
-            // Color-code based on freshness
             const agePill = document.getElementById('snapshot-age');
             const ageText = stableData.snapshot_age || '';
-            if (ageText.includes('d ')) {
-                agePill.style.borderColor = 'var(--accent-red)';
-                ageEl.style.color = 'var(--accent-red)';
+            if (ageText.includes('d')) {
+                agePill.style.borderColor = 'var(--red)';
+                ageEl.style.color = 'var(--red)';
             } else {
                 const hrs = parseInt(ageText);
                 if (hrs > 12) {
-                    agePill.style.borderColor = 'var(--accent-yellow)';
-                    ageEl.style.color = 'var(--accent-yellow)';
+                    agePill.style.borderColor = 'var(--yellow)';
+                    ageEl.style.color = 'var(--yellow)';
                 } else {
-                    agePill.style.borderColor = 'var(--accent-green)';
-                    ageEl.style.color = 'var(--accent-green)';
+                    agePill.style.borderColor = 'var(--green)';
+                    ageEl.style.color = 'var(--green)';
                 }
             }
             renderHorseGrid(stableData.horses);
@@ -155,94 +226,115 @@
         // ── Load Rankings ──────────────────────
         async function loadRankings() {
             const rankings = await fetchJSON('/api/rankings');
+            if (!Array.isArray(rankings)) return;
+            document.getElementById('ranked-count').textContent = rankings.length + ' rated';
             const tbody = document.getElementById('rankings-body');
             tbody.innerHTML = rankings.map((h, i) => {
-                const srfClass = h.srf_power >= 87 ? 'srf-elite' :
-                    h.srf_power >= 80 ? 'srf-good' : 'srf-low';
-                const trendIcon = h.srf_trend === 'improving' ? '📈' :
-                    h.srf_trend === 'declining' ? '📉' : '➡️';
-                const trendClass = h.srf_trend === 'improving' ? 'trend-up' :
-                    h.srf_trend === 'declining' ? 'trend-down' : 'trend-flat';
-                const form = formBadge(h.form_status);
-                return `<tr class="rank-row" onclick="openModal('${h.name}')">
-            <td class="rank-num">${i + 1}</td>
-            <td class="rank-name">${h.name}</td>
-            <td><span class="srf-badge ${srfClass}">${h.srf_power.toFixed(1)}</span></td>
-            <td class="${trendClass}">${trendIcon}</td>
-            <td class="win-pct">${h.win_pct.toFixed(1)}%</td>
-            <td>${h.ev_score.toFixed(0)}</td>
-            <td>${form}</td>
-        </tr>`;
+                const pwr = h.srf_power || 0;
+                const srfClass = pwr >= 87 ? 'srf-elite' : pwr >= 83 ? 'srf-good' : pwr >= 78 ? 'srf-mid' : 'srf-low';
+                const trendIcon = h.srf_trend === 'improving' ? '▲' : h.srf_trend === 'declining' ? '▼' : '—';
+                const trendClass = h.srf_trend === 'improving' ? 'trend-up' : h.srf_trend === 'declining' ? 'trend-down' : 'trend-flat';
+                const form = formBadgeHTML(h.form_status);
+                const best = h.srf_best || '—';
+                const last = h.srf_last || '—';
+                return `<tr class="rank-row" onclick="openHorseModal('${h.name}')">
+                    <td class="rank-num">${i + 1}</td>
+                    <td class="rank-name">${h.name}</td>
+                    <td><span class="srf-badge ${srfClass}">${pwr.toFixed(1)}</span></td>
+                    <td style="font-family:'JetBrains Mono';font-size:12px;color:var(--text-secondary)">${best}</td>
+                    <td style="font-family:'JetBrains Mono';font-size:12px;color:var(--text-secondary)">${last}</td>
+                    <td class="${trendClass}" style="font-weight:700;font-size:13px">${trendIcon}</td>
+                    <td class="win-pct">${(h.win_pct || 0).toFixed(0)}%</td>
+                    <td style="font-family:'JetBrains Mono';font-size:12px;color:var(--text-secondary)">${(h.ev_score || 0).toFixed(0)}</td>
+                    <td>${form}</td>
+                </tr>`;
             }).join('');
         }
 
         // ── Load Decisions ─────────────────────
         async function loadDecisions() {
             const data = await fetchJSON('/api/decisions');
+            if (!data.content) return;
             const container = document.getElementById('decisions-content');
             const lines = data.content.split('\n').filter(l => l.trim());
             let html = '';
             for (const line of lines) {
-                if (line.startsWith('# ')) continue; // Skip title
+                if (line.startsWith('# ')) continue;
                 if (line.startsWith('## ')) {
-                    html += `<div style="margin-top:16px;margin-bottom:8px;font-weight:700;font-size:14px;">${line.replace('## ', '')}</div>`;
-                } else if (line.startsWith('- 🔴') || line.startsWith('- ⚠️')) {
-                    html += `<div class="decision-card alert-red"><div class="detail">${line.replace('- ', '')}</div></div>`;
+                    html += `<div class="decision-section-title">${line.replace('## ', '')}</div>`;
+                } else if (line.startsWith('- 🔴') || line.startsWith('- ⚠')) {
+                    html += `<div class="decision-card alert-red">${line.replace('- ', '')}</div>`;
                 } else if (line.startsWith('- 💤') || line.startsWith('- 🟡')) {
-                    html += `<div class="decision-card alert-yellow"><div class="detail">${line.replace('- ', '')}</div></div>`;
-                } else if (line.startsWith('- ✅') || line.startsWith('- **')) {
-                    html += `<div class="decision-card alert-green"><div class="detail">${line.replace('- ', '')}</div></div>`;
+                    html += `<div class="decision-card alert-yellow">${line.replace('- ', '')}</div>`;
+                } else if (line.startsWith('- ✅') || line.startsWith('- 🟢')) {
+                    html += `<div class="decision-card alert-green">${line.replace('- ', '')}</div>`;
+                } else if (line.startsWith('- ⚡') || line.startsWith('- **')) {
+                    html += `<div class="decision-card alert-blue">${line.replace('- ', '')}</div>`;
                 } else if (line.startsWith('|') && !line.includes('---')) {
-                    // Table row — simplified
                     const cells = line.split('|').filter(c => c.trim());
-                    html += `<div class="decision-card"><div class="detail">${cells.join(' · ')}</div></div>`;
+                    html += `<div class="decision-card">${cells.join(' · ')}</div>`;
                 } else if (line.startsWith('- ')) {
-                    html += `<div class="decision-card"><div class="detail">${line.replace('- ', '')}</div></div>`;
+                    html += `<div class="decision-card">${line.replace('- ', '')}</div>`;
                 }
             }
-            container.innerHTML = html;
+            container.innerHTML = html || '<div style="color:var(--text-dim);font-size:12px;">No decisions yet — run Sync</div>';
         }
 
         // ── Load Insights ──────────────────────
         async function loadInsights() {
             const data = await fetchJSON('/api/deep-analysis');
+            if (!data || Object.keys(data).length === 0) return;
             const container = document.getElementById('insights-content');
             let html = '';
 
-            // Best jockeys
             if (data.best_jockeys && data.best_jockeys.length > 0) {
-                html += '<div style="font-weight:600;font-size:13px;margin-bottom:8px;">🏇 Top Jockeys</div>';
-                data.best_jockeys.slice(0, 5).forEach(j => {
+                html += '<div class="insight-section"><div class="insight-section-title">🏇 Top Jockeys</div>';
+                data.best_jockeys.slice(0, 4).forEach(j => {
+                    const color = j.win_pct >= 40 ? 'var(--green)' : j.win_pct >= 20 ? 'var(--yellow)' : 'var(--text-secondary)';
                     html += `<div class="insight-row">
-                <span class="insight-label">${j.jockey}</span>
-                <span class="insight-value">${j.wins}w/${j.starts}st (${j.win_pct}%)</span>
-            </div>`;
+                        <span class="insight-label">${j.jockey}</span>
+                        <span class="insight-value" style="color:${color}">${j.wins}W/${j.starts}S · ${j.win_pct}%</span>
+                    </div>`;
                 });
+                html += '</div>';
             }
 
-            // Track strengths
             if (data.track_strengths) {
-                html += '<div style="font-weight:600;font-size:13px;margin:16px 0 8px;">🏟️ Best Tracks</div>';
+                html += '<div class="insight-section"><div class="insight-section-title">🏟️ Track Performance</div>';
                 const tracks = Object.entries(data.track_strengths)
                     .sort((a, b) => b[1].win_pct - a[1].win_pct)
-                    .slice(0, 6);
+                    .slice(0, 5);
                 tracks.forEach(([track, d]) => {
-                    const color = d.win_pct >= 30 ? 'var(--accent-green)' :
-                        d.win_pct > 0 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+                    const color = d.win_pct >= 30 ? 'var(--green)' : d.win_pct > 0 ? 'var(--yellow)' : 'var(--red)';
                     html += `<div class="insight-row">
-                <span class="insight-label">${track} (${d.starts}st)</span>
-                <span class="insight-value" style="color:${color}">${d.win_pct}%W</span>
-            </div>`;
+                        <span class="insight-label">${track} <span style="color:var(--text-dim)">(${d.starts}st)</span></span>
+                        <span class="insight-value" style="color:${color}">${d.win_pct}%</span>
+                    </div>`;
                 });
+                html += '</div>';
             }
 
-            // Optimal condition
+            if (data.distance_preferences) {
+                html += '<div class="insight-section"><div class="insight-section-title">📏 Distance SRF</div>';
+                const dists = Object.entries(data.distance_preferences)
+                    .sort((a, b) => (b[1].avg_srf || 0) - (a[1].avg_srf || 0))
+                    .slice(0, 5);
+                dists.forEach(([dist, d]) => {
+                    html += `<div class="insight-row">
+                        <span class="insight-label">${dist}</span>
+                        <span class="insight-value">SRF ${d.avg_srf || '—'}</span>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+
             if (data.optimal_condition) {
-                html += '<div style="font-weight:600;font-size:13px;margin:16px 0 8px;">📊 Key Stats</div>';
-                html += `<div class="insight-row">
-            <span class="insight-label">Optimal Condition</span>
-            <span class="insight-value">${data.optimal_condition.avg_win_condition}%</span>
-        </div>`;
+                html += `<div class="insight-section"><div class="insight-section-title">📊 Win Condition</div>
+                    <div class="insight-row">
+                        <span class="insight-label">Avg Win Condition</span>
+                        <span class="insight-value" style="color:var(--green)">${data.optimal_condition.avg_win_condition}%</span>
+                    </div>
+                </div>`;
             }
 
             container.innerHTML = html;
@@ -251,9 +343,28 @@
         // ── Load Metrics ───────────────────────
         async function loadMetrics() {
             const m = await fetchJSON('/api/metrics');
-            if (m.win_rate) {
+            if (m && m.win_rate) {
                 document.getElementById('win-rate').textContent = m.win_rate + '%';
             }
+        }
+
+        // ── Load Actions Queue ─────────────────
+        async function loadActions() {
+            const actions = await fetchJSON('/api/actions');
+            if (!Array.isArray(actions) || actions.length === 0) {
+                document.getElementById('actions-panel').style.display = 'none';
+                return;
+            }
+            document.getElementById('actions-panel').style.display = '';
+            document.getElementById('action-count').textContent = actions.length;
+            const pending = actions.filter(a => a.status === 'pending');
+            document.getElementById('actions-content').innerHTML = actions.slice(-5).reverse().map(a => {
+                const statusColor = a.status === 'pending' ? 'var(--yellow)' : a.status === 'ready_for_execution' ? 'var(--blue)' : 'var(--green)';
+                return `<div class="decision-card" style="border-left:3px solid ${statusColor}">
+                    <strong>${a.horse}</strong> · ${a.action} ${a.detail ? '· ' + a.detail : ''}
+                    <div style="font-size:10px;color:var(--text-dim);margin-top:2px">${a.status} · ${a.queued_at}</div>
+                </div>`;
+            }).join('');
         }
 
         // ── Render Horse Grid ──────────────────
@@ -262,78 +373,171 @@
             let filtered = horses;
             if (currentFilter === 'rated') filtered = horses.filter(h => h.srf_power > 0);
             if (currentFilter === 'unrated') filtered = horses.filter(h => h.srf_power === 0);
-            if (currentFilter === 'rest') filtered = horses.filter(h => {
-                const stam = parseInt(String(h.stamina).replace('%', ''));
-                return !isNaN(stam) && stam < 70;
+            if (currentFilter === 'danger') filtered = horses.filter(h => {
+                const stam = parseNum(h.stamina);
+                return stam < 70 || h.form_status === 'REST_REQUIRED';
             });
 
             grid.innerHTML = filtered.map(h => {
-                const cond = parseInt(String(h.condition).replace('%', '')) || 0;
-                const stam = parseInt(String(h.stamina).replace('%', '')) || 0;
-                const cons = parseInt(String(h.consistency).replace(/[^0-9]/g, '')) || 0;
+                const cond = parseNum(h.condition);
+                const stam = parseNum(h.stamina);
+                const cons = parseNum(h.consistency);
                 const starts = h.record?.starts || 0;
                 const wins = h.record?.wins || 0;
-                const form = formBadge(h.form_status);
-                const srfDisplay = h.srf_power > 0 ?
-                    `<span class="srf-badge ${h.srf_power >= 87 ? 'srf-elite' : h.srf_power >= 80 ? 'srf-good' : 'srf-low'}">${h.srf_power.toFixed(1)}</span>` :
-                    '<span style="color:var(--text-muted);font-size:11px;">No SRF</span>';
+                const form = formBadgeHTML(h.form_status);
 
-                return `<div class="horse-card" onclick="openModal('${h.name}')">
-            <div class="horse-header">
-                <div>
-                    <div class="horse-name">${h.name}</div>
-                    <div class="horse-meta">${h.sex || '?'} · ${h.age}yo · ${h.track}</div>
-                </div>
-                ${form}
-            </div>
-            <div class="meter-group">
-                <div class="meter">
-                    <span class="meter-label">Cnd</span>
-                    <div class="meter-bar"><div class="meter-fill cond" style="width:${Math.min(cond, 110) / 1.1}%"></div></div>
-                    <span class="meter-value">${h.condition}</span>
-                </div>
-                <div class="meter">
-                    <span class="meter-label">Sta</span>
-                    <div class="meter-bar"><div class="meter-fill stam" style="width:${Math.min(stam, 110) / 1.1}%"></div></div>
-                    <span class="meter-value">${h.stamina}</span>
-                </div>
-                <div class="meter">
-                    <span class="meter-label">Con</span>
-                    <div class="meter-bar"><div class="meter-fill cons" style="width:${cons * 20}%"></div></div>
-                    <span class="meter-value">+${cons}</span>
-                </div>
-            </div>
-            <div class="horse-stats">
-                <div class="stat-item">
-                    ${srfDisplay}
-                    <div class="stat-label">SRF</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">${starts}</div>
-                    <div class="stat-label">Starts</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">${wins}</div>
-                    <div class="stat-label">Wins</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" style="color:var(--accent-blue)">${h.win_pct ? h.win_pct.toFixed(0) + '%' : '—'}</div>
-                    <div class="stat-label">Win%</div>
-                </div>
-            </div>
-        </div>`;
+                // Color-code meter values
+                const condClass = cond >= 95 ? 'great' : cond >= 80 ? '' : cond >= 60 ? 'warn' : 'danger';
+                const stamClass = stam >= 80 ? 'great' : stam >= 60 ? '' : stam >= 40 ? 'warn' : 'danger';
+
+                const srfDisplay = h.srf_power > 0 ?
+                    `<span class="srf-badge ${h.srf_power >= 87 ? 'srf-elite' : h.srf_power >= 83 ? 'srf-good' : h.srf_power >= 78 ? 'srf-mid' : 'srf-low'}">${h.srf_power.toFixed(1)}</span>` :
+                    '<span style="color:var(--text-dim);font-size:10px;font-weight:500;">NO SRF</span>';
+
+                return `<div class="horse-card" onclick="openHorseModal('${h.name}')">
+                    <div class="horse-header">
+                        <div>
+                            <div class="horse-name">${h.name}</div>
+                            <div class="horse-meta">
+                                <span>${h.sex || '?'}</span>
+                                <span class="dot"></span>
+                                <span>${h.age}yo</span>
+                                <span class="dot"></span>
+                                <span>${h.track}</span>
+                            </div>
+                        </div>
+                        ${form}
+                    </div>
+                    <div class="meter-group">
+                        <div class="meter">
+                            <span class="meter-label">CND</span>
+                            <div class="meter-bar"><div class="meter-fill cond" style="width:${Math.min(cond, 110) / 1.1}%"></div></div>
+                            <span class="meter-value ${condClass}">${h.condition}</span>
+                        </div>
+                        <div class="meter">
+                            <span class="meter-label">STA</span>
+                            <div class="meter-bar"><div class="meter-fill stam" style="width:${Math.min(stam, 110) / 1.1}%"></div></div>
+                            <span class="meter-value ${stamClass}">${h.stamina}</span>
+                        </div>
+                        <div class="meter">
+                            <span class="meter-label">CON</span>
+                            <div class="meter-bar"><div class="meter-fill cons" style="width:${Math.min(cons * 20, 100)}%"></div></div>
+                            <span class="meter-value">+${cons}</span>
+                        </div>
+                    </div>
+                    <div class="horse-stats">
+                        <div class="stat-item">
+                            ${srfDisplay}
+                            <div class="stat-label">SRF</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">${starts}</div>
+                            <div class="stat-label">Starts</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">${wins}</div>
+                            <div class="stat-label">Wins</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" style="color:var(--blue)">${starts > 0 ? ((wins / starts) * 100).toFixed(0) + '%' : '—'}</div>
+                            <div class="stat-label">Win%</div>
+                        </div>
+                    </div>
+                </div>`;
             }).join('');
         }
 
-        // ── Form Badge Helper ──────────────────
-        function formBadge(status) {
+        // ── Horse Detail Modal ─────────────────
+        function openHorseModal(name) {
+            const h = stableData.horses.find(x => x.name === name);
+            if (!h) return;
+
+            document.getElementById('modal-horse-name').textContent = h.name;
+            document.getElementById('modal-horse-meta').textContent = `${h.sex || '?'} · ${h.age}yo · ${h.track} · Sire: ${h.sire || '?'}`;
+            document.getElementById('modal-horse-input').value = h.name;
+
+            // SRF stats
+            const srfSection = document.getElementById('modal-srf-section');
+            if (h.srf_power > 0) {
+                srfSection.style.display = '';
+                const pwr = h.srf_power;
+                const srfClass = pwr >= 87 ? 'srf-elite' : pwr >= 83 ? 'srf-good' : pwr >= 78 ? 'srf-mid' : 'srf-low';
+                document.getElementById('modal-srf-stats').innerHTML = [
+                    { label: 'Power', value: pwr.toFixed(1), cls: srfClass },
+                    { label: 'Best', value: h.srf_best || '—', cls: '' },
+                    { label: 'Last', value: h.srf_last || '—', cls: '' },
+                    { label: 'Avg', value: h.srf_avg ? h.srf_avg.toFixed(1) : '—', cls: '' },
+                ].map(s => `<div style="text-align:center;padding:8px;background:var(--bg-glass);border-radius:var(--radius-sm);border:1px solid var(--border)">
+                    <div class="stat-value ${s.cls ? 'srf-badge ' + s.cls : ''}" style="font-size:16px">${s.value}</div>
+                    <div class="stat-label">${s.label}</div>
+                </div>`).join('');
+            } else {
+                srfSection.style.display = 'none';
+            }
+
+            // Meters
+            const cond = parseNum(h.condition);
+            const stam = parseNum(h.stamina);
+            const cons = parseNum(h.consistency);
+            const condClass = cond >= 95 ? 'great' : cond >= 80 ? '' : 'warn';
+            const stamClass = stam >= 80 ? 'great' : stam >= 60 ? '' : stam < 40 ? 'danger' : 'warn';
+            document.getElementById('modal-meters').innerHTML = `
+                <div class="meter"><span class="meter-label">CND</span><div class="meter-bar"><div class="meter-fill cond" style="width:${Math.min(cond, 110) / 1.1}%"></div></div><span class="meter-value ${condClass}">${h.condition}</span></div>
+                <div class="meter"><span class="meter-label">STA</span><div class="meter-bar"><div class="meter-fill stam" style="width:${Math.min(stam, 110) / 1.1}%"></div></div><span class="meter-value ${stamClass}">${h.stamina}</span></div>
+                <div class="meter"><span class="meter-label">CON</span><div class="meter-bar"><div class="meter-fill cons" style="width:${Math.min(cons * 20, 100)}%"></div></div><span class="meter-value">+${cons}</span></div>
+            `;
+
+            // Recommendations
+            const recs = h.next_action ? [h.next_action] : [];
+            document.getElementById('modal-recs').innerHTML = recs.length > 0 ?
+                recs.map(r => `<div class="modal-rec">${r}</div>`).join('') :
+                '<div style="color:var(--text-dim);font-size:12px">No specific recommendations</div>';
+
+            // Record
+            const rec = h.record || {};
+            document.getElementById('modal-record').innerHTML = `
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+                    <div style="text-align:center;padding:6px;background:var(--bg-glass);border-radius:var(--radius-sm)">
+                        <div class="stat-value">${rec.starts || 0}</div><div class="stat-label">Starts</div>
+                    </div>
+                    <div style="text-align:center;padding:6px;background:var(--bg-glass);border-radius:var(--radius-sm)">
+                        <div class="stat-value" style="color:var(--green)">${rec.wins || 0}</div><div class="stat-label">Wins</div>
+                    </div>
+                    <div style="text-align:center;padding:6px;background:var(--bg-glass);border-radius:var(--radius-sm)">
+                        <div class="stat-value">${rec.places || 0}</div><div class="stat-label">Places</div>
+                    </div>
+                    <div style="text-align:center;padding:6px;background:var(--bg-glass);border-radius:var(--radius-sm)">
+                        <div class="stat-value">${rec.shows || 0}</div><div class="stat-label">Shows</div>
+                    </div>
+                </div>
+            `;
+
+            // Reset action form
+            document.getElementById('action-type').value = '';
+            document.getElementById('action-detail').value = '';
+
+            document.getElementById('horse-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('horse-modal').classList.remove('active');
+        }
+
+        // ── Helpers ────────────────────────────
+        function parseNum(val) {
+            if (typeof val === 'number') return val;
+            return parseInt(String(val).replace(/[^0-9]/g, '')) || 0;
+        }
+
+        function formBadgeHTML(status) {
             const map = {
                 'PEAKING': '<span class="form-badge form-peaking">🔥 Peak</span>',
                 'READY': '<span class="form-badge form-ready">✅ Ready</span>',
                 'REST_REQUIRED': '<span class="form-badge form-rest">🛏️ Rest</span>',
                 'NEEDS_WORK': '<span class="form-badge form-work">🏋️ Work</span>',
+                'DEVELOPING': '<span class="form-badge form-developing">🌱 Dev</span>',
             };
-            return map[status] || '<span class="form-badge" style="background:var(--bg-glass);color:var(--text-muted);">—</span>';
+            return map[status] || '<span class="form-badge form-default">—</span>';
         }
 
         // ── Filter Horses ──────────────────────
@@ -344,68 +548,53 @@
             renderHorseGrid(stableData.horses);
         }
 
-        // ── Sync with HRP (actions → export → analyze) ──
+        // ── Sync with HRP ──────────────────────
         async function refreshData() {
             const btn = document.getElementById('btn-refresh');
             const statusEl = document.getElementById('refresh-status');
             btn.classList.add('loading');
-            btn.innerHTML = '<span class="icon">⏳</span> Syncing...';
+            btn.textContent = '⏳ Syncing...';
             statusEl.textContent = 'Starting...';
-            statusEl.style.color = 'var(--accent-blue)';
 
             const res = await fetch('/api/refresh', { method: 'POST' });
             const data = await res.json();
             if (data.status === 'already_running') {
                 showToast('⚠️ Sync already in progress');
                 btn.classList.remove('loading');
-                btn.innerHTML = '<span class="icon">🔄</span> Sync with HRP';
+                btn.textContent = '🔄 Sync with HRP';
                 return;
             }
 
-            // Poll for status updates
             const pollInterval = setInterval(async () => {
                 try {
                     const st = await fetchJSON('/api/refresh-status');
                     statusEl.textContent = st.step || '';
                     if (st.error) {
                         statusEl.textContent = '❌ ' + st.error;
-                        statusEl.style.color = 'var(--accent-red)';
+                        statusEl.style.color = 'var(--red)';
                         clearInterval(pollInterval);
                         btn.classList.remove('loading');
-                        btn.innerHTML = '<span class="icon">🔄</span> Sync with HRP';
-                        showToast('❌ Sync failed: ' + st.error);
+                        btn.textContent = '🔄 Sync with HRP';
+                        showToast('❌ Sync failed');
                     }
                     if (!st.running && !st.error) {
                         clearInterval(pollInterval);
                         statusEl.textContent = '';
                         btn.classList.remove('loading');
-                        btn.innerHTML = '<span class="icon">🔄</span> Sync with HRP';
+                        btn.textContent = '🔄 Sync with HRP';
                         await init();
-                        showToast('✅ Synced with HRP! Data is now live.');
+                        showToast('✅ Synced — data is live!');
                     }
-                } catch (e) { /* ignore polling errors */ }
+                } catch (e) { }
             }, 2000);
         }
 
-        // ── Action Modal ───────────────────────
-        function openModal(horseName) {
-            document.getElementById('modal-title').textContent = horseName;
-            document.getElementById('modal-horse').value = horseName;
-            document.getElementById('action-type').value = '';
-            document.getElementById('action-detail').value = '';
-            document.getElementById('action-modal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('action-modal').classList.remove('active');
-        }
-
+        // ── Submit Action ──────────────────────
         async function submitAction() {
-            const horse = document.getElementById('modal-horse').value;
+            const horse = document.getElementById('modal-horse-input').value;
             const type = document.getElementById('action-type').value;
             const detail = document.getElementById('action-detail').value;
-
-            if (!type) { showToast('⚠️ Select an action type'); return; }
+            if (!type) { showToast('⚠️ Select an action'); return; }
 
             await fetch('/api/action', {
                 method: 'POST',
@@ -414,7 +603,8 @@
             });
 
             closeModal();
-            showToast(`✅ Action queued: ${type} for ${horse}`);
+            showToast(`✅ Queued: ${type} for ${horse}`);
+            loadActions();
         }
 
         // ── Toast ──────────────────────────────
@@ -422,12 +612,17 @@
             const t = document.getElementById('toast');
             t.textContent = msg;
             t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 3000);
+            setTimeout(() => t.classList.remove('show'), 3500);
         }
 
-        // ── Close modal on overlay click ───────
-        document.getElementById('action-modal').addEventListener('click', (e) => {
+        // ── Close modal on overlay ─────────────
+        document.getElementById('horse-modal').addEventListener('click', e => {
             if (e.target === e.currentTarget) closeModal();
+        });
+
+        // ── Keyboard shortcut ──────────────────
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeModal();
         });
 
         // ── Boot ───────────────────────────────
