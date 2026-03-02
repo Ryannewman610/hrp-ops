@@ -1,83 +1,66 @@
 # 🧠 Trainer Brain — Model Card
-> **Generated:** 2026-03-02 | **Model:** ELO + Form Cycle
+> **Generated:** 2026-03-02 | **Model:** SRF + ELO + Form
 
-> [!CAUTION]
-> **This model is non-discriminating and should NOT be used for race decisions.** All horses predict ~0.8% Win% regardless of actual ability. Strike King (80% real win rate) shows 0.6% predicted. ELO ratings are nearly identical for all horses. The model needs rebuilding with real outcome data, SRF speed figures, and competitor-relative features. See `intelligence_gaps.md` for the improvement plan.
+## Model Architecture
+- **SRF Power** (35% weight) — Weighted combination of last, avg, and best SRF
+- **Form Cycle** (20%) — Stamina, condition, consistency, recent works
+- **ELO Rating** (10%) — Historical head-to-head performance
+- **Win/Top3** (35%) — Probabilistic estimate from SRF edge vs field
 
-## What It Does
-Predicts win probability (Win%), top-3 probability (Top3%), and expected value (EV Score)
-for each horse in the stable against typical race fields.
+## Power Rankings (SRF-Based)
+| Horse | SRF Pwr | Avg | Best | Last | Trend | Win% | EV | Form |
+|-------|:-------:|:---:|:----:|:----:|-------|:----:|:--:|------|
+| Cayuga Lake | **89.3** | 88.8 | 93 | 87 | 📉 | 43.4% | 67.1 | 🔥 |
+| Crypto King | **88.7** | 88.3 | 90 | 88 | 📈 | 40.1% | 65.1 | 🔥 |
+| Trieste Ruler | **87.1** | 85.4 | 89 | 87 | 📈 | 36.8% | 64.7 | 🔥 |
+| Strike King | **86.5** | 87.0 | 88 | 85 | ➡️ | 32.0% | 60.3 | 🔥 |
+| Sassy Astray | **86.3** | 82.3 | 88 | 88 | 📈 | 31.4% | 59.8 | 🔥 |
+| Ideal Sinissippi | **85.1** | 84.3 | 86 | 85 | ➡️ | 29.3% | 58.8 | 🔥 |
+| Harsh Frontier | **84.8** | 84.6 | 90 | 81 | 📉 | 26.9% | 55.8 | 🔥 |
+| Cornswaggled | **83.8** | 83.9 | 90 | 79 | 📉 | 13.4% | 38.4 | 🛏️ |
+| Thats Some Bullship | **82.0** | 83.2 | 90 | 75 | ➡️ | 21.5% | 52.8 | 🔥 |
+| Lo And Behold | **81.6** | 81.8 | 85 | 79 | ➡️ | 9.8% | 36.9 | 🛏️ |
+| Class A | **80.0** | 80.4 | 85 | 76 | 📉 | 15.5% | 47.6 | 🔥 |
+| Iron Timekeeper | **75.0** | 75.0 | 75 | 75 | — | 1.0% | 33.0 | 🏋️ |
+| Kingston Quickstep | **61.0** | 61.0 | 61 | 61 | — | 1.0% | 26.1 | 🏋️ |
 
-## How It Works
-1. **ELO Rating** — Each horse starts at 1200. After each race result, ELO updates
-   based on who they beat/lost to. Higher ELO = stronger horse.
-2. **Form Cycle** — Current fitness based on:
-   - Stamina % (25% weight)
-   - Condition % (15%)
-   - Consistency (15%)
-   - ELO rating (20%)
-   - Recent works count (10%)
-   - Historical win rate (15%)
-3. **Expected Value** — Combines Win%, Top3%, and form score.
-
-## Current Ratings
-| Horse | ELO | Win% | Top3% | EV | Form Cycle |
-|-------|-----|------|-------|-----|------------|
-| Thats Some Bullship | 1216.0 | 1.1% | 3.2% | 13.4 | 🔥 PEAKING |
-| Cayuga Lake | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
-| Class A | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
-| Hydration | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
-| Looks Like Nicholas | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
-| Trieste Ruler | 1200.0 | 0.8% | 2.3% | 13.0 | 🔥 PEAKING |
-| Film The Scene | 1184.0 | 0.6% | 1.7% | 12.8 | 🔥 PEAKING |
-| Crypto King | 1216.0 | 1.1% | 3.2% | 11.9 | 🔥 PEAKING |
-| Desert Oath | 1200.0 | 0.8% | 2.3% | 11.5 | 🔥 PEAKING |
-| Hardline Anvil | 1200.0 | 0.8% | 2.3% | 11.5 | 🔥 PEAKING |
-| Neon Reflection | 1200.0 | 0.8% | 2.3% | 11.5 | 🔥 PEAKING |
-| Triple Love | 1200.0 | 0.8% | 2.3% | 11.5 | 🔥 PEAKING |
-| Stormy Sky | 1184.0 | 0.6% | 1.7% | 11.2 | 🔥 PEAKING |
-| Ideal Sinissippi | 1216.0 | 1.1% | 3.2% | 10.4 | 🔥 PEAKING |
-| Migoli Moonbeam | 1216.0 | 1.1% | 3.2% | 10.4 | 🔥 PEAKING |
-| Caros Compass | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
-| Core N Light | 1200.0 | 0.8% | 2.3% | 10.0 | 🏋️ NEEDS_WORK |
-| Harsh Frontier | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
-| Port Royal Dash | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
-| Sassy Astray | 1200.0 | 0.8% | 2.3% | 10.0 | 🔥 PEAKING |
-| Urshalim Craftwork | 1196.8 | 0.7% | 2.2% | 9.9 | 🔥 PEAKING |
-| Jurors Verdict | 1184.0 | 0.6% | 1.7% | 9.8 | 🔥 PEAKING |
-| Strike King | 1184.0 | 0.6% | 1.7% | 9.8 | 🔥 PEAKING |
-| Iron Timekeeper | 1216.0 | 1.1% | 3.2% | 8.9 | 🏋️ NEEDS_WORK |
-| Helios Hustle | 1203.2 | 0.8% | 2.5% | 8.6 | 🏋️ NEEDS_WORK |
-| Blank Sunset | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
-| Golden Shuvee | 1200.0 | 0.8% | 2.3% | 8.5 | ✅ READY |
-| Crowds Ransom | 1190.4 | 0.6% | 1.9% | 8.3 | 🏋️ NEEDS_WORK |
-| Damascus Honey | 1184.0 | 0.6% | 1.7% | 8.2 | 🏋️ NEEDS_WORK |
-| Kingston Quickstep | 1209.6 | 0.9% | 2.8% | 7.2 | 🏋️ NEEDS_WORK |
-| Gen Xpress | 1200.0 | 0.8% | 2.3% | 7.0 | ✅ READY |
-| Drinkers Drought | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
-| Favorite Indian | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
-| Hi How Are Ya | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
-| Scarlet Smoke | 1200.0 | 0.8% | 2.3% | 5.5 | ✅ READY |
-| Dubai Iron | 1200.0 | 0.8% | 2.3% | 4.0 | 🛏️ REST_REQUIRED |
-| Lo And Behold | 1184.0 | 0.6% | 1.7% | 2.2 | 🛏️ REST_REQUIRED |
-| Cornswaggled | 1216.0 | 1.1% | 3.2% | -0.1 | 🛏️ REST_REQUIRED |
+### Unrated (no race history)
+| Horse | Form | Next Action |
+|-------|------|-------------|
+| Blank Sunset | ✅ READY | race_target |
+| Caros Compass | 🔥 PEAKING | race_target |
+| Core N Light | 🏋️ NEEDS_WORK | timed_work |
+| Crowds Ransom | 🏋️ NEEDS_WORK | timed_work |
+| Damascus Honey | 🏋️ NEEDS_WORK | timed_work |
+| Desert Oath | 🔥 PEAKING | race_target |
+| Drinkers Drought | ✅ READY | race_target |
+| Dubai Iron | 🛏️ REST_REQUIRED | rest |
+| Favorite Indian | ✅ READY | race_target |
+| Film The Scene | 🔥 PEAKING | race_target |
+| Gen Xpress | ✅ READY | race_target |
+| Golden Shuvee | ✅ READY | race_target |
+| Hardline Anvil | 🔥 PEAKING | race_target |
+| Helios Hustle | 🏋️ NEEDS_WORK | timed_work |
+| Hi How Are Ya | ✅ READY | race_target |
+| Hydration | 🔥 PEAKING | race_target |
+| Jurors Verdict | 🔥 PEAKING | race_target |
+| Looks Like Nicholas | 🔥 PEAKING | race_target |
+| Migoli Moonbeam | 🔥 PEAKING | race_target |
+| Neon Reflection | 🔥 PEAKING | race_target |
+| Port Royal Dash | 🔥 PEAKING | race_target |
+| Scarlet Smoke | ✅ READY | race_target |
+| Stormy Sky | 🔥 PEAKING | race_target |
+| Triple Love | 🔥 PEAKING | race_target |
+| Urshalim Craftwork | 🔥 PEAKING | race_target |
 
 ## Dataset Stats
 | Metric | Value |
 |--------|-------|
-| Total races | 253 |
-| Labeled (with finish position) | 52 |
-| Actual win rate | 30.8% |
-| Actual top3 rate | 53.8% |
-| Timed works | 932 |
-| Horses rated | 38 |
-
-## Limitations
-- ELO is based only on races where finish positions were parsed
-- Horses with no race history get default 1200 rating
-- Class/conditions matching is not yet factored into ELO
-- Distance preference not modeled (sprinter vs router)
-- No jockey/trainer data available
+| Total races | 112 |
+| Races with SRF | 0 |
+| Horses with SRF | 13 |
+| Timed works | 956 |
+| Win rate (actual) | 28.0% |
 
 ---
 *Auto-generated by `10_fit_trainer_brain.py` on 2026-03-02*
