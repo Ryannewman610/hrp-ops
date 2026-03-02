@@ -137,4 +137,12 @@ echo  Check: reports\Daily_Decisions.md
 echo         reports\Stable_Dashboard.md
 echo         reports\Trainer_Brain_Model_Card.md
 echo ========================================
+
+REM Step 12: Push data to cloud dashboard (if configured)
+if defined CLOUD_URL (
+    echo.
+    echo [CLOUD] Pushing data to %CLOUD_URL%...
+    .venv\Scripts\python.exe scripts\push_to_cloud.py
+)
+
 pause
