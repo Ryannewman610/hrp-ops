@@ -1,19 +1,25 @@
-"""dashboard.py — HRP Command Center local dashboard.
+"""dashboard.py — HRP Command Center dashboard.
 
-Run: python scripts/dashboard.py
-Open: http://localhost:5050
+Local:  python scripts/dashboard.py  →  http://localhost:5050
+Cloud:  gunicorn scripts.dashboard:app  (Railway/Render)
 """
 
 import csv
+import hashlib
+import hmac
 import json
 import os
+import secrets
+import shutil
 import subprocess
 import sys
 import threading
 from datetime import date, datetime
+from functools import wraps
 from pathlib import Path
 
-from flask import Flask, jsonify, render_template, request
+from flask import (Flask, jsonify, redirect, render_template, request,
+                   session, url_for)
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
@@ -22,6 +28,22 @@ REPORTS = ROOT / "reports"
 app = Flask(__name__,
             template_folder=str(ROOT / "scripts" / "templates"),
             static_folder=str(ROOT / "scripts" / "static"))
+
+# ── Auth Config ──────────────────────────────────────────
+# Set via environment variable or defaults for local dev
+app.secret_key = os.environ.get("SECRET_KEY", secrets.token_hex(32))
+DASHBOARD_PASSWORD = os.environ.get("DASHBOARD_PASSWORD", "hrp2026")
+API_KEY = os.environ.get("API_KEY", "local-dev-key")
+
+
+def login_required(f):
+    """Decorator: redirect to login if not authenticated."""
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if not session.get("logged_in"):
+            return redirect(url_for("login"))
+        return f(*args, **kwargs)
+    return decorated
 
 
 # ── Helpers ──────────────────────────────────────────────
@@ -54,7 +76,27 @@ def find_latest_snapshot():
 
 # ── Routes ───────────────────────────────────────────────
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        pw = request.form.get("password", "")
+        if pw == DASHBOARD_PASSWORD:
+            session["logged_in"] = True
+            return redirect(url_for("index"))
+        return render_template("login.html", error="Wrong password")
+    if session.get("logged_in"):
+        return redirect(url_for("index"))
+    return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
+
+
 @app.route("/")
+@login_required
 def index():
     return render_template("dashboard.html")
 
@@ -235,9 +277,50 @@ def api_actions():
     return jsonify([])
 
 
+# ── Data Push (for cloud sync from local machine) ───────
+
+@app.route("/api/push", methods=["POST"])
+def api_push():
+    """Accept data pushed from local machine.
+    
+    Usage: POST /api/push with header X-API-Key and JSON body with
+    keys: stable_snapshot, horse_ratings, deep_analysis, decisions, metrics
+    """
+    key = request.headers.get("X-API-Key", "")
+    if not hmac.compare_digest(key, API_KEY):
+        return jsonify({"error": "unauthorized"}), 401
+
+    data = request.json or {}
+
+    # Write snapshot
+    if "stable_snapshot" in data:
+        snap_dir = ROOT / "inputs" / date.today().isoformat()
+        snap_dir.mkdir(parents=True, exist_ok=True)
+        (snap_dir / "stable_snapshot.json").write_text(
+            json.dumps(data["stable_snapshot"], indent=2), encoding="utf-8")
+
+    # Write analysis outputs
+    for key_name, out_path in [
+        ("horse_ratings", OUTPUTS / "model" / "horse_ratings.json"),
+        ("deep_analysis", OUTPUTS / "deep_analysis.json"),
+        ("model_metrics", OUTPUTS / "model" / "model_metrics.json"),
+    ]:
+        if key_name in data:
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            out_path.write_text(json.dumps(data[key_name], indent=2), encoding="utf-8")
+
+    # Write decisions markdown
+    if "decisions" in data:
+        REPORTS.mkdir(parents=True, exist_ok=True)
+        (REPORTS / "Daily_Decisions.md").write_text(data["decisions"], encoding="utf-8")
+
+    return jsonify({"status": "ok", "received_keys": list(data.keys())})
+
+
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5050))
     print("=" * 50)
     print("  HRP Command Center")
-    print("  http://localhost:5050")
+    print(f"  http://localhost:{port}")
     print("=" * 50)
-    app.run(host="0.0.0.0", port=5050, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=True)

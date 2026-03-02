@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRP Command Center — Login</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <style>
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-hover);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            width: 380px;
+            backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+
+        .login-card .logo {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+
+        .login-card .logo-sub {
+            margin-bottom: 32px;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 14px;
+            margin-bottom: 12px;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+
+        .login-input:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px var(--blue-dim);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--blue), #6366f1);
+            border: none;
+            border-radius: var(--radius-sm);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 4px;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .login-error {
+            color: var(--red);
+            font-size: 12px;
+            margin-top: 8px;
+            min-height: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo">🏇 HRP Command Center</div>
+            <div class="logo-sub">Ire Iron Stables</div>
+            <form method="POST" action="/login">
+                <input type="password" name="password" class="login-input" placeholder="Password" autofocus required>
+                <button type="submit" class="login-btn">Enter</button>
+                <div class="login-error">
+                    {% if error %}{{ error }}{% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
