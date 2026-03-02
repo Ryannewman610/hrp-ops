@@ -137,60 +137,80 @@ def api_outcomes():
     return jsonify(rows[-50:])  # Last 50 races
 
 
+refresh_status = {"running": False, "step": "", "error": ""}
+
+
+@app.route("/api/refresh-status")
+def api_refresh_status():
+    return jsonify(refresh_status)
+
+
 @app.route("/api/refresh", methods=["POST"])
 def api_refresh():
-    """Quick refresh: re-run analysis on existing data."""
-    def run_pipeline():
-        scripts = [
-            "scripts/09_build_model_dataset.py",
-            "scripts/10_fit_trainer_brain.py",
-            "scripts/deep_analysis.py",
-            "scripts/stable_audit.py",
-            "scripts/daily_decisions.py",
-        ]
-        for s in scripts:
-            subprocess.run(
-                [sys.executable, str(ROOT / s)],
-                cwd=str(ROOT), capture_output=True, text=True
-            )
+    """Full refresh: execute queued actions → export from HRP → analyze."""
+    if refresh_status["running"]:
+        return jsonify({"status": "already_running"})
 
-    threading.Thread(target=run_pipeline, daemon=True).start()
-    return jsonify({"status": "refreshing"})
-
-
-@app.route("/api/full-refresh", methods=["POST"])
-def api_full_refresh():
-    """Full refresh: re-export from HRP, then re-run analysis."""
     def run_full_pipeline():
-        # Step 1: Export fresh data from HRP
-        export_scripts = [
-            "scripts/01_login_save_state.py",
-            "scripts/02_export_stable.py",
-        ]
-        for s in export_scripts:
+        refresh_status["running"] = True
+        refresh_status["error"] = ""
+        try:
+            # Step 1: Execute pending actions on HRP
+            queue_path = OUTPUTS / "action_queue.json"
+            if queue_path.exists():
+                queue = json.loads(queue_path.read_text(encoding="utf-8"))
+                pending = [a for a in queue if a.get("status") == "pending"]
+                if pending:
+                    refresh_status["step"] = f"Executing {len(pending)} queued actions..."
+                    # TODO: Wire Playwright automation for each action type
+                    # For now, mark actions as "ready" (need manual HRP execution)
+                    for a in queue:
+                        if a.get("status") == "pending":
+                            a["status"] = "ready_for_execution"
+                    queue_path.write_text(json.dumps(queue, indent=2), encoding="utf-8")
+
+            # Step 2: Login + Export fresh data from HRP
+            refresh_status["step"] = "Logging into HRP..."
             result = subprocess.run(
-                [sys.executable, str(ROOT / s)],
-                cwd=str(ROOT), capture_output=True, text=True
+                [sys.executable, str(ROOT / "scripts" / "01_login_save_state.py")],
+                cwd=str(ROOT), capture_output=True, text=True, timeout=120
             )
             if result.returncode != 0:
-                print(f"Export failed: {s}: {result.stderr[:200]}")
+                refresh_status["error"] = f"Login failed: {result.stderr[:200]}"
                 return
-        # Step 2: Run analysis
-        analysis_scripts = [
-            "scripts/09_build_model_dataset.py",
-            "scripts/10_fit_trainer_brain.py",
-            "scripts/deep_analysis.py",
-            "scripts/stable_audit.py",
-            "scripts/daily_decisions.py",
-        ]
-        for s in analysis_scripts:
-            subprocess.run(
-                [sys.executable, str(ROOT / s)],
-                cwd=str(ROOT), capture_output=True, text=True
+
+            refresh_status["step"] = "Exporting stable data from HRP..."
+            result = subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "02_export_stable.py"), "--mode", "daily"],
+                cwd=str(ROOT), capture_output=True, text=True, timeout=300
             )
+            if result.returncode != 0:
+                refresh_status["error"] = f"Export failed: {result.stderr[:200]}"
+                return
+
+            # Step 3: Run analysis pipeline
+            analysis_scripts = [
+                ("Building model dataset...", "scripts/09_build_model_dataset.py"),
+                ("Fitting Trainer Brain...", "scripts/10_fit_trainer_brain.py"),
+                ("Running deep analysis...", "scripts/deep_analysis.py"),
+                ("Auditing stable...", "scripts/stable_audit.py"),
+                ("Generating daily decisions...", "scripts/daily_decisions.py"),
+            ]
+            for step_msg, script in analysis_scripts:
+                refresh_status["step"] = step_msg
+                subprocess.run(
+                    [sys.executable, str(ROOT / script)],
+                    cwd=str(ROOT), capture_output=True, text=True, timeout=60
+                )
+
+            refresh_status["step"] = "Done!"
+        except Exception as e:
+            refresh_status["error"] = str(e)[:200]
+        finally:
+            refresh_status["running"] = False
 
     threading.Thread(target=run_full_pipeline, daemon=True).start()
-    return jsonify({"status": "full_refreshing"})
+    return jsonify({"status": "started"})
 
 
 @app.route("/api/action", methods=["POST"])

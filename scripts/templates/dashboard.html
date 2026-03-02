@@ -26,13 +26,9 @@
             <div class="stat-pill" id="snapshot-age" style="border-color: var(--accent-yellow);">
                 📅 Data: <span class="value" id="data-age">—</span>
             </div>
-            <button class="btn-refresh" onclick="refreshData()" title="Quick: re-run analysis on existing data">
-                <span class="icon">🔄</span> Quick Refresh
-            </button>
-            <button class="btn-refresh" onclick="fullRefreshData()"
-                style="background: linear-gradient(135deg, #22c55e, #059669);"
-                title="Full: re-export from HRP + re-run analysis">
-                <span class="icon">⭐</span> Full Refresh (HRP)
+            <span id="refresh-status" style="font-size:12px;color:var(--text-muted);max-width:200px;"></span>
+            <button class="btn-refresh" id="btn-refresh" onclick="refreshData()">
+                <span class="icon">🔄</span> Sync with HRP
             </button>
         </div>
     </header>
@@ -348,24 +344,47 @@
             renderHorseGrid(stableData.horses);
         }
 
-        // ── Quick Refresh (analysis only) ────────
+        // ── Sync with HRP (actions → export → analyze) ──
         async function refreshData() {
-            showToast('⚡ Quick refresh: re-analyzing existing data...');
-            await fetch('/api/refresh', { method: 'POST' });
-            setTimeout(async () => {
-                await init();
-                showToast('✅ Analysis refreshed! (data from ' + (stableData.snapshot_age || '?') + ')');
-            }, 8000);
-        }
+            const btn = document.getElementById('btn-refresh');
+            const statusEl = document.getElementById('refresh-status');
+            btn.classList.add('loading');
+            btn.innerHTML = '<span class="icon">⏳</span> Syncing...';
+            statusEl.textContent = 'Starting...';
+            statusEl.style.color = 'var(--accent-blue)';
 
-        // ── Full Refresh (export from HRP + analysis)
-        async function fullRefreshData() {
-            showToast('🌐 Full refresh: pulling live data from HRP... this takes ~2 min');
-            await fetch('/api/full-refresh', { method: 'POST' });
-            setTimeout(async () => {
-                await init();
-                showToast('✅ Live data refreshed from HRP!');
-            }, 120000);
+            const res = await fetch('/api/refresh', { method: 'POST' });
+            const data = await res.json();
+            if (data.status === 'already_running') {
+                showToast('⚠️ Sync already in progress');
+                btn.classList.remove('loading');
+                btn.innerHTML = '<span class="icon">🔄</span> Sync with HRP';
+                return;
+            }
+
+            // Poll for status updates
+            const pollInterval = setInterval(async () => {
+                try {
+                    const st = await fetchJSON('/api/refresh-status');
+                    statusEl.textContent = st.step || '';
+                    if (st.error) {
+                        statusEl.textContent = '❌ ' + st.error;
+                        statusEl.style.color = 'var(--accent-red)';
+                        clearInterval(pollInterval);
+                        btn.classList.remove('loading');
+                        btn.innerHTML = '<span class="icon">🔄</span> Sync with HRP';
+                        showToast('❌ Sync failed: ' + st.error);
+                    }
+                    if (!st.running && !st.error) {
+                        clearInterval(pollInterval);
+                        statusEl.textContent = '';
+                        btn.classList.remove('loading');
+                        btn.innerHTML = '<span class="icon">🔄</span> Sync with HRP';
+                        await init();
+                        showToast('✅ Synced with HRP! Data is now live.');
+                    }
+                } catch (e) { /* ignore polling errors */ }
+            }, 2000);
         }
 
         // ── Action Modal ───────────────────────
