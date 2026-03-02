@@ -123,8 +123,8 @@ echo.
 echo ========================================
 echo  Daily run complete! All checks passed.
 echo  Check: reports\Stable_Dashboard.md
-echo         reports\Race_Opportunities.md
-echo         reports\Training_Plan.md
-echo         reports\Approval_Pack.md
+echo         reports\Race_Readiness.md
+echo         reports\2YO_Deep_Dive.md
+echo         reports\Trainer_Brain_Model_Card.md
 echo ========================================
 pause
