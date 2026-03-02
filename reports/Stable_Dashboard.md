@@ -1,5 +1,8 @@
 # 🏇 Stable Dashboard
-> **Generated:** 2026-03-02 | **Balance:** $238.38 | **Horses:** 39
+> **Generated:** 2026-03-02 | **Balance:** $226.38 | **Horses:** 39
+
+> [!WARNING]
+> Meter values are from the 6:20 AM snapshot. Cayuga Lake and Sassy Astray were trained after. Reports pipeline (`06_generate_reports.py`) needs rerun for full accuracy.
 
 ## Quick Stats
 | Metric | Value |
@@ -51,17 +54,13 @@
 | Triple Love | BTP | 107% | 91% | +5 | ? | 1 |
 | Urshalim Craftwork | CT | 106% | 88% | +5 | ? | 1 |
 
-## Upcoming Races
-| Horse | Date | Track | Race# | Class |
-|-------|------|-------|-------|-------|
-| Strike King | 2026-02-19 00:00:00 | TUP | OClm10/N2X-N | ? |
-| Class A | 2026-02-20 00:00:00 | HOU | Md7.50 | ? |
-| Crypto King | 2026-02-20 00:00:00 | TP | 4+Alw49.00 | ? |
-| Thats Some Bullship | 2026-02-21 00:00:00 | TUP | 4+Clm7.50 | ? |
-| Sassy Astray | 2026-02-21 00:00:00 | CT | fMd12.50(12.5-10) | ? |
-| Lo And Behold | 2026-02-27 00:00:00 | TP | fMd5.00 | ? |
-| Cornswaggled | 2026-02-28 00:00:00 | HOU | 4+Clm7.50N1Y | ? |
-| Trieste Ruler | 2026-03-07 00:00:00 | TAM | Clm6.25N3L | ? |
+## Upcoming Races (Verified Live)
+| Horse | Date | Track | Race | Class |
+|-------|------|-------|------|-------|
+| Cayuga Lake | 3/3/26 | TUP | R2 15:35 | 4+Clm6.25N4L 5½f Dirt |
+| Sassy Astray | 3/4/26 | BTP | R3 13:15 | fMdSpWt8.00 1m Dirt |
+| Strike King | 3/4/26 | TUP | R6 | OClm10/N2X-N 1m Dirt |
+| Trieste Ruler | 3/7/26 | TAM | — | Clm6.25N3L |
 
 ## ⚠️ Low Stamina
 - **Core N Light**: 76%

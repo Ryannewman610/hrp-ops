@@ -1,6 +1,9 @@
 # 🧠 Trainer Brain — Model Card
 > **Generated:** 2026-03-02 | **Model:** ELO + Form Cycle
 
+> [!CAUTION]
+> **This model is non-discriminating and should NOT be used for race decisions.** All horses predict ~0.8% Win% regardless of actual ability. Strike King (80% real win rate) shows 0.6% predicted. ELO ratings are nearly identical for all horses. The model needs rebuilding with real outcome data, SRF speed figures, and competitor-relative features. See `intelligence_gaps.md` for the improvement plan.
+
 ## What It Does
 Predicts win probability (Win%), top-3 probability (Top3%), and expected value (EV Score)
 for each horse in the stable against typical race fields.

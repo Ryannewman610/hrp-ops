@@ -1,15 +1,19 @@
 # 🏁 Race Readiness Report
-> **Generated:** 2026-03-02 | **Snapshot:** 2026-03-02 | **Balance:** $238.38
-> **Nominations:** 20 | **Entries:** 4
+> **Generated:** 2026-03-02 | **Snapshot:** 2026-03-02 | **Balance:** $226.38
+> **Entries:** 3 (Harsh Frontier NOT entered) | **Nominations:** 17+
+
+> [!WARNING]
+> Meters below are from the 6:20 AM snapshot. Cayuga Lake (3f breeze) and Sassy Astray (Std Training) were trained at ~8:25 AM. See actual post-training meters in entries table below.
 
 ## ⚡ Entries (Confirmed to Race)
 
-| Horse | Race | Loc | Cond | Stam | Cons | Status |
-|-------|------|-----|------|------|------|--------|
-| Cayuga Lake | 4+Clm6.25N4L | ? | 102% | 106% | +5 | ❓ No meter data |
-| Harsh Frontier | 4+OClm15/N3X | ? | 107% | 89% | +5 | ❓ No meter data |
-| Sassy Astray | fMdSpWt8.00 | ? | 89% | 110% | +5 | ❓ No meter data |
-| Strike King | OClm10/N2X-N | ? | 107% | 85% | +4 | ❓ No meter data |
+| Horse | Race | Date | Track | Cond | Stam | Cons | Status |
+|-------|------|------|-------|------|------|------|--------|
+| Cayuga Lake | 4+Clm6.25N4L | 3/3 | TUP R2 | 110% | 85% | +5 | ✅ Post-work. Proj: ~107/95/+5 |
+| Sassy Astray | fMdSpWt8.00 | 3/4 | BTP R3 | 101% | 100% | +5 | ✅ Post-train. Needs 3f work 3/3 |
+| Strike King | OClm10/N2X-N | 3/4 | TUP R6 | 107% | 85% | +4 | ✅ Rest. Proj: ~102/105/+4 |
+
+> ⚠️ **Harsh Frontier** was previously listed as entered but is NOT entered on HRP.
 
 ## 📋 Nominations
 
