@@ -78,6 +78,12 @@ def main():
         payload["decisions"] = decisions_path.read_text(encoding="utf-8")
         print(f"  → decisions: ✓")
 
+    # Peak plans (latest)
+    peak_plans = sorted(OUTPUTS.glob("peak_plan_*.json"), reverse=True)
+    if peak_plans:
+        payload["peak_plans"] = load_json(peak_plans[0])
+        print(f"  → peak_plans: ✓")
+
     # Push
     data = json.dumps(payload).encode("utf-8")
     print(f"\n  Total payload: {len(data) / 1024:.0f} KB")

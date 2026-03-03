@@ -277,6 +277,15 @@ def api_actions():
     return jsonify([])
 
 
+@app.route("/api/peak-plans")
+def api_peak_plans():
+    """Return latest peak plan (14-day per-horse training plan)."""
+    plans = sorted(OUTPUTS.glob("peak_plan_*.json"), reverse=True)
+    if plans:
+        return jsonify(json.loads(plans[0].read_text(encoding="utf-8")))
+    return jsonify({"plans": [], "peaking_soon": [], "at_risk": []})
+
+
 # ── Data Push (for cloud sync from local machine) ───────
 
 @app.route("/api/push", methods=["POST"])
@@ -308,6 +317,11 @@ def api_push():
         if key_name in data:
             out_path.parent.mkdir(parents=True, exist_ok=True)
             out_path.write_text(json.dumps(data[key_name], indent=2), encoding="utf-8")
+
+    # Write peak plans (dated file)
+    if "peak_plans" in data:
+        pp_path = OUTPUTS / f"peak_plan_{date.today().isoformat()}.json"
+        pp_path.write_text(json.dumps(data["peak_plans"], indent=2), encoding="utf-8")
 
     # Write decisions markdown
     if "decisions" in data:
