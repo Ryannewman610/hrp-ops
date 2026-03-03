@@ -40,108 +40,117 @@
         <!-- LEFT COLUMN -->
         <div style="display:flex;flex-direction:column;gap:16px;">
 
-            <!-- Race Day Playbook -->
-            <section class="panel" id="playbook-panel">
-                <div class="panel-header">
-                    <div class="panel-title"><span class="icon">🎯</span> Race Day Playbook</div>
-                    <span class="panel-badge" id="playbook-badge">—</span>
-                </div>
-                <div style="font-size:11px;color:var(--text-dim);padding:0 16px 8px;">
-                    Exact daily actions to reach <strong>95-105% Condition &amp; Stamina</strong> on race day — powered
-                    by official HRP mechanics
-                </div>
-                <div id="playbook-body" style="padding:0 12px 12px;"></div>
-            </section>
+            <!-- TAB: Playbook -->
+            <div class="tab-section active" data-tab="playbook">
 
-            <!-- Power Rankings -->
-            <section class="panel rankings" id="rankings-panel">
-                <div class="panel-header">
-                    <div class="panel-title"><span class="icon">🏆</span> SRF Power Rankings</div>
-                    <span class="panel-badge" id="ranked-count">0 rated</span>
-                </div>
-                <table class="rank-table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Horse</th>
-                            <th>SRF PWR</th>
-                            <th>Best</th>
-                            <th>Last</th>
-                            <th>Trend</th>
-                            <th>Win%</th>
-                            <th>EV</th>
-                            <th>Form</th>
-                        </tr>
-                    </thead>
-                    <tbody id="rankings-body"></tbody>
-                </table>
-            </section>
-
-            <!-- Race Fitness Tracker -->
-            <section class="panel" id="fitness-panel">
-                <div class="panel-header">
-                    <div class="panel-title"><span class="icon">🎯</span> Race Day Fitness Tracker</div>
-                    <span class="panel-badge" id="fitness-badge">—</span>
-                </div>
-                <!-- Today's Orders -->
-                <div id="fitness-today" style="margin-bottom:16px;"></div>
-                <!-- 7-Day Calendar -->
-                <div style="overflow-x:auto;">
-                    <table class="rank-table" id="fitness-calendar">
-                        <thead>
-                            <tr id="fitness-cal-head"></tr>
-                        </thead>
-                        <tbody id="fitness-cal-body"></tbody>
-                    </table>
-                </div>
-                <!-- Alerts -->
-                <div id="fitness-alerts" style="margin-top:12px;"></div>
-            </section>
-
-            <!-- Nomination Board -->
-            <section class="panel" id="nominations-panel">
-                <div class="panel-header">
-                    <div class="panel-title"><span class="icon">📋</span> Nomination Board</div>
-                    <span class="panel-badge" id="nom-badge">—</span>
-                </div>
-                <div style="overflow-x:auto;">
-                    <table class="rank-table" id="nom-table">
+                <!-- Race Day Playbook -->
+                <section class="panel" id="playbook-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">🎯</span> Race Day Playbook</div>
+                        <span class="panel-badge" id="playbook-badge">—</span>
+                    </div>
+                    <div style="font-size:11px;color:var(--text-dim);padding:0 16px 8px;">
+                        Exact daily actions to reach <strong>95-105% Condition &amp; Stamina</strong> on race day —
+                        powered
+                        by official HRP mechanics
+                    </div>
+                    <div id="playbook-body" style="padding:0 12px 12px;"></div>
+                </section>
+                <section class="panel rankings" id="rankings-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">🏆</span> SRF Power Rankings</div>
+                        <span class="panel-badge" id="ranked-count">0 rated</span>
+                    </div>
+                    <table class="rank-table">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Horse</th>
-                                <th>Race Class</th>
-                                <th>Track</th>
-                                <th>Cond</th>
-                                <th>Stam</th>
-                                <th>SRF</th>
-                                <th>RDY</th>
-                                <th>Status</th>
+                                <th>SRF PWR</th>
+                                <th>Best</th>
+                                <th>Last</th>
+                                <th>Trend</th>
+                                <th>Win%</th>
+                                <th>EV</th>
+                                <th>Form</th>
                             </tr>
                         </thead>
-                        <tbody id="nom-body"></tbody>
+                        <tbody id="rankings-body"></tbody>
                     </table>
-                </div>
-            </section>
+                </section>
 
-            <!-- Stable Grid -->
-            <section class="panel stable-grid" id="stable-panel">
-                <div class="panel-header">
-                    <div class="panel-title"><span class="icon">🐴</span> Stable</div>
-                    <span class="panel-badge" id="total-horses">0 horses</span>
-                </div>
-                <div class="tab-bar">
-                    <button class="tab-btn active" onclick="filterHorses('all', this)">All</button>
-                    <button class="tab-btn" onclick="filterHorses('rated', this)">SRF Rated</button>
-                    <button class="tab-btn" onclick="filterHorses('unrated', this)">2YO / Unraced</button>
-                    <button class="tab-btn" onclick="filterHorses('danger', this)">⚠️ Needs Attention</button>
-                </div>
-                <div class="horse-grid" id="horse-grid"></div>
-            </section>
+                <!-- Race Fitness Tracker -->
+                <section class="panel" id="fitness-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">🎯</span> Race Day Fitness Tracker</div>
+                        <span class="panel-badge" id="fitness-badge">—</span>
+                    </div>
+                    <!-- Today's Orders -->
+                    <div id="fitness-today" style="margin-bottom:16px;"></div>
+                    <!-- 7-Day Calendar -->
+                    <div style="overflow-x:auto;">
+                        <table class="rank-table" id="fitness-calendar">
+                            <thead>
+                                <tr id="fitness-cal-head"></tr>
+                            </thead>
+                            <tbody id="fitness-cal-body"></tbody>
+                        </table>
+                    </div>
+                    <!-- Alerts -->
+                    <div id="fitness-alerts" style="margin-top:12px;"></div>
+                </section>
+
+            </div><!-- /tab:playbook -->
+
+            <!-- TAB: Stable -->
+            <div class="tab-section" data-tab="stable">
+
+                <!-- Nomination Board -->
+                <section class="panel" id="nominations-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">📋</span> Nomination Board</div>
+                        <span class="panel-badge" id="nom-badge">—</span>
+                    </div>
+                    <div style="overflow-x:auto;">
+                        <table class="rank-table" id="nom-table">
+                            <thead>
+                                <tr>
+                                    <th>Horse</th>
+                                    <th>Race Class</th>
+                                    <th>Track</th>
+                                    <th>Cond</th>
+                                    <th>Stam</th>
+                                    <th>SRF</th>
+                                    <th>RDY</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="nom-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Stable Grid -->
+                <section class="panel stable-grid" id="stable-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">🐴</span> Stable</div>
+                        <span class="panel-badge" id="total-horses">0 horses</span>
+                    </div>
+                    <div class="tab-bar">
+                        <button class="tab-btn active" onclick="filterHorses('all', this)">All</button>
+                        <button class="tab-btn" onclick="filterHorses('rated', this)">SRF Rated</button>
+                        <button class="tab-btn" onclick="filterHorses('unrated', this)">2YO / Unraced</button>
+                        <button class="tab-btn" onclick="filterHorses('danger', this)">⚠️ Needs Attention</button>
+                    </div>
+                    <div class="horse-grid" id="horse-grid"></div>
+                </section>
+
+            </div><!-- /tab:stable -->
 
         </div>
 
         <!-- RIGHT SIDEBAR -->
-        <div class="sidebar">
+        <div class="sidebar tab-section" data-tab="analysis">
 
             <!-- Daily Decisions -->
             <section class="panel" id="decisions-panel">
@@ -168,8 +177,26 @@
                 <div id="actions-content"></div>
             </section>
 
-        </div>
+        </div><!-- /tab:analysis -->
     </main>
+
+    <!-- Bottom Tab Navigation (mobile only) -->
+    <nav class="bottom-nav">
+        <div class="bottom-nav-inner">
+            <button class="nav-tab active" data-target="playbook" onclick="switchTab('playbook', this)">
+                <span class="nav-icon">🎯</span>
+                Playbook
+            </button>
+            <button class="nav-tab" data-target="stable" onclick="switchTab('stable', this)">
+                <span class="nav-icon">🏇</span>
+                Stable
+            </button>
+            <button class="nav-tab" data-target="analysis" onclick="switchTab('analysis', this)">
+                <span class="nav-icon">📊</span>
+                Analysis
+            </button>
+        </div>
+    </nav>
 
     <!-- Horse Detail Modal -->
     <div class="modal-overlay" id="horse-modal">
@@ -912,6 +939,19 @@
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') closeModal();
         });
+
+        // ── Tab Navigation (mobile) ──────────
+        function switchTab(tabName, btn) {
+            document.querySelectorAll('.tab-section').forEach(s => {
+                s.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-section[data-tab="' + tabName + '"]').forEach(s => {
+                s.classList.add('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         // ── Boot ───────────────────────────────
         init();
