@@ -163,6 +163,110 @@ def api_decisions():
     return jsonify({"content": "No daily decisions generated yet."})
 
 
+@app.route("/api/nominations")
+def api_nominations():
+    """All horses with active nominations, enriched with fitness data."""
+    snap = find_latest_snapshot()
+    ratings = load_json(OUTPUTS / "model" / "horse_ratings.json")
+    # Load peak plans for readiness
+    plans = sorted(OUTPUTS.glob("peak_plan_*.json"), reverse=True)
+    peak_data = json.loads(plans[0].read_text(encoding="utf-8")) if plans else {}
+    readiness_map = {}
+    for p in peak_data.get("plans", []):
+        readiness_map[p["horse_name"]] = {
+            "readiness": p.get("readiness_index", 0),
+            "sharpness": p.get("sharpness_index", 0),
+            "fatigue": p.get("fatigue_proxy", 0),
+        }
+
+    entries = []
+    for h in snap.get("horses", []):
+        noms = h.get("nominations", [])
+        if not isinstance(noms, list) or not noms:
+            continue
+        field = noms[0].get("field", "")
+        if not field or field == "No nominations.":
+            continue
+        name = h.get("name", "")
+        rating = ratings.get(name, {})
+        rdx = readiness_map.get(name, {})
+        stam_raw = h.get("stamina", "100%").replace("%", "")
+        cond_raw = h.get("condition", "100%").replace("%", "")
+        try:
+            stam = float(stam_raw)
+        except ValueError:
+            stam = 0
+        try:
+            cond = float(cond_raw)
+        except ValueError:
+            cond = 0
+        # Determine fitness status
+        if stam < 70:
+            status = "REST_NEEDED"
+            status_color = "red"
+        elif cond < 90:
+            status = "LOW_CONDITION"
+            status_color = "yellow"
+        elif rdx.get("readiness", 0) >= 70:
+            status = "RACE_READY"
+            status_color = "green"
+        else:
+            status = "BUILDING"
+            status_color = "blue"
+        entries.append({
+            "name": name,
+            "race_class": field,
+            "track": h.get("track", "?"),
+            "condition": cond,
+            "stamina": stam,
+            "consistency": h.get("consistency", "?"),
+            "srf_power": rating.get("srf_power", 0),
+            "win_pct": rating.get("win_pct", 0),
+            "readiness": rdx.get("readiness", 0),
+            "sharpness": rdx.get("sharpness", 0),
+            "fatigue": rdx.get("fatigue", 0),
+            "status": status,
+            "status_color": status_color,
+            "record": h.get("record", {}),
+        })
+    entries.sort(key=lambda x: -x["readiness"])
+    return jsonify(entries)
+
+
+@app.route("/api/stable-stats")
+def api_stable_stats():
+    """Aggregate stable performance stats."""
+    snap = find_latest_snapshot()
+    total_starts = total_wins = total_places = total_shows = 0
+    horses_raced = 0
+    for h in snap.get("horses", []):
+        rec = h.get("record", {})
+        s = int(rec.get("starts", 0))
+        w = int(rec.get("wins", 0))
+        p = int(rec.get("places", 0))
+        sh = int(rec.get("shows", 0))
+        if s > 0:
+            horses_raced += 1
+        total_starts += s
+        total_wins += w
+        total_places += p
+        total_shows += sh
+    win_pct = (total_wins / total_starts * 100) if total_starts else 0
+    itm_pct = ((total_wins + total_places + total_shows) / total_starts * 100) if total_starts else 0
+    return jsonify({
+        "balance": snap.get("balance", "?"),
+        "total_horses": len(snap.get("horses", [])),
+        "horses_raced": horses_raced,
+        "total_starts": total_starts,
+        "total_wins": total_wins,
+        "total_places": total_places,
+        "total_shows": total_shows,
+        "win_pct": round(win_pct, 1),
+        "itm_pct": round(itm_pct, 1),
+        "record_str": f"{total_starts}-{total_wins}-{total_places}-{total_shows}",
+    })
+
+
 @app.route("/api/deep-analysis")
 def api_deep_analysis():
     return jsonify(load_json(OUTPUTS / "deep_analysis.json"))

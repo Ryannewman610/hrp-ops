@@ -85,6 +85,31 @@
                 <div id="fitness-alerts" style="margin-top:12px;"></div>
             </section>
 
+            <!-- Nomination Board -->
+            <section class="panel" id="nominations-panel">
+                <div class="panel-header">
+                    <div class="panel-title"><span class="icon">📋</span> Nomination Board</div>
+                    <span class="panel-badge" id="nom-badge">—</span>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table class="rank-table" id="nom-table">
+                        <thead>
+                            <tr>
+                                <th>Horse</th>
+                                <th>Race Class</th>
+                                <th>Track</th>
+                                <th>Cond</th>
+                                <th>Stam</th>
+                                <th>SRF</th>
+                                <th>RDY</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="nom-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
             <!-- Stable Grid -->
             <section class="panel stable-grid" id="stable-panel">
                 <div class="panel-header">
@@ -214,6 +239,8 @@
                 loadMetrics(),
                 loadActions(),
                 loadPeakPlans(),
+                loadNominations(),
+                loadStableStats(),
             ]);
         }
 
@@ -494,6 +521,50 @@
                 ).join('');
             }
             document.getElementById('fitness-alerts').innerHTML = alertHTML;
+        }
+
+        // ── Load Nominations Board ────────────
+        async function loadNominations() {
+            const noms = await fetchJSON('/api/nominations');
+            if (!Array.isArray(noms) || noms.length === 0) {
+                document.getElementById('nominations-panel').style.display = 'none';
+                return;
+            }
+            const ready = noms.filter(n => n.status === 'RACE_READY').length;
+            document.getElementById('nom-badge').textContent =
+                `${ready} ready / ${noms.length} nominated`;
+
+            const statusLabels = {
+                'RACE_READY': { text: '✅ Ready', bg: 'var(--green-dim)', color: 'var(--green)' },
+                'BUILDING': { text: '🔨 Building', bg: 'var(--blue-dim)', color: 'var(--blue)' },
+                'LOW_CONDITION': { text: '⚠️ Low Cond', bg: 'var(--yellow-dim)', color: 'var(--yellow)' },
+                'REST_NEEDED': { text: '🛑 Rest!', bg: 'var(--red-dim)', color: 'var(--red)' },
+            };
+
+            document.getElementById('nom-body').innerHTML = noms.map(n => {
+                const st = statusLabels[n.status] || statusLabels['BUILDING'];
+                const condColor = n.condition >= 100 ? 'var(--green)' : n.condition >= 90 ? 'var(--yellow)' : 'var(--red)';
+                const stamColor = n.stamina >= 85 ? 'var(--green)' : n.stamina >= 70 ? 'var(--yellow)' : 'var(--red)';
+                const rdyColor = n.readiness >= 70 ? 'var(--green)' : n.readiness >= 50 ? 'var(--yellow)' : 'var(--red)';
+                return `<tr class="rank-row" onclick="openHorseModal('${n.name}')">
+                    <td class="rank-name">${n.name}</td>
+                    <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:var(--surface-2);color:var(--text)">${n.race_class}</span></td>
+                    <td style="text-align:center">${n.track}</td>
+                    <td style="text-align:center;color:${condColor};font-family:'JetBrains Mono';font-size:11px">${n.condition}%</td>
+                    <td style="text-align:center;color:${stamColor};font-family:'JetBrains Mono';font-size:11px">${n.stamina}%</td>
+                    <td style="text-align:center;font-family:'JetBrains Mono';font-size:11px">${n.srf_power > 0 ? n.srf_power.toFixed(1) : '—'}</td>
+                    <td style="text-align:center;color:${rdyColor};font-weight:700;font-family:'JetBrains Mono';font-size:11px">${n.readiness}</td>
+                    <td style="text-align:center"><span style="display:inline-block;padding:2px 8px;border-radius:999px;background:${st.bg};color:${st.color};font-size:10px;font-weight:600">${st.text}</span></td>
+                </tr>`;
+            }).join('');
+        }
+
+        // ── Load Stable Stats ─────────────────
+        async function loadStableStats() {
+            const stats = await fetchJSON('/api/stable-stats');
+            if (!stats || !stats.total_starts) return;
+            const winEl = document.getElementById('win-rate');
+            if (winEl) winEl.textContent = stats.win_pct + '%';
         }
 
         // ── Render Horse Grid ──────────────────
