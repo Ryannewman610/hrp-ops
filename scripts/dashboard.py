@@ -267,6 +267,217 @@ def api_stable_stats():
     })
 
 
+@app.route("/api/playbook")
+def api_playbook():
+    """Race Day Playbook — exact daily actions to reach 95-105% C&S on race day.
+
+    Uses official HRP mechanics:
+    - Nightly: Condition drops by age (4+: avg 2.5, 3yo: 3.5, 2yo: 4.5)
+    - Nightly: Stamina rises avg 10 (capped at 110)
+    - Timed work (5f breeze): Condition +12, Stamina -25.5
+    - Target on race day: Condition 95-105, Stamina 95-105
+    - Consistency: 2-4 works+races in 30 days = UP
+    """
+    snap = find_latest_snapshot()
+    ratings = load_json(OUTPUTS / "model" / "horse_ratings.json")
+
+    # Load peak plans for race day info
+    plans_files = sorted(OUTPUTS.glob("peak_plan_*.json"), reverse=True)
+    peak_data = json.loads(plans_files[0].read_text(encoding="utf-8")) if plans_files else {}
+    # Build map: horse -> race day offset (from daily_plan)
+    race_day_map = {}
+    for p in peak_data.get("plans", []):
+        hname = p.get("horse_name", "")
+        for action in p.get("daily_plan", []):
+            if action.get("action") in ("RACE", "RACE_TARGET"):
+                race_day_map[hname] = action.get("day_offset", 7)
+                break
+
+    # Nightly condition decay by age (midpoint of official ranges)
+    def decay_for_age(age_str):
+        try:
+            age = int(str(age_str).replace("yo", ""))
+        except (ValueError, TypeError):
+            age = 3
+        if age <= 2:
+            return 4.5
+        elif age == 3:
+            return 3.5
+        else:
+            return 2.5
+
+    STAM_RECOVERY = 10.0  # nightly stamina gain (midpoint 6-14)
+    WORK_COND_BOOST = 12.0  # condition gain from 5f breeze (midpoint 10-14)
+    WORK_STAM_COST = 25.5  # stamina cost from 5f breeze (midpoint 24-27)
+    CAP = 110.0
+
+    def simulate(c_now, s_now, decay, days, work_days):
+        """Forward-simulate with given work schedule, return final C & S."""
+        c, s = float(c_now), float(s_now)
+        for d in range(days):
+            if d in work_days:
+                c += WORK_COND_BOOST
+                s -= WORK_STAM_COST
+            # Nightly maintenance
+            c -= decay
+            s += STAM_RECOVERY
+            c = max(0, min(CAP, c))
+            s = max(0, min(CAP, s))
+        return round(c, 1), round(s, 1)
+
+    def find_optimal_schedule(c_now, s_now, decay, days_to_race):
+        """Find the best REST/WORK schedule to arrive at 95-105 C & S."""
+        if days_to_race <= 0:
+            return [], c_now, s_now
+
+        best_schedule = []
+        best_c, best_s = simulate(c_now, s_now, decay, days_to_race, set())
+        best_score = -abs(best_c - 100) - abs(best_s - 100)
+
+        # Try schedules with 0 to min(4, days) works
+        max_works = min(4, days_to_race)
+        for n_works in range(max_works + 1):
+            if n_works == 0:
+                work_days = set()
+            else:
+                # Space works evenly, with last work at least 1 day before race
+                available = days_to_race - 1  # don't work on race day -1 ideally
+                if available < 1:
+                    available = days_to_race
+                spacing = max(1, available // (n_works + 1))
+                work_days = set()
+                for w in range(n_works):
+                    day = spacing * (w + 1) - 1
+                    if day < days_to_race:
+                        work_days.add(day)
+
+            fc, fs = simulate(c_now, s_now, decay, days_to_race, work_days)
+            # Score: penalize distance from 100, bonus for being in 95-105
+            in_range_c = 95 <= fc <= 105
+            in_range_s = 95 <= fs <= 105
+            score = -(abs(fc - 100) + abs(fs - 100))
+            if in_range_c:
+                score += 20
+            if in_range_s:
+                score += 20
+            if fc < 75 or fs < 75:
+                score -= 50  # auto-scratch territory
+
+            if score > best_score:
+                best_score = score
+                best_schedule = sorted(work_days)
+                best_c, best_s = fc, fs
+
+        # Also try shifting work days by 1 for the best n_works count
+        if best_schedule:
+            n = len(best_schedule)
+            for shift in [-1, 1]:
+                shifted = set(max(0, min(days_to_race - 1, d + shift)) for d in best_schedule)
+                fc, fs = simulate(c_now, s_now, decay, days_to_race, shifted)
+                in_range_c = 95 <= fc <= 105
+                in_range_s = 95 <= fs <= 105
+                score = -(abs(fc - 100) + abs(fs - 100))
+                if in_range_c:
+                    score += 20
+                if in_range_s:
+                    score += 20
+                if score > best_score:
+                    best_score = score
+                    best_schedule = sorted(shifted)
+                    best_c, best_s = fc, fs
+
+        return best_schedule, best_c, best_s
+
+    # Build playbook for each nominated horse
+    playbook = []
+    for h in snap.get("horses", []):
+        noms = h.get("nominations", [])
+        if not isinstance(noms, list) or not noms:
+            continue
+        field = noms[0].get("field", "")
+        if not field or field == "No nominations.":
+            continue
+
+        name = h.get("name", "")
+        age = h.get("age", "3")
+        decay = decay_for_age(age)
+
+        stam_raw = str(h.get("stamina", "100")).replace("%", "")
+        cond_raw = str(h.get("condition", "100")).replace("%", "")
+        try:
+            stam = float(stam_raw)
+        except ValueError:
+            stam = 100.0
+        try:
+            cond = float(cond_raw)
+        except ValueError:
+            cond = 100.0
+
+        # Days to race
+        days_to_race = race_day_map.get(name, 5)  # default 5 if unknown
+
+        # Find optimal schedule
+        work_days, proj_c, proj_s = find_optimal_schedule(cond, stam, decay, days_to_race)
+
+        # Build daily schedule
+        daily = []
+        for d in range(days_to_race):
+            a = "WORK" if d in work_days else "REST"
+            # Simulate up to this day to get projected meters
+            c_d, s_d = simulate(cond, stam, decay, d + 1,
+                                set(w for w in work_days if w <= d))
+            daily.append({
+                "day": d,
+                "action": a,
+                "proj_cond": c_d,
+                "proj_stam": s_d,
+            })
+
+        # Today's action
+        today_action = "WORK" if 0 in work_days else "REST"
+
+        # Verdict
+        c_ok = 95 <= proj_c <= 105
+        s_ok = 95 <= proj_s <= 105
+        if c_ok and s_ok:
+            verdict = "ON_TRACK"
+        elif proj_c < 75 or proj_s < 75:
+            verdict = "SCRATCH_RISK"
+        else:
+            verdict = "NEEDS_ATTENTION"
+
+        # Works count for consistency
+        works_count = len(work_days)
+        consist_note = "✅ good" if 2 <= works_count + 1 <= 4 else (
+            "⬆️ add work" if works_count < 1 else "⚠️ too many")
+
+        rat = ratings.get(name, {})
+        playbook.append({
+            "name": name,
+            "race_class": field,
+            "age": age,
+            "track": h.get("track", "?"),
+            "current_cond": cond,
+            "current_stam": stam,
+            "days_to_race": days_to_race,
+            "today_action": today_action,
+            "work_days": work_days,
+            "total_works": works_count,
+            "proj_cond": proj_c,
+            "proj_stam": proj_s,
+            "verdict": verdict,
+            "consist_note": consist_note,
+            "srf_power": rat.get("srf_power", 0),
+            "daily": daily,
+        })
+
+    playbook.sort(key=lambda x: (
+        0 if x["verdict"] == "ON_TRACK" else 1 if x["verdict"] == "NEEDS_ATTENTION" else 2,
+        x["days_to_race"]
+    ))
+    return jsonify(playbook)
+
+
 @app.route("/api/deep-analysis")
 def api_deep_analysis():
     return jsonify(load_json(OUTPUTS / "deep_analysis.json"))

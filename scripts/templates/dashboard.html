@@ -40,6 +40,19 @@
         <!-- LEFT COLUMN -->
         <div style="display:flex;flex-direction:column;gap:16px;">
 
+            <!-- Race Day Playbook -->
+            <section class="panel" id="playbook-panel">
+                <div class="panel-header">
+                    <div class="panel-title"><span class="icon">🎯</span> Race Day Playbook</div>
+                    <span class="panel-badge" id="playbook-badge">—</span>
+                </div>
+                <div style="font-size:11px;color:var(--text-dim);padding:0 16px 8px;">
+                    Exact daily actions to reach <strong>95-105% Condition &amp; Stamina</strong> on race day — powered
+                    by official HRP mechanics
+                </div>
+                <div id="playbook-body" style="padding:0 12px 12px;"></div>
+            </section>
+
             <!-- Power Rankings -->
             <section class="panel rankings" id="rankings-panel">
                 <div class="panel-header">
@@ -241,6 +254,7 @@
                 loadPeakPlans(),
                 loadNominations(),
                 loadStableStats(),
+                loadPlaybook(),
             ]);
         }
 
@@ -565,6 +579,80 @@
             if (!stats || !stats.total_starts) return;
             const winEl = document.getElementById('win-rate');
             if (winEl) winEl.textContent = stats.win_pct + '%';
+        }
+
+        // ── Load Race Day Playbook ───────────
+        async function loadPlaybook() {
+            const data = await fetchJSON('/api/playbook');
+            if (!Array.isArray(data) || data.length === 0) {
+                document.getElementById('playbook-panel').style.display = 'none';
+                return;
+            }
+            const onTrack = data.filter(h => h.verdict === 'ON_TRACK').length;
+            document.getElementById('playbook-badge').textContent =
+                `${onTrack} on track / ${data.length} entered`;
+
+            const verdictStyles = {
+                'ON_TRACK': { icon: '✅', text: 'On Track', bg: 'var(--green-dim)', color: 'var(--green)' },
+                'NEEDS_ATTENTION': { icon: '⚠️', text: 'Needs Work', bg: 'var(--yellow-dim)', color: 'var(--yellow)' },
+                'SCRATCH_RISK': { icon: '🚨', text: 'Scratch Risk', bg: 'var(--red-dim)', color: 'var(--red)' },
+            };
+            const actionIcons = { 'WORK': '🏋️', 'REST': '💤' };
+
+            let html = '';
+            data.forEach(h => {
+                const v = verdictStyles[h.verdict] || verdictStyles['NEEDS_ATTENTION'];
+                const todayIcon = actionIcons[h.today_action] || '❓';
+                const condColor = (h.proj_cond >= 95 && h.proj_cond <= 105) ? 'var(--green)' : h.proj_cond < 75 ? 'var(--red)' : 'var(--yellow)';
+                const stamColor = (h.proj_stam >= 95 && h.proj_stam <= 105) ? 'var(--green)' : h.proj_stam < 75 ? 'var(--red)' : 'var(--yellow)';
+
+                // Build mini daily schedule bar
+                let scheduleBar = '';
+                h.daily.forEach((d, i) => {
+                    const bg = d.action === 'WORK' ? 'var(--purple)' : 'var(--surface-2)';
+                    const icon = d.action === 'WORK' ? '🏋️' : '💤';
+                    const tip = `Day ${i + 1}: ${d.action} → C:${d.proj_cond}% S:${d.proj_stam}%`;
+                    scheduleBar += `<span title="${tip}" style="display:inline-block;width:28px;height:22px;line-height:22px;text-align:center;border-radius:4px;background:${bg};font-size:10px;margin:1px;cursor:help">${icon}</span>`;
+                });
+
+                html += `
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px;cursor:pointer" onclick="openHorseModal('${h.name}')">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                        <div>
+                            <span style="font-weight:700;font-size:14px;color:var(--text)">${h.name}</span>
+                            <span style="font-size:11px;color:var(--text-dim);margin-left:8px">${h.race_class} @ ${h.track}</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px">
+                            <span style="font-size:11px;color:var(--text-dim)">${h.days_to_race}d to race</span>
+                            <span style="padding:3px 10px;border-radius:999px;background:${v.bg};color:${v.color};font-size:10px;font-weight:700">${v.icon} ${v.text}</span>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+                        <div style="text-align:center;min-width:70px">
+                            <div style="font-size:10px;color:var(--text-dim);text-transform:uppercase">Today</div>
+                            <div style="font-size:20px">${todayIcon}</div>
+                            <div style="font-size:11px;font-weight:700;color:var(--text)">${h.today_action}</div>
+                        </div>
+                        <div style="flex:1;min-width:200px">
+                            <div style="font-size:10px;color:var(--text-dim);margin-bottom:4px">Daily Schedule → Race Day</div>
+                            <div style="display:flex;flex-wrap:wrap;gap:1px">${scheduleBar}</div>
+                        </div>
+                        <div style="text-align:center;min-width:80px">
+                            <div style="font-size:10px;color:var(--text-dim)">Race Day Cond</div>
+                            <div style="font-size:16px;font-weight:700;font-family:'JetBrains Mono';color:${condColor}">${h.proj_cond}%</div>
+                        </div>
+                        <div style="text-align:center;min-width:80px">
+                            <div style="font-size:10px;color:var(--text-dim)">Race Day Stam</div>
+                            <div style="font-size:16px;font-weight:700;font-family:'JetBrains Mono';color:${stamColor}">${h.proj_stam}%</div>
+                        </div>
+                        <div style="text-align:center;min-width:60px">
+                            <div style="font-size:10px;color:var(--text-dim)">Consist.</div>
+                            <div style="font-size:11px;font-weight:600">${h.consist_note}</div>
+                        </div>
+                    </div>
+                </div>`;
+            });
+            document.getElementById('playbook-body').innerHTML = html;
         }
 
         // ── Render Horse Grid ──────────────────
