@@ -94,17 +94,19 @@ def get_candidate_actions(track_str):
     """Return list of action keys available at this location.
 
     Training (std/hvy) is available everywhere.
-    Timed works are available at tracks.
-    At farms, only training; at tracks, both training and works.
+    At farms: training + breezes (no jockeys → no handily works).
+    At tracks: training + breezes + handily works.
     Training MODE (C&S→100) is farm-only but handled separately.
     """
     if is_farm(track_str):
-        # At farm: training only (no timed works available)
-        return ["TRAIN_STD", "TRAIN_HVY"]
-    else:
-        # At track: training + timed works
+        # At farm: training + breezes only (no jockeys at farms)
         return ["TRAIN_STD", "TRAIN_HVY",
-                "WORK_3F_B", "WORK_4F_B", "WORK_5F_B", "WORK_5F_H"]
+                "WORK_3F_B", "WORK_4F_B", "WORK_5F_B", "WORK_6F_B", "WORK_1M_B"]
+    else:
+        # At track: training + breezes + handily
+        return ["TRAIN_STD", "TRAIN_HVY",
+                "WORK_3F_B", "WORK_4F_B", "WORK_5F_B", "WORK_5F_H",
+                "WORK_6F_B", "WORK_6F_H", "WORK_1M_B", "WORK_1M_H"]
 
 
 # ── Simulation Engine ───────────────────────────────────
@@ -168,10 +170,23 @@ def simulate_daily(c_now, s_now, decay, days, action_schedule):
 
 
 def score_outcome(fc, fs):
-    """Score a projected final condition & stamina. Higher = better."""
+    """Score a projected final condition & stamina. Higher = better.
+
+    Asymmetric: being below 95 is penalized 1.5x more than being above 105.
+    This matches the expert 'high > low' rule — 106% beats 94% every time.
+    """
+    # Asymmetric distance from ideal (100)
+    def asym_penalty(val):
+        if val < 95:
+            return abs(val - 100) * 1.5   # below green = 1.5x penalty
+        elif val > 105:
+            return abs(val - 100) * 0.8   # above green = mild penalty
+        else:
+            return abs(val - 100) * 0.5   # in green zone = minimal
+
     in_range_c = 95 <= fc <= 105
     in_range_s = 95 <= fs <= 105
-    score = -(abs(fc - 100) + abs(fs - 100))
+    score = -(asym_penalty(fc) + asym_penalty(fs))
     if in_range_c:
         score += 20
     if in_range_s:

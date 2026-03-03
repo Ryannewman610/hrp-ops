@@ -184,14 +184,78 @@ def compute_features(horse_name: str, works: List[Dict], snap_h: Dict, today: da
 
     features["fitness_index"] = round(max(0, min(100, fitness)))
 
+    # ── Overracing Wall Detection (Stu's Experiment) ──
+    # Horses hit a wall after 4+ races in ~60 days without intervening works.
+    # Growth stops and performance collapses despite identical meters.
+    races = snap_h.get("recent_races", [])
+    race_dates = []
+    for r in races:
+        try:
+            rd = r.get("date", "")
+            if "/" in rd:
+                parts = rd.split("/")
+                rd = f"{parts[2]}-{int(parts[0]):02d}-{int(parts[1]):02d}"
+            race_dates.append(datetime.strptime(rd, "%Y-%m-%d").date())
+        except (ValueError, IndexError):
+            continue
+    d60 = today - timedelta(days=60)
+    races_60d = [rd for rd in race_dates if rd >= d60]
+    works_between_races = features["recent_works_28d"]  # proxy
+    features["races_60d"] = len(races_60d)
+    if len(races_60d) >= 4 and works_between_races < 2:
+        features["overracing_risk"] = "HIGH"
+        features["overracing_note"] = (
+            f"{len(races_60d)} races in 60d with few works — wall risk (Stu's data: "
+            f"performance collapses after 4 races without works)")
+    elif len(races_60d) >= 3:
+        features["overracing_risk"] = "WATCH"
+        features["overracing_note"] = f"{len(races_60d)} races in 60d — schedule works between"
+    else:
+        features["overracing_risk"] = "OK"
+        features["overracing_note"] = ""
+
+    # ── Virgin 5f Work Quality Tier (Maximum Cool) ──
+    # 5f dirt breeze on farm is THE universal 2YO comparison.
+    five_f_times = []
+    for w in dated_works:
+        dist = w.get("distance", "")
+        if "5" in dist and ("f" in dist.lower() or "fur" in dist.lower()):
+            t = parse_time_seconds(w.get("time", ""))
+            if t:
+                five_f_times.append(t)
+
+    if five_f_times:
+        best_5f = min(five_f_times)
+        features["best_5f_seconds"] = round(best_5f, 2)
+        if best_5f < 63.0:
+            features["work_quality_tier"] = "ULTRA_RARE"  # sub-1:03
+        elif best_5f < 64.0:
+            features["work_quality_tier"] = "STAKES"  # sub-1:04
+        elif best_5f < 65.0:
+            features["work_quality_tier"] = "PAY_SIDE"  # sub-1:05
+        elif best_5f < 66.0:
+            features["work_quality_tier"] = "FREE_LEVEL"  # 1:05-1:06
+        elif best_5f < 67.0:
+            features["work_quality_tier"] = "QUESTIONABLE"  # 1:06+
+        else:
+            features["work_quality_tier"] = "NOT_USEFUL"  # 1:07+
+    else:
+        features["best_5f_seconds"] = None
+        features["work_quality_tier"] = "NO_DATA"
+
     # Readiness index (0-100): overall "ready to race" score
     readiness = (features["sharpness_index"] * 0.3 +
                  (100 - features["fatigue_proxy"]) * 0.3 +
                  features["fitness_index"] * 0.4)
+    # Penalize readiness if overracing
+    if features["overracing_risk"] == "HIGH":
+        readiness -= 20
     features["readiness_index"] = round(max(0, min(100, readiness)))
 
     # Readiness tag
-    if readiness >= 75:
+    if features["overracing_risk"] == "HIGH":
+        features["readiness_tag"] = "OVERRACED"
+    elif readiness >= 75:
         features["readiness_tag"] = "RACE_READY"
     elif readiness >= 55:
         features["readiness_tag"] = "WORK_MORE"
@@ -238,12 +302,14 @@ def main() -> None:
         snap_h = snap_by_norm.get(norm(name), {})
         feat = compute_features(name, works, snap_h, today)
         all_features.append(feat)
+        tier_tag = f" [{feat.get('work_quality_tier', '')}]" if feat.get("best_5f_seconds") else ""
+        overrace = f" ⚠️{feat['overracing_risk']}" if feat.get("overracing_risk") != "OK" else ""
         print(f"  {name:25s} works={feat['total_works']:3d} "
               f"recency={feat.get('days_since_last_work', '?'):>4} "
               f"sharp={feat['sharpness_index']:3d} "
               f"fit={feat['fitness_index']:3d} "
               f"ready={feat['readiness_index']:3d} "
-              f"tag={feat['readiness_tag']}")
+              f"tag={feat['readiness_tag']}{tier_tag}{overrace}")
 
     # Also include horses with no works
     for h in snap.get("horses", []):
@@ -266,6 +332,8 @@ def main() -> None:
         "days_since_last_work", "last_work_date", "last_work_track", "last_work_distance",
         "work_trend", "sharpness_index", "fatigue_proxy", "fitness_index",
         "readiness_index", "readiness_tag",
+        "overracing_risk", "overracing_note", "races_60d",
+        "best_5f_seconds", "work_quality_tier",
     ]
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")

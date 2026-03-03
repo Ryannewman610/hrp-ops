@@ -1,0 +1,136 @@
+# 📋 Approval Pack
+> **Generated:** 2026-03-03 | **Model:** ELO + Form Cycle v2
+
+## Instructions
+Review each recommendation. Check box to approve, leave unchecked to skip.
+Only approved items should be manually entered on HRP.
+
+## 🎯 Recommended Entries (Approval Required)
+- [ ] **Cayuga Lake** → 3/3/2026 TUP R#3 6f Allowance/Claiming (Field: 4)
+  - EV 65.7 | Win 41.9% | Top3 85.0% | Form: PEAKING
+  - Fit: ⚡ AdjSpd 95 (raw 95, wt 126); 🏜️ Dirt preferred; First allowance try
+  - Risks: 📉 Consistency dropping (5, 1 acts/7d); ⚠️ Too soon (8d since last activity)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #3 → Enter **Cayuga Lake**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)
+- [ ] **Crypto King** → 3/3/2026 TUP R#4 1m Starter Allowance (Field: 4)
+  - EV 65.1 | Win 40.1% | Top3 85.0% | Form: PEAKING
+  - Fit: ⚡ AdjSpd 95 (raw 95, wt 126); 🏜️ Dirt preferred; Allowance fit (4W)
+  - Risks: ⚠️ New track TUP (home: FG); ⚠️ No works at TUP — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #4 → Enter **Crypto King**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Crypto+King)
+- [ ] **Sassy Astray** → 3/3/2026 PRX R#1 6f Maiden (Field: 5)
+  - EV 61.9 | Win 32.9% | Top3 82.2% | Form: PEAKING
+  - Fit: AdjSpd 88; 🏜️ Dirt preferred; Maiden eligible
+  - Risks: ⚠️ New track PRX (home: BTP); ⚠️ No works at PRX — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **PRX** → Race #1 → Enter **Sassy Astray**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Sassy+Astray)
+- [ ] **Ideal Sinissippi** → 3/4/2026 BTP R#1 5f Maiden (Field: 5)
+  - EV 60.9 | Win 30.8% | Top3 77.0% | Form: PEAKING
+  - Fit: ⚡ AdjSpd 90 (raw 90, wt 122); Maiden eligible; 🏠 Home track (BTP)
+  - Risks: ⚠️ Weak on turf (50%); 📉 Consistency dropping (5, 1 acts/7d)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Ideal Sinissippi**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Ideal+Sinissippi)
+- [ ] **Harsh Frontier** → 3/3/2026 TUP R#4 1m Starter Allowance (Field: 4)
+  - EV 58.0 | Win 28.4% | Top3 71.0% | Form: PEAKING
+  - Fit: ⚡ AdjSpd 95 (raw 95, wt 126); Allowance fit (7W); 🏠 Home track (TUP)
+  - Risks: 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Stale (17d since last work)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #4 → Enter **Harsh Frontier**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Harsh+Frontier)
+- [ ] **Thats Some Bullship** → 3/3/2026 TUP R#3 6f Allowance/Claiming (Field: 4)
+  - EV 52.8 | Win 21.5% | Top3 53.8% | Form: PEAKING
+  - Fit: AdjSpd 88; First allowance try; 🏠 Home track (TUP)
+  - Risks: 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Stale (18d since last work)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #3 → Enter **Thats Some Bullship**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Thats+Some+Bullship)
+- [ ] **Kingston Quickstep** → 3/3/2026 PRX R#1 6f Maiden (Field: 5)
+  - EV 27.1 | Win 1.0% | Top3 2.5% | Form: READY
+  - Fit: 🏜️ Dirt preferred; Maiden eligible; 🏃 Sprint fit (6f)
+  - Risks: ⚠️ New track PRX (home: CT); ⚠️ No works at PRX — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **PRX** → Race #1 → Enter **Kingston Quickstep**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
+- [ ] **Caros Compass** → 3/4/2026 TAM R#1 1 1/16m Maiden (Field: 4)
+  - EV 8.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 5 works (prepared); Maiden eligible; Mid (1 1/16m)
+  - Risks: ⚠️ New track TAM (home: TUP(CT)); ⚠️ No works at TAM — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Caros Compass**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Caros+Compass)
+- [ ] **Hydration** → 3/4/2026 TAM R#1 1 1/16m Maiden (Field: 4)
+  - EV 8.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 6 works (prepared); Maiden eligible; Mid (1 1/16m)
+  - Risks: ⚠️ New track TAM (home: HOU); ⚠️ No works at TAM — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Hydration**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hydration)
+- [ ] **Triple Love** → 3/4/2026 BTP R#1 5f Maiden (Field: 5)
+  - EV 8.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 6 works (prepared); Maiden eligible; 🏠 Home track (BTP)
+  - Risks: ⚠️ No works at BTP — may need timed work first; 📉 Consistency dropping (5, 0 acts/7d)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Triple Love**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Triple+Love)
+- [ ] **Crowds Ransom** → 3/4/2026 TAM R#1 1 1/16m Maiden (Field: 4)
+  - EV 7.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 🏜️ Dirt preferred; Maiden eligible; 🏇 Route fit (1 1/16m)
+  - Risks: Slow adj 51; ⚠️ New track TAM (home: CT)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Crowds Ransom**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Crowds+Ransom)
+- [ ] **Desert Oath** → 3/4/2026 TAM R#1 1 1/16m Maiden (Field: 4)
+  - EV 7.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 6 works (prepared); Maiden eligible; 📍 Worked at TAM
+  - Risks: 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Stale (16d since last work)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Desert Oath**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Desert+Oath)
+- [ ] **Jurors Verdict** → 3/4/2026 TAM R#1 1 1/16m Maiden (Field: 4)
+  - EV 7.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 8 works (prepared); Maiden eligible; Mid (1 1/16m)
+  - Risks: ⚠️ New track TAM (home: CT); ⚠️ No works at TAM — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Jurors Verdict**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Jurors+Verdict)
+- [ ] **Stormy Sky** → 3/4/2026 TAM R#1 1 1/16m Maiden (Field: 4)
+  - EV 7.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 7 works (prepared); Maiden eligible; Mid (1 1/16m)
+  - Risks: ⚠️ New track TAM (home: CT); ⚠️ No works at TAM — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Stormy Sky**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Stormy+Sky)
+- [ ] **Urshalim Craftwork** → 3/3/2026 PRX R#1 6f Maiden (Field: 5)
+  - EV 7.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 🏜️ Dirt preferred; Maiden eligible; 🏃 Sprint fit (6f)
+  - Risks: Slow adj 56; ⚠️ New track PRX (home: CT)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **PRX** → Race #1 → Enter **Urshalim Craftwork**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Urshalim+Craftwork)
+- [ ] **Hardline Anvil** → 3/4/2026 TAM R#1 1 1/16m Maiden (Field: 4)
+  - EV 6.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 2 works; Maiden eligible; Mid (1 1/16m)
+  - Risks: ⚠️ New track TAM (home: CT); ⚠️ No works at TAM — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Hardline Anvil**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hardline+Anvil)
+- [ ] **Migoli Moonbeam** → 3/4/2026 TAM R#1 1 1/16m Maiden (Field: 4)
+  - EV 6.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 6 works (prepared); Maiden eligible; Mid (1 1/16m)
+  - Risks: ⚠️ New track TAM (home: CT); ⚠️ No works at TAM — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Migoli Moonbeam**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Migoli+Moonbeam)
+- [ ] **Port Royal Dash** → 3/4/2026 BTP R#1 5f Maiden (Field: 5)
+  - EV 6.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 9 works (prepared); Maiden eligible; 📍 Worked at BTP
+  - Risks: 📉 Consistency dropping (5, 1 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -2d
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #1 → Enter **Port Royal Dash**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Port+Royal+Dash)
+- [ ] **Golden Shuvee** → 3/4/2026 TAM R#1 1 1/16m Maiden (Field: 4)
+  - EV 5.6 | Win 0.8% | Top3 2.0% | Form: READY
+  - Fit: 📋 5 works (prepared); Maiden eligible; 🏠 Home track (TAM)
+  - Risks: ⚠️ No works at TAM — may need timed work first; 📉 Consistency dropping (5, 0 acts/7d)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #1 → Enter **Golden Shuvee**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Golden+Shuvee)
+
+## 🏋️ Training / Rest (No Approval Needed)
+- [x] **Class A** — 🏋️ Timed Work: Stamina 76% (moderate); Condition 110% (peak)
+- [x] **Core N Light** — 🏋️ Timed Work: Stamina 84% (moderate); Condition 104% (peak)
+- [x] **Cornswaggled** — 🛏️ Rest: Stamina 52%
+- [x] **Damascus Honey** — 🏋️ Timed Work: Stamina 83% (moderate); Condition 105% (peak)
+- [x] **Dubai Iron** — 🛏️ Rest: Stamina 66%
+- [x] **Helios Hustle** — 🏋️ Timed Work: Stamina 83% (moderate); Condition 103% (peak)
+- [x] **Iron Timekeeper** — 🏋️ Timed Work: Stamina 81% (moderate); Condition 105% (peak)
+- [x] **Lo And Behold** — 🏋️ Timed Work: Stamina 70% (moderate); Condition 97% (good)
+
+---
+*Approval Pack generated by Trainer Brain v2 — 2026-03-03*
+*SAFETY: No in-game actions taken. All entries require manual execution.*
