@@ -21,9 +21,31 @@ from pathlib import Path
 from flask import (Flask, jsonify, redirect, render_template, request,
                    session, url_for)
 
+# Ensure playbook_engine is importable regardless of CWD
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location(
+    "playbook_engine",
+    str(Path(__file__).resolve().parent / "playbook_engine.py"))
+_pe = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_pe)
+decay_for_age = _pe.decay_for_age
+is_farm = _pe.is_farm
+find_optimal_schedule = _pe.find_optimal_schedule
+simulate_daily = _pe.simulate_daily
+assess_consistency = _pe.assess_consistency
+ALL_ACTIONS = _pe.ALL_ACTIONS
+REST_KEY = _pe.REST_KEY
+
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
 REPORTS = ROOT / "reports"
+
+# Horses to exclude from all dashboard views
+INACTIVE = {"shebasbriar", "averyspluck", "hiptag793004736512"}
+
+import re as _re
+def _norm(name):
+    return _re.sub(r"[^a-z0-9]", "", name.lower())
 
 app = Flask(__name__,
             template_folder=str(ROOT / "scripts" / "templates"),
@@ -108,6 +130,8 @@ def api_stable():
     horses = []
     for h in snap.get("horses", []):
         name = h.get("name", "")
+        if _norm(name) in INACTIVE:
+            continue
         rating = ratings.get(name, {})
         horses.append({
             "name": name,
@@ -181,6 +205,8 @@ def api_nominations():
 
     entries = []
     for h in snap.get("horses", []):
+        if _norm(h.get("name", "")) in INACTIVE:
+            continue
         noms = h.get("nominations", [])
         if not isinstance(noms, list) or not noms:
             continue
@@ -240,6 +266,8 @@ def api_stable_stats():
     total_starts = total_wins = total_places = total_shows = 0
     horses_raced = 0
     for h in snap.get("horses", []):
+        if _norm(h.get("name", "")) in INACTIVE:
+            continue
         rec = h.get("record", {})
         s = int(rec.get("starts", 0))
         w = int(rec.get("wins", 0))
@@ -271,12 +299,12 @@ def api_stable_stats():
 def api_playbook():
     """Race Day Playbook — exact daily actions to reach 95-105% C&S on race day.
 
-    Uses official HRP mechanics:
-    - Nightly: Condition drops by age (4+: avg 2.5, 3yo: 3.5, 2yo: 4.5)
-    - Nightly: Stamina rises avg 10 (capped at 110)
-    - Timed work (5f breeze): Condition +12, Stamina -25.5
-    - Target on race day: Condition 95-105, Stamina 95-105
-    - Consistency: 2-4 works+races in 30 days = UP
+    Uses official HRP mechanics via playbook_engine module:
+    - All training types (standard/heavy, short/long variants)
+    - All work types (3f-1m, breezing & handily)
+    - Racing stamina drain by distance
+    - Farm vs track location awareness
+    - Consistency tracking (2-4 works+races in 30 days)
     """
     snap = find_latest_snapshot()
     ratings = load_json(OUTPUTS / "model" / "horse_ratings.json")
@@ -284,7 +312,6 @@ def api_playbook():
     # Load peak plans for race day info
     plans_files = sorted(OUTPUTS.glob("peak_plan_*.json"), reverse=True)
     peak_data = json.loads(plans_files[0].read_text(encoding="utf-8")) if plans_files else {}
-    # Build map: horse -> race day offset (from daily_plan)
     race_day_map = {}
     for p in peak_data.get("plans", []):
         hname = p.get("horse_name", "")
@@ -293,104 +320,11 @@ def api_playbook():
                 race_day_map[hname] = action.get("day_offset", 7)
                 break
 
-    # Nightly condition decay by age (midpoint of official ranges)
-    def decay_for_age(age_str):
-        try:
-            age = int(str(age_str).replace("yo", ""))
-        except (ValueError, TypeError):
-            age = 3
-        if age <= 2:
-            return 4.5
-        elif age == 3:
-            return 3.5
-        else:
-            return 2.5
-
-    STAM_RECOVERY = 10.0  # nightly stamina gain (midpoint 6-14)
-    WORK_COND_BOOST = 12.0  # condition gain from 5f breeze (midpoint 10-14)
-    WORK_STAM_COST = 25.5  # stamina cost from 5f breeze (midpoint 24-27)
-    CAP = 110.0
-
-    def simulate(c_now, s_now, decay, days, work_days):
-        """Forward-simulate with given work schedule, return final C & S."""
-        c, s = float(c_now), float(s_now)
-        for d in range(days):
-            if d in work_days:
-                c += WORK_COND_BOOST
-                s -= WORK_STAM_COST
-            # Nightly maintenance
-            c -= decay
-            s += STAM_RECOVERY
-            c = max(0, min(CAP, c))
-            s = max(0, min(CAP, s))
-        return round(c, 1), round(s, 1)
-
-    def find_optimal_schedule(c_now, s_now, decay, days_to_race):
-        """Find the best REST/WORK schedule to arrive at 95-105 C & S."""
-        if days_to_race <= 0:
-            return [], c_now, s_now
-
-        best_schedule = []
-        best_c, best_s = simulate(c_now, s_now, decay, days_to_race, set())
-        best_score = -abs(best_c - 100) - abs(best_s - 100)
-
-        # Try schedules with 0 to min(4, days) works
-        max_works = min(4, days_to_race)
-        for n_works in range(max_works + 1):
-            if n_works == 0:
-                work_days = set()
-            else:
-                # Space works evenly, with last work at least 1 day before race
-                available = days_to_race - 1  # don't work on race day -1 ideally
-                if available < 1:
-                    available = days_to_race
-                spacing = max(1, available // (n_works + 1))
-                work_days = set()
-                for w in range(n_works):
-                    day = spacing * (w + 1) - 1
-                    if day < days_to_race:
-                        work_days.add(day)
-
-            fc, fs = simulate(c_now, s_now, decay, days_to_race, work_days)
-            # Score: penalize distance from 100, bonus for being in 95-105
-            in_range_c = 95 <= fc <= 105
-            in_range_s = 95 <= fs <= 105
-            score = -(abs(fc - 100) + abs(fs - 100))
-            if in_range_c:
-                score += 20
-            if in_range_s:
-                score += 20
-            if fc < 75 or fs < 75:
-                score -= 50  # auto-scratch territory
-
-            if score > best_score:
-                best_score = score
-                best_schedule = sorted(work_days)
-                best_c, best_s = fc, fs
-
-        # Also try shifting work days by 1 for the best n_works count
-        if best_schedule:
-            n = len(best_schedule)
-            for shift in [-1, 1]:
-                shifted = set(max(0, min(days_to_race - 1, d + shift)) for d in best_schedule)
-                fc, fs = simulate(c_now, s_now, decay, days_to_race, shifted)
-                in_range_c = 95 <= fc <= 105
-                in_range_s = 95 <= fs <= 105
-                score = -(abs(fc - 100) + abs(fs - 100))
-                if in_range_c:
-                    score += 20
-                if in_range_s:
-                    score += 20
-                if score > best_score:
-                    best_score = score
-                    best_schedule = sorted(shifted)
-                    best_c, best_s = fc, fs
-
-        return best_schedule, best_c, best_s
-
     # Build playbook for each nominated horse
     playbook = []
     for h in snap.get("horses", []):
+        if _norm(h.get("name", "")) in INACTIVE:
+            continue
         noms = h.get("nominations", [])
         if not isinstance(noms, list) or not noms:
             continue
@@ -400,6 +334,7 @@ def api_playbook():
 
         name = h.get("name", "")
         age = h.get("age", "3")
+        track = h.get("track", "")
         decay = decay_for_age(age)
 
         stam_raw = str(h.get("stamina", "100")).replace("%", "")
@@ -413,28 +348,22 @@ def api_playbook():
         except ValueError:
             cond = 100.0
 
-        # Days to race
-        days_to_race = race_day_map.get(name, 5)  # default 5 if unknown
+        days_to_race = race_day_map.get(name, 5)
 
-        # Find optimal schedule
-        work_days, proj_c, proj_s = find_optimal_schedule(cond, stam, decay, days_to_race)
+        # Use engine to find optimal schedule
+        schedule, proj_c, proj_s = find_optimal_schedule(
+            cond, stam, decay, days_to_race, track
+        )
 
-        # Build daily schedule
-        daily = []
-        for d in range(days_to_race):
-            a = "WORK" if d in work_days else "REST"
-            # Simulate up to this day to get projected meters
-            c_d, s_d = simulate(cond, stam, decay, d + 1,
-                                set(w for w in work_days if w <= d))
-            daily.append({
-                "day": d,
-                "action": a,
-                "proj_cond": c_d,
-                "proj_stam": s_d,
-            })
+        # Get per-day snapshots
+        daily = simulate_daily(cond, stam, decay, days_to_race, schedule)
 
         # Today's action
-        today_action = "WORK" if 0 in work_days else "REST"
+        today_key = schedule.get(0, REST_KEY)
+        if today_key in ALL_ACTIONS:
+            today_label = ALL_ACTIONS[today_key]["label"]
+        else:
+            today_label = "Rest"
 
         # Verdict
         c_ok = 95 <= proj_c <= 105
@@ -446,27 +375,34 @@ def api_playbook():
         else:
             verdict = "NEEDS_ATTENTION"
 
-        # Works count for consistency
-        works_count = len(work_days)
-        consist_note = "✅ good" if 2 <= works_count + 1 <= 4 else (
-            "⬆️ add work" if works_count < 1 else "⚠️ too many")
+        # Consistency assessment
+        works_30d = max(0, min(h.get("works_count", 0), 6))
+        active_days = len(schedule)
+        total_consist, consist_note = assess_consistency(works_30d, active_days)
+
+        # Location info
+        at_farm = is_farm(track)
+        location_type = "Farm" if at_farm else "Track"
 
         rat = ratings.get(name, {})
         playbook.append({
             "name": name,
             "race_class": field,
             "age": age,
-            "track": h.get("track", "?"),
+            "track": track,
+            "location_type": location_type,
             "current_cond": cond,
             "current_stam": stam,
             "days_to_race": days_to_race,
-            "today_action": today_action,
-            "work_days": work_days,
-            "total_works": works_count,
+            "today_action": today_key,
+            "today_label": today_label,
+            "schedule": {str(k): v for k, v in schedule.items()},
+            "total_works": active_days,
             "proj_cond": proj_c,
             "proj_stam": proj_s,
             "verdict": verdict,
             "consist_note": consist_note,
+            "consist_count": total_consist,
             "srf_power": rat.get("srf_power", 0),
             "daily": daily,
         })
