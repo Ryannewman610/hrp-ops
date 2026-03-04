@@ -634,12 +634,49 @@
                 return { icon: '❓', bg: 'var(--surface-2)', color: 'var(--text-dim)' };
             }
 
-            let html = '';
+            // Meter bar helper — shows current→projected with green zone
+            function meterBar(current, projected, label) {
+                const pct = v => Math.max(0, Math.min(100, (v / 110) * 100));
+                const curPct = pct(current);
+                const projPct = pct(projected);
+                const projColor = (projected >= 95 && projected <= 105) ? 'var(--green)' : projected < 75 ? 'var(--red)' : 'var(--yellow)';
+                const curColor = (current >= 95 && current <= 105) ? 'var(--green)' : current < 75 ? 'var(--red)' : 'var(--yellow)';
+                // Green zone markers at 95-105 out of 110
+                const g1 = (95 / 110 * 100).toFixed(1);
+                const g2 = (105 / 110 * 100).toFixed(1);
+                return `
+                    <div style="margin-bottom:6px">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">
+                            <span style="font-size:9px;color:var(--text-dim);text-transform:uppercase">${label}</span>
+                            <span style="font-size:11px;font-family:'JetBrains Mono'">
+                                <span style="color:${curColor}">${current}%</span>
+                                <span style="color:var(--text-dim);font-size:9px"> → </span>
+                                <span style="color:${projColor};font-weight:700">${projected}%</span>
+                            </span>
+                        </div>
+                        <div style="position:relative;height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden">
+                            <div style="position:absolute;left:${g1}%;width:${(g2 - g1).toFixed(1)}%;height:100%;background:rgba(34,197,94,0.12)"></div>
+                            <div style="position:absolute;left:0;width:${curPct}%;height:100%;background:${curColor};opacity:0.3;border-radius:4px"></div>
+                            <div style="position:absolute;left:0;width:${projPct}%;height:100%;background:${projColor};border-radius:4px"></div>
+                        </div>
+                    </div>`;
+            }
+
+            // Action legend (show once at top)
+            let legendHtml = `<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px;padding:6px 10px;background:var(--surface);border-radius:8px;border:1px solid var(--border)">
+                <span style="font-size:10px;color:var(--text-dim);font-weight:600;margin-right:4px">LEGEND:</span>
+                <span style="font-size:10px">💤 Rest</span>
+                <span style="font-size:10px">🏋️ <span style="color:var(--orange,#ffa032)">Std Train</span></span>
+                <span style="font-size:10px">💪 <span style="color:var(--yellow)">Hvy Train</span></span>
+                <span style="font-size:10px">🏃 <span style="color:var(--purple)">Breeze</span></span>
+                <span style="font-size:10px">🔥 <span style="color:var(--red)">Handily</span></span>
+                <span style="font-size:10px;color:var(--text-dim);margin-left:8px">▰ Green zone: 95-105%</span>
+            </div>`;
+
+            let html = legendHtml;
             data.forEach(h => {
                 const v = verdictStyles[h.verdict] || verdictStyles['NEEDS_ATTENTION'];
                 const todayStyle = actionStyle(h.today_action);
-                const condColor = (h.proj_cond >= 95 && h.proj_cond <= 105) ? 'var(--green)' : h.proj_cond < 75 ? 'var(--red)' : 'var(--yellow)';
-                const stamColor = (h.proj_stam >= 95 && h.proj_stam <= 105) ? 'var(--green)' : h.proj_stam < 75 ? 'var(--red)' : 'var(--yellow)';
 
                 // Build mini daily schedule bar
                 let scheduleBar = '';
@@ -662,27 +699,23 @@
                             <span style="padding:3px 10px;border-radius:999px;background:${v.bg};color:${v.color};font-size:10px;font-weight:700">${v.icon} ${v.text}</span>
                         </div>
                     </div>
-                    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-                        <div style="text-align:center;min-width:70px">
-                            <div style="font-size:10px;color:var(--text-dim);text-transform:uppercase">Today</div>
-                            <div style="font-size:20px">${todayStyle.icon}</div>
-                            <div style="font-size:11px;font-weight:700;color:${todayStyle.color}">${h.today_label || h.today_action}</div>
+                    <div style="display:flex;gap:12px;align-items:stretch;flex-wrap:wrap">
+                        <div style="text-align:center;min-width:65px;display:flex;flex-direction:column;justify-content:center">
+                            <div style="font-size:9px;color:var(--text-dim);text-transform:uppercase">Today</div>
+                            <div style="font-size:22px;margin:2px 0">${todayStyle.icon}</div>
+                            <div style="font-size:10px;font-weight:700;color:${todayStyle.color}">${h.today_label || h.today_action}</div>
                         </div>
-                        <div style="flex:1;min-width:200px">
-                            <div style="font-size:10px;color:var(--text-dim);margin-bottom:4px">Daily Schedule → Race Day</div>
-                            <div style="display:flex;flex-wrap:wrap;gap:1px">${scheduleBar}</div>
+                        <div style="flex:1;min-width:180px">
+                            <div style="font-size:9px;color:var(--text-dim);margin-bottom:3px">Daily Schedule → Race Day</div>
+                            <div style="display:flex;flex-wrap:wrap;gap:1px;margin-bottom:6px">${scheduleBar}</div>
+                            ${meterBar(h.current_cond, h.proj_cond, 'Condition')}
+                            ${meterBar(h.current_stam, h.proj_stam, 'Stamina')}
                         </div>
-                        <div style="text-align:center;min-width:80px">
-                            <div style="font-size:10px;color:var(--text-dim)">Race Day Cond</div>
-                            <div style="font-size:16px;font-weight:700;font-family:'JetBrains Mono';color:${condColor}">${h.proj_cond}%</div>
-                        </div>
-                        <div style="text-align:center;min-width:80px">
-                            <div style="font-size:10px;color:var(--text-dim)">Race Day Stam</div>
-                            <div style="font-size:16px;font-weight:700;font-family:'JetBrains Mono';color:${stamColor}">${h.proj_stam}%</div>
-                        </div>
-                        <div style="text-align:center;min-width:60px">
-                            <div style="font-size:10px;color:var(--text-dim)">Consist.</div>
-                            <div style="font-size:11px;font-weight:600">${h.consist_note}</div>
+                        <div style="text-align:center;min-width:55px;display:flex;flex-direction:column;justify-content:center;gap:2px">
+                            <div style="font-size:9px;color:var(--text-dim)">Works</div>
+                            <div style="font-size:14px;font-weight:700;font-family:'JetBrains Mono';color:var(--text)">${h.total_works}</div>
+                            <div style="font-size:9px;color:var(--text-dim);margin-top:4px">Consist.</div>
+                            <div style="font-size:10px;font-weight:600">${h.consist_note}</div>
                         </div>
                     </div>
                 </div>`;
