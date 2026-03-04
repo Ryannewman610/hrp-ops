@@ -100,7 +100,115 @@
                     <div id="fitness-alerts" style="margin-top:12px;"></div>
                 </section>
 
+                <!-- Race Calendar -->
+                <section class="panel" id="calendar-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">📅</span> Upcoming Races</div>
+                        <span class="panel-badge" id="calendar-badge">—</span>
+                    </div>
+                    <div style="overflow-x:auto;">
+                        <table class="rank-table" id="calendar-table">
+                            <thead>
+                                <tr>
+                                    <th>Horse</th>
+                                    <th>Race</th>
+                                    <th>Track</th>
+                                    <th>CND</th>
+                                    <th>STA</th>
+                                    <th>SRF</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calendar-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
             </div><!-- /tab:playbook -->
+
+            <!-- TAB: 2YO Dev -->
+            <div class="tab-section" data-tab="twoyo">
+
+                <!-- Pipeline Overview -->
+                <section class="panel" id="twoyo-pipeline-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">🌱</span> 2YO Development Center</div>
+                        <span class="panel-badge" id="twoyo-badge">—</span>
+                    </div>
+                    <div class="twoyo-pipeline" id="twoyo-pipeline">
+                        <div class="pipeline-stage" data-stage="pre_training">
+                            <div class="pipeline-label">🥚 Pre-Training</div>
+                            <div class="pipeline-count" id="pipe-pre_training">0</div>
+                            <div class="pipeline-horses" id="pipe-horses-pre_training"></div>
+                        </div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage" data-stage="foundation">
+                            <div class="pipeline-label">🏋️ Foundation</div>
+                            <div class="pipeline-count" id="pipe-foundation">0</div>
+                            <div class="pipeline-horses" id="pipe-horses-foundation"></div>
+                        </div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage" data-stage="speed_prep">
+                            <div class="pipeline-label">⚡ Speed Prep</div>
+                            <div class="pipeline-count" id="pipe-speed_prep">0</div>
+                            <div class="pipeline-horses" id="pipe-horses-speed_prep"></div>
+                        </div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage" data-stage="race_ready">
+                            <div class="pipeline-label">🎯 Race Ready</div>
+                            <div class="pipeline-count" id="pipe-race_ready">0</div>
+                            <div class="pipeline-horses" id="pipe-horses-race_ready"></div>
+                        </div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage" data-stage="race_active">
+                            <div class="pipeline-label">🏁 Racing</div>
+                            <div class="pipeline-count" id="pipe-race_active">0</div>
+                            <div class="pipeline-horses" id="pipe-horses-race_active"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2YO Dev Cards Grid -->
+                <section class="panel" id="twoyo-cards-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">🐴</span> Individual Development Plans</div>
+                    </div>
+                    <div class="twoyo-grid" id="twoyo-grid"></div>
+                </section>
+
+                <!-- Readiness Radar Table -->
+                <section class="panel" id="twoyo-radar-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">📡</span> Readiness Radar</div>
+                    </div>
+                    <div style="overflow-x:auto;">
+                        <table class="rank-table" id="twoyo-radar-table">
+                            <thead>
+                                <tr>
+                                    <th>Horse</th>
+                                    <th>Stage</th>
+                                    <th>Works</th>
+                                    <th>Con</th>
+                                    <th>CND</th>
+                                    <th>STA</th>
+                                    <th>Location</th>
+                                    <th>Top Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="twoyo-radar-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Financial Summary -->
+                <section class="panel" id="financial-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">💰</span> Financial Summary</div>
+                    </div>
+                    <div class="financial-grid" id="financial-grid"></div>
+                </section>
+
+            </div><!-- /tab:twoyo -->
 
             <!-- TAB: Stable -->
             <div class="tab-section" data-tab="stable">
@@ -186,6 +294,10 @@
             <button class="nav-tab active" data-target="playbook" onclick="switchTab('playbook', this)">
                 <span class="nav-icon">🎯</span>
                 Playbook
+            </button>
+            <button class="nav-tab" data-target="twoyo" onclick="switchTab('twoyo', this)">
+                <span class="nav-icon">🌱</span>
+                2YO Dev
             </button>
             <button class="nav-tab" data-target="stable" onclick="switchTab('stable', this)">
                 <span class="nav-icon">🏇</span>
@@ -282,6 +394,8 @@
                 loadNominations(),
                 loadStableStats(),
                 loadPlaybook(),
+                load2YOData(),
+                loadCalendar(),
             ]);
         }
 
@@ -1035,6 +1149,194 @@
             document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
             if (btn) btn.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ── 2YO Development Center ─────────────
+        async function load2YOData() {
+            const data = await fetchJSON('/api/twoyo');
+            if (!data || !data.horses) return;
+            render2YOPipeline(data);
+            render2YOCards(data.horses);
+            render2YORadar(data.horses);
+            renderFinancial(data.financial);
+            document.getElementById('twoyo-badge').textContent = data.total_2yo + ' horses';
+        }
+
+        function render2YOPipeline(data) {
+            const stages = ['pre_training', 'foundation', 'speed_prep', 'race_ready', 'race_active'];
+            const counts = data.stage_counts || {};
+            stages.forEach(s => {
+                const countEl = document.getElementById('pipe-' + s);
+                const horsesEl = document.getElementById('pipe-horses-' + s);
+                if (countEl) countEl.textContent = counts[s] || 0;
+                if (horsesEl) {
+                    const stageHorses = data.horses.filter(h => h.stage_key === s);
+                    horsesEl.innerHTML = stageHorses.map(h =>
+                        `<div class="pipe-horse-chip">${h.name.split(' ')[0]}</div>`
+                    ).join('');
+                }
+            });
+        }
+
+        function render2YOCards(horses) {
+            const grid = document.getElementById('twoyo-grid');
+            grid.innerHTML = horses.map(h => {
+                const pct = h.progress_pct;
+                const circ = 2 * Math.PI * 38;
+                const offset = circ - (pct / 100) * circ;
+                const stageColors = {
+                    pre_training: 'var(--text-dim)',
+                    foundation: 'var(--blue)',
+                    speed_prep: 'var(--yellow)',
+                    race_ready: 'var(--green)',
+                    race_active: 'var(--purple, #a78bfa)',
+                };
+                const ringColor = stageColors[h.stage_key] || 'var(--blue)';
+
+                const priorityColors = { high: 'var(--red)', medium: 'var(--yellow)', warning: 'var(--red)', info: 'var(--blue)' };
+                const priorityIcons = { high: '🔴', medium: '🟡', warning: '⚠️', info: 'ℹ️' };
+
+                const actionsHtml = h.actions.map(a =>
+                    `<div class="dev-action" style="border-left:3px solid ${priorityColors[a.priority] || 'var(--blue)'}">
+                        <div class="dev-action-header">${priorityIcons[a.priority] || ''} ${a.action}</div>
+                        <div class="dev-action-detail">${a.detail}</div>
+                    </div>`
+                ).join('');
+
+                const milestones = h.milestones || {};
+                const msHtml = [
+                    ['first_work', '1st Work'],
+                    ['fifty_works', '50 Works'],
+                    ['hundred_works', '100 Works'],
+                    ['consistency_4', 'Con 4+'],
+                    ['first_race', '1st Race'],
+                    ['first_win', '1st Win'],
+                ].map(([key, label]) =>
+                    `<span class="ms-chip ${milestones[key] ? 'ms-done' : 'ms-pending'}">${milestones[key] ? '✅' : '⬜'} ${label}</span>`
+                ).join('');
+
+                const condColor = h.condition >= 95 ? 'var(--green)' : h.condition >= 85 ? 'var(--yellow)' : 'var(--red)';
+                const stamColor = h.stamina >= 90 ? 'var(--green)' : h.stamina >= 70 ? 'var(--yellow)' : 'var(--red)';
+
+                return `<div class="twoyo-card">
+                    <div class="twoyo-card-header">
+                        <div class="twoyo-progress-ring">
+                            <svg viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="38" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="4"/>
+                                <circle cx="40" cy="40" r="38" fill="none" stroke="${ringColor}" stroke-width="4"
+                                    stroke-dasharray="${circ}" stroke-dashoffset="${offset}"
+                                    stroke-linecap="round" transform="rotate(-90 40 40)"
+                                    style="transition:stroke-dashoffset 1s ease"/>
+                            </svg>
+                            <div class="twoyo-ring-text">${h.works_count}</div>
+                        </div>
+                        <div class="twoyo-card-info">
+                            <div class="twoyo-card-name">${h.name}</div>
+                            <div class="twoyo-card-meta">${h.sex} · ${h.color} · ${h.location_type}</div>
+                            <div class="twoyo-card-stage" style="color:${ringColor}">${h.stage_label}</div>
+                        </div>
+                    </div>
+
+                    <div class="twoyo-meters">
+                        <div class="twoyo-meter">
+                            <span class="meter-label">CND</span>
+                            <div class="meter-bar-bg"><div class="meter-bar-fill" style="width:${h.condition}%;background:${condColor}"></div></div>
+                            <span class="meter-val" style="color:${condColor}">${h.condition}%</span>
+                        </div>
+                        <div class="twoyo-meter">
+                            <span class="meter-label">STA</span>
+                            <div class="meter-bar-bg"><div class="meter-bar-fill" style="width:${h.stamina}%;background:${stamColor}"></div></div>
+                            <span class="meter-val" style="color:${stamColor}">${h.stamina}%</span>
+                        </div>
+                        <div class="twoyo-meter">
+                            <span class="meter-label">CON</span>
+                            <div class="meter-bar-bg"><div class="meter-bar-fill" style="width:${Math.min(100, h.consistency * 20)}%;background:var(--blue)"></div></div>
+                            <span class="meter-val" style="color:var(--blue)">${h.consistency}/5</span>
+                        </div>
+                    </div>
+
+                    <div class="twoyo-breed">
+                        <span>🧬 ${h.sire} × ${h.dam}</span>
+                    </div>
+
+                    <div class="twoyo-milestones">${msHtml}</div>
+
+                    <div class="twoyo-actions-title">📋 Development Plan</div>
+                    <div class="twoyo-actions">${actionsHtml || '<div style="color:var(--text-dim);font-size:11px">No actions needed</div>'}</div>
+                </div>`;
+            }).join('');
+        }
+
+        function render2YORadar(horses) {
+            const body = document.getElementById('twoyo-radar-body');
+            body.innerHTML = horses.map(h => {
+                const topAction = h.actions.length > 0 ? h.actions[0].action : '—';
+                const condColor = h.condition >= 95 ? 'var(--green)' : h.condition >= 85 ? 'var(--yellow)' : 'var(--red)';
+                const stamColor = h.stamina >= 90 ? 'var(--green)' : h.stamina >= 70 ? 'var(--yellow)' : 'var(--red)';
+                return `<tr>
+                    <td style="font-weight:600">${h.name}</td>
+                    <td>${h.stage_label}</td>
+                    <td>${h.works_count}</td>
+                    <td>${h.consistency}/5</td>
+                    <td style="color:${condColor}">${h.condition}%</td>
+                    <td style="color:${stamColor}">${h.stamina}%</td>
+                    <td>${h.location_type === 'Farm' ? '🌿' : '🏟️'} ${h.location_type}</td>
+                    <td style="font-size:11px;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${topAction}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        function renderFinancial(fin) {
+            if (!fin) return;
+            const grid = document.getElementById('financial-grid');
+            const runwayColor = fin.runway_months > 6 ? 'var(--green)' : fin.runway_months > 3 ? 'var(--yellow)' : 'var(--red)';
+            grid.innerHTML = `
+                <div class="fin-card">
+                    <div class="fin-label">Balance</div>
+                    <div class="fin-value" style="color:var(--green)">${fin.balance}</div>
+                </div>
+                <div class="fin-card">
+                    <div class="fin-label">Daily Cost</div>
+                    <div class="fin-value">$${fin.daily_cost}/day</div>
+                    <div class="fin-sub">${fin.total_horses} horses × $3</div>
+                </div>
+                <div class="fin-card">
+                    <div class="fin-label">Monthly Burn</div>
+                    <div class="fin-value" style="color:var(--red)">$${fin.monthly_cost.toLocaleString()}/mo</div>
+                </div>
+                <div class="fin-card">
+                    <div class="fin-label">Runway</div>
+                    <div class="fin-value" style="color:${runwayColor}">${fin.runway_months} months</div>
+                </div>
+            `;
+        }
+
+        // ── Race Calendar ──────────────────────────
+        async function loadCalendar() {
+            const races = await fetchJSON('/api/calendar');
+            if (!Array.isArray(races)) return;
+            const body = document.getElementById('calendar-body');
+            const badge = document.getElementById('calendar-badge');
+            badge.textContent = races.length + ' races';
+
+            if (races.length === 0) {
+                body.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-dim);padding:20px">No upcoming races</td></tr>';
+                return;
+            }
+
+            body.innerHTML = races.map(r => {
+                const statusMap = { ready: '🟢 Ready', caution: '🟡 Caution', danger: '🔴 Risk' };
+                const statusColor = { ready: 'var(--green)', caution: 'var(--yellow)', danger: 'var(--red)' };
+                return `<tr>
+                    <td style="font-weight:600">${r.horse}</td>
+                    <td style="font-size:11px">${r.race_class}</td>
+                    <td>${r.track}</td>
+                    <td style="color:${r.condition >= 95 ? 'var(--green)' : 'var(--yellow)'}">${r.condition}%</td>
+                    <td style="color:${r.stamina >= 90 ? 'var(--green)' : 'var(--yellow)'}">${r.stamina}%</td>
+                    <td>${r.srf_power > 0 ? r.srf_power.toFixed(1) : '—'}</td>
+                    <td style="color:${statusColor[r.readiness] || 'var(--text)'}">${statusMap[r.readiness] || r.readiness}</td>
+                </tr>`;
+            }).join('');
         }
 
         // ── Boot ───────────────────────────────

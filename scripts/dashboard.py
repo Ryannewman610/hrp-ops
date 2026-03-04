@@ -430,6 +430,266 @@ def api_outcomes():
     return jsonify(rows[-50:])  # Last 50 races
 
 
+# ── 2YO Development Center ──────────────────────────────
+
+def classify_2yo_stage(works, consistency, has_raced):
+    """Classify a 2YO's development stage."""
+    con = 0
+    try:
+        con = int(consistency) if consistency not in ("?", "", None) else 0
+    except (ValueError, TypeError):
+        con = 0
+
+    if has_raced:
+        return "race_active", "🏁 Race Active"
+    if works >= 100 and con >= 4:
+        return "race_ready", "🎯 Race Ready"
+    if works >= 50:
+        return "speed_prep", "⚡ Speed Prep"
+    if works >= 1:
+        return "foundation", "🏋️ Foundation"
+    return "pre_training", "🥚 Pre-Training"
+
+
+def generate_2yo_plan(horse, stage, works, con_val, cond_val, stam_val, at_farm):
+    """Generate AI development plan actions for a 2YO."""
+    actions = []
+    milestones = {
+        "first_work": works >= 1,
+        "fifty_works": works >= 50,
+        "hundred_works": works >= 100,
+        "consistency_4": con_val >= 4,
+        "first_race": int(horse.get("record", {}).get("starts", "0")) > 0,
+        "first_win": int(horse.get("record", {}).get("wins", "0")) > 0,
+    }
+
+    sex = horse.get("sex", "").lower()
+    is_colt = "colt" in sex or "stallion" in sex
+
+    if stage == "pre_training":
+        actions.append({"priority": "high", "action": "Begin daily training to build base fitness",
+                        "detail": f"Currently at {works} works — need to build foundation"})
+        if at_farm:
+            actions.append({"priority": "info", "action": "Keep at farm for early development",
+                            "detail": "Farm training is cost-effective for initial conditioning"})
+
+    elif stage == "foundation":
+        remaining = 50 - works
+        actions.append({"priority": "medium", "action": f"{remaining} more works to reach Speed Prep",
+                        "detail": f"Building fundamentals — {works}/50 works completed"})
+        if cond_val < 90:
+            actions.append({"priority": "high", "action": "Condition is low — focus on light training",
+                            "detail": f"Current condition: {cond_val}%. Target: 95%+"})
+        if stam_val < 80:
+            actions.append({"priority": "high", "action": "Rest needed — stamina is depleted",
+                            "detail": f"Current stamina: {stam_val}%. Min for training: 80%"})
+
+    elif stage == "speed_prep":
+        remaining = 100 - works
+        actions.append({"priority": "medium", "action": f"{remaining} more works to Race Ready",
+                        "detail": f"Introducing speed work — {works}/100 works completed"})
+        if at_farm:
+            actions.append({"priority": "high", "action": "Consider shipping to track",
+                            "detail": "Track training needed for gate works and timed breezes"})
+        if con_val < 3:
+            actions.append({"priority": "medium", "action": f"Build consistency: currently {con_val}/4+",
+                            "detail": "Need consistency 4+ before maiden entry"})
+        if con_val >= 4 and works >= 80:
+            actions.append({"priority": "high", "action": "Near Race Ready — start scouting maiden races",
+                            "detail": "Look for MSW with small field sizes (5-7 entries)"})
+
+    elif stage == "race_ready":
+        actions.append({"priority": "high", "action": "Ready for maiden entry!",
+                        "detail": "Nominate for next available Maiden Special Weight"})
+        if cond_val < 95:
+            actions.append({"priority": "warning", "action": f"Get condition to 95%+ before racing",
+                            "detail": f"Current: {cond_val}%. Need 2-3 more training days"})
+        if at_farm:
+            actions.append({"priority": "high", "action": "Ship to track immediately",
+                            "detail": "Must be at track for race entry"})
+
+    elif stage == "race_active":
+        starts = int(horse.get("record", {}).get("starts", "0"))
+        wins = int(horse.get("record", {}).get("wins", "0"))
+        if starts > 0 and wins == 0 and starts >= 3:
+            actions.append({"priority": "warning", "action": "No wins in 3+ starts — evaluate",
+                            "detail": "Consider class drop or training adjustment"})
+        if cond_val < 90:
+            actions.append({"priority": "high", "action": "Rest before next entry",
+                            "detail": f"Condition at {cond_val}% — below race threshold"})
+
+    # Gelding check for colts
+    if is_colt and con_val < 2 and works > 50:
+        actions.append({"priority": "info", "action": "Consider gelding",
+                        "detail": f"Low consistency ({con_val}) — gelding may improve focus"})
+
+    return actions, milestones
+
+
+@app.route("/api/twoyo")
+@login_required
+def api_twoyo():
+    """2YO Development Center data."""
+    snap = find_latest_snapshot()
+    ratings = load_json(OUTPUTS / "model" / "horse_ratings.json")
+
+    horses_2yo = []
+    stage_counts = {"pre_training": 0, "foundation": 0, "speed_prep": 0,
+                    "race_ready": 0, "race_active": 0}
+
+    for h in snap.get("horses", []):
+        if h.get("age") != "2":
+            continue
+        name = h.get("name", "")
+        if _norm(name) in INACTIVE:
+            continue
+
+        works = h.get("works_count", 0)
+        try:
+            works = int(works)
+        except (ValueError, TypeError):
+            works = 0
+
+        con_str = h.get("consistency", "0")
+        try:
+            con_val = int(con_str) if con_str not in ("?", "", None) else 0
+        except (ValueError, TypeError):
+            con_val = 0
+
+        cond_str = h.get("condition", "100%").replace("%", "")
+        try:
+            cond_val = float(cond_str)
+        except (ValueError, TypeError):
+            cond_val = 100
+
+        stam_str = h.get("stamina", "100%").replace("%", "")
+        try:
+            stam_val = float(stam_str)
+        except (ValueError, TypeError):
+            stam_val = 100
+
+        has_raced = int(h.get("record", {}).get("starts", "0")) > 0
+        track = h.get("track", "")
+        at_farm = is_farm(track)
+
+        stage_key, stage_label = classify_2yo_stage(works, con_str, has_raced)
+        stage_counts[stage_key] = stage_counts.get(stage_key, 0) + 1
+
+        actions, milestones = generate_2yo_plan(
+            h, stage_key, works, con_val, cond_val, stam_val, at_farm)
+
+        rat = ratings.get(name, {})
+        horses_2yo.append({
+            "name": name,
+            "sex": h.get("sex", "?"),
+            "color": h.get("color", "?"),
+            "sire": h.get("sire", "?"),
+            "dam": h.get("dam", "?"),
+            "location": track,
+            "location_type": "Farm" if at_farm else "Track",
+            "condition": cond_val,
+            "stamina": stam_val,
+            "consistency": con_val,
+            "works_count": works,
+            "distance_meter": h.get("distance_meter", "?"),
+            "height": h.get("height", "?"),
+            "weight": h.get("weight", "?"),
+            "record": h.get("record", {}),
+            "stage_key": stage_key,
+            "stage_label": stage_label,
+            "progress_pct": min(100, round(works / 100 * 100)),
+            "actions": actions,
+            "milestones": milestones,
+            "srf_power": rat.get("srf_power", 0),
+        })
+
+    # Sort: race_ready first, then by works desc
+    stage_order = {"race_active": 0, "race_ready": 1, "speed_prep": 2,
+                   "foundation": 3, "pre_training": 4}
+    horses_2yo.sort(key=lambda x: (stage_order.get(x["stage_key"], 9), -x["works_count"]))
+
+    # Financial summary
+    total_horses = len(snap.get("horses", []))
+    daily_cost = total_horses * 3  # $3/horse/day
+    monthly_cost = daily_cost * 30
+    balance_str = snap.get("balance", "$0")
+    try:
+        balance_val = float(balance_str.replace("$", "").replace(",", ""))
+    except (ValueError, TypeError):
+        balance_val = 0
+    runway_months = balance_val / monthly_cost if monthly_cost > 0 else 999
+
+    return jsonify({
+        "horses": horses_2yo,
+        "stage_counts": stage_counts,
+        "total_2yo": len(horses_2yo),
+        "financial": {
+            "balance": balance_str,
+            "balance_val": balance_val,
+            "daily_cost": daily_cost,
+            "monthly_cost": monthly_cost,
+            "runway_months": round(runway_months, 1),
+            "total_horses": total_horses,
+        }
+    })
+
+
+@app.route("/api/calendar")
+@login_required
+def api_calendar():
+    """Upcoming race calendar from nominations."""
+    snap = find_latest_snapshot()
+    ratings = load_json(OUTPUTS / "model" / "horse_ratings.json")
+    upcoming = []
+
+    for h in snap.get("horses", []):
+        name = h.get("name", "")
+        if _norm(name) in INACTIVE:
+            continue
+        noms = h.get("nominations", [])
+        if not isinstance(noms, list):
+            continue
+        for nom in noms:
+            field = nom.get("field", "")
+            if not field or "No nominations" in field:
+                continue
+            # Parse race date if available
+            race_date = nom.get("date", "")
+            track = nom.get("track", h.get("track", "?"))
+            cond_str = h.get("condition", "100%").replace("%", "")
+            stam_str = h.get("stamina", "100%").replace("%", "")
+            try:
+                cond_val = float(cond_str)
+            except (ValueError, TypeError):
+                cond_val = 100
+            try:
+                stam_val = float(stam_str)
+            except (ValueError, TypeError):
+                stam_val = 100
+
+            rat = ratings.get(name, {})
+            # Determine readiness
+            readiness = "ready"
+            if cond_val < 90 or stam_val < 70:
+                readiness = "danger"
+            elif cond_val < 95:
+                readiness = "caution"
+
+            upcoming.append({
+                "horse": name,
+                "race_class": field[:60],
+                "track": track,
+                "date": race_date,
+                "condition": cond_val,
+                "stamina": stam_val,
+                "srf_power": rat.get("srf_power", 0),
+                "readiness": readiness,
+            })
+
+    upcoming.sort(key=lambda x: x.get("date", ""))
+    return jsonify(upcoming)
+
+
 refresh_status = {"running": False, "step": "", "error": ""}
 
 
