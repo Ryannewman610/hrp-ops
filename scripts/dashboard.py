@@ -57,6 +57,18 @@ app.secret_key = os.environ.get("SECRET_KEY", secrets.token_hex(32))
 DASHBOARD_PASSWORD = os.environ.get("DASHBOARD_PASSWORD", "hrp2026")
 API_KEY = os.environ.get("API_KEY", "local-dev-key")
 
+@app.route("/debug-env")
+def debug_env():
+    """TEMPORARY — remove after debugging."""
+    return jsonify({
+        "api_key_len": len(API_KEY),
+        "api_key_hash": hashlib.sha256(API_KEY.encode()).hexdigest()[:16],
+        "api_key_first3": API_KEY[:3],
+        "api_key_last3": API_KEY[-3:],
+        "dashboard_pw_set": bool(os.environ.get("DASHBOARD_PASSWORD")),
+    })
+
+
 
 def login_required(f):
     """Decorator: redirect to login if not authenticated."""
