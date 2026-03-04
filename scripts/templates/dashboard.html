@@ -609,12 +609,15 @@
         }
 
         // ── Load Race Day Playbook ───────────
+        let playbookCache = [];  // cached for horse modal lookup
         async function loadPlaybook() {
             const data = await fetchJSON('/api/playbook');
             if (!Array.isArray(data) || data.length === 0) {
                 document.getElementById('playbook-panel').style.display = 'none';
+                playbookCache = [];
                 return;
             }
+            playbookCache = data;
             const onTrack = data.filter(h => h.verdict === 'ON_TRACK').length;
             document.getElementById('playbook-badge').textContent =
                 `${onTrack} on track / ${data.length} entered`;
@@ -843,11 +846,44 @@
                 <div class="meter"><span class="meter-label">CON</span><div class="meter-bar"><div class="meter-fill cons" style="width:${Math.min(cons * 20, 100)}%"></div></div><span class="meter-value">+${cons}</span></div>
             `;
 
+            // Race Day Projection (from playbook data if available)
+            const pb = playbookCache.find(p => p.name === name);
+            let projHtml = '';
+            if (pb) {
+                const pStyle = key => {
+                    if (key === 'REST') return { icon: '💤', bg: 'var(--surface-2)' };
+                    if (key.startsWith('TRAIN_HVY')) return { icon: '💪', bg: 'var(--yellow-dim)' };
+                    if (key.startsWith('TRAIN_')) return { icon: '🏋️', bg: 'var(--orange-dim,rgba(255,160,50,0.15))' };
+                    if (key.includes('_H')) return { icon: '🔥', bg: 'var(--red-dim)' };
+                    if (key.startsWith('WORK_')) return { icon: '🏃', bg: 'var(--purple-dim)' };
+                    return { icon: '❓', bg: 'var(--surface-2)' };
+                };
+                let sched = '';
+                (pb.daily || []).forEach((d, i) => {
+                    const s = pStyle(d.action);
+                    sched += `<span title="Day ${i + 1}: ${d.action_label}" style="display:inline-block;width:24px;height:20px;line-height:20px;text-align:center;border-radius:3px;background:${s.bg};font-size:9px;margin:1px;cursor:help">${s.icon}</span>`;
+                });
+                const cColor = (pb.proj_cond >= 95 && pb.proj_cond <= 105) ? 'var(--green)' : pb.proj_cond < 75 ? 'var(--red)' : 'var(--yellow)';
+                const sColor = (pb.proj_stam >= 95 && pb.proj_stam <= 105) ? 'var(--green)' : pb.proj_stam < 75 ? 'var(--red)' : 'var(--yellow)';
+                projHtml = `
+                    <div style="margin:12px 0;padding:10px;background:var(--bg-glass);border-radius:8px;border:1px solid var(--border)">
+                        <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">🏁 Race Day Projection (${pb.days_to_race}d)</div>
+                        <div style="display:flex;flex-wrap:wrap;gap:1px;margin-bottom:8px">${sched}</div>
+                        <div style="display:flex;gap:12px;align-items:center">
+                            <div style="font-size:11px">Today: <b style="color:${pStyle(pb.today_action).bg !== 'var(--surface-2)' ? 'var(--text)' : 'var(--text-dim)'}">${pb.today_label || pb.today_action}</b></div>
+                            <div style="font-size:11px">Proj C: <b style="color:${cColor}">${pb.proj_cond}%</b></div>
+                            <div style="font-size:11px">Proj S: <b style="color:${sColor}">${pb.proj_stam}%</b></div>
+                            <div style="font-size:11px">${pb.consist_note}</div>
+                        </div>
+                    </div>`;
+            }
+
             // Recommendations
             const recs = h.next_action ? [h.next_action] : [];
-            document.getElementById('modal-recs').innerHTML = recs.length > 0 ?
+            const recsHtml = recs.length > 0 ?
                 recs.map(r => `<div class="modal-rec">${r}</div>`).join('') :
                 '<div style="color:var(--text-dim);font-size:12px">No specific recommendations</div>';
+            document.getElementById('modal-recs').innerHTML = projHtml + recsHtml;
 
             // Record
             const rec = h.record || {};
