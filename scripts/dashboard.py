@@ -690,10 +690,35 @@ def api_calendar():
 
 refresh_status = {"running": False, "step": "", "error": ""}
 
+# Remote sync trigger — cloud sets this flag, local polls + clears it
+sync_request = {"pending": False, "requested_at": ""}
+
 
 @app.route("/api/refresh-status")
 def api_refresh_status():
     return jsonify(refresh_status)
+
+
+@app.route("/api/sync-request", methods=["GET", "POST"])
+def api_sync_request():
+    """Remote sync trigger endpoint.
+
+    POST: Request a sync (called from cloud frontend when user hits Sync)
+    GET:  Check if sync is pending (called by local poller), clears the flag
+    """
+    if request.method == "POST":
+        sync_request["pending"] = True
+        sync_request["requested_at"] = datetime.now().isoformat()
+        return jsonify({"status": "queued", "message": "Sync queued — your local machine will pick it up shortly."})
+    else:
+        # GET — local poller checks and clears
+        api_key = request.headers.get("X-API-Key", "")
+        if not hmac.compare_digest(api_key, API_KEY):
+            return jsonify({"error": "unauthorized"}), 401
+        was_pending = sync_request["pending"]
+        if was_pending:
+            sync_request["pending"] = False  # clear the flag
+        return jsonify({"pending": was_pending, "requested_at": sync_request["requested_at"]})
 
 
 @app.route("/api/refresh", methods=["POST"])
@@ -706,10 +731,12 @@ def api_refresh():
     is_cloud = not (ROOT / "inputs" / "export" / "auth.json").exists()
 
     if is_cloud:
-        # Cloud mode — can't run Playwright, tell frontend clearly
+        # Cloud mode — queue a sync request for the local machine
+        sync_request["pending"] = True
+        sync_request["requested_at"] = datetime.now().isoformat()
         return jsonify({
-            "status": "cloud_mode",
-            "message": "Cloud mode: open dashboard on your local machine and hit Sync there. It will auto-push fresh data here."
+            "status": "queued",
+            "message": "Sync queued! Your local machine will pick this up and push fresh data."
         })
 
     def run_full_pipeline():

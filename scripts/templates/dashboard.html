@@ -1156,11 +1156,38 @@
                 btn.textContent = '🔄 Sync with HRP';
                 return;
             }
-            if (data.status === 'cloud_mode') {
-                showToast('☁️ Cloud mode — run "python scripts/sync.py" locally to refresh', 6000);
-                statusEl.textContent = 'Use local sync to refresh data';
-                btn.classList.remove('loading');
-                btn.textContent = '🔄 Sync with HRP';
+            if (data.status === 'queued') {
+                showToast('📡 Sync queued! Waiting for local machine to pull fresh data...', 8000);
+                statusEl.textContent = '📡 Queued — waiting for local sync...';
+                btn.textContent = '📡 Waiting...';
+
+                // Poll for fresh data — check if snapshot age changes
+                const originalAge = document.getElementById('data-age')?.textContent || '';
+                let waitCount = 0;
+                const waitPoll = setInterval(async () => {
+                    waitCount++;
+                    statusEl.textContent = `📡 Waiting for sync... (${waitCount * 15}s)`;
+                    if (waitCount > 40) { // 10 min timeout
+                        clearInterval(waitPoll);
+                        statusEl.textContent = '⏰ Timed out — check local machine';
+                        btn.classList.remove('loading');
+                        btn.textContent = '🔄 Sync with HRP';
+                        showToast('⏰ Sync timed out. Make sure your local machine is running.', 6000);
+                        return;
+                    }
+                    try {
+                        const freshStable = await fetchJSON('/api/stable');
+                        const newAge = freshStable?.snapshot_age || '';
+                        if (newAge !== originalAge && newAge !== '—') {
+                            clearInterval(waitPoll);
+                            statusEl.textContent = '';
+                            btn.classList.remove('loading');
+                            btn.textContent = '🔄 Sync with HRP';
+                            await init();
+                            showToast('✅ Fresh data arrived! Dashboard updated.', 4000);
+                        }
+                    } catch (e) { }
+                }, 15000);
                 return;
             }
 
