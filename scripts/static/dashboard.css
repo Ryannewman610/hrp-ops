@@ -1668,3 +1668,68 @@ body::before {
         transform: translateY(0);
     }
 }
+
+/* ── STABLE HEALTH HEATMAP ──────────────────── */
+.heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.heatmap-cell {
+    padding: 8px 6px;
+    border-radius: var(--radius-xs);
+    border: 1px solid;
+    text-align: center;
+    transition: all 0.2s var(--ease);
+    cursor: default;
+}
+
+.heatmap-cell:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.heatmap-name {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.heatmap-vals {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    font-size: 9px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.heatmap-legend {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    padding: 6px 0 0;
+    border-top: 1px solid var(--border);
+}
+
+.heatmap-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+.heatmap-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}

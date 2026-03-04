@@ -284,6 +284,23 @@
                 <div id="insights-content"></div>
             </section>
 
+            <!-- Stable Health Heatmap -->
+            <section class="panel" id="heatmap-panel">
+                <div class="panel-header">
+                    <div class="panel-title"><span class="icon">🌡️</span> Stable Health Map</div>
+                    <span class="panel-badge" id="heatmap-badge">—</span>
+                </div>
+                <div class="heatmap-grid" id="heatmap-grid"></div>
+                <div class="heatmap-legend">
+                    <span class="heatmap-legend-item"><span class="heatmap-dot" style="background:var(--green)"></span>
+                        &gt;95%</span>
+                    <span class="heatmap-legend-item"><span class="heatmap-dot" style="background:var(--yellow)"></span>
+                        85-95%</span>
+                    <span class="heatmap-legend-item"><span class="heatmap-dot" style="background:var(--red)"></span>
+                        &lt;85%</span>
+                </div>
+            </section>
+
             <!-- Pending Actions -->
             <section class="panel" id="actions-panel" style="display:none;">
                 <div class="panel-header">
@@ -439,6 +456,7 @@
                 }
             }
             renderHorseGrid(stableData.horses);
+            renderHeatmap(stableData.horses);
         }
 
         // ── Load Rankings ──────────────────────
@@ -1350,6 +1368,33 @@
                     <td>${r.srf_power > 0 ? r.srf_power.toFixed(1) : '—'}</td>
                     <td style="color:${statusColor[r.readiness] || 'var(--text)'}">${statusMap[r.readiness] || r.readiness}</td>
                 </tr>`;
+            }).join('');
+        }
+
+        // ── Stable Health Heatmap ───────────────
+        function renderHeatmap(horses) {
+            if (!horses || !horses.length) return;
+            const grid = document.getElementById('heatmap-grid');
+            const badge = document.getElementById('heatmap-badge');
+            badge.textContent = horses.length + ' horses';
+
+            grid.innerHTML = horses.map(h => {
+                const cond = parseNum(h.condition);
+                const stam = parseNum(h.stamina);
+                const avg = (cond + stam) / 2;
+                let color, bg;
+                if (avg >= 95) { color = 'var(--green)'; bg = 'var(--green-dim)'; }
+                else if (avg >= 85) { color = 'var(--yellow)'; bg = 'var(--yellow-dim)'; }
+                else { color = 'var(--red)'; bg = 'var(--red-dim)'; }
+
+                const shortName = h.name.split(' ')[0];
+                return `<div class="heatmap-cell" style="background:${bg};border-color:${color}" title="${h.name}\nCondition: ${h.condition}\nStamina: ${h.stamina}">
+                    <div class="heatmap-name" style="color:${color}">${shortName}</div>
+                    <div class="heatmap-vals">
+                        <span>C:${cond}%</span>
+                        <span>S:${stam}%</span>
+                    </div>
+                </div>`;
             }).join('');
         }
 
