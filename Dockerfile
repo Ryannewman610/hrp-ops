@@ -1,12 +1,7 @@
 FROM python:3.12-slim
-
 WORKDIR /app
-
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
 COPY . .
-
-ENV PORT=5050
-
-CMD ["sh", "-c", "gunicorn scripts.dashboard:app --bind 0.0.0.0:$PORT --workers 2"]
+EXPOSE 5050
+ENTRYPOINT ["python", "-c", "import os, subprocess; port = os.environ.get('PORT', '5050'); subprocess.run(['gunicorn', 'scripts.dashboard:app', '--bind', f'0.0.0.0:{port}', '--workers', '2'])"]
