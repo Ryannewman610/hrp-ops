@@ -84,6 +84,12 @@ def parse_works(html_path: Path, horse_name: str) -> List[Dict]:
             continue
 
         if found_works_section:
+            # Stop at section boundaries
+            if line.lower().startswith("races:") or line.lower().startswith("nominations"):
+                found_works_section = False
+                i += 1
+                continue
+
             # Work pattern: 14Feb26-MouWV or 14Feb26 MouWV
             date_match = re.match(r"(\d{1,2}[A-Z][a-z]{2}\d{2})[\s\-]+(\S+)", line)
             if date_match:
@@ -97,27 +103,35 @@ def parse_works(html_path: Path, horse_name: str) -> List[Dict]:
                 work_type = ""
 
                 # HRP works format: separate lines for surface, distance, fractional times, rank, final time
-                # e.g.: sly / 5f / :25 / :51 / 2 / 1:06
-                # or combined: 5f fst 1:00
+                # 5f+: :24 / :49 / 1:02 (M:SS final time)
+                # 4f:  :24 / :50 (last colon-prefixed value IS final time)
+                # 3f:  :36 (single colon-prefixed value IS final time)
+                # Sub-1-min 5f: :24 / :47 / :59 (no M:SS — :59 IS the final)
+                last_split = ""  # Track last colon-prefixed time
                 for j in range(i + 1, min(i + 12, len(lines))):
                     wline = lines[j].strip()
                     # If we hit another date pattern, stop
                     if re.match(r"\d{1,2}[A-Z][a-z]{2}\d{2}", wline):
                         break
-                    # If we hit a new section (like a horse name or "Works:"), stop
-                    if wline.lower() == "works:":
+                    # If we hit a new section, stop
+                    if wline.lower() in ("works:", "races:", "nominations"):
                         break
 
-                    # Combined distance line: 5f fst 1:00
-                    dist_m = re.match(r"(\d+\s*\d*/?\d*\s*[fm])\s+(\w+)\s+([\d:.]+)", wline)
+                    # Combined distance line: "5f fst 1:00" or "5f fst :59"
+                    # Must NOT match "7f fst  5/6" (race result format)
+                    dist_m = re.match(r"(\d+\s*\d*/?\d*\s*[fm])\s+(\w+)\s+(:?\d+:\d{2}(?:\.\d+)?|:\d{2}(?:\.\d+)?)$", wline)
                     if dist_m:
                         dist = dist_m.group(1).strip()
                         surface = dist_m.group(2).strip()
-                        time_str = dist_m.group(3).strip()
+                        raw_time = dist_m.group(3).strip()
+                        if raw_time.startswith(":"):
+                            time_str = "0" + raw_time  # :59 → 0:59
+                        else:
+                            time_str = raw_time
                         continue
 
                     # Surface only: fst, gd, sly, my, yl, fm (for turf 'firm')
-                    if re.match(r"^(fst|gd|sly|my|yl|fm|sy|wf|sf)$", wline, re.I):
+                    if re.match(r"^(fst|gd|sly|my|yl|fm|sy|wf|sf|mdy)$", wline, re.I):
                         surface = wline
                         continue
                     # Distance only: 3f, 4f, 5f, 6f, 7f, 1m, etc.
@@ -128,8 +142,9 @@ def parse_works(html_path: Path, horse_name: str) -> List[Dict]:
                     if re.match(r"^\d+:\d{2}(\.\d+)?$", wline):
                         time_str = wline  # Keep overwriting; last full time is final time
                         continue
-                    # Fractional time: :25, :51 (quarter/half splits) — skip these
+                    # Fractional/split time: :24, :49, :50 — track last one
                     if re.match(r"^:\d{2}(\.\d+)?$", wline):
+                        last_split = wline
                         continue
                     # Rank: 1-3 digit number
                     if re.match(r"^\d{1,3}$", wline):
@@ -146,6 +161,16 @@ def parse_works(html_path: Path, horse_name: str) -> List[Dict]:
                     if wline == "T":
                         surface = "fm"  # turf = firm
                         continue
+
+                # If no M:SS final time, use last split — with plausibility check
+                # last_split is ":SS" format. For it to be a final time:
+                #   3f: ~34-42s, 4f: ~46-58s, 5f: ~58-59s (rare sub-1-min)
+                # Any value < 20 is definitely a split, not a final time
+                if not time_str and last_split:
+                    split_secs = int(last_split[1:3])  # ":50" → 50
+                    if split_secs >= 30:
+                        # Plausible final time for any distance
+                        time_str = "0" + last_split  # :50 → 0:50
 
                 if work_date:
                     works.append({

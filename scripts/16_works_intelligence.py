@@ -214,34 +214,164 @@ def compute_features(horse_name: str, works: List[Dict], snap_h: Dict, today: da
         features["overracing_risk"] = "OK"
         features["overracing_note"] = ""
 
-    # ── Virgin 5f Work Quality Tier (Maximum Cool) ──
-    # 5f dirt breeze on farm is THE universal 2YO comparison.
+    # ── Work Quality Tier — First-Ever Timed Work, Normalized to 5f-Fast ──
+    # The tier is based STRICTLY on the horse's chronologically first timed work.
+    # Normalized for distance and surface so every horse is compared equally.
+
+    # ADDITIVE distance offset to 5f-equivalent:
+    # The tier benchmarks define exact equivalences across distances:
+    #   3f:35 = 4f:47 = 5f:60 = 6f:70 = 7f:82 (all ULTRA_RARE)
+    #   3f:39 = 4f:51 = 5f:64 = 6f:74 = 7f:87 (all QUESTIONABLE)
+    # So: 5f_equiv = raw_time + offset
+    DIST_5F_OFFSET = {
+        "3f": 25,    # 35 + 25 = 60 (ULTRA_RARE match)
+        "4f": 13,    # 47 + 13 = 60
+        "5f": 0,     # baseline
+        "6f": -10,   # 70 - 10 = 60
+        "7f": -22,   # 82 - 22 = 60
+    }
+    KNOWN_DISTS = set(DIST_5F_OFFSET.keys())
+
+    # Surface penalty — TOTAL seconds added by off-track conditions.
+    # Empirically measured from horses that worked same dist on fast AND sloppy/muddy:
+    #   4f sloppy: avg +6.0s total (1.5s/f) — Iron Timekeeper, Crowds Ransom, etc
+    #   5f sloppy: avg +3.5s total (0.7s/f) — Core N Light, Harsh Frontier, etc
+    #   3f muddy:  avg +1.2s total (0.4s/f) — Class A, Strike King, etc
+    # Using per-distance total penalties for accuracy:
+    SURFACE_PENALTY = {
+        # (surface, dist) → total seconds penalty
+        "fst": {"3f": 0, "4f": 0, "5f": 0, "6f": 0, "7f": 0},
+        "gd":  {"3f": 0.5, "4f": 1, "5f": 1.5, "6f": 2, "7f": 2.5},
+        "fm":  {"3f": 0.5, "4f": 1, "5f": 1.5, "6f": 2, "7f": 2.5},
+        "sly": {"3f": 1.5, "4f": 6, "5f": 3.5, "6f": 4, "7f": 5},
+        "mdy": {"3f": 1.2, "4f": 3, "5f": 3, "6f": 3.5, "7f": 4},
+        "sy":  {"3f": 2, "4f": 7, "5f": 4, "6f": 5, "7f": 6},
+        "yl":  {"3f": 1, "4f": 2, "5f": 2.5, "6f": 3, "7f": 3.5},
+        "wf":  {"3f": 0.5, "4f": 1, "5f": 1.5, "6f": 2, "7f": 2.5},
+        "sf":  {"3f": 0.5, "4f": 1, "5f": 1.5, "6f": 2, "7f": 2.5},
+    }
+
+    # 5f tier thresholds (the universal comparison scale)
+    TIER_5F = {"ULTRA_RARE": 60.0, "STAKES": 61.0, "PAY_SIDE": 62.0,
+               "FREE_LEVEL": 63.0, "QUESTIONABLE": 64.0}
+
+    def classify_5f_equiv(eq_time):
+        """Classify a 5f-equivalent time."""
+        if eq_time <= TIER_5F["ULTRA_RARE"]:
+            return "ULTRA_RARE"
+        elif eq_time <= TIER_5F["STAKES"]:
+            return "STAKES"
+        elif eq_time <= TIER_5F["PAY_SIDE"]:
+            return "PAY_SIDE"
+        elif eq_time <= TIER_5F["FREE_LEVEL"]:
+            return "FREE_LEVEL"
+        elif eq_time <= TIER_5F["QUESTIONABLE"]:
+            return "QUESTIONABLE"
+        else:
+            return "NOT_USEFUL"
+
+    def normalize_to_5f_fast(time_secs, dist, surface):
+        """Convert any work time to a 5f-fast equivalent using additive offset."""
+        offset = DIST_5F_OFFSET.get(dist, 0)
+        srf = surface.lower().strip() if surface else "fst"
+        penalty_table = SURFACE_PENALTY.get(srf, SURFACE_PENALTY["fst"])
+        srf_penalty = penalty_table.get(dist, 0)
+        # Step 1: Remove surface penalty to get "fast track" time
+        fast_time = time_secs - srf_penalty
+        # Step 2: Add offset to convert to 5f-equivalent
+        equiv = fast_time + offset
+        return round(equiv, 1)
+
+    # dated_works is sorted most-recent-first, so reverse for chronological
+    chrono_works = list(reversed(dated_works))
+
+    # Find the FIRST-EVER timed work at any distance
+    virgin_time = None
+    virgin_dist = None
+    virgin_date = None
+    virgin_surface = ""
+    for w in chrono_works:
+        d = w.get("distance", "").strip().lower()
+        if d not in KNOWN_DISTS:
+            continue
+        t = parse_time_seconds(w.get("time", ""))
+        if t and t > 30.0:
+            virgin_time = t
+            virgin_dist = d
+            virgin_date = w.get("date", "?")
+            virgin_surface = w.get("surface", "fst")
+            break
+
+    # Also find first timed work at EACH distance + best at each
+    first_at_dist = {}
+    best_at_dist = {}
+    for w in chrono_works:
+        d = w.get("distance", "").strip().lower()
+        if d not in KNOWN_DISTS:
+            continue
+        t = parse_time_seconds(w.get("time", ""))
+        if t and t > 30.0:
+            if d not in first_at_dist:
+                first_at_dist[d] = {"time": t, "date": w.get("date", "?"),
+                                    "surface": w.get("surface", "fst")}
+            if d not in best_at_dist or t < best_at_dist[d]:
+                best_at_dist[d] = t
+
+    if virgin_time and virgin_dist:
+        # Normalize first-ever work to 5f-fast equivalent
+        equiv_5f = normalize_to_5f_fast(virgin_time, virgin_dist, virgin_surface)
+
+        features["virgin_work_seconds"] = round(virgin_time, 2)
+        features["virgin_work_distance"] = virgin_dist
+        features["virgin_work_date"] = virgin_date
+        features["virgin_work_surface"] = virgin_surface
+        features["virgin_5f_equiv"] = equiv_5f
+        features["work_quality_tier"] = classify_5f_equiv(equiv_5f)
+
+        # Build per-distance breakdown (each distance's virgin also normalized)
+        dist_summary = {}
+        for d in sorted(first_at_dist.keys()):
+            f = first_at_dist[d]
+            b = best_at_dist.get(d)
+            d_equiv = normalize_to_5f_fast(f["time"], d, f.get("surface", "fst"))
+            dist_summary[d] = {
+                "virgin": round(f["time"], 2),
+                "virgin_date": f["date"],
+                "virgin_surface": f.get("surface", "fst"),
+                "virgin_5f_equiv": d_equiv,
+                "virgin_tier": classify_5f_equiv(d_equiv),
+                "best": round(b, 2) if b else None,
+                "gain": round(f["time"] - b, 1) if b and b < f["time"] else 0.0,
+            }
+        features["distance_breakdown"] = dist_summary
+
+        # Training gain: best time at virgin distance vs virgin time
+        best_at_vd = best_at_dist.get(virgin_dist)
+        features["best_work_seconds"] = round(best_at_vd, 2) if best_at_vd else None
+        if best_at_vd and best_at_vd < virgin_time:
+            features["training_gain"] = round(virgin_time - best_at_vd, 1)
+        else:
+            features["training_gain"] = 0.0
+    else:
+        features["virgin_work_seconds"] = None
+        features["virgin_work_distance"] = None
+        features["virgin_work_date"] = None
+        features["virgin_work_surface"] = None
+        features["virgin_5f_equiv"] = None
+        features["work_quality_tier"] = "NO_DATA"
+        features["distance_breakdown"] = {}
+        features["best_work_seconds"] = None
+        features["training_gain"] = None
+
+    # Keep backward-compatible 5f field
     five_f_times = []
     for w in dated_works:
-        dist = w.get("distance", "")
-        if "5" in dist and ("f" in dist.lower() or "fur" in dist.lower()):
+        dist = w.get("distance", "").strip().lower()
+        if dist == "5f":
             t = parse_time_seconds(w.get("time", ""))
-            if t:
+            if t and t > 30.0:
                 five_f_times.append(t)
-
-    if five_f_times:
-        best_5f = min(five_f_times)
-        features["best_5f_seconds"] = round(best_5f, 2)
-        if best_5f < 63.0:
-            features["work_quality_tier"] = "ULTRA_RARE"  # sub-1:03
-        elif best_5f < 64.0:
-            features["work_quality_tier"] = "STAKES"  # sub-1:04
-        elif best_5f < 65.0:
-            features["work_quality_tier"] = "PAY_SIDE"  # sub-1:05
-        elif best_5f < 66.0:
-            features["work_quality_tier"] = "FREE_LEVEL"  # 1:05-1:06
-        elif best_5f < 67.0:
-            features["work_quality_tier"] = "QUESTIONABLE"  # 1:06+
-        else:
-            features["work_quality_tier"] = "NOT_USEFUL"  # 1:07+
-    else:
-        features["best_5f_seconds"] = None
-        features["work_quality_tier"] = "NO_DATA"
+    features["best_5f_seconds"] = round(min(five_f_times), 2) if five_f_times else None
 
     # Readiness index (0-100): overall "ready to race" score
     readiness = (features["sharpness_index"] * 0.3 +

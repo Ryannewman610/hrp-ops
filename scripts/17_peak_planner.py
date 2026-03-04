@@ -8,6 +8,13 @@ Hard constraints:
   - No consecutive hard works (2+ day gap required)
   - Max 1 race per horse in window unless clearly justified
   - Freshen with rest days between work and race
+  - Overracing wall: 4+ races in 60d without works → force rest+works cycle
+  - High > low rule: 106% condition/stamina beats 94% (prefer slightly high)
+
+Shipping strategies (La Canada):
+  - Option 2: Farm training mode → ship 10d pre-race → train race morning
+  - Option 4: Ship from farm day-of (no real consistency penalty despite claims)
+  - Option 5: Ship 100/100 non-slow-transit to 1/1/2 track → arrives green/green
 
 Output: outputs/peak_plan_YYYY-MM-DD.json
         reports/Training_Plan.md
@@ -123,11 +130,41 @@ def main() -> None:
         fatigue = wf.get("fatigue_proxy", 30)
         days_since_work = wf.get("days_since_last_work")
         form_cycle = rat.get("form_cycle", "UNKNOWN") if rat else "UNKNOWN"
+        overracing_risk = wf.get("overracing_risk", "OK")
+        work_quality_tier = wf.get("work_quality_tier", "NO_DATA")
 
         # Determine horse state and plan
         daily_plan: List[Dict] = []
         race_scheduled = False
         last_hard_work_day = -3  # Assume no recent hard work
+
+        # OVERRACING WALL: force rest+work cycle if overraced
+        if overracing_risk == "HIGH":
+            for di, day in enumerate(window):
+                day_s = day.isoformat()
+                if di % 3 == 0 and di > 0:
+                    daily_plan.append({"date": day_s, "day_offset": di,
+                                       "action": "WORK", "work_type": "timed",
+                                       "reason": "Recovery work — breaking overracing wall"})
+                else:
+                    daily_plan.append({"date": day_s, "day_offset": di,
+                                       "action": "REST",
+                                       "reason": "Rest — overracing recovery (Stu's 4-race wall)"})
+            horse_plan = {
+                "horse_name": h["name"],
+                "stamina": stam,
+                "condition": cond,
+                "readiness_index": readiness,
+                "sharpness_index": sharpness,
+                "fatigue_proxy": fatigue,
+                "form_cycle": form_cycle,
+                "work_quality_tier": work_quality_tier,
+                "overracing_risk": overracing_risk,
+                "daily_plan": daily_plan,
+            }
+            plans.append(horse_plan)
+            at_risk.append(h["name"])
+            continue
 
         for di, day in enumerate(window):
             day_s = day.isoformat()

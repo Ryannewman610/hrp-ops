@@ -32,7 +32,14 @@ def load_snapshot() -> Dict[str, Any]:
 
 
 def classify_horse(h: Dict) -> Dict[str, Any]:
-    """Classify a horse's readiness and recommend an action."""
+    """Classify a horse's readiness and recommend an action.
+
+    Incorporates knowledge from SimRacingForm guides (Maximum Cool, La Canada, Stu):
+    - Career ladder: maiden claimer → claimer → starter allowance → allowance → stakes
+    - SB condition loophole: SB wins don't count toward NW conditions
+    - Overracing wall: 4+ races in 60 days without works = performance collapse
+    - High > low rule: 106% beats 94% every time
+    """
     stam_str = h.get("stamina", "100%").replace("%", "")
     cond_str = h.get("condition", "100%").replace("%", "")
     try:
@@ -55,6 +62,8 @@ def classify_horse(h: Dict) -> Dict[str, Any]:
     wins = int(record.get("wins", 0))
     noms = h.get("nominations", [])
     races = h.get("recent_races", [])
+    age_str = h.get("age", "3")
+    state = h.get("state", "")
 
     # Classification
     info: Dict[str, Any] = {
@@ -70,7 +79,41 @@ def classify_horse(h: Dict) -> Dict[str, Any]:
         "recent_races": races[:3],
     }
 
-    # Determine recommendation
+    # ── Race placement tier (Stu's career ladder) ──
+    if wins == 0:
+        info["placement_tier"] = "maiden"
+        info["suggested_race_types"] = ["MSW", "maiden_claimer"]
+        info["placement_note"] = "Try MSW first; if 3+ losses consider maiden claimer (easier)"
+    elif wins <= 2:
+        info["placement_tier"] = "conditioned"
+        info["suggested_race_types"] = ["NW1_allowance", "starter_allowance", "claimer"]
+        info["placement_note"] = "NW1/starter allowances ideal; protect NW conditions"
+    elif wins <= 5:
+        info["placement_tier"] = "allowance"
+        info["suggested_race_types"] = ["NW2_allowance", "allowance_claiming", "starter_allowance"]
+        info["placement_note"] = "Watch NW condition usage carefully"
+    else:
+        info["placement_tier"] = "stakes_eligible"
+        info["suggested_race_types"] = ["stakes", "open_allowance", "handicap"]
+        info["placement_note"] = "Stakes-level or open company"
+
+    # SB awareness
+    if state:
+        info["sb_eligible"] = True
+        info["sb_note"] = f"Check {state} state-bred races first (SB wins don't burn NW conditions)"
+    else:
+        info["sb_eligible"] = False
+
+    # ── Overracing check ──
+    race_count_60d = len([r for r in races[:6] if r])  # approximate from recent races
+    if race_count_60d >= 4:
+        info["overracing_warning"] = True
+        info["action"] = "rest"
+        info["reason"] = f"Overracing risk: {race_count_60d} recent races. Works needed between races."
+        info["priority"] = 0
+        return info
+
+    # ── Determine recommendation ──
     if stam < 70:
         info["action"] = "rest"
         info["reason"] = f"Stamina critically low ({stam}%). Rest to recover."
@@ -83,17 +126,18 @@ def classify_horse(h: Dict) -> Dict[str, Any]:
         info["action"] = "race_ready"
         info["reason"] = f"Nominated ({len(noms)} race(s)). Set jockey + review."
         info["priority"] = 3
-    elif cond >= 98 and stam >= 95 and consist >= 3:
+    elif cond >= 95 and stam >= 95 and consist >= 3:
+        # High > low: slightly above 105 is fine
         info["action"] = "enter_race"
-        info["reason"] = "In peak form. Find a race to enter."
+        info["reason"] = f"In peak form (C:{cond}/S:{stam}/+{consist}). Find best race — check SB first!"
         info["priority"] = 4
     elif starts == 0:
         info["action"] = "work"
-        info["reason"] = "Unraced — needs timed works for condition."
+        info["reason"] = "Unraced — needs timed works + accessory testing."
         info["priority"] = 5
     else:
         info["action"] = "enter_race"
-        info["reason"] = "Good condition — look for suitable race."
+        info["reason"] = "Good condition — filter races: SB/bonus → race type → track."
         info["priority"] = 6
 
     return info
@@ -175,9 +219,17 @@ def build_approval_queue(horses: List[Dict]) -> List[Dict]:
             "reason": h["reason"],
             "stamina": h["stamina"],
             "condition": h["condition"],
+            "consistency": h.get("consistency", 0),
+            "placement_tier": h.get("placement_tier", "unknown"),
+            "suggested_race_types": h.get("suggested_race_types", []),
+            "placement_note": h.get("placement_note", ""),
+            "sb_eligible": h.get("sb_eligible", False),
+            "sb_note": h.get("sb_note", ""),
             "approval_required": h["action"] in ("enter_race", "race_ready"),
             "timestamp": datetime.now().isoformat(),
         }
+        if h.get("overracing_warning"):
+            entry["overracing_warning"] = True
         if h.get("nominations"):
             entry["nominations"] = h["nominations"]
         if h.get("recent_races"):

@@ -8,6 +8,19 @@
 | Balance | $0.53 |
 | With Nominations | 39 |
 
+## 🎬 Today's Top 10 Actions
+
+1. 🛏️ **Cornswaggled** — Stamina critically low (52%). Rest to recover.
+2. 🛏️ **Dubai Iron** — Stamina critically low (66%). Rest to recover.
+3. 🏋️ **Class A** — Stamina low (76%). Light works to rebuild.
+4. 🏋️ **Core N Light** — Stamina low (84%). Light works to rebuild.
+5. 🏋️ **Damascus Honey** — Stamina low (83%). Light works to rebuild.
+6. 🏋️ **Helios Hustle** — Stamina low (83%). Light works to rebuild.
+7. 🏋️ **Iron Timekeeper** — Stamina low (81%). Light works to rebuild.
+8. 🏋️ **Lo And Behold** — Stamina low (70%). Light works to rebuild.
+9. ✅ **Blank Sunset** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
+10. ✅ **Caros Compass** — Nominated (1 race(s)). Set jockey + review. ⚠️ **APPROVAL**
+
 ## Roster
 | Horse | Track | Cond | Stam | Consist | Mode | Noms |
 |-------|-------|------|------|---------|------|------|
