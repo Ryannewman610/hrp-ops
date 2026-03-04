@@ -1598,3 +1598,73 @@ body::before {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* ── NOTIFICATION BADGES ────────────────────── */
+.nav-badge {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    color: white;
+    padding: 0 4px;
+    line-height: 1;
+}
+
+.nav-tab {
+    position: relative;
+}
+
+.badge-red {
+    background: var(--red);
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+    animation: badge-pulse 2s infinite;
+}
+
+.badge-yellow {
+    background: var(--yellow);
+    color: #000;
+    box-shadow: 0 0 8px rgba(234, 179, 8, 0.4);
+}
+
+.badge-blue {
+    background: var(--blue);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+@keyframes badge-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Health pills in header */
+.health-pill {
+    border-color: var(--border-hover) !important;
+    animation: pill-fade-in 0.5s ease;
+}
+
+@keyframes pill-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

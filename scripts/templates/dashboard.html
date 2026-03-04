@@ -24,6 +24,14 @@
             <div class="stat-pill">💰 <span class="value money" id="balance">—</span></div>
             <div class="stat-pill">🐴 <span class="value" id="horse-count">—</span></div>
             <div class="stat-pill">📊 <span class="value" id="win-rate">—</span> W%</div>
+            <div class="stat-pill health-pill" id="pill-attention" style="display:none">
+                🏥 <span class="value" style="color:var(--yellow)" id="attention-count">0</span> <span
+                    style="font-size:10px">need attn</span>
+            </div>
+            <div class="stat-pill health-pill" id="pill-ready" style="display:none">
+                ✅ <span class="value" style="color:var(--green)" id="ready-count">0</span> <span
+                    style="font-size:10px">race-ready</span>
+            </div>
             <div class="stat-pill" id="snapshot-age">
                 📅 <span class="value" id="data-age">—</span>
             </div>
@@ -294,18 +302,22 @@
             <button class="nav-tab active" data-target="playbook" onclick="switchTab('playbook', this)">
                 <span class="nav-icon">🎯</span>
                 Playbook
+                <span class="nav-badge" id="badge-playbook"></span>
             </button>
             <button class="nav-tab" data-target="twoyo" onclick="switchTab('twoyo', this)">
                 <span class="nav-icon">🌱</span>
                 2YO Dev
+                <span class="nav-badge" id="badge-twoyo"></span>
             </button>
             <button class="nav-tab" data-target="stable" onclick="switchTab('stable', this)">
                 <span class="nav-icon">🏇</span>
                 Stable
+                <span class="nav-badge" id="badge-stable"></span>
             </button>
             <button class="nav-tab" data-target="analysis" onclick="switchTab('analysis', this)">
                 <span class="nav-icon">📊</span>
                 Analysis
+                <span class="nav-badge" id="badge-analysis"></span>
             </button>
         </div>
     </nav>
@@ -397,6 +409,8 @@
                 load2YOData(),
                 loadCalendar(),
             ]);
+            updateBadges();
+            updateHealthPills();
         }
 
         // ── Load Stable Data ───────────────────
@@ -1337,6 +1351,80 @@
                     <td style="color:${statusColor[r.readiness] || 'var(--text)'}">${statusMap[r.readiness] || r.readiness}</td>
                 </tr>`;
             }).join('');
+        }
+
+        // ── Notification Badges ───────────────
+        function updateBadges() {
+            // Playbook: count horses needing attention (NEEDS_ATTENTION or AT_RISK)
+            const playbookRows = document.querySelectorAll('#playbook-body .playbook-card');
+            let playbookUrgent = 0;
+            playbookRows.forEach(row => {
+                const text = row.textContent || '';
+                if (text.includes('AT_RISK') || text.includes('❌') || text.includes('NEEDS_ATT')) playbookUrgent++;
+            });
+            setBadge('badge-playbook', playbookUrgent, 'red');
+
+            // 2YO: count horses with high-priority actions
+            const twoyoCards = document.querySelectorAll('.twoyo-card');
+            let twoyoActions = 0;
+            twoyoCards.forEach(card => {
+                const actions = card.querySelectorAll('.dev-action');
+                actions.forEach(a => {
+                    if (a.style.borderLeftColor && (a.style.borderLeftColor.includes('239') || a.textContent.includes('🔴'))) twoyoActions++;
+                });
+            });
+            setBadge('badge-twoyo', twoyoActions, 'yellow');
+
+            // Stable: count horses with low condition (<85%)
+            if (stableData && stableData.horses) {
+                let lowCond = 0;
+                stableData.horses.forEach(h => {
+                    const c = parseNum(h.condition);
+                    if (c > 0 && c < 85) lowCond++;
+                });
+                setBadge('badge-stable', lowCond, 'red');
+            }
+
+            // Analysis: count pending actions
+            const actionCount = parseInt(document.getElementById('action-count')?.textContent || '0');
+            setBadge('badge-analysis', actionCount, 'blue');
+        }
+
+        function setBadge(id, count, color) {
+            const badge = document.getElementById(id);
+            if (!badge) return;
+            if (count > 0) {
+                badge.textContent = count;
+                badge.className = 'nav-badge badge-' + color;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        function updateHealthPills() {
+            if (!stableData || !stableData.horses) return;
+            let needsAttention = 0;
+            let raceReady = 0;
+
+            stableData.horses.forEach(h => {
+                const cond = parseNum(h.condition);
+                const stam = parseNum(h.stamina);
+                if (cond > 0 && (cond < 85 || stam < 70)) needsAttention++;
+                if (cond >= 95 && stam >= 85 && h.form_status === 'READY' || h.form_status === 'PEAKING') raceReady++;
+            });
+
+            const pillAttn = document.getElementById('pill-attention');
+            const pillReady = document.getElementById('pill-ready');
+
+            if (needsAttention > 0) {
+                pillAttn.style.display = 'flex';
+                document.getElementById('attention-count').textContent = needsAttention;
+            }
+            if (raceReady > 0) {
+                pillReady.style.display = 'flex';
+                document.getElementById('ready-count').textContent = raceReady;
+            }
         }
 
         // ── Boot ───────────────────────────────
