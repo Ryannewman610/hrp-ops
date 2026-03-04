@@ -1,0 +1,11 @@
+# Nixpacks build configuration for Railway
+# Prevents build-time secret requirements
+
+[phases.setup]
+nixPkgs = ["python312"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[start]
+cmd = "gunicorn scripts.dashboard:app --bind 0.0.0.0:$PORT --workers 2"
