@@ -7,4 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD gunicorn scripts.dashboard:app --bind 0.0.0.0:${PORT:-5050} --workers 2
+ENV PORT=5050
+
+CMD ["sh", "-c", "gunicorn scripts.dashboard:app --bind 0.0.0.0:$PORT --workers 2"]
