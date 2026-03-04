@@ -956,6 +956,13 @@
                 btn.textContent = '🔄 Sync with HRP';
                 return;
             }
+            if (data.status === 'cloud_mode') {
+                showToast('☁️ Cloud mode — run "python scripts/sync.py" locally to refresh', 6000);
+                statusEl.textContent = 'Use local sync to refresh data';
+                btn.classList.remove('loading');
+                btn.textContent = '🔄 Sync with HRP';
+                return;
+            }
 
             const pollInterval = setInterval(async () => {
                 try {

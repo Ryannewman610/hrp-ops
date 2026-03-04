@@ -440,29 +440,25 @@ def api_refresh_status():
 
 @app.route("/api/refresh", methods=["POST"])
 def api_refresh():
-    """Full refresh: execute queued actions → export from HRP → analyze."""
+    """Full refresh: detect cloud vs local, run appropriate pipeline."""
     if refresh_status["running"]:
         return jsonify({"status": "already_running"})
+
+    # Detect if we're on cloud (no Playwright available)
+    is_cloud = not (ROOT / "inputs" / "export" / "auth.json").exists()
+
+    if is_cloud:
+        # Cloud mode — can't run Playwright, tell frontend
+        return jsonify({
+            "status": "cloud_mode",
+            "message": "Run sync from local machine: python scripts/sync.py"
+        })
 
     def run_full_pipeline():
         refresh_status["running"] = True
         refresh_status["error"] = ""
         try:
-            # Step 1: Execute pending actions on HRP
-            queue_path = OUTPUTS / "action_queue.json"
-            if queue_path.exists():
-                queue = json.loads(queue_path.read_text(encoding="utf-8"))
-                pending = [a for a in queue if a.get("status") == "pending"]
-                if pending:
-                    refresh_status["step"] = f"Executing {len(pending)} queued actions..."
-                    # TODO: Wire Playwright automation for each action type
-                    # For now, mark actions as "ready" (need manual HRP execution)
-                    for a in queue:
-                        if a.get("status") == "pending":
-                            a["status"] = "ready_for_execution"
-                    queue_path.write_text(json.dumps(queue, indent=2), encoding="utf-8")
-
-            # Step 2: Login + Export fresh data from HRP
+            # Step 1: Login (auto-reuses saved session)
             refresh_status["step"] = "Logging into HRP..."
             result = subprocess.run(
                 [sys.executable, str(ROOT / "scripts" / "01_login_save_state.py")],
@@ -472,16 +468,26 @@ def api_refresh():
                 refresh_status["error"] = f"Login failed: {result.stderr[:200]}"
                 return
 
+            # Step 2: Export fresh data
             refresh_status["step"] = "Exporting stable data from HRP..."
             result = subprocess.run(
                 [sys.executable, str(ROOT / "scripts" / "02_export_stable.py"), "--mode", "daily"],
-                cwd=str(ROOT), capture_output=True, text=True, timeout=300
+                cwd=str(ROOT), capture_output=True, text=True, timeout=600
             )
             if result.returncode != 0:
                 refresh_status["error"] = f"Export failed: {result.stderr[:200]}"
                 return
 
-            # Step 3: Run analysis pipeline
+            # Step 3: Build snapshot
+            snap_script = ROOT / "scripts" / "03_build_snapshot.py"
+            if snap_script.exists():
+                refresh_status["step"] = "Building snapshot..."
+                subprocess.run(
+                    [sys.executable, str(snap_script)],
+                    cwd=str(ROOT), capture_output=True, text=True, timeout=60
+                )
+
+            # Step 4: Analysis pipeline
             analysis_scripts = [
                 ("Building model dataset...", "scripts/09_build_model_dataset.py"),
                 ("Fitting Trainer Brain...", "scripts/10_fit_trainer_brain.py"),
@@ -490,11 +496,13 @@ def api_refresh():
                 ("Generating daily decisions...", "scripts/daily_decisions.py"),
             ]
             for step_msg, script in analysis_scripts:
-                refresh_status["step"] = step_msg
-                subprocess.run(
-                    [sys.executable, str(ROOT / script)],
-                    cwd=str(ROOT), capture_output=True, text=True, timeout=60
-                )
+                script_path = ROOT / script
+                if script_path.exists():
+                    refresh_status["step"] = step_msg
+                    subprocess.run(
+                        [sys.executable, str(script_path)],
+                        cwd=str(ROOT), capture_output=True, text=True, timeout=120
+                    )
 
             refresh_status["step"] = "Done!"
         except Exception as e:
