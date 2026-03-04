@@ -51,6 +51,31 @@
             <!-- TAB: Playbook -->
             <div class="tab-section active" data-tab="playbook">
 
+                <!-- KPI Overview Strip -->
+                <div class="kpi-strip" id="kpi-strip">
+                    <div class="kpi-card">
+                        <div class="kpi-label">Record</div>
+                        <div class="kpi-value" id="kpi-record">—</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Win %</div>
+                        <div class="kpi-value kpi-highlight" id="kpi-win-pct">—</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">ITM %</div>
+                        <div class="kpi-value" id="kpi-itm-pct">—</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Raced</div>
+                        <div class="kpi-value" id="kpi-raced">—</div>
+                        <div class="kpi-sub" id="kpi-raced-sub">of — total</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">2YO / 3YO</div>
+                        <div class="kpi-value" id="kpi-age-split">—</div>
+                    </div>
+                </div>
+
                 <!-- Race Day Playbook -->
                 <section class="panel" id="playbook-panel">
                     <div class="panel-header">
@@ -752,6 +777,34 @@
             if (!stats || !stats.total_starts) return;
             const winEl = document.getElementById('win-rate');
             if (winEl) winEl.textContent = stats.win_pct + '%';
+
+            // KPI strip
+            const kpiRecord = document.getElementById('kpi-record');
+            const kpiWin = document.getElementById('kpi-win-pct');
+            const kpiItm = document.getElementById('kpi-itm-pct');
+            const kpiRaced = document.getElementById('kpi-raced');
+            const kpiRacedSub = document.getElementById('kpi-raced-sub');
+            const kpiAge = document.getElementById('kpi-age-split');
+
+            if (kpiRecord) kpiRecord.textContent = stats.record_str;
+            if (kpiWin) {
+                kpiWin.textContent = stats.win_pct + '%';
+                kpiWin.style.color = stats.win_pct >= 20 ? 'var(--green)' : stats.win_pct >= 10 ? 'var(--yellow)' : 'var(--red)';
+            }
+            if (kpiItm) {
+                kpiItm.textContent = stats.itm_pct + '%';
+                kpiItm.style.color = stats.itm_pct >= 50 ? 'var(--green)' : stats.itm_pct >= 30 ? 'var(--yellow)' : 'var(--text-secondary)';
+            }
+            if (kpiRaced) kpiRaced.textContent = stats.horses_raced;
+            if (kpiRacedSub) kpiRacedSub.textContent = `of ${stats.total_horses} total`;
+
+            // Age split from stableData
+            if (stableData && stableData.horses && kpiAge) {
+                const twos = stableData.horses.filter(h => h.age === '2' || h.age === 2).length;
+                const threes = stableData.horses.filter(h => h.age === '3' || h.age === 3).length;
+                const older = stableData.horses.length - twos - threes;
+                kpiAge.textContent = `${twos} / ${threes}` + (older > 0 ? ` / ${older}` : '');
+            }
         }
 
         // ── Load Race Day Playbook ───────────
