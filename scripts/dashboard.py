@@ -5,12 +5,10 @@ Cloud:  gunicorn scripts.dashboard:app  (Railway/Render)
 """
 
 import csv
-import hashlib
 import hmac
 import json
 import os
 import secrets
-import shutil
 import subprocess
 import sys
 import threading
