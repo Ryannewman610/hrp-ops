@@ -706,10 +706,10 @@ def api_refresh():
     is_cloud = not (ROOT / "inputs" / "export" / "auth.json").exists()
 
     if is_cloud:
-        # Cloud mode — can't run Playwright, tell frontend
+        # Cloud mode — can't run Playwright, tell frontend clearly
         return jsonify({
             "status": "cloud_mode",
-            "message": "Run sync from local machine: python scripts/sync.py"
+            "message": "Cloud mode: open dashboard on your local machine and hit Sync there. It will auto-push fresh data here."
         })
 
     def run_full_pipeline():
@@ -717,7 +717,7 @@ def api_refresh():
         refresh_status["error"] = ""
         try:
             # Step 1: Login (auto-reuses saved session)
-            refresh_status["step"] = "Logging into HRP..."
+            refresh_status["step"] = "🔑 Logging into HRP..."
             result = subprocess.run(
                 [sys.executable, str(ROOT / "scripts" / "01_login_save_state.py")],
                 cwd=str(ROOT), capture_output=True, text=True, timeout=120
@@ -727,7 +727,7 @@ def api_refresh():
                 return
 
             # Step 2: Export fresh data
-            refresh_status["step"] = "Exporting stable data from HRP..."
+            refresh_status["step"] = "📥 Exporting stable data from HRP..."
             result = subprocess.run(
                 [sys.executable, str(ROOT / "scripts" / "02_export_stable.py"), "--mode", "daily"],
                 cwd=str(ROOT), capture_output=True, text=True, timeout=600
@@ -737,9 +737,11 @@ def api_refresh():
                 return
 
             # Step 3: Build snapshot
-            snap_script = ROOT / "scripts" / "03_build_snapshot.py"
+            snap_script = ROOT / "scripts" / "05_build_stable_snapshot.py"
+            if not snap_script.exists():
+                snap_script = ROOT / "scripts" / "03_build_snapshot.py"
             if snap_script.exists():
-                refresh_status["step"] = "Building snapshot..."
+                refresh_status["step"] = "📊 Building snapshot..."
                 subprocess.run(
                     [sys.executable, str(snap_script)],
                     cwd=str(ROOT), capture_output=True, text=True, timeout=60
@@ -747,11 +749,11 @@ def api_refresh():
 
             # Step 4: Analysis pipeline
             analysis_scripts = [
-                ("Building model dataset...", "scripts/09_build_model_dataset.py"),
-                ("Fitting Trainer Brain...", "scripts/10_fit_trainer_brain.py"),
-                ("Running deep analysis...", "scripts/deep_analysis.py"),
-                ("Auditing stable...", "scripts/stable_audit.py"),
-                ("Generating daily decisions...", "scripts/daily_decisions.py"),
+                ("🧠 Building model dataset...", "scripts/09_build_model_dataset.py"),
+                ("🧠 Fitting Trainer Brain...", "scripts/10_fit_trainer_brain.py"),
+                ("🔬 Running deep analysis...", "scripts/deep_analysis.py"),
+                ("📋 Auditing stable...", "scripts/stable_audit.py"),
+                ("⚡ Generating daily decisions...", "scripts/daily_decisions.py"),
             ]
             for step_msg, script in analysis_scripts:
                 script_path = ROOT / script
@@ -762,7 +764,22 @@ def api_refresh():
                         cwd=str(ROOT), capture_output=True, text=True, timeout=120
                     )
 
-            refresh_status["step"] = "Done!"
+            # Step 5: Auto-push to cloud
+            push_script = ROOT / "scripts" / "push_to_cloud.py"
+            if push_script.exists():
+                refresh_status["step"] = "☁️ Pushing to cloud dashboard..."
+                env = os.environ.copy()
+                env["CLOUD_URL"] = os.environ.get("CLOUD_URL", "https://web-production-6b5e6.up.railway.app")
+                env["API_KEY"] = os.environ.get("API_KEY", "hrp-sync-2026")
+                result = subprocess.run(
+                    [sys.executable, str(push_script)],
+                    cwd=str(ROOT), env=env, capture_output=True, text=True, timeout=60
+                )
+                if result.returncode != 0:
+                    refresh_status["error"] = f"Cloud push failed: {result.stderr[:200]}"
+                    return
+
+            refresh_status["step"] = "✅ Done! Live data refreshed."
         except Exception as e:
             refresh_status["error"] = str(e)[:200]
         finally:
