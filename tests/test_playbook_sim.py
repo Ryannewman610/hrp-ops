@@ -169,15 +169,20 @@ class TestFindOptimalSchedule(unittest.TestCase):
         self.assertGreaterEqual(fc, 75.0)
         self.assertGreaterEqual(fs, 75.0)
 
-    def test_farm_gets_training_actions(self):
-        """Farm locations should produce training actions, not works."""
+    def test_farm_gets_training_or_breeze_actions(self):
+        """Farm locations should produce training or breeze actions (no handily)."""
         schedule, _, _ = self.eng.find_optimal_schedule(
             85.0, 100.0, 3.5, 5, "MouWV"
         )
         for day, action in schedule.items():
             self.assertTrue(
-                action.startswith("TRAIN_"),
-                f"Farm action should be TRAIN_*, got {action}"
+                action.startswith("TRAIN_") or action.endswith("_B"),
+                f"Farm action should be TRAIN_* or *_B (breeze), got {action}"
+            )
+            # No handily at farms (no jockeys available)
+            self.assertFalse(
+                action.endswith("_H"),
+                f"Farm should NOT have handily works, got {action}"
             )
 
     def test_track_gets_work_or_train_actions(self):
@@ -190,6 +195,34 @@ class TestFindOptimalSchedule(unittest.TestCase):
                 action.startswith("WORK_") or action.startswith("TRAIN_"),
                 f"Track action should be WORK_* or TRAIN_*, got {action}"
             )
+
+
+class TestScoreOutcome(unittest.TestCase):
+    """Verify asymmetric scoring: high > low."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.eng = load_engine()
+
+    def test_high_beats_low(self):
+        """106/106 should score better than 94/94 (expert rule: high > low)."""
+        s_high = self.eng.score_outcome(106, 106)
+        s_low = self.eng.score_outcome(94, 94)
+        self.assertGreater(s_high, s_low, "High meters should beat low meters")
+
+    def test_perfect_beats_both(self):
+        """100/100 should score best."""
+        s_perfect = self.eng.score_outcome(100, 100)
+        s_high = self.eng.score_outcome(106, 106)
+        s_low = self.eng.score_outcome(94, 94)
+        self.assertGreater(s_perfect, s_high)
+        self.assertGreater(s_perfect, s_low)
+
+    def test_scratch_zone_very_negative(self):
+        """Below 75 should get severe penalty."""
+        s_bad = self.eng.score_outcome(70, 70)
+        s_ok = self.eng.score_outcome(90, 90)
+        self.assertLess(s_bad, s_ok - 50)
 
 
 class TestIsFarm(unittest.TestCase):
