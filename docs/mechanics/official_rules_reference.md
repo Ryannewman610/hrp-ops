@@ -22,9 +22,21 @@
 - `0(5)` means deep into zero — takes longer to recover
 - **Training mode:** consistency does NOT drop during maintenance
 
-### Condition Degradation (CRITICAL)
+### Condition Degradation (CRITICAL — OFFICIAL, NOT FORUM LORE)
 > **If condition drops below 50, the horse actively DEGRADES.**
 > You must keep condition ≥95 for as long as it was <50 to regain lost ability.
+> This is OFFICIALLY stated on the HRP help page (Section 37), not forum conjecture.
+
+**Official Quote:** "If the condition meter drops below 50 your horse will actually start degrading. On average you will have to keep the condition meter at or above 95 for as long as it was below 50 to regain anything that was lost provided the horse is not past its prime."
+
+**Key Details:**
+- The degradation is described as loss of ability, not merely a meter penalty
+- Recovery requires condition at 95+ for an equivalent duration
+- If the horse is "past its prime," the lost ability may NOT be recoverable
+- This is a permanent ability loss that must be actively recovered from
+
+Source URL: https://www.horseracingpark.com/help/index.aspx (Section 37)
+Confidence: High
 
 ---
 

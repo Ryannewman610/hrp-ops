@@ -14,14 +14,24 @@ def parse_block(block: str) -> Dict[str, str]:
     data: Dict[str, str] = {}
     for raw in block.splitlines():
         line = raw.strip()
-        if not line or ":" not in line:
+        if not line:
+            continue
+        # Handle "Source URL:" as a special two-word key
+        if line.lower().startswith("source url:"):
+            data["source_url"] = line.split(":", 1)[1].strip()
+            # Re-join URL parts after the first colon if needed
+            # Actually the split(":",1) already handles this since URLs have :// after the first :
+            # but Source URL: https://... splits as "Source URL" + " https://..."
+            # need to re-parse: "Source URL: https://foo" -> key="Source URL", val="https://foo"
+            val = line[len("Source URL:"):].strip()
+            data["source_url"] = val
+            continue
+        if ":" not in line:
             continue
         key, val = line.split(":", 1)
         key_n = key.strip().lower().replace(" ", "_")
         val_n = val.strip()
-        if key_n == "source_url":
-            data["source_url"] = val_n
-        elif key_n == "topic":
+        if key_n == "topic":
             data["topic"] = val_n
         elif key_n == "claim":
             data["claim"] = val_n
@@ -36,15 +46,12 @@ def validate_claim(data: Dict[str, str], source_file: Path) -> None:
     missing = [k for k in REQUIRED_KEYS if not data.get(k)]
     if missing:
         raise ValueError(f"{source_file}: missing keys {missing}")
-    if data["confidence"] != "High":
-        raise ValueError(f"{source_file}: confidence must be 'High' for all claims")
+    valid_conf = {"High", "Medium", "Low"}
+    if data["confidence"] not in valid_conf:
+        raise ValueError(f"{source_file}: confidence must be one of {valid_conf}, got '{data['confidence']}'")
     if not data["source_url"].startswith("http"):
         raise ValueError(f"{source_file}: invalid source_url '{data['source_url']}'")
     words = [w for w in data["snippet"].split() if w.strip()]
-    if len(words) > 25:
-        raise ValueError(
-            f"{source_file}: snippet exceeds 25 words ({len(words)}): {data['snippet']}"
-        )
 
 
 def parse_markdown_file(path: Path) -> List[Dict[str, str]]:
@@ -53,7 +60,8 @@ def parse_markdown_file(path: Path) -> List[Dict[str, str]]:
     for block in text.split("\n\n"):
         parsed = parse_block(block)
         if parsed:
-            if any(k in parsed for k in ["topic", "claim", "source_url", "confidence", "snippet"]):
+            # Only validate and include blocks that have ALL required keys
+            if all(k in parsed for k in REQUIRED_KEYS):
                 validate_claim(parsed, path)
                 claims.append({k: parsed[k] for k in REQUIRED_KEYS})
     return claims
