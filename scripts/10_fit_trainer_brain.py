@@ -18,7 +18,7 @@ import json
 import os
 import re
 from collections import defaultdict
-from datetime import date
+from datetime import date, timedelta
 from math import log
 from pathlib import Path
 from typing import Any, Dict, List
@@ -103,7 +103,8 @@ def compute_form_cycle(snap_horse: Dict, works: List[Dict], races: List[Dict]) -
     cond = int(cond_str) if cond_str.isdigit() else 100
     consist = int(consist_str) if consist_str.isdigit() else 0
 
-    recent_works = len([w for w in works if w.get("date", "") >= "2026-02-01"])
+    cutoff = (date.today() - timedelta(days=30)).isoformat()
+    recent_works = len([w for w in works if w.get("date", "") >= cutoff])
     record = snap_horse.get("record", {})
     starts = int(record.get("starts", 0))
     wins = int(record.get("wins", 0))

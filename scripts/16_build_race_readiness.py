@@ -57,7 +57,13 @@ def classify(h):
     if stam < 50:
         status, label = "[CRIT]", "Exhausted"
         notes.append(f"Stam {stam:.0f}%")
-    elif stam < 70:
+    elif stam < 75:
+        status, label = "[SCRATCH]", "Scratch Risk"
+        notes.append(f"Stam {stam:.0f}% (<75 = auto-scratch)")
+    elif cond < 75:
+        status, label = "[SCRATCH]", "Scratch Risk"
+        notes.append(f"Cond {cond:.0f}% (<75 = auto-scratch)")
+    elif stam < 85:
         status, label = "[LOW]", "Low Stamina"
         notes.append(f"Stam {stam:.0f}%")
     elif cond < 95:
@@ -109,14 +115,14 @@ def main():
         })
 
     # Sort: race-ready first, then by condition desc
-    priority = {"[GO]": 0, "[FIT]": 1, "[OK]": 2, "[DEV]": 3, "[WARN]": 4, "[LOW]": 5, "[CRIT]": 6}
+    priority = {"[GO]": 0, "[FIT]": 1, "[OK]": 2, "[DEV]": 3, "[WARN]": 4, "[LOW]": 5, "[SCRATCH]": 6, "[CRIT]": 7}
     rows.sort(key=lambda r: (priority.get(r["status"], 9), -r["cond"]))
 
     # Separate by group
     race_ready = [r for r in rows if r["status"] in ("[GO]", "[FIT]")]
     developing = [r for r in rows if r["status"] == "[DEV]"]
     maintaining = [r for r in rows if r["status"] == "[OK]"]
-    at_risk = [r for r in rows if r["status"] in ("[WARN]", "[LOW]", "[CRIT]")]
+    at_risk = [r for r in rows if r["status"] in ("[WARN]", "[LOW]", "[SCRATCH]", "[CRIT]")]
 
     # Build report
     lines = [

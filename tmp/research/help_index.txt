@@ -1,0 +1,1618 @@
+Horse Racing Game
+Thursday, 3/05/2026 10:03 ET
+Ire Iron Stables
+Platinum+
+Toggle:
+My Account
+My Account
+Account History
+Customized Views
+Edit Profile
+Purchase Credits
+Related Stables
+Vouchers
+Withdraw Credits
+Stables
+My Stable
+Auctions
+Breeding
+Bulk Move
+Bulk Train
+Farms
+Owner Stats
+Private Sales
+Purchase Horse
+Purchase SRF
+Retire Horse
+Retireds List
+Scheduled Tasks
+TC Nominations
+Transit Stamina Hit
+Watch List
+Work in Company
+Racing
+Race Calendar
+Entries & Results
+SRF Charts
+Horse Search
+HRP Live 2D
+Edit Jockeys
+Jockey Calendar
+Race Request
+Stakes Calendar
+Statistics
+Track Calendar
+Weather
+Workouts
+Community
+Forums
+Mailbox
+Latest Events
+Send Vouchers
+Referrals
+SimRacing Form
+Contests
+Handicapping
+Handicapping - Wager Pad
+Pick'em
+Help
+Rules
+FAQs
+Partnering
+Contact Us
+No Headlines
+ALB Fast/XXXX
+FE Good/Good
+KD XXXX/Good
+PRX Sloppy/Soft
+AQU Sloppy/Soft
+FER Fast/XXXX
+KEE Sloppy/Soft
+RET Fast/Firm
+ARP Fast/XXXX
+FG Fast/Firm
+LA Fast/XXXX
+RIL Fast/XXXX
+ASD Fast/XXXX
+FL Fast/XXXX
+LAD Fast/Firm
+RP Fast/Firm
+BEL Good/Good
+FMT Fast/XXXX
+LNN Fast/XXXX
+RUI Fast/XXXX
+BTP Sloppy/Soft
+FNO Fast/XXXX
+LRL Fast/Firm
+SA Fast/Firm
+CBY Fast/Firm
+FON Fast/XXXX
+LS Fast/Firm
+SAC Fast/XXXX
+CD Muddy/Soft
+FP Fast/XXXX
+MD Fast/XXXX
+SAR Fast/Firm
+CLS Fast/XXXX
+GG Fast/Firm
+MED Fast/Good
+SR Fast/Firm
+CNL Fast/Firm
+GP Fast/Firm
+MNR Fast/Good
+SRP Fast/XXXX
+CT Sloppy/XXXX
+GRP Fast/XXXX
+MTH Fast/Good
+SUN Fast/XXXX
+DED Fast/XXXX
+HAW Fast/Good
+OP Fast/XXXX
+TAM Fast/Firm
+DEL Good/Yielding
+HOO Fast/XXXX
+PEN Good/Soft
+TDN Good/XXXX
+DMR Fast/Firm
+HOU Fast/Firm
+PID Fast/XXXX
+TP Fast/XXXX
+ELP Muddy/Soft
+HPO Fast/XXXX
+PIM Fast/Firm
+TUP Fast/Firm
+EMD Fast/XXXX
+HST Fast/XXXX
+PLN Fast/XXXX
+WO Fast/Firm
+EVD Fast/Firm
+IND Sloppy/Soft
+PRM Fast/XXXX
+ZIA Fast/XXXX
+Introduction to HorseRacingPark.com
+Welcome to the world of virtual horse racing.  Here you will be able to own, race, and train your very own
+
+			virtual stable of thoroughbreds.  You will be in charge of training them and finding races for them from maiden claimers to graded stakes.  They 
+
+			can be bred to produce offspring or sold in the auctions.  You control the career of each one of your horses.
+1 - Register
+To sign up just click on register on the front page.  During registration you will create a login and password.  After registration login
+
+			to the system and you will be able to access member only areas and get started training your horses.
+There is a limit of one stable per person at HorseRacingPark.com.  Every stable must have one primary owner associated with it.  Any attempt to run more than one stable by an individual can and will lead to deactivation of all stables and loss of everything in the stables including horses and credits.  A stable can be shut down by an owner and a new stable can be created by the same owner but it is forbidden for that owner to bid on in an auction any of the horses from the stable being shut down.  It is also prohibited for an owner to shut down a stable, create a new stable, and bid on horses in stables that were previously identified by HorseRacingPark.com as related stables.
+2 - Free Horses
+To receive your free horses for signing up go to My Account->Vouchers and click redeem autogen beside the voucher you want to redeem for a free horse.  We recommend verifying your stable by clicking on My Account->Verify Stable before redeeming your first horse.  More information on verifying your stable and the benefits to doing so are outlined in the next section.  Horses that are created from the free vouchers you receive when signing up can only be sold for extra credits.  If you sell one of these horses you will receive extra credits for them and not game credits.
+3 - Verify Stable
+You do not have to verify your account to play this game.  There are however some benefits to verifying your account.  There are several reasons for this policy but one of the main ones is there is a limit of one stable per person.  Continually opening new stables or controlling more than one stable
+
+			is prohibited at HorseRacingPark.com.  Here are the restrictions placed on an
+unverified
+stable:
+1.  When a horse is created it is chosen from a pool of horses.  The very best horses are only available to verified stables.
+2.  When working a horse in a timed workout at a farm an unverified stable will only be able to put between 100-120lbs on the horse and not the usual 100-140lbs.
+3.  An unverified stable will not be able to enter an unraced horse in a free claiming race.
+4.  An unverified stable has to follow these additional guidelines when entering a horse in a free claiming race:
+Speed rating avg under 50 - Any claiming price
+Speed rating avg under 55 - Claiming price $10 & over
+Speed rating avg under 60 - Claiming price $15 & over
+Speed rating avg under 65 - Claiming price $20 & over
+Speed rating avg under 70 - Claiming price $25 & over
+Speed rating avg under 75 - Claiming price $30 & over
+Speed rating avg under 80 - Claiming price $35 & over
+Speed rating avg under 85 - Claiming price $40 & over
+Speed rating avg under 90 - Claiming price $45 & over
+Speed rating avg under 95 - Claiming price $50 & over
+For more info click
+See How to Verify Stable
+or
+See Benefits of Verifying
+.
+4 - Game Credits
+Game credits can be purchased by going to My Account->Purchase Credits (this option will not be available until your stable is verified).  One game credit can be purchased for one US dollar.  Your game credit balance can be found in the upper right hand corner if your stable balance is turned on otherwise it can be found on the My Account page.
+5 - Extra Credits
+Extra credits can be earned for certain things inside the game.  For example, free stables receive extra credits instead of game credits when one of their horses is claimed.  Extra credits can not be withdrawn.  The extra credit balance can be checked under the My Account page.  If your balance is turned on in the upper right hand corner it can also be found beside the game credits balance inside square brackets.
+Extra credits can be used for the following items:
+- Purchasing a new auto-generated horse
+- Sending a horse voucher to another stable
+- Nominating a horse for a race
+- Breeding fee
+- Foal BC nomination
+- TC nomination
+- Auction nomination fees
+- Private sales nomination fees
+6 - Stable Levels
+There are 3 stable levels to choose from. After you verify your stable you will start at the Standard level. Your stable can be upgraded to Platinum or Platinum+ and you will receive additional benefits. Listed below are the differences between the plans.
+Standard
+Platinum
+Platinum+
+Maximum Active Farms
+3
+Unlimited
+Unlimited
+BC & Statebred Owner/Breeder/Stallion Bonuses
+No
+Yes
+Yes
+Purses, Stud Fees, Lease Fees Paid In
+Extra Credits
+Game Credits
+Game Credits
+Claiming, Auction, and Private Sales Fee*
+25%*
+10%*
+10%*
+Meet, TC Bonus, Handicapping Finals Prizes Paid In
+Extra Credits*
+Game Credits*
+Game Credits*
+Display Ads
+Yes
+Reduced
+None
+Price
+Free
+$4.95 / Month
+$9.95 / Month
+Claiming, auction, and private sales fee will be on a sliding scale from 25% to 10% based on the number of days a stable has been platinum in the last 365 days. The percentage fee will be based on the following calculation:
+25% - ((Number of days Platinum in the last 365 days / 365) x 15%)
+Meet prizes for credits, TC bonus, and handicapping finals will be paid in a percentage of extra credits to game credits depending on how long a stable has been Platinum. It will be based on the following formula:
+(Number of days Platinum in the last 365 days / 365) x prize amount = amount received in game credits
+Remaining amount will be paid in extra credits.
+If you downgrade from Platinum you must wait a minimum of 6 months before you can upgrade back. When downgrading the new stable level will go into effect as soon as your current level runs out. If you are already past the renewal period for the current level and you downgrade it will go into effect immediately.
+When upgrading from Standard the first fee will be prorated to the end of the month. From that point forward the fee will be due on the 1st of every month.  The plan will auto-renew during the 1st maintenance period of the month.  If there are not enough game credits available
+
+		    the system will try again each night during maintenance for 2 additional maintenance periods.  If there are not enough game credits available after the 3rd attempt your stable will be downgraded to the Standard level. If
+
+		    your stable is not upgraded back after 4 additonal maintenance periods you will have to wait 6 months to upgrade back.
+For races, the stable level in effect at post time of a race is what will be used for stable level benefits.
+7 - Farms
+When you create your stable you will be given a free farm at Moundsville, WV.  All horses you create must be created at a farm.  The farm you create your horse at will determine what state the horse is from and what state-bred races it qualifies for.  Additional farms can be purchased in other cities or states by clicking on Stables->Farms.  The price
+
+			of the city is determined by demand and how many owners own farms in a city.  The overall value of all the cities rises at a rate of 3% per year and is calculated daily.  The prices of the cities are updated on a nightly basis during maintenance.  To add an additional city as a farm will cost whatever the going rate is for that city.  The free farm you start with is designated as your base farm.  The base farm
+
+			means nothing more than that you can qualify for discounts if you replace this farm with a new city.  You can not remove your base farm.  You can remove any other farm other than your base but you will not receive anything for it if you remove it.  If you decide to replace your base farm you can purchase the lowest valued city in any state for a flat $10 fee or you can purchase any other city in that state for a 50% discount
+
+			with a minimum of $10.  Replacing your base does mean your previous base will be gone and replaced with the new one.
+Stables can own as many different farms as they wish but standard level stables are limited to having a maximum of 3 farms active at one time.  Platinum level stables can have an unlimited number of active farms.
+If you make a farm inactive you will not be able to relocate, train, work, or breed horses at it. If you own more farms than are available to be active under your current stable level and you make a farm inactive it will not be able to be made active again for 6 months even if you upgrade your stable level.
+Farms come with a 1m dirt oval and a 7f turf oval track to work your horses at.
+8 - Purchasing A Horse
+To purchase a new horse click on Stables->Purchase Horse.  You will need the required credits in your account to complete the 
+
+			transaction.  During the purchasing of your horse you will be given several options.  You will be given the option
+
+			to name your horse, select its' gender, select its' age (1, 2, or 3), and select what farm it is created at.  The farm it is created at will determine what state the horse is from for state-bred races.  The abilities of the horse will be randomly
+
+			generated and it will be your job through training to determine what they are.  Conformation and the bloodlines can also give clues to the horses abilities.
+Also, during the purchase process you can select to BC nominate your horse.  BC nominating your horse has several benefits listed here:
+1. Free nomination into the BC races on BC Day
+2. 5% bonus to the horse owner (5% of the amount the horse wins) when the horse wins money in a BC race or a race worth BC points (Owner must be platinum level)
+3. 5% bonus to the breeder (5% of the amount the horse wins) when the horse wins money in a BC race or a race worth BC points (Breeder must be platinum level)
+The time of year that you create a horse determines its birth month. The below outlines the birth month of a horse:
+1yo in 4th quarter (Oct-Dec) = Jan bred
+2yo in 1st quarter (Jan-Mar) = Feb bred
+2yo in 2nd quarter (Apr-Jun) = Mar bred
+2yo in 3rd quarter (Jul-Sep) = Apr bred
+2yo in 4th quarter (Oct-Dec) = May bred
+3yo in any quarter = Jun bred
+Each stable has a limit of 150 horses created per quarter. The purchase horse option and breeding both count toward the 150 total. There is also a soft limit of 1,500 total virgin or active horses a
+
+            stable can own. If a stable owns more than 1,500 virgin/active horses a monthly excess horse fee of $0.10 per horse over 1,500 will be due at the beginning of a given month. The fee will be deducted automatically
+
+            on the 1st of each month during maintenance if a stable owns more than 1,500 virgin/active horses at that time. The fee can only be paid in game credits. If a stable does not have enough game credits the stable
+
+            will be unable to create, nominate, train, or work horses until the fee is either paid or the number of virgin/active horses is reduced to 1,500. Each horse that is retired or deactivated will reduce the fee by $0.10 game credits.
+9 - Naming A Horse
+Naming your horse helps give your horse an identity.  The below rules have been established when naming a horse. Violating the naming rules can result in forum strikes and/or dismissal from the site.
+- No inappropriate language or anything that could potentially be interpreted in bad taste.
+- No names that could be interpreted as political or religious.
+- No names that could be interpreted as referencing other stables.
+- No names not in best interest of game.
+Character limitations for names:
+- First character and character following a space are uppercase. All other characters are lowercase.
+- Names containing ' de ', ' del ', or ' du ' in the middle of the name will have the d in lowercase.
+- Names containing words starting with 'Mc' will have the letter after the 'Mc' capitalized.
+- Names ending in ' II', ' III', or ' IV' will have the ending capitalized.
+- Name can not contain any form of the words "Hiptag" or "Rename" in it.
+- Name can not contain more than a 3 letter abbreviation.
+- Name can contain a maximum of 2 integers.
+- Name can only contain A-Z, a-z, 0-9, or space.
+- Name can only repeat previous character twice.
+- Minimum of 3 characters.
+- Maximum of 20 characters.
+Any horse that wins a TC race, a BC race, wins at least 2000 in earnings, or foals a horse that does any of those 3 things before its name is replaced with a (#) after it will have its name permanently reserved and no other horse can be assigned its name.
+10 - Claiming A Horse
+The second option you have for obtaining a horse is through a claiming race.  You have the opportunity to place a claim on any horse once the
+
+			nomination deadline for a race has passed.  Claims can be placed on any horse
+
+			in a race up until post time for the race.  The amount of the claim is based on the claiming amount for the race.  A $10 claiming race would cost $10 for
+
+			each claimed horse.  Once the claiming race is finished anyone placing a claim on a horse will receive that horse for the claiming amount and the owner of the horse will
+
+			receive the claiming amount minus the claiming fee.  You must have the available credits in your account to place a claim.  If more than one person claims a horse a random drawing will
+
+			be held to determine who receives the horse and the other owners will be refunded.  If an unverified stable has a horse claimed they will receive extra credits instead of game credits.
+To place a claim on a horse find a claiming race in the race calendar with the field drawn.  Click on the race button above the race.  Click on the 'c' icon at the end of the line of the horse you wish to claim.
+11 - Breeding
+- See
+Breeding Guidelines and Past Analysis – Dec 2005
+,
+Breeding Statistics – Feb 2007
+,
+Breeding Statistics – Jan 2008
+,
+Breeding Statistics – Mar 2009
+,
+Breeding - Autogens vs Homebreds, HRP Bloodlines, and the Lumbosacral - Dec 2012
+for more info.
+Breeding is a third option for obtaining a horse.  A stable must be verified to breed.  To breed a horse you will need to match up a mare with a stallion.  To be bred a mare or stallion must be retired.  3yos are limited to being bred in July through December (3rd and 4th quarters).  Horses 4yos and older can be bred any time throughout the year.
+To start breeding go to Stables->Breeding.  There are 3 parts to the breeding process.  There is nominating a stallion for breeding, leasing a broodmare, and matching a broodmare up with a stallion.  Each of these parts is described below.
+Step 1 - Nominating a stallion for breeding
+This step is used if you have a stallion you wish to breed to your own mare or if you wish to offer the stallion to the public to be bred.  Before you can match your mare up with a stallion you must nominate the stallion for breeding first.  Your stallion can be bred a maximum of 25 times per quarter.
+If you decide to offer a stallion to the public you will need to set the stud fee to the amount you wish to charge for broodmares to breed to your stallion.  You will receive this amount minus a fee as outlined in the costs table at the end of help for every broodmare that breeds to your stallion.  Standard level stables will receive extra credits instead of game credits.  The owner of the broodmare will receive the offspring.  After setting the stud fee you will need to decide if you
+
+			wish to BC nominate the stallion.  Costs for this are also in the costs table.  BC nominating your stallion will do 2 things.  One, the owners of the broodmares looking to breed with your stallion will be able to BC nominate their offspring
+
+			for racing.  If your stallion is not nominated they will not have this option.  Two, you will be eligible for a 5% Stallion Bonus.  For all offspring that your nominated stallion produces you will receive a 5% bonus anytime anyone of them wins money
+
+			in a BC race or a race that is worth BC points.  Only platinum level stables are eligible for this bonus.  If your stallion is nominated and is bred and you later become platinum, you will start receiving bonuses from any of the offspring from
+
+			that point forward even if you were not platinum when the offspring were created.
+When nominating your stallion for breeding you should also pay attention to which farm you have your stallion located at.  The state you have your stallion in can qualify you for certain state-bred sire bonuses if the broodmare has its foal in the same state the stallion is standing.  When nominating your stallion for public breeding you will have the option to only accept broodmares in the same state or to prefer broodmares in the same state if there are extra broodmares trying to lock to your stallion. Once stallion nominations lock for public breeding or you match your stallion with a private broodmare the stallion will not be able to be relocated.  A stallion can only stand in one state per breeding quarter.
+If you need to relocate a stallion for an upcoming breeding quarter you will first need to nominate the stallion for that upcoming quarter.  Then, before breeding to the stallion or adding public services click on the relocate button on the stallions individual past performance page.  The relocate page will then have a second drop down to use for relocating for the upcoming quarter.
+Step 2 - Leasing a broodmare for breeding
+This step is optional in the breeding process.  In this section you can either offer your own broodmare to be leased by another owner or you can lease a broodmare from another owner to breed to a stallion.
+An owner leasing a broodmare charges a fee to the owner doing the leasing.  The owner that leases the broodmare will then be able to relocate the mare to any of their farms and breed that broodmare to a stallion of choice (the owner that leased the mare will still be required to pay any stud fees or breeding fees) and receive the offspring from the breeding.  The owner that leased the broodmare will also become the breeder for the offspring and will be eligible for any bonuses related to that offspring.  A platinum level stable will receive the lease fee in game credits and a standard stable will receive the lease fee in extra credits.
+Step 3 - Matching a broodmare up with a stallion
+With this step you will match up your mare with the stallion you nominated in step one or choose a public stallion to breed with.  Mares can be bred one time per quarter.
+Stallions on the public stallion list must wait 3 days before broodmares are locked with that stallion and guaranteed to produce an offspring.  The lock date will be specified for the stallion.  During the locking process if more mares select a stallion than what there are services available then mares will be chosen using the process outlined below.
+Mares will be sorted by the following statistics in the following order:
+1 - Graded Stakes Earnings
+2 - Overall Earnings
+3 - Wins
+4 - Places
+5 - Shows
+6 - Create Date
+The highest ranked mare will receive the most balls to throw into a hopper.  The number of balls received is as follows: 512, 256, 128, 64, 32, 16, 8, 4, 2, 1.  So the top mare gets 512 balls, the second top mare gets 256, etc.  The 10th and on mare will get 1 ball.
+The previous offspring of the broodmares will have their statistics totaled in the above categories as well. The mares will then be reranked with the offspring statistics starting with category 2 above. Mares will receive additional balls according to these rankings where the number of balls received will follow the same formula above (1st=512, 2nd=256, etc.).
+Balls will be drawn out of the hopper until public breeding slots are filled with different mares.  If your broodmare is removed from your broodmare list during the locking period then the lock went to another broodmare and you will have to find another stallion to breed the mare with.
+When breeding a broodmare with a stallion you will have the option to BC nominate the offspring if the stallion was BC nominated.  To nominate the offspring check the appropriate nominate box before the offspring is produced.
+The offspring of a breeding will be born at the farm of where the broodmare is located at and this will become the state designation of the offspring for qualifying for state-bred races.  Breeding the broodmare to a stallion located in the same state can qualify the foal for increased state-bred bonuses.  See the state-bred section for more details.
+Broodmares can be bred a maximum of 20 times (producing 20 offspring) and then they are automatically deactivated from the game.  Every year that a broodmare races in will subtract 1 breeding from the 20 available.  To calculate the number of breedings left the following formula will be used: 20 - (year of last race - (year of creation - 1)).  So for example, say a female 4 yr old was created in 2005.  She races 5 times in 2005 and 1 time in 2006 and then is retired for breeding.  Since she raced in 2005 and 2006 she will have 20 - (2006 - 2004) = 18 breedings available.  If a broodmare was created in 2004, raced in 2004, took 2005 off, and then raced in 2006 that would be 20 - (2006 - (2004 - 1)) = 17.
+12 - Auctions
+Auctions will take place 1 time per quarter.  Here is the auction schedule.
+Event
+1st Qtr
+2nd Qtr
+3rd Qtr
+4th Qtr
+Auction nominations
+2/16 - 3/1*
+5/16 - 6/1*
+8/16 - 9/1*
+11/16 - 12/1*
+2yo Retired (4th qtr 1yo)
+1st Wed - March
+1st Wed - June
+1st Wed - Sept
+1st Wed - Dec
+2yo Virgin (4th qtr 1yo)
+1st Thurs - March
+1st Thurs - June
+1st Thurs - Sept
+1st Thurs - Dec
+2yo Active (4th qtr 1yo)
+1st Fri,Sat,Sun - March
+1st Fri,Sat,Sun - June
+1st Fri,Sat,Sun - Sept
+1st Fri,Sat,Sun - Dec
+3yo Retired (4th qtr 2yo)
+2nd Wed - March
+2nd Wed - June
+2nd Wed - Sept
+2nd Wed - Dec
+4+ Retired (4th qtr 3+)
+2nd Thurs - March
+2nd Thurs - June
+2nd Thurs - Sept
+2nd Thurs - Dec
+3yo Virgin & Active Unraced (4th qtr 2yo)
+2nd Fri - March
+2nd Fri - June
+2nd Fri - Sept
+2nd Fri - Dec
+3yo Active Raced (4th qtr 2yo)
+2nd Sat - March
+2nd Sat - June
+2nd Sat - Sept
+2nd Sat - Dec
+4+ Virgin & Active (4th qtr 3+)
+2nd Sun - March
+2nd Sun - June
+2nd Sun - Sept
+2nd Sun - Dec
+Above auction days are after the 1st Monday so 1st Wed would mean the 1st Wednesday after the 1st Monday.
+* - Start and end dates are from 6:00am EST to 3:00am EST.  So 2/16 - 3/1 would be 2/16 6:00am EST to 3/1 3:00am EST.
+Auctions will be ordered each day first by ascending minimum bid, then ascending race earnings 2nd, then randomized 3rd. The auctions will be scheduled between 12 noon and 10pm ET each day.
+To place your horse in the auctions it must be located on one of your farms.  You will have one option as the seller which is the minimum bid.  The minimum bid is where the bidding for the horse will start.  If no one places a bid for the minimum bid the horse will return to the seller.  When a buyer places a bid
+
+			on a horse they will place the bid for the maximum amount they wish to bid for the horse.  This is the amount that will be deducted from their account balance.  When a bid is placed the bid price will increment upwards until either the high bidder is outbid by the current bidder by .01 or the price will be incremented to the bid price of the current bidder and the high bidder will remain the same.  If 2 bidders
+
+			bid the same amount the bidder to bid first will win the bid.  So the most recent bidder will have to place a bid at least .01 higher than the current high bidder to become the high bidder.  If the maximum bid is not reached the remaining amount bid will be returned to the buyer after the auction ends.  Sellers will receive the closing price for their horse minus the fee listed in the cost section in game credits except for horses that were created with the free vouchers received when signing up.  Extra credits will be received for these horses. Sellers will not be refunded the fees to place a horse in the auctions if a horse goes unsold.
+If you win a horse in the auction it should be transferred to your stable within 15 minutes of the end of the auction.  The horse will be located at the #1 priority farm under Stables->Farms.
+13 - Private Horse Sales
+There are a couple different ways to sell/buy a horse with the private horse sales.  Horses can be placed on the private horse sales list by the owner of the horse to be claimed by other owners.  This is done through the Sell Horse page and Buy Horse page under Stables->Private Sales.
+The other option is to make an offer for a horse by clicking on the horse's name anywhere on the site and then clicking the make offer button.  The owner of the horse will then have the option to accept or decline the offer under Stables->Private Horse Sales->View Offers. When an offer is made and accepted the horse will be placed on the sales list for 3 maintenance periods after the next maintenance for others to place a request to purchase the horse. The price the horse will be placed on the sales list for is determined by the table below. If another owner requests to purchase the horse at the higher price the owner making the original offer will have the option to match the price and then a winner will be chosen at random. If no other owner requests to purchase the horse at the higher price the owner making the original offer will receive the horse for the original offer price.
+Sales List Price:
+Offer price of $25 or less: offer price x 4 (min of 20)
+Offer price of $25+ to $100: 100 + ((offer price - 25) x 3)
+Offer price of $100+: 325 + ((offer price - 100) x 2)
+More details can be found on each of the corresponding offer/sales pages.
+14 - Relocating Your Horse At Tracks
+Moving a horse from track to track will take a certain amount of time and a horse may incur a stamina hit.  Horses can be relocated to nearby tracks and arrive at nearby tracks the same day and take no stamina hit if they have not worked or raced at the original track.  If they have worked or raced that day they will require 1 maintenance period to arrive at a nearby track but will take no stamina hit.  Other tracks will take 1 maintenance period to travel to and horses may incur a stamina hit.  If a horse will incur a stamina hit there will also be the option to select a slow transit method instead.  Using slow transit will prevent a horse from incurring a stamina hit but will take more than 1 day for the horse to travel to the track.  To check the number of days to travel from one track to another and stamina hits you can use the utility under Stables->Transit Stamina Hit.  Stamina hits will be listed in days which translates to 8-9% per day.
+15 - Relocating Your Horse At Farms
+Farms follow the same rules as tracks for relocating to and from and include the following additional rules.  When placing an active horse at the farm you will have 2 modes you can place it in.  You can place it in racing or training mode.  To change the mode select option 2 on your stable page.  If a horse is in racing mode its condition and stamina meters will move normally as if it were at a track.  If a horse is placed in training mode its condition and stamina meters will each move towards 100 during maintenance and stop at 100 once it is reached.  The consistency meter will also not move down during maintenance no matter the number of works plus races in the last 30 days if the horse is in training mode.  The downside to this is that the horse will need to be changed to racing mode or relocated to a track prior to a race or it will incur a consistency meter penalty for the race.  It will take 3 maintenance periods for the consistency penalty to wear off completely.  Each maintenance period that passes will reduce the amount of penalty.  If no maintenance periods have passed and the horse races it will incur a 100% penalty so that its consistency meter will be 0.  If one maintenance period has passed it will incur a 66% penalty.  If two maintenance periods have passed it will incur a 33% penalty.  If a horse is going to incur a penalty it will
+
+			be displayed beside the consistency meter. How to read the meter is described below in the consistency meter section.
+16 - Horse Meters
+Each horse has been given 4 meters to use in preparing and evaluating their abilities for races.  They are the condition, stamina, consistency, and distance meters.  The condition and stamina meters are the 2 most important meters for your horse.  When just starting it is good to focus on these 2 meters first.  The consistency and distance meters are meant to be
+
+			tools for tweaking your horses abilities for certain circumstances.
+17 - Condition Meter
+The condition meter ranges from 0-110.  The optimal reading for the condition meter is 95-105.  A reading anywhere between 95 and 105 is equivalent.  The condition meter goes up with training, works, or races and goes down during maintenance each night.
+18 - Stamina Meter
+The stamina meter ranges from 0-110. The optimal reading for the stamina meter is 95-105.  A reading anywhere between 95 and 105 is equivalent. Stamina goes up during maintenance each night and goes down with training, works, and racing.
+19 - Consistency Meter
+The consistency meter ranges from 0-5.  The consistency meter is meant to give owners a way to try and help inconsistent performing horses be a little more consistent.  The higher the number the better chance a horse has of running at a consistent level near its best.  A horse can still run just as fast with a bad consistency number but may be more volatile.  Some horses may be inherently consistent and you will not need to use this meter.  Some horses may not respond to the consistency meter.  At times you may see a number such as 0(1),0(2),0(3),0(4),or 0(5) instead of just 0.  The number in parenthesis is how deep into zero the consistency meter is.  A horse will perform with the same consistency with any of these values.  The only difference is a 0(5) will take longer for a horse to change to a value higher than 0.
+The consistency meter does not improve a horse, but it could improve its averages. It closes the gap on what you can expect out of a horse. For instance, you have a horse that typically runs anywhere from 1:10 to 1:14 for 6f. With the added consistency the horse may run somewhere from 1:10 to 1:12. You have improved the horses average time from 1:12 to 1:11 but the fastest is still a 1:10.
+Beside the consistency meter there is an arrow and a number inside parenthesis.  These numbers are only to help you understand what direction a horse's consistency meter is moving in and they do not effect performance.  Only the consistency meters reading itself effects performance.  An arrow pointing to the left means the consistency meter is going to go down during the next maintenance period.  An arrow pointing to the right means the consistency meter is going to go up during the next maintenance period.  A dash means it is not moving in either direction during the next maintenance period.  The number inside the parenthesis is works+races in the last 30 days.  For the consistency meter to move up during maintenance a horse must have between 2-4 works+races in the last 30 days.  The consistency meter does not move up or down during maintenance if a horse has had 5 works+races in the last 30 days.  The consistency meter moves down during maintenance for 0,1, or 6+ works+races in the last 30 days.  If a horse is scheduled to race on a given day the number of races+works in the last 30 days will include that race on that day even before the race.  This is because the number indicates how many races+works in the last 30 days the next maintenance period will see and indicates to you what direction the consistency meter will move.  If the horse was scratched before the race the number would decrease by 1 immediately.  The number of works+races listed has no bearing on the horses performance.  It is only to indicate what direction the meter will move during the next maintenance period.
+Sometimes you will see two numbers inside of a bracket after the number in parenthesis.  The first number is the number of maintenance periods remaining to remove the consistency penalty if the horse is raced.  The second number is what the consistency meter would be today if the horse was raced with the penalty.
+The only time the consistency meter changes besides during nightly maintenance is after races, works in company, or works over 1 mile.  The consistency meter will move down after a race, work in company, or work over a mile.  After a race, work in company, or work over a mile the consistency meter can sometimes take an abnormal hit to the downside.  This is most likely to happen if the horse does not perform well in that race, work, or work in company.
+20 - Distance Meter
+The distance meter ranges from 5S-5L.  The S stands for short and the L stands for long.  The distance meter is meant to be a way to shorten or lengthen a horses' best distances.
+The distance meter is capable of impacting a horse's best distances by about 1 furlong.   The max amount it will impact a horse's best distance will be about 2 furlongs.  When the horse is impacted in one direction it will take away from the other direction. For instance, you have a horse that runs best at 6f. You get a +5L on the distance meter and now the horse seems to like 7f best. So now the horse will not run at 5f as well because it is farther from the horse's best distance.
+Std-Short train and Hvy-Short train will move the distance meter towards short.  Std-Long train and Hvy-Long train will move the distance meter towards long.  2f and 2 1/2f works will move the distance meter towards short. 5 1/2f+ works will move the distance meter towards long.
+During nightly maintenance the distance meter will have a tendency to move back to a zero neutral position.
+21 - Training Your Horse
+One option you have for keeping your horse in shape is training.  Training is meant as a meter management tool only.  The only impact a training has on your horse is the meters.  There are 6 training options available which are Standard, Std-Short, Std-Long, Heavy, Hvy-Short, and Hvy-Long.  A standard train will move the stamina meter down and the condition meter up.   A short or long train will have the same effect as a standard train on condition.  Std-Short will move stamina down slightly less than Standard on average and Std-Long will move stamina down slightly more than Standard on average.  Both Std-Short and Std-Long will move the distance meter as explained in the distance meter section above.  Heavy train will move the stamina meter about 3 times as much down and the condition meter about 1.5 times as much up as Standard train.  Hvy-Short and Hvy-Long will have the same effect on the condition meter as Heavy.  Hvy-Short will move the stamina meter down slightly less than Heavy.  Hvy-Long will move the stamina meter down slightly more than Heavy.  Both Hvy-Short and Hvy-Long will move the distance meter as explained in the distance meter section above.
+You can train your horse one time per day at a track or farm and the stamina meter must be above zero to train.
+22 - Working Your Horse
+The second option you have for keeping your horse in shape is individual workouts.  For individual workouts you have the options of selecting distance, surface, weight, jockey, start, pace instruction, and effort.  A workout will time your horse with the options you select.  You can use this time to help determine which options your horse performs best with. A horse has a built in time factor of how often it needs a timed work.  If you surpass this time without a timed work it will start to degrade your horses abilities until you hold a
+
+			timed work for it again.  A timed work will effect the stamina and condition meters.  The stamina meter will go down and the condition meter will go up.  It will also effect the distance and consistency meters as outlined above in the distance meter section and the consistency meter section. A horse can be given two timed works per day and must have a stamina meter above zero to work.
+The start options for a timed work are conservative, normal, and aggressive.  See the jockey start instructions section for more information.
+The pace instructions for a timed work are horse lead, heavy push, push, restrain, heavy restrain, fast, above average, average, below average, and slow.  See the jockey instructions section for more information.
+The effort options for a timed work are breezing and handily.  A handily work will typically make your horse give more effort and run a little faster under the given circumstances. The meter movements are slightly different for each option and are outlined in the meter movement section. If a jockey is used to work your horse a capital B or H will be used to designate the breezing or handily work when listing it on the site. If an exercise rider/trainer is used a lower case b or h will be used.
+To work a horse at a track it must have at least 75 condition and 75 stamina.  Works at the tracks are limited to 2f, 3f, 4f, 5f, 6f, 7f, and 1 mile.  Works at the track also must be at 120 lbs (unless a jockey is selected that weighs more then it will be at the jockeys weight).  None of these limitations apply to works at a farm.  Works at a farm are hidden from other owners.  Works at a track are published to the public when the horse has been given a name.
+Yearlings (1yos) can only be worked out at your farm and are limited to a max work out distance of 2f.  2yos can work out at tracks but are limited to a max distance of 3f in January.
+23 - Works In Company
+Works in company is a third option for keeping your horse in shape and testing its abilities.  Works in company can either be done with 2 or 3 horses together.  With works in company you can get a better idea of how your horse may perform against competition.  The same restrictions apply to works in company that apply to individual works.
+The stamina hit for works in company will be greater than an individual workout but slightly less than a race on average.  The gain on the condition meter will be less than an individual workout but slightly more than a race on average.  The hit on the consistency meter will be more than an individual workout but slightly less than a race on average.  The movement on the distance meter will be the same as an individual workout.
+24 - Maintenance
+Maintenance on the site takes place between 3am ET and 6am ET every night.  During maintenance your horse's stamina meter will go up, condition meter will go down, and distance meter will drift towards zero.  Your horses consistency meter will also move as outlined in the consistency meter section.  The amount the meters move will vary nightly and also vary from horse to horse.  Each horse will have its own ranges and characteristics of how much the meters move.
+25 - Yearlings And Two Year Olds
+When yearlings and two year olds start out their condition meter is more likely to move down more during maintenance than it will when they become closer to three year olds.  Their consistency meter will also be more likely to move up slower and down more quickly during maintenance.
+26 - Meter Movement
+Listed below are typical meter gains and losses that can be expected.  Each horse has their own characteristics and their ranges are not likely to include all of the full ranges listed below.  The gains and losses will fall somewhere within these ranges.
+Maintenance - At track or farm in race mode
+Condition
+Stamina
+1 yos
+1-10 Loss
+6-14 Gain
+2 yos
+1-8 Loss
+6-14 Gain
+3 yos
+1-6 Loss
+6-14 Gain
+4+ yos
+1-4 Loss
+6-14 Gain
+Train Horse
+Condition
+Stamina
+Distance
+Standard Short
+10-14 Gain
+7-11 Loss
+0-2 Short
+Standard
+10-14 Gain
+8-12 Loss
+0
+Standard Long
+10-14 Gain
+9-13 Loss
+0-2 Long
+Heavy Short
+16-20 Gain
+24-30 Loss
+1-3 Short
+Heavy
+16-20 Gain
+27-33 Loss
+0
+Heavy Long
+16-20 Gain
+30-36 Loss
+1-3 Long
+Individual
+WIC
+Work - Breezing
+Condition
+Stamina
+Distance
+Condition
+Stamina
+Distance
+2f
+8-12 Gain
+18-21 Loss
+0-2 Short
+6-10 Gain
+40-50 Loss
+0-2 Short
+2 1/2f
+8-12 Gain
+19-22 Loss
+0-1 Short
+6-10 Gain
+41-51 Loss
+0-1 Short
+3f
+9-12 Gain
+20-23 Loss
+0
+7-10 Gain
+41-51 Loss
+0
+3 1/2f
+9-13 Gain
+21-24 Loss
+0
+7-11 Gain
+42-52 Loss
+0
+4f
+9-13 Gain
+22-25 Loss
+0
+7-11 Gain
+42-52 Loss
+0
+4 1/2f
+10-13 Gain
+23-26 Loss
+0
+8-11 Gain
+43-53 Loss
+0
+5f
+10-14 Gain
+24-27 Loss
+0
+8-12 Gain
+43-53 Loss
+0
+5 1/2f
+10-14 Gain
+25-28 Loss
+0-1 Long
+8-12 Gain
+44-54 Loss
+0-1 Long
+6f
+11-14 Gain
+26-29 Loss
+0-1 Long
+9-12 Gain
+44-54 Loss
+0-1 Long
+6 1/2f
+11-15 Gain
+27-30 Loss
+0-1 Long
+9-13 Gain
+45-54 Loss
+0-1 Long
+7f
+11-15 Gain
+28-31 Loss
+0-1 Long
+9-13 Gain
+45-55 Loss
+0-1 Long
+7 1/2f
+12-15 Gain
+29-32 Loss
+0-1 Long
+10-13 Gain
+45-55 Loss
+0-1 Long
+1m
+12-16 Gain
+30-33 Loss
+0-1 Long
+10-14 Gain
+46-56 Loss
+0-1 Long
+1m70
+12-16 Gain
+31-34 Loss
+0-1 Long
+10-14 Gain
+46-56 Loss
+0-1 Long
+1 1/16m
+13-16 Gain
+32-35 Loss
+0-1 Long
+10-14 Gain
+46-56 Loss
+0-1 Long
+1 1/8m
+13-17 Gain
+33-36 Loss
+0-1 Long
+11-14 Gain
+47-57 Loss
+0-1 Long
+1 3/16m
+13-17 Gain
+34-37 Loss
+0-1 Long
+11-15 Gain
+47-57 Loss
+0-1 Long
+1 1/4m
+14-17 Gain
+35-38 Loss
+0-1 Long
+11-15 Gain
+48-58 Loss
+0-1 Long
+1 5/16m
+14-18 Gain
+36-39 Loss
+0-1 Long
+12-15 Gain
+48-57 Loss
+0-1 Long
+1 3/8m
+14-18 Gain
+37-40 Loss
+0-1 Long
+12-16 Gain
+49-59 Loss
+0-1 Long
+1 7/16m
+15-18 Gain
+38-41 Loss
+0-2 Long
+12-16 Gain
+49-59 Loss
+0-2 Long
+1 1/2m
+15-19 Gain
+39-42 Loss
+0-2 Long
+13-16 Gain
+49-59 Loss
+0-2 Long
+Individual
+WIC
+Work - Handily
+Condition
+Stamina
+Distance
+Condition
+Stamina
+Distance
+2f
+8-13 Gain
+21-24 Loss
+1-3 Short
+6-11 Gain
+45-56 Loss
+1-3 Short
+2 1/2f
+8-13 Gain
+22-25 Loss
+0-2 Short
+6-11 Gain
+46-56 Loss
+0-2 Short
+3f
+9-13 Gain
+23-26 Loss
+0
+7-11 Gain
+46-57 Loss
+0
+3 1/2f
+9-14 Gain
+24-27 Loss
+0
+7-12 Gain
+47-57 Loss
+0
+4f
+9-14 Gain
+25-28 Loss
+0
+7-12 Gain
+47-58 Loss
+0
+4 1/2f
+10-14 Gain
+26-29 Loss
+0
+8-12 Gain
+48-58 Loss
+0
+5f
+10-15 Gain
+27-30 Loss
+0
+8-13 Gain
+48-59 Loss
+0
+5 1/2f
+10-15 Gain
+28-31 Loss
+0-1 Long
+8-13 Gain
+49-59 Loss
+0-1 Long
+6f
+11-15 Gain
+29-32 Loss
+0-2 Long
+9-13 Gain
+49-60 Loss
+0-2 Long
+6 1/2f
+11-16 Gain
+30-33 Loss
+0-2 Long
+9-14 Gain
+50-60 Loss
+0-2 Long
+7f
+11-16 Gain
+31-34 Loss
+0-2 Long
+9-14 Gain
+50-61 Loss
+0-2 Long
+7 1/2f
+12-16 Gain
+32-35 Loss
+0-2 Long
+10-14 Gain
+51-61 Loss
+0-2 Long
+1m
+12-17 Gain
+33-36 Loss
+0-2 Long
+10-15 Gain
+51-62 Loss
+0-2 Long
+1m70
+12-17 Gain
+34-37 Loss
+0-2 Long
+10-15 Gain
+51-62 Loss
+0-2 Long
+1 1/16m
+13-17 Gain
+35-38 Loss
+0-2 Long
+10-15 Gain
+52-62 Loss
+0-2 Long
+1 1/8m
+13-18 Gain
+36-39 Loss
+0-2 Long
+11-15 Gain
+52-63 Loss
+0-2 Long
+1 3/16m
+13-18 Gain
+37-40 Loss
+0-2 Long
+11-16 Gain
+53-63 Loss
+0-2 Long
+1 1/4m
+14-18 Gain
+38-41 Loss
+0-2 Long
+11-16 Gain
+53-64 Loss
+0-2 Long
+1 5/16m
+14-19 Gain
+39-42 Loss
+1-2 Long
+12-16 Gain
+54-64 Loss
+1-2 Long
+1 3/8m
+14-19 Gain
+40-43 Loss
+1-2 Long
+12-17 Gain
+54-65 Loss
+1-2 Long
+1 7/16m
+15-19 Gain
+41-44 Loss
+1-3 Long
+12-17 Gain
+55-65 Loss
+1-3 Long
+1 1/2m
+15-20 Gain
+42-45 Loss
+1-3 Long
+13-17 Gain
+55-66 Loss
+1-3 Long
+Race
+Condition
+Stamina
+2f
+2-4 Gain
+50-61 Loss
+2 1/2f
+2-4 Gain
+51-61 Loss
+3f
+2-4 Gain
+51-62 Loss
+3 1/2f
+2-4 Gain
+52-62 Loss
+4f
+2-4 Gain
+52-63 Loss
+4 1/2f
+2-4 Gain
+53-63 Loss
+5f
+2-4 Gain
+53-64 Loss
+5 1/2f
+2-4 Gain
+54-64 Loss
+6f
+2-4 Gain
+54-65 Loss
+6 1/2f
+2-4 Gain
+55-65 Loss
+7f
+2-4 Gain
+55-66 Loss
+7 1/2f
+2-4 Gain
+56-66 Loss
+1m
+2-4 Gain
+56-67 Loss
+1m70
+2-4 Gain
+56-67 Loss
+1 1/16m
+2-4 Gain
+57-67 Loss
+1 1/8m
+2-4 Gain
+57-68 Loss
+1 3/16m
+2-4 Gain
+58-68 Loss
+1 1/4m
+2-4 Gain
+58-69 Loss
+1 5/16m
+2-4 Gain
+59-69 Loss
+1 3/8m
+2-4 Gain
+59-70 Loss
+1 7/16m
+2-4 Gain
+60-70 Loss
+1 1/2m
+2-4 Gain
+60-71 Loss
+27 - Racing Your Horse
+To enter your horse in a race click on your horse from your stable and then click the nominate button.  Find a race to enter your horse in and click the nominate button above it.  There are several requirements for nominating your horse for a race and racing it which are listed here:
+1. Your horse must be named.
+2. Your horse must be at or in transit to the track you are trying to nominate to or you must turn track checking off on your My Account page.
+3. Your horse must have had a timed workout at a track in the last 90 days.
+4. Your horse must have at least 75 condition and 75 stamina or it will be scratched from the race and it will be treated as if your horse did not make it to the track on time.
+5. Your horse must meet the minimum workout time requirement in the table below in at least one work in the last 90 days after it has had at least 5 races.
+Time requirements
+2f - less than 25 seconds
+3f - less then 39 seconds
+4f - less than 53 seconds, less than 52 seconds for SA downhill turf
+5f - less than 67 seconds, less than 65 seconds for SA downhill turf
+6f - less than 81 seconds, less than 78 seconds for SA downhill turf
+7f - less than 95 seconds
+1m - less than 109 seconds
+Race Requirements
+- Overnights offering a purse will be listed on the schedule as requiring 5 horses and 2 unrelated stables for the race to draw. If 5 horses and 2 unrelated stables are not nominated to the race
+
+            by the nomination deadline an alternate race can be offered that will race on the same day but extends the nomination deadline by 24 hours and allows for a minimum of 4 horses and 
+
+            2 unrelated stables to draw. More details can be found on the race schedule for each race.
+- Stakes races with a purse will require 4 horses and 2 unrelated stables for a race to draw.
+- Free races will require 4 horses and 2 unrelated stables for a race to draw.
+Ungraded Stakes Race Requirements
+Ungraded stakes with purses of less than 100 have the following restrictions:
+- Horses can not have a graded stakes win in the last 6 months to nominate.
+- Horses with a graded stakes win in the last 9 months carry 6 additional pounds.
+- Horses with a graded stakes win in the last 12 months carry 4 additional pounds.
+- Horses with a stakes win in the last 12 months carry 2 additional pounds.
+Ungraded stakes with purses of less than 250 but 100 or more have the following restrictions:
+- Horses with a graded stakes win in the last 9 months carry 6 additional pounds.
+- Horses with a graded stakes win in the last 12 months carry 4 additional pounds.
+- Horses with a stakes win in the last 12 months carry 2 additional pounds.
+Ungraded stakes with purses of 250 or more, BC automatic qualifiers, and turf sprints (races on turf under 1 mile) do not have any of the above stakes restrictions.
+Graded Stakes Race Requirements
+Grade III stakes with purses under 250 have the following restrictions:
+- Horses with a GIII win in the last 3 months carry 2 additional pounds.
+- Horses with a GII win in the last 3 months carry 4 additional pounds.
+- Horses with a GI win in the last 3 months carry 6 additional pounds.
+Grade II stakes with purses under 250 have the following restrictions:
+- Horses with a GII win in the last 3 months carry 2 additional pounds.
+- Horses with a GI win in the last 3 months carry 4 additional pounds.
+Grade I stakes, graded stakes with purses of 250 or more, BC automatic qualifiers, and turf sprints (races on turf under 1 mile) do not have any of the above graded stakes restrictions.
+Free Stakes Race Requirements
+Free stakes and graded stakes will have none of the above listed restrictions for ungraded and graded stakes races.
+When nominating your horse for a race you will have several options to set which are listed below.
+Alternate Race
+This setting specifies whether you want your horse to automatically be nominated for an alternate race or not. 
+
+            Specifying 4 means the horse will be automatically nominated to an alternate race with a 4 or more minimum horse requirement if one is offered. Specifying no means the horse will not be automatically
+
+            nominated for an alternate race.
+Claiming Price
+You may have an option to designate certain claiming prices for additional weight allowances.  For optional claimers you may also have the option to enter as an allowance or for a claiming price.  The allowance option will only be available in optional claimers if the horse meets the allowance conditions.
+Dry Only (Yes/No)
+If you select yes your horse will be scratched if the track does not come up fast or firm on race day and the pref date will be updated.  You will still be charged a fee according to the costs table below.  Once the field is drawn this setting can not be changed.
+Also Eligible (Yes/No)
+If you select yes your horse will be placed on the also eligible list if it qualifies for it.  If you select No your horse will not be placed on the also eligible list if it qualifies for it.
+Start (Aggressive/Normal/Conservative)
+See the Jockey Start Instructions section for more information.
+Instruction (Horse Lead/Heavy Push/Push/Restrain/Heavy Restrain/Fast/Above Average/Average/Below Average/Slow/Lead/Stalk/Midpack/Close/Trail)
+See the Jockey Instructions section for more information.
+Jockey 1,2, and 3
+Jockey 1 is your first choice for jockey, 2 is your 2nd, and 3 is your 3rd.
+There are several different types of races to choose from which carry certain restrictions.  Information about the different types of races can be found in the race types section below.  Any additional restrictions
+
+			for races will be listed in the race description.  Also, if there are any weight allowances they will be listed.  When racing against males, females receive the following additional weight allowance unless otherwise noted in the race description (handicaps do not include these allowances as the weight system for handicaps already takes this into account):
+2 yr olds -> 3 lbs
+3+ yr olds before Sept. 1 -> 5 lbs
+3+ yr olds on or after Sept. 1 -> 3 lbs
+If your horse qualifies for an allowance the weight listed will be subtracted from the total weight they will carry.
+For handicaps your horse's weight will be calculated based on the
+Handicapping System
+that has been put in place.  To see more details on this system click on the link.
+The full listed purse amount will be paid regardless of the number of runners or fees paid. The race requirements will determine what percentage of the purse goes to each horse.
+Payout Percentages
+1st
+2nd
+3rd
+4th
+60%
+20%
+16%
+4%
+When a race pays out to 4 places but there are only 3 runners the 4th place prize will not be paid out.
+If there is an excess of nomination fees paid in of more than 110% of the purse anything over 110% will be refunded out evenly to all runners.
+If the number of nominations for a race exceeds the maximum field size horses will be selected from the nominations using the following criteria in the listed order:
+Graded or Ungraded Stakes with a purse or any race specifically listing a race preference in description
+1. Any listed race preferences
+2. Horse earnings per race (in last 2 yrs)
+3. Horse wins (in last 2 yrs)
+4. Horse places (in last 2 yrs)
+5. Horse shows (in last 2 yrs)
+6. Coin toss
+Graded or UnGraded Stakes without a purse
+1. All owners will receive entry in race before a 2nd entry for any owner, etc, etc
+2. Horse earnings per race (in last 2 yrs)
+3. Horse wins (in last 2 yrs)
+4. Horse places (in last 2 yrs)
+5. Horse shows (in last 2 yrs)
+6. Coin toss
+Overnights other than 2yo maidens(non-requested)
+1. All owners will receive entry in race before a 2nd entry for any owner, etc, etc (a split race counts as 2 separate races so an owner can receive 1 entry in each split)
+2. Horses with a win will have preference over horses without a win
+3. Time of nomination where the earliest nominated horse will have preference over the 2nd earliest nominated and the 2nd earliest will have preference over the 3rd earliest and so on
+4. Coin toss
+2yo maiden overnights(non-requested)
+1. All owners will receive entry in race before a 2nd entry for any owner, etc, etc (a split race counts as 2 separate races so an owner can receive 1 entry in each split)
+2. Preference date system
+3. Coin toss
+Preference date system - When a horse is created it will be given a preference date of the date it was created unless it is a 1yo or a 2yo created before February 1st.  If it is a 1yo or 2yo created before February 1st its preference date will be February 1st of the year it turns 2.  Any time a horse races or is scratched from a race by the owner after the draw its preference date is updated to the date the race was to take place.  This includes the owner scratching the horse as an also eligible or with the dry track only setting.  Horses with the oldest preference date will be selected first.
+Up to four also eligibles will be drawn for each race.  If a horse is drawn as an also eligible it will be inserted into the race if another horse scratches before the day of the race.  When a horse is scratched all horses outside the scratch will slide down a post position to fill in the empty spot and any also eligible will be placed in the most outside post position. The lowest numbered also eligible will be inserted into the race first, the second lowest second, the 3rd lowest 3rd, and the 4th lowest 4th.  Any also eligibles not being inserted into the race before race day will automatically be scratched by the system on race day.  This will not update the preference date.
+Any overnights other than sponsored overnights will split if they receive 6 or more nominations over the max field size.  The splitting race will be split a maximum of 1 time into 2 separate races.
+When nominating for a handicap race the weight your horse will carry will not be immediately known.  All entries will be taken into consideration and weight will be calculated based off of the World Rankings located on the stats page.  The potential range of weight assigned will be less for Grade Is compared to Grade IIs, IIIs, and ungraded stakes.  In other words the difference between the high and low weights could be much greater in lower graded stakes versus higher graded stakes.  Handicaps close a day earlier than other races.  This is because during the first 24 hours only the weight and
+
+			range of weights of other horses will be revealed.  The actual horses in the race will not be revealed.  During this time period owners can scratch for a lesser fee if they do not like the weight assigned.  The next day the field will be revealed and the fees will revert to normal amounts.
+28 - Scratching & Scratch Deadline
+Owners may scratch their horse from a race up to 1 hour prior to post time, except for races that specify otherwise in the race description. You will not be able to alter instructions/accessories/medications or train a horse after the scratch deadline period. Please note once medications are added, they can not be removed until the next maintenance period.
+A horse must be located at the track where a scheduled race is taking place by the scratch deadline (1 hour prior to post time except where noted otherwise in the race description) or it will automatically be scratched by the system and the nomination fee will be lost.
+Scratching a horse from a race with the field drawn will automatically update that horse's preference date to whatever the race date was for the race being scratched from. This includes scratching as an also eligible. To keep an also eligibles preference date from being updated the system must be allowed to scratch the horse automatically on the day of the race. A fee may also be charged for manually scratching a horse. The fees are outlined in the costs section below.
+29 - Selecting a Jockey
+When entering a race you will be given the option for selecting the top 3 jockeys you would like to request to ride your horse for the race.  When the race is drawn each jockey will then select which horse he/she wants to ride.  See the
+Jockey Selection Process
+for information on how jockeys are assigned.
+Jockeys are assigned and located at certain tracks.  Some jockeys may occasionally travel to different tracks for short periods of time for big races.
+Races with purses of 250 or more, BC automatic qualifiers, KYD points races, and KYO points races will have all jockeys available to them. If a jockey is selected for one of these races the jockey will travel to the invited track and will no longer be available at the original track and will not take any mounts there.  After a field is drawn for a race where all jockeys were available owners will have an additional 24 hours to select from all jockeys a second time.  After this additional 24 hours only jockeys located at the track will be available from then on.
+If there are multiple races with all jockeys available at different tracks the following will be used to determine jockey preference for selecting the horse to ride:
+1. Highest prestige level (if one is specified)
+2. KYD/KYO points races or BC automatic qualifiers
+3. Highest grade
+4. Highest purse
+5. Open (no gender restriction)
+Also see
+How Jockeys Move and Become Inactive
+.
+30 - Jockey Start Instructions
+The jockey start instructions determine how aggressively the rider will push the horse off the start.  The options are aggressive, normal, and conservative.  Selecting aggressive will give the horse a better chance to get an above average start but there will also be a higher risk of a below average start compared to selecting normal.  Selecting conservative will decrease the chances of getting an above average start but also decrease the chances of getting a below average start compared to selecting normal.  It should be noted that all 3 instructions will maintain the same average start.  It is just a matter of what tolerance level you want to take on.  With their characteristics horses will naturally vary on how often they get an above average or below average start.
+31 - Jockey Instructions
+The instruction you select for your horse will help to determine what kind of pace the horse will run in the first half of its race or work.  The instruction also has a small influence on the start of a race or work.  Besides horse lead the instructions can be broken down into 3 different types.  First, we will talk about horse lead and then break down each of the 3 types of instructions.
+Horse Lead
+allows the horse to run freely.  The horse will be allowed to determine the pace it wants to run.  This may or may not be the actual best pace for the horse.  The jockey will not do a lot of restraining or pushing the horse unless dictated so by traffic or positioning.  Some horses may not run well with a lot of restraining or pushing and if that is the case horse lead should work well for them most of the time.  Some horses set to horse lead can fluctuate in the pace that they run.  There will be horses that will naturally come out running fast one time and slow the next.  Other horses will be much more consistent with their pace under horse lead.
+Style Based Pace Instructions
+- These include the instructions Heavy Push, Push, Restrain, and Heavy Restrain.  The baseline for these instructions is horse lead.  The horse will come out of the gate at its horse lead pace and the jockey will either heavily push the horse, push the horse, restrain the horse, or heavily restrain the horse.  Time is not directly part of the equation.  Only the riding style is of importance.  The style based pace instructions translate from works to races more directly than timed based pace instructions because they do not include the class factor.
+Time Based Pace Instructions
+- These include Fast, Above Average, Average, Below Average, and Slow.  The pace the horse is looking to be run at is linked more closely with time.  There is a class factor that is an important part of these instructions and influences the pace the horse will be trying to be run at.  For a more detailed description see
+The Jockey Pace Instructions
+.
+Positioned Based Instructions
+- These include Lead, Stalk, Midpack, Close, and Trail.  The pace the horse runs at is determined largely by the rest of the field.  The jockey will try to maintain a certain position with the horse.  The jockey will not over push or over restrain the horse to get it into that position, however.  That means the horse may not ultimately make it to that position depending on how this sets up.  Below is a short breakdown of each of the positional instructions.
+Lead
+- The horse will try to be maintained on the lead or near the lead.
+Stalk
+- The horse will try to be placed just off the lead to a few lengths back.
+Midpack
+- The horse will try to be placed several lengths off the lead.
+Close
+- The horse will try to be placed many lengths off the lead.
+Trail
+- The horse will try to be placed even farther off the lead and likely near the back.
+Here are some additional things to keep in mind with the instructions.  Traffic and positioning can and will override the instructions.  An attempt will be made to keep the horse from being hung overly wide.  Sometimes traffic can keep a horse pinned in or somewhat out of place.  These types of things and others can cause a diversion from the instructions.  Also, a horse will not be overly pushed or restrained.  It can be the case that a horse is not capable of running a certain pace on a given day.
+As mentioned the instructions are used for approximately the first half of a race.  Once it gets into the second half of the race the goal changes to getting the horse to the finish line the most efficiently and quickest way possible.
+32 - Editing Jockey Names
+The default jockey names are very generic names.  You can modify them and give them your own names by going to Racing->Edit Jockeys.  Once you modify the name it will display that way everywhere on the site where that jockey is listed.
+You also have the option to copy other owners jockey names.  To do this click on the available lists button on the edit jockeys page.  Once you click on the available lists button a list of owners offering their jockey names will be shown.  They are ordered by popularity.  Checking the auto update button when selecting a list to copy will automatically set your list to update with the owners list any time a name on that owners list is updated.
+33 - Types of Races
+Here is a quick breakdown of the different kinds of races:
+Maiden Claiming Race
+- Only horses that have not won a race will be eligible for these type of races.  Also, every horse entering this type of race will be available for purchase at a set price to any owner at the end of the race.  Any winnings will go to the owner who entered the horse in the race.
+Maiden Race
+- Only horses that have not won a race will be eligible for these type of races.
+Claiming Race
+- Every horse entering this type of race will be available for purchase at a set price to any owner at the end of the race.  Any winnings will go to the owner who entered the horse in the race.
+Optional Claiming Race
+- Any horse can enter this race to be claimed at a certain price.  Horses meeting certain criteria will also have the option to race without being able to be claimed.
+Allowance Race
+- Horses entering this type of race are given weight allowances determined by the specifications in the race description.  Allowances may also have specific requirements for entering these races.
+Stakes Race
+- This type of race is typically reserved for the better horses.  There are typically fewer restrictions and higher purses involved.
+Handicap Race
+- Similar to stakes races except their are more weight penalties and weight allowances involved.
+34 - State-bred Races
+For a state to qualify for state-bred races it must achieve at least a 100 rating on the Stables->Farms->Price List page.  The rating takes into consideration the number of active horses owned by pay stables in that specific state and the number of pay stables owning active horses in that specific state.  This requirement is required to assure there will be enough horses in a state to support state-bred racing.  A state must maintain at least a rating of 60 or that state will lose state-bred racing.  States that have tracks that qualify for state-bred racing will have preference when we are scheduling which meets to run but we can not guarantee all tracks with state-bred racing will run a meet.  Only tracks that we run meets at will offer bonus races in their proper states.  There will be a minimum of 1 state-bred restricted race at a track that is open for racing (whether we are running a meet there or not) in a state that has qualified for state-bred racing and offers state-bred restricted races.
+Restricted races are races that only horses foaled in that particular state can enter.  The types of stat-bred restricted races vary by state and track.  Bonus races are races that will pay a bonus to a horse foaled in a particular state the race is taking place in but the race is open to a horse from any state.  Race types available with bonuses vary from state to state along with the bonus amount.  Below is a chart listing the bonuses each state pays for certain types of races.  States offering state-bred restricted races are also listed.  The specific race types offered for state-bred restricted races can be found under the race request utility.
+State
+Restricted Races
+Bonus Races
+AR
+AZ
+Yes
+None
+CA
+Yes
+15/30% MSW, CL30+, sALW, OCL30+, ALW
+CO
+DE
+FL
+Yes
+10/20% MCL15+, MSW, CL15+, sALW15+, ALW
+IA
+ID
+IL
+IN
+KS
+KY
+No
+20/40% MSW,OCLN,ALW
+LA
+Yes
+7.5/15% MCL, MSW, CL, sALW, OCL, ALW, STK
+MA
+MD
+MI
+MN
+MT
+ND
+NE
+NJ
+Yes
+7.5/15% MCL, MSW, CL, sALW, OCL, ALW, STK
+NM
+Yes
+10/20% MCL, MSW, CL, sALW, OCL, ALW
+NV
+NY
+Yes
+7.5/15% MCL30+, MSW, CL30+, sALW, OCL30+, ALW, STK
+OH
+OK
+OR
+PA
+Yes
+10/20% MCL, MSW, CL, sALW, OCL, ALW
+TX
+Yes
+7.5/15% MCL, MSW, CL, sALW, OCL, ALW, STK
+VA
+WA
+WV
+Yes
+None
+WY
+Canada
+Yes - Stakes only
+None
+AB
+BC
+Yes
+15/30% MCL, MSW, CL
+MB
+ON
+Yes
+7.5/15% MCL20+, MSW, CL20+, sALW20+, OCL20+, ALW, STK
+SK
+- The maximum bonus amount a single horse in a single race can win is $12.00 which will be split among the owner and breeder.
+- The maximum bonus amount a single horse in a single race can win is $20.00 which will be split among the owner, breeder, and sire owner.
+- The sire owner bonus is only available for foals bred after 7/1/07.
+- If a number follows a race type like MCL20+ for bonus races this means a bonus is only paid if the horse is entered for a claiming price of $20 or higher.
+- Horses entered in bonus races that are optional claimers in Kentucky will only receive a bonus if they are not entered for the claiming price.
+- An owner must be a pay stable to receive any of the statebred bonuses.
+The bonus amount won is calculated by multiplying the percentage listed above by any money won for the given type races.  The first percentage listed is the owner/breeder bonus if the horse was foaled in the state.  The owner and breeder will split the bonus.  If the horse is
+
+			foaled in the state and is from a sire that was located in the same state during the breeding period the second percentage will instead be paid and split between the owner, breeder, and sire owner at the time of breeding.  The sire owner bonus is only paid if the foal is from the same
+
+			state that the sire stood in for the breeding.
+35 - Collecting Your Winnings
+Your winnings will automatically be deposited into your account shortly after the finish of a race.  This will occur once the final results for the race are posted.  Results are normally posted within 30 minutes after a race.
+36 - About Your Horse's Abilities
+Each horse has its own unique characteristics.  The list below will give you an idea of what to look for when training your horse and how you may improve its performance.
+Age
+- All horses age differently.  You will find some horses may not peak until late in their careers while others have short careers.
+Consistency
+- Some horses will be more consistent with their performances than others.
+Stamina
+- Some horses will recover quickly while others will need a little more time.
+Condition
+- Some horses need more training than others to stay fit.
+Weight
+- As a horse grows its weight will increase. A sprinter will tend to be a little heavier on average than a router. Weight will also be impacted by a horse's stamina, condition, races, and works.
+Pace
+- Some horses will perform best running fast early.  Some will prefer to start slow and pour it on at the end.  Some will be able to do either or somewhere in between.
+Distance
+- Your horse may like certain distances more than others.
+Surface
+- Your horse may prefer dirt or turf or it may not care.
+Track Conditions
+- Some horses run better under certain track conditions.
+Weight Carried
+- Some horses carry additional weight better or worse than others.
+Blinkers
+- Blinkers are used to narrow a horse's line of sight.  Some will perform better with blinkers and others will not like them.
+Shadow Roll
+- A shadow roll is used to keep a horse from seeing his own shadow.  Some will perform better with a shadow roll and others will not like them.
+Lasix
+- Lasix is a medication used mainly to help bleeders.  Some horses will perform better when placed on it and others will not.  You may also notice a horse is more consistent when on lasix and/or it has more desire to win races in the stretch.
+Bute
+- Bute is a medication used to help aching joints.  Some horses will perform better when placed on it and others will not.  You may also notice bute may slow the aging process slightly if it is a horse that runs better with bute.
+Desire
+- You may notice some horses seem to rise to the occasion while others falter.  Desire can especially be seen in the stretch.
+Gelding
+- Male horses can be gelded to try and help their speed and consistency.  The older a horse gets the less likely a geld will have an impact on them. A gelded male can not breed.  For more information on gelding see:
+The Effects of Gelding
+.
+37 - Keeping Your Horse Improving
+To keep your horse improving as long as it has not passed its prime you should keep its condition meter at or above 95 as much as possible.  If the condition meter drops below 50 your horse will actually start degrading.  On average you will have to keep the condition meter at or above 95 for as long as it was below 50 to regain anything that was lost provided the horse is not past its prime.
+38 - Ways To Get The Most Out Of Your Horse
+Here are just some general guidelines on things to look for in your horses and how you may be able to get that little extra out of them:
+- Horses need to be kept in racing shape to run their best.  This typically means they need at least 1 work at a farm or track every 1-2 months.  If they don't get it they may start to not perform as well until they are given a work.
+- Pay attention to the amount of time in between races.  Some horses like shorter amounts of time in between races while others can go longer or like longer amounts of time.
+- Highly contested races, especially graded stakes where the competition can be stiff puts extra stress on your horse and may require a little longer break in between.
+- Some horses may require a tune up race if they have been off for a period of time from racing.
+- If a horse is placed way below or way above its ability in a race it may not get as much out of its race as it could.
+- Watch the amount of distance a horse is traveling around the track either through races or works in the last few months.  Too much or too little can have an impact and each horse is different.  Distance in races has a little more impact than distance in works. Distance with handily works have a little more impact than breezing works.
+- Watch for cyclical up and down patterns.
+- Horses can become fatigued over longer periods of time and may require several months off to fully rejuvenate.
+- Weight can be a clue into increasing a horse's chances of performing its best on the track by paying attention to what weight it performs best at. A horse that has raced/worked too much will tend to have a little lower weight while a horse that needs more races/works will tend to have a little higher weight.
+- It is possible to reduce the need for a first race or a race after a layoff with works. This can be done by paying very close attention to optimal weight, amount of works, and distance being traveled in works and comparing those things to how a horse performs in works.
+- Works and the distance being traveled in works can have a short term impact on a horse but there is no long term impacts.
+39 - Basics That Influence Horse Performance
+Listed here are some of the basic questions to initially consider when evaluating performance in races and works.  These are things that can have an influence on horse performance or things that should be considered.  It is not an all inclusive list but should give a good start and a good idea of things to look for.
+1. Were the condition and stamina meters between 95 & 105?
+2. Was the distance meter different?
+3. Was the consistency meter different?
+4. Was there a change in accessories or medications?
+5. Is the horse carrying a different amount of weight?
+6. Were different instructions used?
+7. Was there a change in surface or track conditions?
+8. Was there a change in distance run?
+9. Was the work/race at a different track?
+10. Did the actual pace change?
+11. Was the horse positioned differently?
+12. Did the horse step up in class or run against easier/tougher competition?
+13. Did the horse have a wider trip?
+14. Does the horse constantly seem to never live up to it works in races?
+15. Was the time comparable to past works/races?
+16. How did the finishing position compare versus the time?
+17. Is the horse still young and more inconsistent?
+18. How is the horse improving with age compared to other horses?
+19. Did the horse get off to a bad start?
+20. Was the horse influenced by traffic?
+40 - Age Restrictions
+There is no racing for yearlings (1yos). The first races a horse can race in are 2yo races that start in April.  However, 2yo racing in April is limited and races are typically difficult to gain entry into because of the number of horses attempting to be nominated.  Each month the number of 2 year old races will increase.  Below is a chart outlining when races will become available for 2yos.
+Two Year Old Races
+Month
+Statebreds
+Race Types
+Dirt Distances
+Turf Distances
+Apr
+Available Tracks
+Md,Stk
+<
+=4 1/2f
+May
+Available Tracks
+Md,MC,Stk
+<
+=5f
+June
+Available Tracks
+Md,MC,NW2,Stk
+<
+=5 1/2f
+July
+Available Tracks
+Md,MC,Cl,sAlw,NW2,Stk
+<
+=6f
+<
+=7 1/2f
+Aug
+Available Tracks
+Md,MC,Cl,sAlw,NW2,Stk
+<
+=1m
+<
+=1 1/16m
+Sep
+Available Tracks
+Md,MC,Cl,sAlw,NW2,Stk
+<
+=1 1/16m
+<
+=1 1/16m
+Oct
+Available Tracks
+Md,MC,Cl,sAlw,NW2,Stk
+<
+=1 1/16m
+<
+=1 1/16m
+Nov
+Available Tracks
+Md,MC,Cl,sAlw,NW2,Stk
+<
+=1 1/16m
+<
+=1 1/16m
+Dec
+Available Tracks
+Md,MC,Cl,sAlw,NW3,Stk
+<
+=1 1/16m
+<
+=1 1/16m
+- Stakes races can be scheduled with distances and/or surfaces outside the times on the chart.
+- Statebred restricted races are limited at all tracks and the above chart does not guarantee any particular type of race at any track but the types of available races will be pulled from the available pool above.
+3yo only races become limited at the end of each year starting in September, (meaning) there will be less variety to choose from.  3yos should start shifting into races for 3+ yos as the 3yo only races go away.  The table below outlines what to expect with 3yo only races.
+3 Year Old Only Races
+Month
+Statebreds
+Race Types
+Dirt Distances
+Turf Distances
+Jan
+Available Tracks
+Md,MC,Cl,sAlw,NW3,Stk
+<
+=1 1/8m
+<
+=1 1/8m
+Feb
+Available Tracks
+Md,MC,Cl,sAlw,NW3,Stk
+<
+=1 1/8m
+<
+=1 1/8m
+Mar
+Available Tracks
+Md,MC,Cl,sAlw,NW3,Stk
+<
+=1 1/8m
+<
+=1 1/8m
+Apr
+Available Tracks
+Md,MC,Cl,sAlw,NW3,Stk
+<
+=1 1/8m
+<
+=1 1/8m
+May
+Available Tracks
+Md,MC,Cl,sAlw,NW3,Stk
+<
+=1 1/8m
+<
+=1 1/8m
+June
+Available Tracks
+Md,MC,Cl,sAlw,NW3,Stk
+<
+=1 1/8m
+<
+=1 1/8m
+July
+Available Tracks
+Md,MC,Cl,sAlw,NW3,Stk
+<
+=1 1/8m
+<
+=1 1/8m
+Aug
+Available Tracks
+Md,MC,Cl,sAlw,NW3,Stk
+<
+=1 1/8m
+<
+=1 1/8m
+Sep
+Available Tracks
+Md,MC,Cl,NW3,Stk (Limited)
+<
+=1 1/8m
+<
+=1 1/8m
+Oct
+None
+Cl,Stk (Limited)
+<
+=1 1/8m
+<
+=1 1/8m
+Nov
+None
+Cl,Stk (Limited)
+<
+=1 1/8m
+<
+=1 1/8m
+Dec
+None
+Cl,Stk (Limited)
+<
+=1 1/8m
+<
+=1 1/8m
+- Stakes races can be scheduled with distances and/or surfaces outside the times on the chart.
+- Statebred restricted races are limited at all tracks and the above chart does not guarantee any particular type of race at any track but the types of available races will be pulled from the available pool above.
+Races for 4 year olds and upward are available at the beginning of each year at a number of tracks. These races are phased out by May and turn into races for 3 year olds and upward for the remainder of each year.
+41 - Age Limits
+When a horse turns 16 years old it will automatically be retired from racing and when it turns 22 years old it will automatically be deactivated.  If a retired broodmare runs out of breedings it will automatically be deactivated.  If a gelding is retired it will automatically be deactivated since it can not breed.
+42 - The Tracks
+There are many tracks to choose from.  The available tracks and current meets with prizes can be found on the track calendar page under Racing->Track Calendar.
+43 - Season
+The racing season runs with the calendar year.  On the night of December 31st during maintenance all horses ages will increment by 1.  Your horses abilities gradually go up over time as you race and train them.  They are
+
+			not magically changed on this one day.  The only thing that is different is that the horse will be represented as a year older for entering races.
+44 - Standings
+Overall and track meet statistics can be found under Racing->Statistics.  Point totals for horses in the running for invitation to the BC and TC races can also be found there.  We will offer special prizes for individual meet winners of meets running full schedules (with overnight races).  The meets and prizes are listed under Racing->Track Calendar.
+The winners of meets are determined by the most wins.  Ties are broken by places, shows, and earnings in that order.
+45 - TC Races
+There is a special series of races for 3 year olds only known as the TC races.  You will be given the option to TC nominate any of your horses that will be 3 years old
+
+			on race day for these races.  If you TC nominate your horse before February 1st it will cost $1.  If you TC nominate your horse between February 1st and the end of March
+
+			it is $10.  You can not TC nominate your horse after the end of March.  If your horse is TC nominated each of the TC races will be $3 to nominate to.  If you do
+
+			not TC nominate your horse the nomination fee will be $50 for each race.  For details on TC Nominating your horses go to Stables->TC Nominations.  Here is a look at
+
+			each of the 3 TC races and how entries will be selected:
+Race 1
+CD
+The KYD - Grade I     1st Saturday in May
+3
+1 1/4m
+$5,000
+The maximum field size will be 20.  The 20 entrants will be selected from the top 20 nominations with the most KYD points earned.  Ties will be broken by most non-restricted stakes earnings and then a random draw.  Also eligibles will be selected by the remaining horses with the most KYD points and ties will also be broken by the most non-restricted stakes earnings and then a random draw.
+The schedule of races worth KYD points can be found
+here
+.
+Race 2
+PIM
+The Prk - Grade I     2 wks after The KYD
+3
+1 3/16m
+$2,000
+The maximum field size will be 14.  The 14 entrants are broken down into 3 categories.  7 horses will be selected by most graded stakes earnings.  Ties for these 7 horses will be broken by non-restricted stakes earnings, overall earnings, and a random draw in that order.  From the remaining nominations the next 4 horses will be
+
+			selected by most non-restricted stakes earnings.  Ties will be broken by most overall earnings and then a random draw.  From the remaining nominations 3 horses will be selected by most overall earnings.  Ties will be broken with a random draw.  Also eligibles will be drawn based on most overall earnings.  Ties for also eligibles will be broken by a random draw.
+Race 3
+SAR
+The BEL - Grade I     3 wks after The PIM
+3
+1 1/4m
+$2,000
+The maximum field size will be 16.  The 16 entrants are broken down into 3 categories.  8 horses will be selected by most graded stakes earnings in races at 1 mile or over.  Ties for these 8 horses will be broken by most non-restricted stakes earnings, most overall earnings, and a random draw in that order.  From the remaining nominations the next 5 horses will be
+
+			selected by most non-restricted stakes earnings.  Ties will be broken by most overall earnings and then a random draw.  From the remaining nominations 3 horses will be selected by most overall earnings.  Ties will be broken with a random draw.  Also eligibles will be drawn based on most overall earnings.  Ties for also eligibles will be broken by a random draw.
+BONUS:
+Any horse that wins all 3 of the TC races and meets specific requirements will win a special bonus.  If no horse wins the bonus it will carry over to be eligible to be won in a future year.  For more information on the bonus click here:
+TC Bonus
+.
+For qualifying in The Prk or The BEL only 25% of earnings accumulated in filly only races by fillies count towards gaining entry.
+46 - KYO Race
+This is a special race for 3yo fillies taking place the day before the KYD. The race has a purse of $1000 and is run over 1 1/8m on the dirt at CD. The maximum field size will be 14 and the entrants will be selected based on the most KYO points earned. Ties will be broken by most non-restricted stakes earnings and then a random draw.  Also eligibles will be selected by the remaining horses with the most KYO points and ties will also be broken by the most non-restricted stakes earnings and then a random draw.
+The schedule of races worth KYO points can be found
+here
+.
+47 - BC Days
+Once a year there are 2 days of racing for the top horses.  It takes place near the end of October or beginning of November.  To qualify your horse for one
+
+			of these races you must accumulate enough points.  Points are earned by finishing 1st, 2nd, or 3rd in a Graded 
+
+			Stakes race in the same calendar year that the race is to take place. Grade 1 finishers receive 10, 6, and 4 points respectively. Grade 2 finishers receive 6, 4, and 2 points. Grade 3 finishers 
+
+			receive 4, 2, and 1. Additionally, non-restricted 2yo stake turf race finishers will receive 2 points for finishing 1st and 1 point for 2nd because of very limited races for this category.  There is a maximum of 14 horses for each race.  The winner of the automatic qualifier races below will automatically be qualified for the designated race regardless of points accumulated.  The remaining horses will be selected by
+
+			the highest points for the race being nominated for. Ties will be broken by overall points and then total horse earnings in the year of the race.  A horse must have placed in the top 3 of any stakes or won an optional claimer or allowance race in the same calendar year of the BC races to be eligible for entry.  BC nominated
+
+			horses will be able to nominate to these races for free.  Horses that are not BC nominated will require a nomination fee of $50.  The races and purses are as follows:
+BC Schedule
+BC Juvenile Turf Sprint - Grade I
+2
+5f (T)
+$1000
+BC Juvenile Fillies Turf - Grade I
+2 F
+1m (T)
+$1000
+BC Filly & Mare Sprint - Grade I
+3+ F&M
+7f
+$1000
+BC Juvenile Fillies - Grade I
+2 F
+1 1/16m
+$2000
+BC Filly & Mare Turf - Grade I
+3+ F&M
+1 3/8m (T)
+$2000
+BC Distaff - Grade I
+3+ F&M
+1 1/8m
+$2000
+BC Turf Sprint - Grade I
+3+
+5f (T)
+$1000
+BC Dirt Mile - Grade I
+3+
+1m
+$1000
+BC Juvenile Turf - Grade I
+2 C&G
+1m (T)
+$1000
+BC Mile - Grade I
+3+
+1m (T)
+$2000
+BC Sprint - Grade I
+3+
+6f
+$2000
+BC Juvenile - Grade I
+2 C&G
+1 1/16m
+$2000
+BC Turf - Grade I
+3+
+1 1/2m (T)
+$5000
+BC Classic - Grade I
+3+
+1 1/4m
+$7000
+Points for races are determined by the following:
+Juvenile Turf Sprint
+- All Graded & Ungraded unrestricted Stakes for open or filly 2 yr olds on turf at 1m or less
+Juvenile Fillies Turf
+- All Graded & Ungraded unrestricted Stakes for open or filly 2 yr olds on turf at 7f or more
+Filly & Mare Sprint
+- All Graded Stakes for open or filly 3 yr olds or older on dirt at 7 1/2f or less
+Juvenile Fillies
+- All Graded Stakes for open or filly 2 yr olds on dirt
+Filly & Mare Turf
+- All Graded Stakes for open or filly & mare 3 yr olds or older on turf at 1m or more
+Distaff
+- All Graded Stakes for open or filly 3 yr olds or older on dirt at 1m or more
+Turf Sprint
+- All Graded Stakes for 3 yr olds or older on turf at 7 1/2f or less
+Dirt Mile
+- All Graded Stakes for open or male/gelded 3 yr olds or older on dirt at 7f to 1 1/8m
+Juvenile Turf
+- All Graded & Ungraded unrestricted Stakes for open or male/gelded 2 yr olds on turf at 7f or more
+Mile
+- All Graded Stakes for open or male/gelded 3 yr olds or older on turf at 1 1/8m or less
+Sprint
+- All Graded Stakes for open or male/gelded 3 yr olds or older on dirt at 7 1/2f or less
+Juvenile
+- All Graded Stakes for open or male/gelded 2 yr olds on dirt
+Turf
+- All Graded Stakes for open or male/gelded 3 yr olds or older on turf at 1m or more
+Classic
+- All Graded Stakes for open or male/gelded 3 yr olds or older on dirt at 1m or more
+Automatic qualifying races:
+Win any of these races in 2026 and automatically qualify for the designated race regardless of number of points.
+48 - Costs
+Monthly Stable Fee
+$0-$4.95 depending on stable level
+Monthly Excess Horse Fee
+$0.10 per virgin/active horse over 1250 (1000 starting 1/1/20)
+Replace Base Farm
+$10.00 for lowest valued city in a state or 50% discount ($10 min)
+Purchase Additional Farm
+Variable cost based on current value under Stables->Farms->Price List.
+Purchase Auto-Generated Horse
+$12.00
+Breed Mare With Stallion In Own Stable
+$10.00
+Offer Stallion Stud Services To Public - Listing Fee
+$0.25 per service offered (non-refundable)
+Stallion BC Nomination Fee
+Stud Fee x 25% with $1.00 minimum (non-refundable)
+Stud Fee - Percent From Stallion Owner
+10% of Stud Fee or Listing Fee (whichever is greater)
+Breed Mare With Public Stallion
+$10.00 + Stud Fee
+Lease Broodmare - Listing Fee
+$1.00 (non-refundable)
+Lease Broodmare - From Leaser
+10% of Lease Fee or Listing Fee (whichever is greater)
+BC Nominate Horse
+$1.00
+TC Nominate Horse
+$1.00, $10.00
+Race Nomination Fee
+$0.00-$50.00/race
+Scratch Fee - Before Nomination Deadline
+Free
+Scratch Fee - First 24 Hours After Nomination Deadline for Handicaps Only
+50% of Nomination Fee
+Scratch Fee - Dry Track Only
+50% of Nomination Fee
+Scratch Fee - After Nomination Deadline and Before Race Day
+75% of Nomination Fee
+Scratch Fee - On Race Day
+100% of Nomination Fee
+Auctions - Listing Fee
+1.0% of Minimum Bid ($1.00 minimum, $10.00 maximum, non-refundable)
+Auctions - Percent From Seller
+10%-25% of Selling Price or Listing Fee (whichever is greater)
+Claiming Race - Percent From Seller
+10%-25% of Claiming Price
+Private Sales - Listing Fee
+2.5% of Purchase Price ($0.25 minimum, non-refundable)
+Private Sales - Percent From Seller
+10%-25% of Purchase Price or Listing Fee (whichever is greater)
+Private Sales Offer (To Private List) - Percent From Seller
+10%-25% of Purchase Price ($0.25 minimum)
+Private Sales Offer (Immediate Transfer) - Percent From Seller
+10%-25% of Purchase Price ($5.00 minimum)
+Copyright © 2003-2026 HorseRacingPark.com -
+horse racing game
+- virtual online realism, All Rights Reserved
+User Agreement
+|
+Privacy Policy
+|
+Sitemap
+Ire Iron Stables

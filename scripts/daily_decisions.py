@@ -107,14 +107,26 @@ def main():
     # Stamina alerts
     for h in snap.get("horses", []):
         stam_str = str(h.get("stamina", "100")).replace("%", "")
-        if stam_str.isdigit() and int(stam_str) < 60:
-            lines.append(f"- 🔴 **{h['name']}** — stamina {stam_str}%, extended rest needed")
+        try:
+            stam_val = float(stam_str)
+        except ValueError:
+            continue
+        if stam_val < 75:
+            lines.append(f"- 🔴 **{h['name']}** — stamina {stam_val:.0f}%, SCRATCH RISK (<75 = auto-scratch)")
+        elif stam_val < 85:
+            lines.append(f"- ⚠️ **{h['name']}** — stamina {stam_val:.0f}%, extended rest needed")
 
-    # Condition alerts (updated: 95% threshold, not 90%)
+    # Condition alerts
     for h in snap.get("horses", []):
         cond_str = str(h.get("condition", "100")).replace("%", "")
-        if cond_str.isdigit() and int(cond_str) < 90:
-            lines.append(f"- ⚠️ **{h['name']}** — condition {cond_str}%, NOT race-ready (need 95%+)")
+        try:
+            cond_val = float(cond_str)
+        except ValueError:
+            continue
+        if cond_val < 75:
+            lines.append(f"- 🔴 **{h['name']}** — condition {cond_val:.0f}%, SCRATCH RISK (<75 = auto-scratch)")
+        elif cond_val < 90:
+            lines.append(f"- ⚠️ **{h['name']}** — condition {cond_val:.0f}%, NOT race-ready (need 95%+)")
 
     # Race placement intelligence (NEW)
     for q in queue:

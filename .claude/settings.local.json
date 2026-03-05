@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /c/hrp-ops/scripts/*.py)",
+      "Bash(tasklist:*)",
+      "Bash(python:*)"
+    ]
+  }
+}

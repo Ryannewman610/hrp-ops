@@ -177,7 +177,7 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
 
     # Accessories
     acc_items = []
-    for item in ["Blinkers", "Bute", "Front Wraps"]:
+    for item in ["Blinkers", "Bute", "Lasix", "Shadow Roll"]:
         if acc_text and re.search(rf"{item}.*?(?:Applied|Yes|✓|APPLY)", acc_text, re.IGNORECASE):
             acc_items.append(item)
     if acc_items:
