@@ -51,17 +51,20 @@ def main():
             sys.exit(1)
 
         # Step 2: Export fresh data from HRP
-        if not run_step("Exporting stable data from HRP...",
-                        [PYTHON, str(ROOT / "scripts" / "02_export_stable.py"), "--mode", "daily"],
-                        timeout=600):
+        mode = "weekly" if "--weekly" in sys.argv else "daily"
+        if not run_step(f"Exporting stable data from HRP ({mode})...",
+                        [PYTHON, str(ROOT / "scripts" / "02_export_stable.py"), "--mode", mode],
+                        timeout=1200):
             print("\n❌ Export failed.")
             sys.exit(1)
 
         # Step 3: Build snapshot
-        snapshot_script = ROOT / "scripts" / "03_build_snapshot.py"
+        snapshot_script = ROOT / "scripts" / "05_build_stable_snapshot.py"
+        if not snapshot_script.exists():
+            snapshot_script = ROOT / "scripts" / "03_build_snapshot.py"
         if snapshot_script.exists():
             run_step("Building stable snapshot...",
-                     [PYTHON, str(snapshot_script)], timeout=60)
+                     [PYTHON, str(snapshot_script)], timeout=120)
 
         # Step 4: Analysis pipeline
         analysis_scripts = [
@@ -70,6 +73,8 @@ def main():
             ("Running deep analysis...", "scripts/deep_analysis.py"),
             ("Auditing stable...", "scripts/stable_audit.py"),
             ("Generating daily decisions...", "scripts/daily_decisions.py"),
+            ("Building playbook...", "scripts/playbook_engine.py"),
+            ("Generating recommendations...", "scripts/recommend_actions.py"),
         ]
         for label, script in analysis_scripts:
             script_path = ROOT / script
