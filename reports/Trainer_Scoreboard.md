@@ -1,5 +1,5 @@
 # 📊 Trainer Scoreboard
-> **Generated:** 2026-03-03 | **Predictions:** 61 | **Outcomes:** 112 | **Joined:** 0
+> **Generated:** 2026-03-06 | **Predictions:** 109 | **Outcomes:** 112 | **Joined:** 0
 
 ## Overall Performance
 | Metric | Value |
@@ -8,11 +8,11 @@
 | Win rate | 0/0 (0.0%) |
 | Top-3 rate | 0/0 (0.0%) |
 | Brier score (win%) | 0.0000 |
-| Unmatched predictions | 61 |
+| Unmatched predictions | 109 |
 
 ## ⏳ No Matched Results Yet
 Predictions have been logged but no matching race outcomes found yet.
 Outcomes will match as races complete and results are exported.
 
 ---
-*Trainer Scoreboard · 2026-03-03*
+*Trainer Scoreboard · 2026-03-06*
