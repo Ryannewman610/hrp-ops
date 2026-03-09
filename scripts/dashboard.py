@@ -121,37 +121,68 @@ def index():
     return render_template("dashboard.html")
 
 
+def _load_works_features():
+    """Load works_features.csv into a dict keyed by horse_name."""
+    rows = load_csv_rows(OUTPUTS / "works_features.csv")
+    return {r["horse_name"]: r for r in rows if r.get("horse_name")}
+
+
 @app.route("/api/stable")
 def api_stable():
     snap = find_latest_snapshot()
     ratings = load_json(OUTPUTS / "model" / "horse_ratings.json")
+    wf = _load_works_features()
     horses = []
     for h in snap.get("horses", []):
         name = h.get("name", "")
         if _norm(name) in INACTIVE:
             continue
         rating = ratings.get(name, {})
+        wk = wf.get(name, {})
         horses.append({
             "name": name,
             "sex": h.get("sex", "?"),
             "age": h.get("age", "?"),
+            "color": h.get("color", "?"),
+            "height": h.get("height", "?"),
+            "weight": h.get("weight", "?"),
             "track": h.get("track", "?"),
             "sire": h.get("sire", "?"),
+            "dam": h.get("dam", "?"),
+            "accessories": h.get("accessories", []),
             "condition": h.get("condition", "?"),
             "stamina": h.get("stamina", "?"),
             "consistency": h.get("consistency", "?"),
+            "works_count": h.get("works_count", 0),
             "record": h.get("record", {}),
+            "recent_races": h.get("recent_races", []),
             "srf_power": rating.get("srf_power", 0),
             "srf_avg": rating.get("srf_avg", 0),
             "srf_best": rating.get("srf_best", 0),
             "srf_last": rating.get("srf_last", 0),
             "srf_trend": rating.get("srf_trend", ""),
+            "srf_races": rating.get("srf_races", 0),
             "win_pct": rating.get("win_pct", 0),
             "top3_pct": rating.get("top3_pct", 0),
             "ev_score": rating.get("ev_score", 0),
             "form_status": rating.get("form_status", ""),
+            "form_factors": rating.get("form_factors", []),
             "next_action": rating.get("next_action", ""),
-            "elo": rating.get("elo", 1200),
+            "elo": rating.get("elo_rating", 1200),
+            "elo_history": rating.get("elo_history", []),
+            # Works intelligence
+            "work_trend": wk.get("work_trend", ""),
+            "readiness_tag": wk.get("readiness_tag", ""),
+            "work_quality_tier": wk.get("work_quality_tier", ""),
+            "best_5f_seconds": wk.get("best_5f_seconds", ""),
+            "fitness_index": wk.get("fitness_index", ""),
+            "sharpness_index": wk.get("sharpness_index", ""),
+            "fatigue_proxy": wk.get("fatigue_proxy", ""),
+            "recent_works_14d": wk.get("recent_works_14d", ""),
+            "recent_works_28d": wk.get("recent_works_28d", ""),
+            "last_work_date": wk.get("last_work_date", ""),
+            "last_work_track": wk.get("last_work_track", ""),
+            "last_work_distance": wk.get("last_work_distance", ""),
         })
     # Snapshot metadata
     snap_date = snap.get("_snapshot_date", "unknown")
@@ -426,6 +457,41 @@ def api_metrics():
 def api_outcomes():
     rows = load_csv_rows(OUTPUTS / "outcomes_log.csv")
     return jsonify(rows[-50:])  # Last 50 races
+
+
+@app.route("/api/race-results")
+@login_required
+def api_race_results():
+    """All recent race results aggregated from snapshot data."""
+    snap = find_latest_snapshot()
+    results = []
+    for h in snap.get("horses", []):
+        name = h.get("name", "")
+        if _norm(name) in INACTIVE:
+            continue
+        for race in h.get("recent_races", []):
+            results.append({
+                "horse": name,
+                "finish": int(race.get("finish", 0)),
+                "field": int(race.get("field", 0)),
+                "date": race.get("date", ""),
+                "track": race.get("track", ""),
+                "distance": race.get("distance", ""),
+                "surface": race.get("surface", ""),
+                "time": race.get("time", ""),
+            })
+    results.sort(key=lambda x: x.get("date", ""), reverse=True)
+    return jsonify(results)
+
+
+@app.route("/api/training-plan")
+@login_required
+def api_training_plan():
+    """Serve Training_Plan.md content."""
+    path = REPORTS / "Training_Plan.md"
+    if path.exists():
+        return jsonify({"content": path.read_text(encoding="utf-8")})
+    return jsonify({"content": "No training plan generated yet."})
 
 
 # ── 2YO Development Center ──────────────────────────────

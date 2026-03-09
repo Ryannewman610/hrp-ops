@@ -20,6 +20,13 @@
                 <div class="logo-sub">Ire Iron Stables</div>
             </div>
         </div>
+        <div class="header-search">
+            <div class="search-container" id="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="🔍 Search horses..."
+                    autocomplete="off" oninput="onSearch(this.value)" onfocus="onSearchFocus()">
+                <div class="search-results" id="search-results" style="display:none"></div>
+            </div>
+        </div>
         <div class="header-stats">
             <div class="stat-pill">💰 <span class="value money" id="balance">—</span></div>
             <div class="stat-pill">🐴 <span class="value" id="horse-count">—</span></div>
@@ -157,7 +164,46 @@
                     </div>
                 </section>
 
-            </div><!-- /tab:playbook -->
+            </div><!-- /tab:playbook after calendar -->
+
+            <!-- TAB: Results -->
+            <div class="tab-section" data-tab="results">
+                <!-- Race Results -->
+                <section class="panel" id="race-results-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">🏁</span> Race Results</div>
+                        <span class="panel-badge" id="results-badge">—</span>
+                    </div>
+                    <div style="overflow-x:auto;">
+                        <table class="rank-table" id="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Horse</th>
+                                    <th>Date</th>
+                                    <th>Track</th>
+                                    <th>Dist</th>
+                                    <th>Surf</th>
+                                    <th>Fin</th>
+                                    <th>Field</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Training Plan -->
+                <section class="panel" id="training-plan-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">📋</span> Training Plan</div>
+                        <button class="btn-collapse" id="btn-tp-toggle" onclick="toggleTrainingPlan()"
+                            style="background:none;border:1px solid var(--border);color:var(--text-dim);border-radius:6px;padding:3px 10px;font-size:10px;cursor:pointer">Expand</button>
+                    </div>
+                    <div id="training-plan-content"
+                        style="padding:0 12px 12px;max-height:400px;overflow-y:auto;display:none"></div>
+                </section>
+            </div><!-- /tab:results -->
 
             <!-- TAB: 2YO Dev -->
             <div class="tab-section" data-tab="twoyo">
@@ -346,6 +392,11 @@
                 Playbook
                 <span class="nav-badge" id="badge-playbook"></span>
             </button>
+            <button class="nav-tab" data-target="results" onclick="switchTab('results', this)">
+                <span class="nav-icon">🏁</span>
+                Results
+                <span class="nav-badge" id="badge-results"></span>
+            </button>
             <button class="nav-tab" data-target="twoyo" onclick="switchTab('twoyo', this)">
                 <span class="nav-icon">🌱</span>
                 2YO Dev
@@ -375,6 +426,18 @@
                 <button class="modal-close" onclick="closeModal()">✕</button>
             </div>
 
+            <!-- Profile & Breeding -->
+            <div class="modal-section" id="modal-profile-section">
+                <div class="modal-section-title">🧬 Profile & Breeding</div>
+                <div id="modal-profile"
+                    style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px;"></div>
+            </div>
+
+            <!-- Accessories -->
+            <div class="modal-section" id="modal-accessories-section" style="display:none">
+                <div id="modal-accessories" style="display:flex;gap:4px;flex-wrap:wrap;"></div>
+            </div>
+
             <!-- SRF Overview -->
             <div class="modal-section" id="modal-srf-section">
                 <div class="modal-section-title">SRF Performance</div>
@@ -385,6 +448,46 @@
             <div class="modal-section">
                 <div class="modal-section-title">Current Status</div>
                 <div class="meter-group" id="modal-meters"></div>
+            </div>
+
+            <!-- Form Factors -->
+            <div class="modal-section" id="modal-form-section">
+                <div class="modal-section-title">📊 Form Analysis</div>
+                <div id="modal-form-factors" style="display:flex;gap:4px;flex-wrap:wrap;"></div>
+            </div>
+
+            <!-- Works Intelligence -->
+            <div class="modal-section" id="modal-works-section">
+                <div class="modal-section-title">🏋️ Works Intelligence</div>
+                <div id="modal-works-data"
+                    style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:6px;"></div>
+            </div>
+
+            <!-- ELO Trend -->
+            <div class="modal-section" id="modal-elo-section" style="display:none">
+                <div class="modal-section-title">📈 ELO Rating Trend</div>
+                <div id="modal-elo-chart"></div>
+            </div>
+
+            <!-- Race History -->
+            <div class="modal-section" id="modal-races-section" style="display:none">
+                <div class="modal-section-title">🏁 Race History</div>
+                <div style="overflow-x:auto;">
+                    <table class="rank-table" id="modal-races-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Track</th>
+                                <th>Dist</th>
+                                <th>Surf</th>
+                                <th>Fin</th>
+                                <th>Field</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modal-races-body"></tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- Recommendations -->
@@ -450,6 +553,8 @@
                 loadPlaybook(),
                 load2YOData(),
                 loadCalendar(),
+                loadRaceResults(),
+                loadTrainingPlan(),
             ]);
             updateBadges();
             updateHealthPills();
@@ -1006,14 +1111,40 @@
             }).join('');
         }
 
-        // ── Horse Detail Modal ─────────────────
+        // ── Horse Detail Modal ─────────────────────
         function openHorseModal(name) {
             const h = stableData.horses.find(x => x.name === name);
             if (!h) return;
 
             document.getElementById('modal-horse-name').textContent = h.name;
-            document.getElementById('modal-horse-meta').textContent = `${h.sex || '?'} · ${h.age}yo · ${h.track} · Sire: ${h.sire || '?'}`;
+            document.getElementById('modal-horse-meta').textContent = `${h.sex || '?'} · ${h.age}yo · ${h.color || ''} · ${h.track}`;
             document.getElementById('modal-horse-input').value = h.name;
+
+            // Profile & Breeding
+            const profileItems = [
+                { label: 'Sire', value: h.sire || '?' }, { label: 'Dam', value: h.dam || '?' },
+                { label: 'Height', value: h.height ? h.height + 'h' : '?' },
+                { label: 'Weight', value: h.weight ? h.weight + 'lbs' : '?' },
+                { label: 'Color', value: h.color || '?' }, { label: 'Track', value: h.track || '?' },
+                { label: 'Works', value: h.works_count || 0 }, { label: 'Age', value: (h.age || '?') + 'yo' },
+            ];
+            document.getElementById('modal-profile').innerHTML = profileItems.map(p =>
+                `<div style="text-align:center;padding:6px;background:var(--bg-glass);border-radius:6px;border:1px solid var(--border)">
+                    <div style="font-size:12px;font-weight:600;color:var(--text)">${p.value}</div>
+                    <div style="font-size:9px;color:var(--text-dim);text-transform:uppercase">${p.label}</div>
+                </div>`
+            ).join('');
+
+            // Accessories
+            const accSection = document.getElementById('modal-accessories-section');
+            if (h.accessories && h.accessories.length > 0) {
+                accSection.style.display = '';
+                document.getElementById('modal-accessories').innerHTML = h.accessories.map(a =>
+                    `<span style="padding:3px 8px;border-radius:999px;background:var(--purple-dim,rgba(167,139,250,0.15));color:var(--purple,#a78bfa);font-size:10px;font-weight:600">🛑 ${a}</span>`
+                ).join('');
+            } else {
+                accSection.style.display = 'none';
+            }
 
             // SRF stats
             const srfSection = document.getElementById('modal-srf-section');
@@ -1046,6 +1177,107 @@
                 <div class="meter"><span class="meter-label">CON</span><div class="meter-bar"><div class="meter-fill cons" style="width:${Math.min(cons * 20, 100)}%"></div></div><span class="meter-value">+${cons}</span></div>
             `;
 
+            // Form Factors
+            const ffSection = document.getElementById('modal-form-section');
+            if (h.form_factors && h.form_factors.length > 0) {
+                ffSection.style.display = '';
+                document.getElementById('modal-form-factors').innerHTML = h.form_factors.map(f => {
+                    let color = 'var(--text-dim)', bg = 'var(--surface-2)';
+                    if (f.includes('excellent') || f.includes('peak') || f.includes('high')) { color = 'var(--green)'; bg = 'var(--green-dim)'; }
+                    else if (f.includes('good') || f.includes('moderate')) { color = 'var(--blue)'; bg = 'var(--blue-dim)'; }
+                    else if (f.includes('low')) { color = 'var(--red)'; bg = 'var(--red-dim)'; }
+                    return `<span style="padding:4px 10px;border-radius:6px;background:${bg};color:${color};font-size:11px;font-weight:500">${f}</span>`;
+                }).join('');
+            } else {
+                ffSection.style.display = 'none';
+            }
+
+            // Works Intelligence
+            const worksSection = document.getElementById('modal-works-section');
+            const trendIcons = { improving: '▲', declining: '▼', steady: '—', unknown: '•' };
+            const trendColors = { improving: 'var(--green)', declining: 'var(--red)', steady: 'var(--text-dim)', unknown: 'var(--text-dim)' };
+            const tierColors = { STAKES: 'var(--green)', ULTRA_RARE: 'var(--blue)', PAY_SIDE: 'var(--yellow)', FREE_LEVEL: 'var(--text)', QUESTIONABLE: 'var(--orange,#ffa032)', NOT_USEFUL: 'var(--red)', NO_DATA: 'var(--text-dim)' };
+            const worksItems = [
+                { label: 'Total', value: h.works_count || '—' },
+                { label: '14d', value: h.recent_works_14d || '—' },
+                { label: '28d', value: h.recent_works_28d || '—' },
+                { label: 'Trend', value: `<span style="color:${trendColors[h.work_trend] || 'var(--text-dim)'}">${trendIcons[h.work_trend] || '•'} ${h.work_trend || '?'}</span>` },
+                { label: 'Fitness', value: h.fitness_index || '—' },
+                { label: 'Sharp', value: h.sharpness_index || '—' },
+                { label: 'Fatigue', value: h.fatigue_proxy || '—' },
+                { label: 'Best 5f', value: h.best_5f_seconds ? h.best_5f_seconds + 's' : '—' },
+                { label: 'Quality', value: `<span style="color:${tierColors[h.work_quality_tier] || 'var(--text)'}">${(h.work_quality_tier || '?').replace(/_/g, ' ')}</span>` },
+                { label: 'Last Work', value: h.last_work_date ? h.last_work_date.slice(5) : '—' },
+            ];
+            document.getElementById('modal-works-data').innerHTML = worksItems.map(w =>
+                `<div style="text-align:center;padding:5px;background:var(--bg-glass);border-radius:6px;border:1px solid var(--border)">
+                    <div style="font-size:12px;font-weight:600;color:var(--text)">${w.value}</div>
+                    <div style="font-size:8px;color:var(--text-dim);text-transform:uppercase">${w.label}</div>
+                </div>`
+            ).join('');
+
+            // ELO Trend sparkline
+            const eloSection = document.getElementById('modal-elo-section');
+            if (h.elo_history && h.elo_history.length > 0) {
+                eloSection.style.display = '';
+                const points = [{ date: 'start', elo: 1200 }, ...h.elo_history.map(e => ({ date: e.date, elo: e.new }))];
+                const w = 280, ht = 60, pad = 5;
+                const elos = points.map(p => p.elo);
+                const minE = Math.min(...elos) - 10, maxE = Math.max(...elos) + 10;
+                const rangeE = maxE - minE || 1;
+                const svgPts = points.map((p, i) => {
+                    const x = pad + (i / (points.length - 1)) * (w - 2 * pad);
+                    const y = pad + (1 - (p.elo - minE) / rangeE) * (ht - 2 * pad);
+                    return `${x},${y}`;
+                }).join(' ');
+                const lastElo = elos[elos.length - 1];
+                const eloColor = lastElo >= 1200 ? 'var(--green)' : 'var(--red)';
+                document.getElementById('modal-elo-chart').innerHTML = `
+                    <div style="display:flex;align-items:center;gap:12px">
+                        <svg width="${w}" height="${ht}" style="background:var(--bg-glass);border-radius:6px">
+                            <line x1="${pad}" y1="${pad + (1 - (1200 - minE) / rangeE) * (ht - 2 * pad)}" x2="${w - pad}" y2="${pad + (1 - (1200 - minE) / rangeE) * (ht - 2 * pad)}" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4,4"/>
+                            <polyline fill="none" stroke="${eloColor}" stroke-width="2" points="${svgPts}"/>
+                            ${points.map((p, i) => {
+                    const x = pad + (i / (points.length - 1)) * (w - 2 * pad);
+                    const y = pad + (1 - (p.elo - minE) / rangeE) * (ht - 2 * pad);
+                    return `<circle cx="${x}" cy="${y}" r="3" fill="${eloColor}"/>`;
+                }).join('')}
+                        </svg>
+                        <div style="text-align:center">
+                            <div style="font-size:18px;font-weight:700;color:${eloColor};font-family:'JetBrains Mono'">${lastElo.toFixed(0)}</div>
+                            <div style="font-size:9px;color:var(--text-dim)">ELO (${h.elo_history.length} races)</div>
+                        </div>
+                    </div>`;
+            } else {
+                eloSection.style.display = 'none';
+            }
+
+            // Race History
+            const racesSection = document.getElementById('modal-races-section');
+            if (h.recent_races && h.recent_races.length > 0) {
+                racesSection.style.display = '';
+                document.getElementById('modal-races-body').innerHTML = h.recent_races.map(r => {
+                    const fin = parseInt(r.finish), field = parseInt(r.field);
+                    let finBadge = '', finColor = 'var(--text)';
+                    if (fin === 1) { finBadge = '🥇'; finColor = '#FFD700'; }
+                    else if (fin === 2) { finBadge = '🥈'; finColor = '#C0C0C0'; }
+                    else if (fin === 3) { finBadge = '🥉'; finColor = '#CD7F32'; }
+                    else if (fin <= field * 0.5) { finColor = 'var(--green)'; }
+                    else { finColor = 'var(--red)'; }
+                    return `<tr>
+                        <td style="font-size:11px">${r.date}</td>
+                        <td>${r.track}</td>
+                        <td>${r.distance}</td>
+                        <td style="font-size:10px">${r.surface}</td>
+                        <td style="font-weight:700;color:${finColor}">${finBadge} ${fin}</td>
+                        <td style="color:var(--text-dim)">${field}</td>
+                        <td style="font-family:'JetBrains Mono';font-size:11px">${r.time}</td>
+                    </tr>`;
+                }).join('');
+            } else {
+                racesSection.style.display = 'none';
+            }
+
             // Race Day Projection (from playbook data if available)
             const pb = playbookCache.find(p => p.name === name);
             let projHtml = '';
@@ -1070,7 +1302,7 @@
                         <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:6px">🏁 Race Day Projection (${pb.days_to_race}d)</div>
                         <div style="display:flex;flex-wrap:wrap;gap:1px;margin-bottom:8px">${sched}</div>
                         <div style="display:flex;gap:12px;align-items:center">
-                            <div style="font-size:11px">Today: <b style="color:${pStyle(pb.today_action).bg !== 'var(--surface-2)' ? 'var(--text)' : 'var(--text-dim)'}">${pb.today_label || pb.today_action}</b></div>
+                            <div style="font-size:11px">Today: <b>${pb.today_label || pb.today_action}</b></div>
                             <div style="font-size:11px">Proj C: <b style="color:${cColor}">${pb.proj_cond}%</b></div>
                             <div style="font-size:11px">Proj S: <b style="color:${sColor}">${pb.proj_stam}%</b></div>
                             <div style="font-size:11px">${pb.consist_note}</div>
@@ -1109,6 +1341,80 @@
             document.getElementById('action-detail').value = '';
 
             document.getElementById('horse-modal').classList.add('active');
+        }
+
+        // ── Search ────────────────────────────────
+        function onSearch(query) {
+            const results = document.getElementById('search-results');
+            if (!query || query.length < 1) { results.style.display = 'none'; return; }
+            const q = query.toLowerCase();
+            const matches = (stableData.horses || []).filter(h => h.name.toLowerCase().includes(q)).slice(0, 8);
+            if (matches.length === 0) { results.style.display = 'none'; return; }
+            results.style.display = 'block';
+            results.innerHTML = matches.map(h => {
+                const form = formBadgeHTML(h.form_status);
+                return `<div class="search-result-item" onclick="document.getElementById('search-input').value='';document.getElementById('search-results').style.display='none';openHorseModal('${h.name}')">
+                    <span style="font-weight:600">${h.name}</span>
+                    <span style="display:flex;align-items:center;gap:6px">
+                        <span style="font-size:10px;color:var(--text-dim)">${h.age}yo ${h.sex}</span>
+                        ${form}
+                    </span>
+                </div>`;
+            }).join('');
+        }
+        function onSearchFocus() { const v = document.getElementById('search-input').value; if (v) onSearch(v); }
+        document.addEventListener('click', e => { if (!document.getElementById('search-container').contains(e.target)) document.getElementById('search-results').style.display = 'none'; });
+
+        // ── Load Race Results ─────────────────
+        async function loadRaceResults() {
+            const results = await fetchJSON('/api/race-results');
+            if (!Array.isArray(results)) return;
+            document.getElementById('results-badge').textContent = results.length + ' races';
+            const tbody = document.getElementById('results-body');
+            if (results.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--text-dim);padding:20px">No race results found</td></tr>';
+                return;
+            }
+            tbody.innerHTML = results.map(r => {
+                let finColor = 'var(--text)', finBadge = '';
+                if (r.finish === 1) { finBadge = '🥇'; finColor = '#FFD700'; }
+                else if (r.finish === 2) { finBadge = '🥈'; finColor = '#C0C0C0'; }
+                else if (r.finish === 3) { finBadge = '🥉'; finColor = '#CD7F32'; }
+                else if (r.finish <= r.field * 0.5) { finColor = 'var(--green)'; }
+                else { finColor = 'var(--red)'; }
+                return `<tr class="rank-row" onclick="openHorseModal('${r.horse}')">
+                    <td class="rank-name">${r.horse}</td>
+                    <td style="font-size:11px">${r.date}</td>
+                    <td>${r.track}</td>
+                    <td>${r.distance}</td>
+                    <td style="font-size:10px">${r.surface}</td>
+                    <td style="font-weight:700;color:${finColor}">${finBadge} ${r.finish}</td>
+                    <td style="color:var(--text-dim)">${r.field}</td>
+                    <td style="font-family:'JetBrains Mono';font-size:11px">${r.time}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        // ── Load Training Plan ────────────────
+        let tpExpanded = false;
+        async function loadTrainingPlan() {
+            const data = await fetchJSON('/api/training-plan');
+            if (!data || !data.content) return;
+            const container = document.getElementById('training-plan-content');
+            // Parse markdown into HTML (simple render)
+            let html = data.content
+                .replace(/^### (.+)$/gm, '<div style="font-weight:700;font-size:13px;color:var(--blue);margin:12px 0 4px">▸ $1</div>')
+                .replace(/^## (.+)$/gm, '<div style="font-weight:700;font-size:14px;color:var(--text);margin:16px 0 6px;border-bottom:1px solid var(--border);padding-bottom:4px">📌 $1</div>')
+                .replace(/^# (.+)$/gm, '<div style="font-weight:700;font-size:16px;color:var(--text);margin:16px 0 8px">$1</div>')
+                .replace(/^- (.+)$/gm, '<div style="padding:2px 0 2px 12px;font-size:12px;color:var(--text-secondary)">• $1</div>')
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n/g, '');
+            container.innerHTML = html;
+        }
+        function toggleTrainingPlan() {
+            tpExpanded = !tpExpanded;
+            document.getElementById('training-plan-content').style.display = tpExpanded ? 'block' : 'none';
+            document.getElementById('btn-tp-toggle').textContent = tpExpanded ? 'Collapse' : 'Expand';
         }
 
         function closeModal() {
