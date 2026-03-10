@@ -136,7 +136,7 @@ def horse_profile(name):
         return redirect(url_for("index"))
 
     # Enrich with ratings
-    ratings = load_json(OUTPUTS / "horse_ratings.json")
+    ratings = load_json(OUTPUTS / "model" / "horse_ratings.json")
     rating_info = ratings.get(horse["name"], {})
 
     # Enrich with works features
