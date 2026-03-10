@@ -1266,11 +1266,44 @@ a.horse-name:hover span {
     /* Tab bar */
     .tab-bar {
         margin-bottom: 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 4px;
+        scrollbar-width: none;
     }
+    .tab-bar::-webkit-scrollbar { display: none; }
 
     .tab-btn {
         padding: 6px 8px;
         font-size: 10px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Sort + filter row */
+    #stable-panel > div:nth-child(4) {
+        flex-direction: column;
+        gap: 6px;
+    }
+    #sort-select {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Health strip: scroll on small screens */
+    .health-strip {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 6px 4px;
+    }
+    .health-strip::-webkit-scrollbar { display: none; }
+    .hs-chip {
+        font-size: 10px;
+        padding: 3px 8px;
+        flex-shrink: 0;
     }
 
     /* Decisions sidebar */
