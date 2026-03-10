@@ -1038,6 +1038,20 @@ def api_push():
         REPORTS.mkdir(parents=True, exist_ok=True)
         (REPORTS / "Daily_Decisions.md").write_text(data["decisions"], encoding="utf-8")
 
+    # Write CSV data (works features, outcomes log)
+    if "works_features" in data:
+        OUTPUTS.mkdir(parents=True, exist_ok=True)
+        (OUTPUTS / "works_features.csv").write_text(data["works_features"], encoding="utf-8")
+
+    if "outcomes_log" in data:
+        OUTPUTS.mkdir(parents=True, exist_ok=True)
+        (OUTPUTS / "outcomes_log.csv").write_text(data["outcomes_log"], encoding="utf-8")
+
+    # Write training plan
+    if "training_plan" in data:
+        REPORTS.mkdir(parents=True, exist_ok=True)
+        (REPORTS / "Training_Plan.md").write_text(data["training_plan"], encoding="utf-8")
+
     return jsonify({"status": "ok", "received_keys": list(data.keys())})
 
 

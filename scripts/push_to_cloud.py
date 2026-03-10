@@ -84,6 +84,24 @@ def main():
         payload["peak_plans"] = load_json(peak_plans[0])
         print(f"  → peak_plans: ✓")
 
+    # Works features (CSV as text)
+    wf_path = OUTPUTS / "works_features.csv"
+    if wf_path.exists():
+        payload["works_features"] = wf_path.read_text(encoding="utf-8")
+        print(f"  → works_features: ✓")
+
+    # Outcomes log (CSV as text)
+    ol_path = OUTPUTS / "outcomes_log.csv"
+    if ol_path.exists():
+        payload["outcomes_log"] = ol_path.read_text(encoding="utf-8")
+        print(f"  → outcomes_log: ✓")
+
+    # Training plan
+    tp_path = REPORTS / "Training_Plan.md"
+    if tp_path.exists():
+        payload["training_plan"] = tp_path.read_text(encoding="utf-8")
+        print(f"  → training_plan: ✓")
+
     # Push
     data = json.dumps(payload).encode("utf-8")
     print(f"\n  Total payload: {len(data) / 1024:.0f} KB")
