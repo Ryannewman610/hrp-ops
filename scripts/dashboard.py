@@ -1020,7 +1020,7 @@ def api_peak_plans():
 
 
 # ── Ask AI (OpenAI GPT) ─────────────────────────────
-OPENAI_KEY = os.environ.get("OPENAI_API_KEY", "")
+OPENAI_KEY = os.environ.get("OPENAI_API_KEY", "") or "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"
 
 
 def _build_horse_context(horse_name):
