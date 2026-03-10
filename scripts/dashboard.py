@@ -1019,6 +1019,204 @@ def api_peak_plans():
     return jsonify({"plans": [], "peaking_soon": [], "at_risk": []})
 
 
+# ── Ask AI (OpenAI GPT) ─────────────────────────────
+OPENAI_KEY = os.environ.get("OPENAI_API_KEY", "")
+
+
+def _build_horse_context(horse_name):
+    """Build a rich context string about a specific horse."""
+    snap = find_latest_snapshot()
+    horses = snap.get("horses", [])
+    horse = None
+    for h in horses:
+        if _norm(h.get("name", "")) == _norm(horse_name) or h.get("name", "") == horse_name:
+            horse = h
+            break
+    if not horse:
+        return f"No data found for horse named '{horse_name}'."
+
+    # Ratings
+    ratings = load_json(OUTPUTS / "model" / "horse_ratings.json")
+    ri = ratings.get(horse["name"], {})
+
+    # Works features
+    wf_dict = _load_works_features()
+    wf = wf_dict.get(horse["name"], {})
+
+    # Works splits
+    ws = _load_works_splits(horse["name"])
+
+    # Outcomes
+    outcomes = load_csv_rows(OUTPUTS / "outcomes_log.csv")
+    races = [r for r in outcomes if r.get("horse_name") == horse["name"]]
+    races.sort(key=lambda r: r.get("race_date", ""), reverse=True)
+
+    ctx = f"""HORSE: {horse['name']}
+Age: {horse.get('age','?')} | Sex: {horse.get('sex','?')} | Color: {horse.get('colour', horse.get('color','?'))}
+Height: {horse.get('height','?')} | Weight: {horse.get('weight','?')}
+Sire: {horse.get('sire','?')} | Dam: {horse.get('dam','?')}
+Track: {horse.get('track','?')} | Condition: {horse.get('condition','?')}% | Stamina: {horse.get('stamina','?')}% | Consistency: {horse.get('consistency','?')}
+Record: {horse.get('record',{})}
+Accessories: {horse.get('accessories',[])}
+
+SRF Power: {ri.get('srf_power', 'N/A')} | SRF Best: {ri.get('srf_best', 'N/A')} | SRF Last: {ri.get('srf_last', 'N/A')} | SRF Avg: {ri.get('srf_avg', 'N/A')}
+ELO: {ri.get('elo_rating', 'N/A')}
+Form Status: {ri.get('form_status', 'unknown')}
+Form Factors: {ri.get('form_factors', [])}
+Quality Tier: {wf.get('quality_tier', 'NO_DATA')}
+Readiness: {wf.get('readiness_tag', 'unknown')}
+Work Trend: {wf.get('trend', 'unknown')}
+Best 5f: {wf.get('best_5f_seconds', 'N/A')}s
+Fitness Index: {wf.get('fitness_index', 'N/A')} | Sharpness: {wf.get('sharpness_index', 'N/A')}
+Recent Works (14d): {wf.get('recent_works_14d', 'N/A')} | (28d): {wf.get('recent_works_28d', 'N/A')}
+Last Work: {wf.get('last_work_date', 'N/A')} at {wf.get('last_work_track', 'N/A')} ({wf.get('last_work_distance', 'N/A')})
+"""
+    # Add splits if available
+    if ws.get("works"):
+        ctx += f"\n5f Trend: {ws.get('trend_5f', 'N/A')} | 3f Trend: {ws.get('trend_3f', 'N/A')}\n"
+        ctx += "Recent Works:\n"
+        for w in ws["works"][:10]:
+            splits_str = " → ".join([f"{s}s" for s in w.get("furlong_splits", [])])
+            ctx += f"  {w['date']} {w['track']} {w['distance']} {w['final_time']} splits:[{splits_str}] style:{w.get('running_style','?')} rank:{w.get('rank','?')}\n"
+
+    # Add race results
+    if races:
+        ctx += "\nRace History:\n"
+        for r in races[:8]:
+            ctx += f"  {r.get('race_date','')} {r.get('track','')} {r.get('distance','')} {r.get('surface','')} Finish:{r.get('finish_position','?')}/{r.get('field_size','?')} Time:{r.get('time','')}\n"
+
+    return ctx
+
+
+def _build_stable_context():
+    """Build a summary context of the entire stable."""
+    snap = find_latest_snapshot()
+    horses = snap.get("horses", [])
+    ratings = load_json(OUTPUTS / "model" / "horse_ratings.json")
+    wf_dict = _load_works_features()
+
+    ctx = f"STABLE OVERVIEW: {len(horses)} horses\nBalance: ${snap.get('balance', '?')}\n\n"
+    for h in horses:
+        name = h.get("name", "?")
+        ri = ratings.get(name, {})
+        wf = wf_dict.get(name, {})
+        ctx += f"- {name} ({h.get('age','?')}yo {h.get('sex','?')}) Cond:{h.get('condition','?')}% Stam:{h.get('stamina','?')}% SRF:{ri.get('srf_power','N/A')} ELO:{ri.get('elo_rating','N/A')} Tier:{wf.get('quality_tier','?')} Form:{ri.get('form_status','?')} Ready:{wf.get('readiness_tag','?')}\n"
+
+    return ctx
+
+
+@app.route("/api/ask", methods=["POST"])
+@login_required
+def api_ask():
+    """Ask AI about horses, training, or race strategy."""
+    data = request.json or {}
+    question = data.get("question", "").strip()
+    horse_name = data.get("horse_name", "").strip()
+
+    if not question:
+        return jsonify({"error": "No question provided"}), 400
+
+    api_key = OPENAI_KEY
+    if not api_key:
+        return jsonify({"error": "OpenAI API key not configured. Set OPENAI_API_KEY environment variable."}), 500
+
+    # Build context
+    if horse_name:
+        context = _build_horse_context(horse_name)
+    else:
+        context = _build_stable_context()
+
+    system_prompt = """You are an elite HorseRacingPark (HRP) analyst — a deep expert in this online horse racing simulation's mechanics. You have trained hundreds of horses and know the game inside-out.
+
+=== CORE GAME MECHANICS ===
+
+CONDITION (0-110%):
+- Measures race readiness. Peak range: 95-105%. Below 75% = auto-scratch risk.
+- NIGHTLY DECAY (random range, midpoints): 1yo=5.5%, 2yo=4.5%, 3yo=3.5%, 4+=2.5%
+- Cap is 110%. Condition CANNOT exceed 110%.
+- Training builds condition. Rest means NO condition gain, only decay.
+
+STAMINA (0-110%):
+- Energy reserve. Peak range: 95-105%. Below 70% = danger zone (poor performance).
+- NIGHTLY RECOVERY: +10% per night (midpoint of 6-14 range), regardless of activity.
+- Depleted by works, training, and especially races. Rest day = net +10% stamina.
+
+CONSISTENCY:
+- Rating that reduces performance variability. Higher = more reliable.
+- BUILDS when horse has 2-4 works+races within 30 days. 
+- FALLS with <2 activities in 30 days. 5+ activities = no change.
+- Takes time (consistency arrow: +1 to +5 possible per update tick).
+
+=== TRAINING & WORK EFFECTS (condition gain / stamina cost) ===
+Standard Training:  +12% cond / -10% stam
+Heavy Training:     +18% cond / -30% stam (use sparingly!)
+3f Breeze:          +10.5% cond / -21.5% stam
+5f Breeze:          +12% cond / -25.5% stam
+3f Handily:         +11% cond / -24.5% stam (tracks only, requires jockey)
+5f Handily:         +12.5% cond / -28.5% stam
+
+=== RACE STAMINA DRAIN ===
+5f race: -58.5% stam | 6f: -59.5% | 7f: -60.5% | 1m: -61.5%
+Racing gives only +3% condition. A horse needs HIGH stamina before race day.
+
+=== SPEED BENCHMARKS (Virgin/Debut Works) ===
+| Distance | Average  | Elite (Tier 1) | Strong (Tier 2) |
+|----------|----------|----------------|-----------------|
+| 2f       | :24      | :22            | :23             |
+| 3f       | :36      | :34            | :35             |
+| 5f       | 1:01     | :59            | 1:00            |
+| 6f       | 1:13     | 1:11           | 1:12            |
+
+=== SRF (Speed Rating) TIERS ===
+- 70+ = STAKES (elite, competitive at highest levels)
+- 60-69 = ULTRA_RARE (very strong performer)
+- 50-59 = PAY_SIDE (competitive, can win average races)
+- 40-49 = NW1 (maiden/low claimers)
+- Below 40 = Developing or limited talent
+- N/A = Not yet raced, SRF unknown
+
+=== 2YO DEVELOPMENT STAGES ===
+1. VIRGIN WORK: First timed work reveals raw talent. Compare to benchmarks above.
+2. PROGRESSION: 3-5 works showing improving or stable split times.
+3. DISTANCE EXPANSION: Moving from 2f/3f sprints to 5f stamina building.
+4. RACE READY: Benchmark consistency achieved, stamina 95%+, condition 95%+.
+
+=== RUNNING STYLE ANALYSIS (from furlong splits) ===
+- EARLY SPEED: Faster early furlongs, slowing in later furlongs. Good for sprint races. May tire in routes.
+- CLOSER: Slower early, finishing strong. Better for longer distances. Needs pace to run at.
+- EVEN PACE: Consistent splits throughout. Most versatile. Sign of good fitness.
+
+=== STRATEGIC ADVICE GUIDELINES ===
+- Always check stamina before recommending a work or race. If stam < 80%, recommend rest.
+- Condition below 90% + race in < 3 days = recommend heavy training or postpone.
+- If consistency is low/declining, prescribe regular light works (3f breezes every 3-4 days).
+- A horse with no SRF has never raced — evaluate ONLY from works data and conformation.
+- For unraced horses, recommend: build to 100% condition + 95%+ stamina, then nominate.
+- Farm locations = training + breezes only (no handily works, no jockeys).
+- Track locations = all work types available including handily.
+
+When data is incomplete or missing, clearly state what's unknown and what additional data would help.
+Always be specific: give exact numbers, timelines, and actionable steps."""
+
+    try:
+        from openai import OpenAI
+        client = OpenAI(api_key=api_key)
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "system", "content": f"CURRENT DATA:\n{context}"},
+                {"role": "user", "content": question},
+            ],
+            max_tokens=800,
+            temperature=0.7,
+        )
+        answer = response.choices[0].message.content
+        return jsonify({"answer": answer, "horse": horse_name or "stable", "model": "gpt-4o-mini"})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 # ── Data Push (for cloud sync from local machine) ───────
 
 @app.route("/api/push", methods=["POST"])
