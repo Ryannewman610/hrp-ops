@@ -297,6 +297,62 @@
                 </div>
             </div>
             {% endif %}
+            <!-- Works Splits Analysis -->
+            {% if horse.works_splits and horse.works_splits.works %}
+            <div class="profile-section full-width">
+                <div class="profile-section-title">
+                    🏋️ Work Splits Analysis ({{ horse.works_splits.total }} works)
+                    {% if horse.works_splits.trend_5f == 'improving' %}<span style="color:var(--green);font-size:11px;margin-left:8px">📈 5f Improving</span>
+                    {% elif horse.works_splits.trend_5f == 'declining' %}<span style="color:var(--red);font-size:11px;margin-left:8px">📉 5f Declining</span>
+                    {% elif horse.works_splits.trend_5f == 'steady' %}<span style="color:var(--yellow);font-size:11px;margin-left:8px">➡️ 5f Steady</span>{% endif %}
+                    {% if horse.works_splits.trend_3f == 'improving' %}<span style="color:var(--green);font-size:11px;margin-left:4px">📈 3f↑</span>
+                    {% elif horse.works_splits.trend_3f == 'declining' %}<span style="color:var(--red);font-size:11px;margin-left:4px">📉 3f↓</span>{% endif %}
+                </div>
+                <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+                    <table class="rank-table" style="min-width:500px">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Track</th>
+                                <th>Dist</th>
+                                <th>Time</th>
+                                <th>Splits</th>
+                                <th>Style</th>
+                                <th>Rank</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for w in horse.works_splits.works[:20] %}
+                            <tr class="rank-row">
+                                <td style="font-size:11px;white-space:nowrap">{{ w.date }}</td>
+                                <td>{{ w.track }}</td>
+                                <td style="font-weight:700">{{ w.distance }}</td>
+                                <td style="font-weight:700;color:var(--cyan)">{{ w.final_time }}</td>
+                                <td style="font-size:11px;color:var(--text-secondary)">
+                                    {% if w.furlong_splits %}
+                                    {% for s in w.furlong_splits %}
+                                    <span style="display:inline-block;margin-right:2px;padding:1px 4px;border-radius:3px;font-size:10px;
+                                        {% if s < 12.0 %}background:rgba(34,197,94,0.15);color:var(--green)
+                                        {% elif s < 12.8 %}background:rgba(34,211,238,0.15);color:var(--cyan)
+                                        {% elif s < 13.5 %}background:rgba(250,204,21,0.15);color:var(--yellow)
+                                        {% else %}background:rgba(239,68,68,0.15);color:var(--red){% endif %}">{{ s }}s</span>
+                                    {% endfor %}
+                                    {% else %}—{% endif %}
+                                </td>
+                                <td>
+                                    {% if w.running_style == 'early_speed' %}<span style="color:#f97316;font-weight:600;font-size:11px" title="Faster early, slowing late">🔥 Early</span>
+                                    {% elif w.running_style == 'closer' %}<span style="color:var(--cyan);font-weight:600;font-size:11px" title="Slow early, strong finish">💨 Closer</span>
+                                    {% elif w.running_style == 'even_pace' %}<span style="color:var(--green);font-weight:600;font-size:11px" title="Even pace throughout">⚖️ Even</span>
+                                    {% else %}<span style="color:var(--text-dim);font-size:11px">—</span>{% endif %}
+                                </td>
+                                <td style="text-align:center;font-size:11px">{{ w.rank }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endif %}
 
             <!-- Race History -->
             {% if horse.races %}

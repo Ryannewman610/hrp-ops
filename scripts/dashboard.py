@@ -189,6 +189,8 @@ def horse_profile(name):
         "last_work_date": wf.get("last_work_date") if wf else None,
         "last_work_track": wf.get("last_work_track") if wf else None,
         "last_work_distance": wf.get("last_work_distance") if wf else None,
+        # Individual works with splits
+        "works_splits": _load_works_splits(horse["name"]),
         # Race history
         "races": [{
             "date": r.get("race_date", ""),
@@ -208,6 +210,15 @@ def _load_works_features():
     """Load works_features.csv into a dict keyed by horse_name."""
     rows = load_csv_rows(OUTPUTS / "works_features.csv")
     return {r["horse_name"]: r for r in rows if r.get("horse_name")}
+
+
+def _load_works_splits(horse_name):
+    """Load individual works with splits for a given horse."""
+    p = OUTPUTS / "works_splits.json"
+    if not p.exists():
+        return {"works": [], "total": 0, "trend_5f": "no_data", "trend_3f": "no_data"}
+    data = load_json(p)
+    return data.get(horse_name, {"works": [], "total": 0, "trend_5f": "no_data", "trend_3f": "no_data"})
 
 
 @app.route("/api/stable")
