@@ -1058,6 +1058,12 @@ def api_push():
         OUTPUTS.mkdir(parents=True, exist_ok=True)
         (OUTPUTS / "outcomes_log.csv").write_text(data["outcomes_log"], encoding="utf-8")
 
+    # Write works splits JSON
+    if "works_splits" in data:
+        OUTPUTS.mkdir(parents=True, exist_ok=True)
+        (OUTPUTS / "works_splits.json").write_text(
+            json.dumps(data["works_splits"], indent=2), encoding="utf-8")
+
     # Write training plan
     if "training_plan" in data:
         REPORTS.mkdir(parents=True, exist_ok=True)

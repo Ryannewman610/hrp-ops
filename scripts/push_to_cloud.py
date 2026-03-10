@@ -90,6 +90,12 @@ def main():
         payload["works_features"] = wf_path.read_text(encoding="utf-8")
         print(f"  → works_features: ✓")
 
+    # Works splits (individual work entries with splits)
+    ws_path = OUTPUTS / "works_splits.json"
+    if ws_path.exists():
+        payload["works_splits"] = load_json(ws_path)
+        print(f"  → works_splits: {len(payload['works_splits'])} horses")
+
     # Outcomes log (CSV as text)
     ol_path = OUTPUTS / "outcomes_log.csv"
     if ol_path.exists():
