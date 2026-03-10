@@ -121,6 +121,89 @@ def index():
     return render_template("dashboard.html")
 
 
+@app.route("/horse/<name>")
+@login_required
+def horse_profile(name):
+    """Dedicated horse profile page with comprehensive data."""
+    snap = find_latest_snapshot()
+    horses = snap.get("horses", [])
+    horse = None
+    for h in horses:
+        if _norm(h.get("name", "")) == _norm(name) or h.get("name", "") == name:
+            horse = h
+            break
+    if not horse:
+        return redirect(url_for("index"))
+
+    # Enrich with ratings
+    ratings = load_json(OUTPUTS / "horse_ratings.json")
+    rating_info = ratings.get(horse["name"], {})
+
+    # Enrich with works features
+    works = _load_works_features()
+    wf = works.get(horse["name"], {})
+
+    # Get outcomes for this horse
+    outcomes = load_csv_rows(OUTPUTS / "outcomes_log.csv")
+    horse_races = [r for r in outcomes if r.get("horse_name") == horse["name"]]
+    horse_races.sort(key=lambda r: r.get("race_date", ""), reverse=True)
+
+    # Build comprehensive profile dict
+    profile = {
+        "name": horse["name"],
+        "sex": horse.get("sex", "?"),
+        "age": horse.get("age", "?"),
+        "color": horse.get("colour", horse.get("color", "?")),
+        "height": horse.get("height", "?"),
+        "weight": horse.get("weight", "?"),
+        "sire": horse.get("sire", "?"),
+        "dam": horse.get("dam", "?"),
+        "track": horse.get("track", "?"),
+        "condition": horse.get("condition", "?"),
+        "stamina": horse.get("stamina", "?"),
+        "consistency": horse.get("consistency", "?"),
+        "accessories": horse.get("accessories", []),
+        "record": horse.get("record", {}),
+        # SRF
+        "srf_power": rating_info.get("srf_power", 0),
+        "srf_best": rating_info.get("srf_best"),
+        "srf_last": rating_info.get("srf_last"),
+        "srf_avg": rating_info.get("srf_avg"),
+        # ELO
+        "elo_current": rating_info.get("elo_rating", 1200),
+        "elo_history": rating_info.get("elo_history", []),
+        # Form factors
+        "form_factors": rating_info.get("form_factors", []),
+        "form_status": rating_info.get("form_status", ""),
+        # Works intelligence
+        "works_count": int(wf.get("total_works", 0)) if wf else 0,
+        "work_trend": wf.get("trend", "unknown") if wf else "unknown",
+        "work_quality_tier": wf.get("quality_tier", "NO_DATA") if wf else "NO_DATA",
+        "best_5f_seconds": wf.get("best_5f_seconds") if wf else None,
+        "fitness_index": wf.get("fitness_index") if wf else None,
+        "sharpness_index": wf.get("sharpness_index") if wf else None,
+        "fatigue_proxy": wf.get("fatigue_proxy") if wf else None,
+        "readiness_tag": wf.get("readiness_tag") if wf else None,
+        "recent_works_14d": wf.get("recent_works_14d") if wf else None,
+        "recent_works_28d": wf.get("recent_works_28d") if wf else None,
+        "last_work_date": wf.get("last_work_date") if wf else None,
+        "last_work_track": wf.get("last_work_track") if wf else None,
+        "last_work_distance": wf.get("last_work_distance") if wf else None,
+        # Race history
+        "races": [{
+            "date": r.get("race_date", ""),
+            "track": r.get("track", ""),
+            "distance": r.get("distance", ""),
+            "surface": r.get("surface", ""),
+            "finish": int(r.get("finish_position", 0)) if r.get("finish_position", "").isdigit() else 0,
+            "field": int(r.get("field_size", 0)) if r.get("field_size", "").isdigit() else 0,
+            "time": r.get("time", ""),
+            "jockey": r.get("jockey", ""),
+        } for r in horse_races],
+    }
+    return render_template("horse_profile.html", horse=profile)
+
+
 def _load_works_features():
     """Load works_features.csv into a dict keyed by horse_name."""
     rows = load_csv_rows(OUTPUTS / "works_features.csv")

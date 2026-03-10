@@ -42,7 +42,10 @@
             <div class="stat-pill" id="snapshot-age">
                 📅 <span class="value" id="data-age">—</span>
             </div>
-            <span id="refresh-status"></span>
+            <div class="stat-pill" style="gap:2px">
+                <span class="live-dot"></span>
+                <span class="value" id="live-timer" style="font-size:10px;color:var(--green)">0s ago</span>
+            </div>
             <button class="btn-sync" id="btn-refresh" onclick="refreshData()">
                 🔄 Sync with HRP
             </button>
@@ -1042,12 +1045,18 @@
                 return stam < 70 || h.form_status === 'REST_REQUIRED';
             });
 
-            grid.innerHTML = filtered.map(h => {
+            const trendIcons = { improving: '▲', declining: '▼', steady: '—', unknown: '•' };
+            const trendColors = { improving: 'var(--green)', declining: 'var(--red)', steady: 'var(--text-dim)', unknown: 'var(--text-dim)' };
+            const tierColors = { STAKES: 'var(--green)', ULTRA_RARE: 'var(--blue)', PAY_SIDE: 'var(--yellow)', FREE_LEVEL: 'var(--text-secondary)', QUESTIONABLE: 'var(--orange)', NOT_USEFUL: 'var(--red)', NO_DATA: 'var(--text-dim)' };
+            const readinessColors = { RACE_READY: 'var(--green)', REST_NEEDED: 'var(--red)', BUILDING: 'var(--blue)', WORK_MORE: 'var(--yellow)' };
+            const readinessBgs = { RACE_READY: 'var(--green-dim)', REST_NEEDED: 'var(--red-dim)', BUILDING: 'var(--blue-dim)', WORK_MORE: 'var(--yellow-dim)' };
+
+            grid.innerHTML = filtered.map((h, idx) => {
                 const cond = parseNum(h.condition);
                 const stam = parseNum(h.stamina);
                 const cons = parseNum(h.consistency);
-                const starts = h.record?.starts || 0;
-                const wins = h.record?.wins || 0;
+                const starts = parseInt(h.record?.starts) || 0;
+                const wins = parseInt(h.record?.wins) || 0;
                 const form = formBadgeHTML(h.form_status);
 
                 // Color-code meter values
@@ -1058,10 +1067,40 @@
                     `<span class="srf-badge ${h.srf_power >= 87 ? 'srf-elite' : h.srf_power >= 83 ? 'srf-good' : h.srf_power >= 78 ? 'srf-mid' : 'srf-low'}">${h.srf_power.toFixed(1)}</span>` :
                     '<span style="color:var(--text-dim);font-size:10px;font-weight:500;">NO SRF</span>';
 
-                return `<div class="horse-card" onclick="openHorseModal('${h.name}')">
+                // Readiness badge
+                const rt = h.readiness_tag || '';
+                const readinessBadge = rt ? `<span class="readiness-badge" style="background:${readinessBgs[rt] || 'var(--bg-glass)'};color:${readinessColors[rt] || 'var(--text-dim)'}">${rt.replace(/_/g, ' ')}</span>` : '';
+
+                // Work trend
+                const wt = h.work_trend || '';
+                const trendBadge = wt ? `<span style="font-size:11px;font-weight:700;color:${trendColors[wt] || 'var(--text-dim)'}" title="Work trend: ${wt}">${trendIcons[wt] || '•'}</span>` : '';
+
+                // Quality tier
+                const qt = h.work_quality_tier || '';
+                const qtBadge = qt && qt !== 'NO_DATA' ? `<span class="quality-tier-badge" style="color:${tierColors[qt] || 'var(--text-dim)'}">${qt.replace(/_/g, ' ')}</span>` : '';
+
+                // Last race result
+                const lastRace = (h.recent_races && h.recent_races.length > 0) ? h.recent_races[0] : null;
+                let lastRaceDisplay = '';
+                if (lastRace) {
+                    const fin = parseInt(lastRace.finish), fld = parseInt(lastRace.field);
+                    let medal = '', fc = 'var(--text-secondary)';
+                    if (fin === 1) { medal = '🥇'; fc = '#FFD700'; }
+                    else if (fin === 2) { medal = '🥈'; fc = '#C0C0C0'; }
+                    else if (fin === 3) { medal = '🥉'; fc = '#CD7F32'; }
+                    else if (fin <= fld * 0.5) { fc = 'var(--green)'; }
+                    else { fc = 'var(--red)'; }
+                    lastRaceDisplay = `<div class="stat-item"><div class="stat-value" style="color:${fc};font-size:12px">${medal}${fin}/${fld}</div><div class="stat-label">${lastRace.date || ''}</div></div>`;
+                }
+
+                // Attention pulse for horses needing rest
+                const needsAttention = stam < 40 || h.form_status === 'REST_REQUIRED';
+                const pulseClass = needsAttention ? ' card-pulse' : '';
+
+                return `<div class="horse-card${pulseClass}" onclick="openHorseModal('${h.name}')" style="animation-delay:${idx * 30}ms">
                     <div class="horse-header">
                         <div>
-                            <div class="horse-name">${h.name}</div>
+                            <div class="horse-name">${h.name} ${trendBadge}</div>
                             <div class="horse-meta">
                                 <span>${h.sex || '?'}</span>
                                 <span class="dot"></span>
@@ -1070,7 +1109,10 @@
                                 <span>${h.track}</span>
                             </div>
                         </div>
-                        ${form}
+                        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+                            ${form}
+                            ${readinessBadge}
+                        </div>
                     </div>
                     <div class="meter-group">
                         <div class="meter">
@@ -1089,7 +1131,7 @@
                             <span class="meter-value">+${cons}</span>
                         </div>
                     </div>
-                    <div class="horse-stats">
+                    <div class="horse-stats" style="grid-template-columns:${lastRace ? 'repeat(5,1fr)' : 'repeat(4,1fr)'}">
                         <div class="stat-item">
                             ${srfDisplay}
                             <div class="stat-label">SRF</div>
@@ -1099,12 +1141,13 @@
                             <div class="stat-label">Starts</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">${wins}</div>
+                            <div class="stat-value" style="color:${wins > 0 ? 'var(--green)' : 'var(--text)'}">${wins}</div>
                             <div class="stat-label">Wins</div>
                         </div>
+                        ${lastRaceDisplay}
                         <div class="stat-item">
-                            <div class="stat-value" style="color:var(--blue)">${starts > 0 ? ((wins / starts) * 100).toFixed(0) + '%' : '—'}</div>
-                            <div class="stat-label">Win%</div>
+                            ${qtBadge || `<div class="stat-value" style="color:var(--blue)">${starts > 0 ? ((wins / starts) * 100).toFixed(0) + '%' : '—'}</div>`}
+                            <div class="stat-label">${qt && qt !== 'NO_DATA' ? 'Quality' : 'Win%'}</div>
                         </div>
                     </div>
                 </div>`;
@@ -1859,8 +1902,32 @@
             }
         }
 
+        // ── Live Timer & Auto-Poll ─────────────
+        let lastLoadTime = Date.now();
+        function startLiveTimer() {
+            setInterval(() => {
+                const elapsed = Math.floor((Date.now() - lastLoadTime) / 1000);
+                const mins = Math.floor(elapsed / 60);
+                const secs = elapsed % 60;
+                const timerEl = document.getElementById('live-timer');
+                if (timerEl) {
+                    timerEl.textContent = mins > 0 ? `${mins}m ${secs}s ago` : `${secs}s ago`;
+                    // Color: green < 1min, yellow < 3min, red > 3min
+                    timerEl.style.color = elapsed < 60 ? 'var(--green)' : elapsed < 180 ? 'var(--yellow)' : 'var(--red)';
+                }
+            }, 1000);
+        }
+
+        // Auto-poll every 2 minutes
+        setInterval(async () => {
+            lastLoadTime = Date.now();
+            await Promise.all([loadStable(), loadRankings(), loadPlaybook(), loadRaceResults()]);
+            updateBadges();
+            updateHealthPills();
+        }, 120000);
+
         // ── Boot ───────────────────────────────
-        init();
+        init().then(() => { lastLoadTime = Date.now(); startLiveTimer(); });
     </script>
 
 </body>

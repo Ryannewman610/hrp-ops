@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ horse.name }} — HRP Command Center</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <meta name="description" content="Full profile for {{ horse.name }} — breeding, works, races, SRF, ELO">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div>
+                <div class="logo">🏇 HRP Command Center</div>
+                <div class="logo-sub">Horse Profile</div>
+            </div>
+        </div>
+        <div class="header-stats">
+            <a href="/" class="profile-back">← Back to Dashboard</a>
+        </div>
+    </header>
+
+    <div class="profile-page" style="position:relative;z-index:1">
+        <!-- Header -->
+        <div class="profile-header">
+            <div>
+                <h1>{{ horse.name }}</h1>
+                <div class="meta">
+                    {{ horse.sex }} · {{ horse.age }}yo · {{ horse.color }} · {{ horse.track }}
+                    {% if horse.form_status %}
+                    <span style="margin-left:8px;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;
+                        {% if horse.form_status == 'PEAKING' %}background:var(--green-dim);color:var(--green)
+                        {% elif horse.form_status == 'RACE_READY' %}background:var(--blue-dim);color:var(--blue)
+                        {% elif horse.form_status == 'REST_REQUIRED' %}background:var(--red-dim);color:var(--red)
+                        {% else %}background:var(--bg-glass);color:var(--text-dim){% endif %}">
+                        {{ horse.form_status|replace('_',' ') }}
+                    </span>
+                    {% endif %}
+                    {% if horse.readiness_tag %}
+                    <span class="readiness-badge" style="margin-left:4px;
+                        {% if horse.readiness_tag == 'RACE_READY' %}background:var(--green-dim);color:var(--green)
+                        {% elif horse.readiness_tag == 'REST_NEEDED' %}background:var(--red-dim);color:var(--red)
+                        {% elif horse.readiness_tag == 'BUILDING' %}background:var(--blue-dim);color:var(--blue)
+                        {% else %}background:var(--yellow-dim);color:var(--yellow){% endif %}">
+                        {{ horse.readiness_tag|replace('_',' ') }}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-grid">
+            <!-- Breeding & Profile -->
+            <div class="profile-section">
+                <div class="profile-section-title">🧬 Breeding & Profile</div>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="val">{{ horse.sire }}</div>
+                        <div class="lbl">Sire</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.dam }}</div>
+                        <div class="lbl">Dam</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.height }}h</div>
+                        <div class="lbl">Height</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.weight }}lbs</div>
+                        <div class="lbl">Weight</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.color }}</div>
+                        <div class="lbl">Color</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.track }}</div>
+                        <div class="lbl">Track</div>
+                    </div>
+                </div>
+                {% if horse.accessories %}
+                <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap">
+                    {% for acc in horse.accessories %}
+                    <span
+                        style="padding:4px 10px;border-radius:999px;background:var(--purple-dim);color:var(--purple);font-size:11px;font-weight:600">🛡️
+                        {{ acc }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Current Status -->
+            <div class="profile-section">
+                <div class="profile-section-title">📊 Current Status</div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                    {% set cond = horse.condition|replace('%','')|int(default=0) %}
+                    {% set stam = horse.stamina|replace('%','')|int(default=0) %}
+                    {% set cons = horse.consistency|replace('+','')|int(default=0) %}
+                    <div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                            <span style="font-size:11px;font-weight:600;color:var(--text-dim)">CONDITION</span>
+                            <span
+                                style="font-size:14px;font-weight:700;font-family:'JetBrains Mono';
+                            {% if cond >= 95 %}color:var(--green){% elif cond >= 80 %}color:var(--text-secondary){% else %}color:var(--yellow){% endif %}">{{
+                                horse.condition }}</span>
+                        </div>
+                        <div style="height:8px;background:rgba(255,255,255,0.04);border-radius:4px;overflow:hidden">
+                            <div
+                                style="height:100%;border-radius:4px;background:linear-gradient(90deg,var(--yellow),var(--green));width:{{ [cond, 110]|min / 1.1 }}%;transition:width 1s">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                            <span style="font-size:11px;font-weight:600;color:var(--text-dim)">STAMINA</span>
+                            <span
+                                style="font-size:14px;font-weight:700;font-family:'JetBrains Mono';
+                            {% if stam >= 80 %}color:var(--green){% elif stam >= 60 %}color:var(--text-secondary){% elif stam >= 40 %}color:var(--yellow){% else %}color:var(--red){% endif %}">{{
+                                horse.stamina }}</span>
+                        </div>
+                        <div style="height:8px;background:rgba(255,255,255,0.04);border-radius:4px;overflow:hidden">
+                            <div
+                                style="height:100%;border-radius:4px;background:linear-gradient(90deg,var(--red),var(--cyan));width:{{ [stam, 110]|min / 1.1 }}%;transition:width 1s">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                            <span style="font-size:11px;font-weight:600;color:var(--text-dim)">CONSISTENCY</span>
+                            <span
+                                style="font-size:14px;font-weight:700;font-family:'JetBrains Mono';color:var(--blue)">+{{
+                                cons }}</span>
+                        </div>
+                        <div style="height:8px;background:rgba(255,255,255,0.04);border-radius:4px;overflow:hidden">
+                            <div
+                                style="height:100%;border-radius:4px;background:linear-gradient(90deg,var(--purple),var(--blue));width:{{ [cons * 20, 100]|min }}%;transition:width 1s">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% if horse.form_factors %}
+                <div style="margin-top:14px;display:flex;gap:4px;flex-wrap:wrap">
+                    {% for f in horse.form_factors %}
+                    <span style="padding:4px 10px;border-radius:6px;font-size:11px;font-weight:500;
+                        {% if 'excellent' in f or 'peak' in f or 'high' in f %}background:var(--green-dim);color:var(--green)
+                        {% elif 'good' in f or 'moderate' in f %}background:var(--blue-dim);color:var(--blue)
+                        {% elif 'low' in f %}background:var(--red-dim);color:var(--red)
+                        {% else %}background:var(--bg-glass);color:var(--text-dim){% endif %}">{{ f }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- SRF Performance -->
+            <div class="profile-section">
+                <div class="profile-section-title">⚡ SRF Performance</div>
+                {% if horse.srf_power > 0 %}
+                <div class="stat-grid" style="grid-template-columns:repeat(4,1fr)">
+                    <div class="stat-box">
+                        <div class="val"
+                            style="font-size:22px;
+                        {% if horse.srf_power >= 87 %}color:var(--green){% elif horse.srf_power >= 83 %}color:var(--yellow){% elif horse.srf_power >= 78 %}color:var(--orange){% else %}color:var(--red){% endif %}">
+                            {{ "%.1f"|format(horse.srf_power) }}
+                        </div>
+                        <div class="lbl">Power</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.srf_best or '—' }}</div>
+                        <div class="lbl">Best</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.srf_last or '—' }}</div>
+                        <div class="lbl">Last</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ "%.1f"|format(horse.srf_avg) if horse.srf_avg else '—' }}</div>
+                        <div class="lbl">Average</div>
+                    </div>
+                </div>
+                {% else %}
+                <div style="color:var(--text-dim);font-size:12px;padding:12px;text-align:center">No SRF data — horse
+                    hasn't raced rated yet</div>
+                {% endif %}
+            </div>
+
+            <!-- Record -->
+            <div class="profile-section">
+                <div class="profile-section-title">🏆 Race Record</div>
+                {% set rec = horse.record %}
+                <div class="stat-grid" style="grid-template-columns:repeat(4,1fr)">
+                    <div class="stat-box">
+                        <div class="val" style="font-size:20px">{{ rec.starts or 0 }}</div>
+                        <div class="lbl">Starts</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val" style="font-size:20px;color:var(--green)">{{ rec.wins or 0 }}</div>
+                        <div class="lbl">Wins</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val" style="font-size:20px">{{ rec.places or 0 }}</div>
+                        <div class="lbl">Places</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val" style="font-size:20px">{{ rec.shows or 0 }}</div>
+                        <div class="lbl">Shows</div>
+                    </div>
+                </div>
+                {% if rec.starts|int(default=0) > 0 %}
+                <div style="margin-top:10px;text-align:center;font-size:12px;color:var(--text-secondary)">
+                    Win Rate: <strong style="color:var(--blue)">{{ "%.0f"|format((rec.wins|int(default=0) /
+                        rec.starts|int(default=1)) * 100) }}%</strong>
+                    · ITM: <strong style="color:var(--cyan)">{{ "%.0f"|format(((rec.wins|int(default=0) +
+                        rec.places|int(default=0) + rec.shows|int(default=0)) / rec.starts|int(default=1)) * 100)
+                        }}%</strong>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Works Intelligence -->
+            <div class="profile-section full-width">
+                <div class="profile-section-title">🏋️ Works Intelligence</div>
+                <div class="stat-grid" style="grid-template-columns:repeat(auto-fill,minmax(80px,1fr))">
+                    <div class="stat-box">
+                        <div class="val">{{ horse.works_count }}</div>
+                        <div class="lbl">Total</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.recent_works_14d or '—' }}</div>
+                        <div class="lbl">14 Day</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.recent_works_28d or '—' }}</div>
+                        <div class="lbl">28 Day</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val"
+                            style="{% if horse.work_trend == 'improving' %}color:var(--green){% elif horse.work_trend == 'declining' %}color:var(--red){% endif %}">
+                            {% if horse.work_trend == 'improving' %}▲{% elif horse.work_trend == 'declining' %}▼{% else
+                            %}—{% endif %} {{ horse.work_trend }}
+                        </div>
+                        <div class="lbl">Trend</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.fitness_index or '—' }}</div>
+                        <div class="lbl">Fitness</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.sharpness_index or '—' }}</div>
+                        <div class="lbl">Sharpness</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.fatigue_proxy or '—' }}</div>
+                        <div class="lbl">Fatigue</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val">{{ horse.best_5f_seconds or '—' }}{% if horse.best_5f_seconds %}s{% endif %}
+                        </div>
+                        <div class="lbl">Best 5f</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val" style="font-size:11px;
+                        {% if horse.work_quality_tier == 'STAKES' %}color:var(--green)
+                        {% elif horse.work_quality_tier == 'ULTRA_RARE' %}color:var(--blue)
+                        {% elif horse.work_quality_tier == 'PAY_SIDE' %}color:var(--yellow)
+                        {% elif horse.work_quality_tier == 'NOT_USEFUL' %}color:var(--red)
+                        {% else %}color:var(--text-dim){% endif %}">
+                            {{ horse.work_quality_tier|replace('_',' ') }}
+                        </div>
+                        <div class="lbl">Quality</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val" style="font-size:12px">{{ horse.last_work_date or '—' }}</div>
+                        <div class="lbl">Last Work</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ELO Trend -->
+            {% if horse.elo_history %}
+            <div class="profile-section full-width">
+                <div class="profile-section-title">📈 ELO Rating Trend</div>
+                <div style="display:flex;align-items:center;gap:20px">
+                    <div id="elo-chart" style="flex:1"></div>
+                    <div style="text-align:center">
+                        <div style="font-size:32px;font-weight:800;font-family:'JetBrains Mono';
+                        {% if horse.elo_current >= 1200 %}color:var(--green){% else %}color:var(--red){% endif %}">
+                            {{ "%.0f"|format(horse.elo_current) }}
+                        </div>
+                        <div style="font-size:10px;color:var(--text-dim)">Current ELO</div>
+                        <div style="font-size:10px;color:var(--text-dim);margin-top:2px">{{ horse.elo_history|length }}
+                            races tracked</div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Race History -->
+            {% if horse.races %}
+            <div class="profile-section full-width">
+                <div class="profile-section-title">🏁 Race History ({{ horse.races|length }} starts)</div>
+                <div style="overflow-x:auto">
+                    <table class="rank-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Track</th>
+                                <th>Distance</th>
+                                <th>Surface</th>
+                                <th>Finish</th>
+                                <th>Field</th>
+                                <th>Time</th>
+                                <th>Jockey</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for r in horse.races %}
+                            <tr class="rank-row">
+                                <td style="font-size:12px">{{ r.date }}</td>
+                                <td>{{ r.track }}</td>
+                                <td>{{ r.distance }}</td>
+                                <td style="font-size:11px">{{ r.surface }}</td>
+                                <td
+                                    style="font-weight:700;
+                                {% if r.finish == 1 %}color:#FFD700{% elif r.finish == 2 %}color:#C0C0C0{% elif r.finish == 3 %}color:#CD7F32{% elif r.field > 0 and r.finish <= r.field * 0.5 %}color:var(--green){% else %}color:var(--red){% endif %}">
+                                    {% if r.finish == 1 %}🥇{% elif r.finish == 2 %}🥈{% elif r.finish == 3 %}🥉{% endif
+                                    %} {{ r.finish }}
+                                </td>
+                                <td style="color:var(--text-dim)">{{ r.field }}</td>
+                                <td style="font-family:'JetBrains Mono';font-size:12px">{{ r.time }}</td>
+                                <td style="font-size:11px;color:var(--text-secondary)">{{ r.jockey }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if horse.elo_history %}
+    <script>
+        // Render ELO sparkline chart
+        const eloHistory = {{ horse.elo_history| tojson }};
+        const points = [{ date: 'start', elo: 1200 }].concat(eloHistory.map(e => ({ date: e.date, elo: e.new || e.elo_after || 1200 })));
+        const container = document.getElementById('elo-chart');
+        const w = container.clientWidth || 500, ht = 100, pad = 10;
+        const elos = points.map(p => p.elo);
+        const minE = Math.min(...elos) - 20, maxE = Math.max(...elos) + 20;
+        const rangeE = maxE - minE || 1;
+        const svgPts = points.map((p, i) => {
+            const x = pad + (i / (points.length - 1)) * (w - 2 * pad);
+            const y = pad + (1 - (p.elo - minE) / rangeE) * (ht - 2 * pad);
+            return `${x},${y}`;
+        }).join(' ');
+        const lastElo = elos[elos.length - 1];
+        const eloColor = lastElo >= 1200 ? 'var(--green)' : 'var(--red)';
+        const baseline1200y = pad + (1 - (1200 - minE) / rangeE) * (ht - 2 * pad);
+        container.innerHTML = `
+            <svg width="${w}" height="${ht}" style="background:var(--bg-glass);border-radius:8px;width:100%">
+                <line x1="${pad}" y1="${baseline1200y}" x2="${w - pad}" y2="${baseline1200y}" stroke="rgba(255,255,255,0.08)" stroke-dasharray="6,4"/>
+                <text x="${w - pad - 2}" y="${baseline1200y - 4}" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="end">1200</text>
+                <polyline fill="none" stroke="${eloColor}" stroke-width="2.5" stroke-linejoin="round" points="${svgPts}"/>
+                ${points.map((p, i) => {
+            const x = pad + (i / (points.length - 1)) * (w - 2 * pad);
+            const y = pad + (1 - (p.elo - minE) / rangeE) * (ht - 2 * pad);
+            return `<circle cx="${x}" cy="${y}" r="4" fill="${eloColor}" stroke="var(--bg-secondary)" stroke-width="1.5"/>`;
+        }).join('')}
+            </svg>`;
+    </script>
+    {% endif %}
+</body>
+
+</html>
