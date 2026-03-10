@@ -709,6 +709,29 @@ a.horse-name:hover span {
     background: linear-gradient(90deg, var(--purple), var(--blue));
 }
 
+/* Health Summary Strip */
+.health-strip {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 8px 4px;
+}
+.hs-chip {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.hs-green { background: var(--green-dim); color: var(--green); }
+.hs-cyan { background: rgba(34,211,238,0.12); color: var(--cyan); }
+.hs-blue { background: var(--blue-dim); color: var(--blue); }
+.hs-red { background: var(--red-dim); color: var(--red); }
+.hs-yellow { background: var(--yellow-dim); color: var(--yellow); }
+
 /* Meter value - warning colors */
 .meter-value {
     font-size: 11px;

@@ -326,11 +326,23 @@
                         <div class="panel-title"><span class="icon">🐴</span> Stable</div>
                         <span class="panel-badge" id="total-horses">0 horses</span>
                     </div>
-                    <div class="tab-bar">
-                        <button class="tab-btn active" onclick="filterHorses('all', this)">All</button>
-                        <button class="tab-btn" onclick="filterHorses('rated', this)">SRF Rated</button>
-                        <button class="tab-btn" onclick="filterHorses('unrated', this)">2YO / Unraced</button>
-                        <button class="tab-btn" onclick="filterHorses('danger', this)">⚠️ Needs Attention</button>
+                    <!-- Health Summary Strip -->
+                    <div class="health-strip" id="health-strip"></div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding:0 4px">
+                        <div class="tab-bar" style="flex:1">
+                            <button class="tab-btn active" id="filter-all" onclick="filterHorses('all', this)">All</button>
+                            <button class="tab-btn" id="filter-rated" onclick="filterHorses('rated', this)">Raced</button>
+                            <button class="tab-btn" id="filter-unrated" onclick="filterHorses('unrated', this)">2YO</button>
+                            <button class="tab-btn" id="filter-danger" onclick="filterHorses('danger', this)">⚠️ Alert</button>
+                        </div>
+                        <select id="sort-select" onchange="sortHorses(this.value)" style="background:var(--surface-2);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;font-family:inherit;cursor:pointer">
+                            <option value="name">Sort: Name</option>
+                            <option value="cond-desc">Sort: Condition ↓</option>
+                            <option value="stam-desc">Sort: Stamina ↓</option>
+                            <option value="stam-asc">Sort: Stamina ↑</option>
+                            <option value="elo-desc">Sort: ELO ↓</option>
+                            <option value="age-asc">Sort: Age ↑</option>
+                        </select>
                     </div>
                     <div class="horse-grid" id="horse-grid"></div>
                 </section>
@@ -589,6 +601,8 @@
                 }
             }
             renderHorseGrid(stableData.horses);
+            updateHealthStrip(stableData.horses);
+            updateFilterCounts(stableData.horses);
             renderHeatmap(stableData.horses);
 
             // Age split — must run here so stableData is guaranteed populated
@@ -630,6 +644,15 @@
         }
 
         // ── Load Decisions ─────────────────────
+        function linkifyHorseNames(text) {
+            // Convert **Horse Name** into clickable links
+            return text.replace(/\*\*([^*]+)\*\*/g, (match, name) => {
+                // Check if this looks like a horse name (not a label like "ULTRA_RARE")
+                if (name.includes(':') || name === name.toUpperCase()) return `<strong>${name}</strong>`;
+                return `<a href="/horse/${encodeURIComponent(name)}" class="horse-name" style="color:var(--text);text-decoration:none;font-weight:700;border-bottom:1px dotted var(--text-dim)" onclick="event.stopPropagation()">${name}</a>`;
+            });
+        }
+
         async function loadDecisions() {
             const data = await fetchJSON('/api/decisions');
             if (!data.content) return;
@@ -638,21 +661,22 @@
             let html = '';
             for (const line of lines) {
                 if (line.startsWith('# ')) continue;
+                const linked = linkifyHorseNames(line);
                 if (line.startsWith('## ')) {
-                    html += `<div class="decision-section-title">${line.replace('## ', '')}</div>`;
+                    html += `<div class="decision-section-title">${linked.replace('## ', '')}</div>`;
                 } else if (line.startsWith('- 🔴') || line.startsWith('- ⚠')) {
-                    html += `<div class="decision-card alert-red">${line.replace('- ', '')}</div>`;
+                    html += `<div class="decision-card alert-red">${linked.replace('- ', '')}</div>`;
                 } else if (line.startsWith('- 💤') || line.startsWith('- 🟡')) {
-                    html += `<div class="decision-card alert-yellow">${line.replace('- ', '')}</div>`;
+                    html += `<div class="decision-card alert-yellow">${linked.replace('- ', '')}</div>`;
                 } else if (line.startsWith('- ✅') || line.startsWith('- 🟢')) {
-                    html += `<div class="decision-card alert-green">${line.replace('- ', '')}</div>`;
+                    html += `<div class="decision-card alert-green">${linked.replace('- ', '')}</div>`;
                 } else if (line.startsWith('- ⚡') || line.startsWith('- **')) {
-                    html += `<div class="decision-card alert-blue">${line.replace('- ', '')}</div>`;
+                    html += `<div class="decision-card alert-blue">${linked.replace('- ', '')}</div>`;
                 } else if (line.startsWith('|') && !line.includes('---')) {
                     const cells = line.split('|').filter(c => c.trim());
-                    html += `<div class="decision-card">${cells.join(' · ')}</div>`;
+                    html += `<div class="decision-card">${linkifyHorseNames(cells.join(' · '))}</div>`;
                 } else if (line.startsWith('- ')) {
-                    html += `<div class="decision-card">${line.replace('- ', '')}</div>`;
+                    html += `<div class="decision-card">${linked.replace('- ', '')}</div>`;
                 }
             }
             container.innerHTML = html || '<div style="color:var(--text-dim);font-size:12px;">No decisions yet — run Sync</div>';
@@ -1044,6 +1068,7 @@
                 const stam = parseNum(h.stamina);
                 return stam < 70 || h.form_status === 'REST_REQUIRED';
             });
+            filtered = applySorting(filtered);
 
             const trendIcons = { improving: '▲', declining: '▼', steady: '—', unknown: '•' };
             const trendColors = { improving: 'var(--green)', declining: 'var(--red)', steady: 'var(--text-dim)', unknown: 'var(--text-dim)' };
@@ -1491,9 +1516,73 @@
         // ── Filter Horses ──────────────────────
         function filterHorses(filter, btn) {
             currentFilter = filter;
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            // Only toggle filter buttons in stable panel, not all tab-btns
+            document.querySelectorAll('#stable-panel .tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             renderHorseGrid(stableData.horses);
+        }
+
+        // ── Sort Horses ──────────────────────────
+        let currentSort = 'name';
+        function sortHorses(sortBy) {
+            currentSort = sortBy;
+            renderHorseGrid(stableData.horses);
+        }
+
+        function applySorting(horses) {
+            const sorted = [...horses];
+            switch (currentSort) {
+                case 'cond-desc':
+                    sorted.sort((a, b) => parseNum(b.condition) - parseNum(a.condition));
+                    break;
+                case 'stam-desc':
+                    sorted.sort((a, b) => parseNum(b.stamina) - parseNum(a.stamina));
+                    break;
+                case 'stam-asc':
+                    sorted.sort((a, b) => parseNum(a.stamina) - parseNum(b.stamina));
+                    break;
+                case 'elo-desc':
+                    sorted.sort((a, b) => (b.elo_current || 0) - (a.elo_current || 0));
+                    break;
+                case 'age-asc':
+                    sorted.sort((a, b) => (parseInt(a.age) || 99) - (parseInt(b.age) || 99));
+                    break;
+                default: // name
+                    sorted.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+            }
+            return sorted;
+        }
+
+        // ── Health Summary Strip ─────────────────
+        function updateHealthStrip(horses) {
+            if (!horses || !horses.length) return;
+            const strip = document.getElementById('health-strip');
+            const raceReady = horses.filter(h => h.readiness_tag === 'RACE_READY').length;
+            const needsRest = horses.filter(h => h.readiness_tag === 'REST_NEEDED' || h.form_status === 'REST_REQUIRED').length;
+            const building = horses.filter(h => h.readiness_tag === 'BUILDING' || h.readiness_tag === 'WORK_MORE').length;
+            const lowStam = horses.filter(h => parseNum(h.stamina) < 70).length;
+            const peaking = horses.filter(h => h.form_status === 'PEAKING').length;
+
+            strip.innerHTML = `
+                <div class="hs-chip hs-green">✅ ${raceReady} ready</div>
+                <div class="hs-chip hs-cyan">⚡ ${peaking} peaking</div>
+                <div class="hs-chip hs-blue">🏋️ ${building} building</div>
+                ${needsRest > 0 ? `<div class="hs-chip hs-red">🛏️ ${needsRest} rest</div>` : ''}
+                ${lowStam > 0 ? `<div class="hs-chip hs-yellow">⚠️ ${lowStam} low stam</div>` : ''}
+            `;
+        }
+
+        // ── Filter Badge Counts ──────────────────
+        function updateFilterCounts(horses) {
+            if (!horses) return;
+            const all = horses.length;
+            const rated = horses.filter(h => h.srf_power > 0).length;
+            const unrated = horses.filter(h => h.srf_power === 0).length;
+            const danger = horses.filter(h => parseNum(h.stamina) < 70 || h.form_status === 'REST_REQUIRED').length;
+            document.getElementById('filter-all').textContent = `All (${all})`;
+            document.getElementById('filter-rated').textContent = `Raced (${rated})`;
+            document.getElementById('filter-unrated').textContent = `2YO (${unrated})`;
+            document.getElementById('filter-danger').textContent = `⚠️ Alert (${danger})`;
         }
 
         // ── Sync with HRP ──────────────────────
