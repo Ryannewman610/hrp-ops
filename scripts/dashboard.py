@@ -38,6 +38,18 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
 REPORTS = ROOT / "reports"
 
+# ── Restore seed data if directories are empty (fixes blank data after Railway deploys)
+try:
+    from scripts.seed_cloud_data import restore as _restore_seed
+except ImportError:
+    import importlib.util as _ilu2
+    _spec2 = _ilu2.spec_from_file_location(
+        "seed_cloud_data", str(Path(__file__).resolve().parent / "seed_cloud_data.py"))
+    _scd = _ilu2.module_from_spec(_spec2)
+    _spec2.loader.exec_module(_scd)
+    _restore_seed = _scd.restore
+_restore_seed()
+
 # Horses to exclude from all dashboard views
 INACTIVE = {"shebasbriar", "averyspluck", "hiptag793004736512"}
 
