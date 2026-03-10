@@ -248,25 +248,39 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
         }
 
     # Parse individual race result lines from profile text
-    # Format: "3/4" (finish), "12Feb26 TUP" (date/track), "5f fst 1:00" (dist/surf/time)
-    if profile_s:
+    # IMPORTANT: Only do this for horses that have actually raced (LIFE record > 0 starts)
+    # The N/N patterns in HRP pages can also be WORK RANKINGS (e.g. 75/101 = rank 75 out of 101)
+    # which are NOT race results. Real race fields are ≤ 16 horses.
+    has_raced = False
+    if life_match:
+        try:
+            has_raced = int(life_match.group(1)) > 0
+        except (ValueError, TypeError):
+            pass
+
+    if has_raced and profile_s:
         strings = list(profile_s.stripped_strings)
         races: List[Dict[str, str]] = []
         i = 0
         while i < len(strings):
             s = strings[i].strip()
-            # Match finish position pattern: digit/digit or digit-digit/digit-digit
+            # Match finish position pattern: digit/digit
             finish_match = re.match(r"^(\d+)/(\d+)$", s)
             if finish_match and i + 1 < len(strings):
-                finish_pos = finish_match.group(1)
-                field_size = finish_match.group(2)
-                # Next string should be date + track
+                finish_pos = int(finish_match.group(1))
+                field_size = int(finish_match.group(2))
+                # Reject work rankings: real race fields are ≤ 16 horses
+                # Finish position must also be ≤ field size
+                if field_size > 16 or finish_pos > field_size or finish_pos < 1:
+                    i += 1
+                    continue
+                # Next string should be date + track (e.g. "21Feb26 SA")
                 next_s = strings[i + 1].strip() if i + 1 < len(strings) else ""
-                date_trk = re.match(r"(\d{1,2}\w{3}\d{2})\s+(\w+)", next_s)
+                date_trk = re.match(r"(\d{1,2}[A-Za-z]{3}\d{2})\s+(\w+)", next_s)
                 if date_trk:
                     race = {
-                        "finish": finish_pos,
-                        "field": field_size,
+                        "finish": str(finish_pos),
+                        "field": str(field_size),
                         "date": date_trk.group(1),
                         "track": date_trk.group(2),
                     }
