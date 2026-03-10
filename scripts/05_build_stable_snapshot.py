@@ -269,9 +269,10 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
             if finish_match and i + 1 < len(strings):
                 finish_pos = int(finish_match.group(1))
                 field_size = int(finish_match.group(2))
-                # Reject work rankings: real race fields are ≤ 16 horses
-                # Finish position must also be ≤ field size
-                if field_size > 16 or finish_pos > field_size or finish_pos < 1:
+                # Reject work rankings: 
+                # - Real race fields are 2-16 horses (never solo 1/1)
+                # - Finish position must be ≤ field size and ≥ 1
+                if field_size > 16 or field_size < 2 or finish_pos > field_size or finish_pos < 1:
                     i += 1
                     continue
                 # Next string should be date + track (e.g. "21Feb26 SA")
