@@ -1,0 +1,38 @@
+
+=== 8Mar26-1GP ===
+Total cells: 16
+  Cell 0: w=83 text=|8Mar26-1GP| sups=[''] fonts=[]
+  Cell 1: w=22 text=|fst| sups=[''] fonts=[]
+  Cell 2: w=35 text=|6f| sups=[''] fonts=[]
+  Cell 3: w=11 text=|| sups=[''] fonts=[]
+  Cell 4: w=28 text=|:223| sups=['3'] fonts=['3']
+  Cell 5: w=28 text=|:454| sups=['4'] fonts=['4']
+  Cell 6: w=28 text=|:574| sups=['4'] fonts=['4']
+  Cell 7: w=28 text=|1:092| sups=['2'] fonts=['2']
+  Cell 8: w=131 text=|Md50.00| sups=[''] fonts=[]
+  Cell 9: w=20 text=|87| sups=[''] fonts=[]
+  Cell 10: w=16 text=|5| sups=[''] fonts=[]
+  Cell 11: w=25 text=|43| sups=['3'] fonts=['3']
+  Cell 12: w=25 text=|42| sups=['2'] fonts=['2']
+  Cell 13: w=25 text=|31/2| sups=['1/2'] fonts=['1/2']
+  Cell 14: w=25 text=|23/4| sups=['3/4'] fonts=['3/4']
+  Cell 15: w=210 text=|Bridgmohan S XB122*1.0594-45| sups=['', '', '', '', '', ''] fonts=[]
+
+=== 5Feb26-4TAM ===
+Total cells: 16
+  Cell 0: w=83 text=|5Feb26-4TAM| sups=[''] fonts=[]
+  Cell 1: w=22 text=|fst| sups=[''] fonts=[]
+  Cell 2: w=35 text=|6f| sups=[''] fonts=[]
+  Cell 3: w=11 text=|| sups=[''] fonts=[]
+  Cell 4: w=28 text=|:221| sups=['1'] fonts=['1']
+  Cell 5: w=28 text=|:452| sups=['2'] fonts=['2']
+  Cell 6: w=28 text=|:573| sups=['3'] fonts=['3']
+  Cell 7: w=28 text=|1:093| sups=['3'] fonts=['3']
+  Cell 8: w=131 text=|MdSpWt25.00| sups=[''] fonts=[]
+  Cell 9: w=20 text=|91| sups=[''] fonts=[]
+  Cell 10: w=16 text=|10| sups=[''] fonts=[]
+  Cell 11: w=25 text=|41| sups=['1'] fonts=['1']
+  Cell 12: w=25 text=|31| sups=['1'] fonts=['1']
+  Cell 13: w=25 text=|23/4| sups=['3/4'] fonts=['3/4']
+  Cell 14: w=25 text=|23/4| sups=['3/4'] fonts=['3/4']
+  Cell 15: w=210 text=|Centeno D EB120*4.4594-810| sups=['', '', '', '', '', ''] fonts=[]

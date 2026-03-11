@@ -164,10 +164,15 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
                 if val.isdigit():
                     record["distance_meter"] = val
 
-    # Works count
+    # Works count — count only actual work rows (first cell matches DDMmmYY date)
     if works_s:
-        work_rows = works_s.find_all("tr")
-        record["works_count"] = max(0, len(work_rows) - 1)  # subtract header
+        work_date_re = re.compile(r"\d{1,2}[A-Za-z]{3}\d{2}")
+        work_count = 0
+        for tr in works_s.find_all("tr"):
+            first_td = tr.find("td")
+            if first_td and work_date_re.match(first_td.get_text(strip=True)):
+                work_count += 1
+        record["works_count"] = work_count
 
     # Conformation highlights
     for trait in ["Leg Style", "Legs", "Gait", "Frame Size"]:
@@ -247,55 +252,135 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
             "shows": life_match.group(4),
         }
 
-    # Parse individual race result lines from profile text
-    # IMPORTANT: Only do this for horses that have actually raced (LIFE record > 0 starts)
-    # The N/N patterns in HRP pages can also be WORK RANKINGS (e.g. 75/101 = rank 75 out of 101)
-    # which are NOT race results. Real race fields are ≤ 16 horses.
-    has_raced = False
-    if life_match:
-        try:
-            has_raced = int(life_match.group(1)) > 0
-        except (ValueError, TypeError):
-            pass
-
-    if has_raced and profile_s:
-        strings = list(profile_s.stripped_strings)
+    # Parse race results from the profile HTML using the ACTUAL race table structure
+    # Race rows contain DDMmmYY-#TRK identifiers (e.g. "4Mar26-5TUP") and have a specific
+    # column layout with surface, distance, splits, race class link, SRF, field size,
+    # and running position columns. The LAST running position is the finish position.
+    if profile_s:
+        race_id_re = re.compile(r"(\d{1,2}[A-Za-z]{3}\d{2})-(\d+)([A-Z]{2,4})")
         races: List[Dict[str, str]] = []
-        i = 0
-        while i < len(strings):
-            s = strings[i].strip()
-            # Match finish position pattern: digit/digit
-            finish_match = re.match(r"^(\d+)/(\d+)$", s)
-            if finish_match and i + 1 < len(strings):
-                finish_pos = int(finish_match.group(1))
-                field_size = int(finish_match.group(2))
-                # Reject work rankings: 
-                # - Real race fields are 2-16 horses (never solo 1/1)
-                # - Finish position must be ≤ field size and ≥ 1
-                if field_size > 16 or field_size < 2 or finish_pos > field_size or finish_pos < 1:
-                    i += 1
-                    continue
-                # Next string should be date + track (e.g. "21Feb26 SA")
-                next_s = strings[i + 1].strip() if i + 1 < len(strings) else ""
-                date_trk = re.match(r"(\d{1,2}[A-Za-z]{3}\d{2})\s+(\w+)", next_s)
-                if date_trk:
-                    race = {
-                        "finish": str(finish_pos),
-                        "field": str(field_size),
-                        "date": date_trk.group(1),
-                        "track": date_trk.group(2),
-                    }
-                    # Next should be distance/surface/time
-                    detail = strings[i + 2].strip() if i + 2 < len(strings) else ""
-                    dist_match = re.match(r"([\d/]+\s*[fm])\s+(\w+)\s+([\d:.]+)", detail)
-                    if dist_match:
-                        race["distance"] = dist_match.group(1)
-                        race["surface"] = dist_match.group(2)
-                        race["time"] = dist_match.group(3)
-                    races.append(race)
-            i += 1
+        seen_race_keys: set = set()
+
+        # Race rows are deeply nested (table > tbody > tr > td > table > ...),
+        # so search ALL <tr> elements in the document instead of traversing
+        # table hierarchies.  Deduplicate by race-id text.
+        for row in profile_s.find_all("tr"):
+            cells = row.find_all("td", recursive=False)
+            if len(cells) < 10:
+                continue
+
+            # Extract text from first cell, check for race-id pattern
+            first_cell_text = cells[0].get_text(strip=True)
+            m = race_id_re.match(first_cell_text)
+            if not m:
+                continue
+
+            # Deduplicate (nested tables can surface the same row multiple times)
+            if first_cell_text in seen_race_keys:
+                continue
+            seen_race_keys.add(first_cell_text)
+
+            # Confirm this is a race row (must have a race class link to race.aspx)
+            race_link = row.find("a", href=re.compile(r"race\.aspx\?raceid="))
+            if not race_link:
+                continue
+
+            # Parse race ID components
+            date_str = m.group(1)  # e.g. "4Mar26"
+            track = m.group(3)     # e.g. "TUP"
+
+            # Convert date to sortable format
+            date_match = re.match(r"(\d{1,2})([A-Za-z]{3})(\d{2})", date_str)
+            iso_date = ""
+            if date_match:
+                months = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06",
+                          "Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"}
+                mo = months.get(date_match.group(2).capitalize(), "")
+                if mo:
+                    iso_date = f"20{date_match.group(3)}-{mo}-{int(date_match.group(1)):02d}"
+
+            # Extract cell values, stripping superscript margin text
+            # HRP uses <sup><font>...</font></sup> for margins (e.g. "3/4" lengths behind)
+            # which get concatenated into the base text by get_text().
+            def cell_text_clean(idx: int) -> str:
+                """Get cell text with <sup> content removed."""
+                if idx < len(cells):
+                    from copy import copy
+                    cell_copy = copy(cells[idx])
+                    for sup in cell_copy.find_all("sup"):
+                        sup.decompose()
+                    return cell_copy.get_text(strip=True)
+                return ""
+
+            surface = cell_text_clean(1)   # "fst", "gd", etc.
+            # Distance cell: <sup> contains actual distance info (e.g. 70 yards),
+            # NOT margin text, so use raw text instead of cell_text_clean.
+            distance = cells[2].get_text(strip=True) if len(cells) > 2 else ""
+
+            # Get split times (cells 4-7, width=28 each)
+            splits = []
+            for si in range(4, 8):
+                st = cell_text_clean(si)
+                if st and re.match(r"[:0-9]", st):
+                    splits.append(st)
+
+            # Final time is the LAST split
+            final_time = splits[-1] if splits else ""
+
+            # Race class from link text: "OClm10/N2X-N", "Clm8.00(10-8)N3L", etc.
+            race_class = race_link.get_text(strip=True) if race_link else ""
+
+            # SRF rating: bold number in cell after race class (width=20)
+            srf = cell_text_clean(9) if len(cells) > 9 else ""
+            if not srf.isdigit():
+                srf = ""
+
+            # Field size: cell with width=16 (cell 10)
+            # Running positions: cells with width=25 (cells 11+)
+            field_size = ""
+            finish_pos = ""
+
+            found_field = False
+            position_cells_list = []
+            for ci, c in enumerate(cells):
+                w = c.get("width", "")
+                if w == "16" and not found_field:
+                    ct = cell_text_clean(ci)
+                    if ct.isdigit():
+                        field_size = ct
+                        found_field = True
+                elif w == "25" and found_field:
+                    ct = cell_text_clean(ci)
+                    if re.match(r"\d", ct):
+                        position_cells_list.append(ct)
+
+            # The LAST position cell is the finish position
+            if position_cells_list:
+                last_pos = position_cells_list[-1]
+                fp_match = re.match(r"(\d+)", last_pos)
+                if fp_match:
+                    finish_pos = fp_match.group(1)
+
+            if not finish_pos or not field_size:
+                continue
+
+            races.append({
+                "finish": finish_pos,
+                "field": field_size,
+                "date": date_str,
+                "iso_date": iso_date,
+                "track": track,
+                "distance": distance.rstrip("f").strip() + "f" if distance and not distance.endswith("f") else distance,
+                "surface": surface,
+                "time": final_time,
+                "srf": srf,
+                "race_class": race_class,
+            })
+
+        # Sort by date descending and keep up to 10
+        races.sort(key=lambda r: r.get("iso_date", ""), reverse=True)
         if races:
-            record["recent_races"] = races[:10]  # keep last 10
+            record["recent_races"] = races[:10]
 
     return record
 
