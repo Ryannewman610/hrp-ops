@@ -1019,8 +1019,8 @@ def api_peak_plans():
     return jsonify({"plans": [], "peaking_soon": [], "at_risk": []})
 
 
-# ── Ask AI (OpenAI GPT) ─────────────────────────────
-OPENAI_KEY = os.environ.get("OPENAI_API_KEY", "") or "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"
+# ── Ask AI (Anthropic Claude) ────────────────────────
+CLAUDE_KEY = os.environ.get("ANTHROPIC_API_KEY", "") or ""
 
 
 def _build_horse_context(horse_name):
@@ -1116,9 +1116,9 @@ def api_ask():
     if not question:
         return jsonify({"error": "No question provided"}), 400
 
-    api_key = OPENAI_KEY
+    api_key = CLAUDE_KEY
     if not api_key:
-        return jsonify({"error": "OpenAI API key not configured. Set OPENAI_API_KEY environment variable."}), 500
+        return jsonify({"error": "Anthropic API key not configured. Set ANTHROPIC_API_KEY environment variable."}), 500
 
     # Build context
     if horse_name:
@@ -1199,20 +1199,18 @@ When data is incomplete or missing, clearly state what's unknown and what additi
 Always be specific: give exact numbers, timelines, and actionable steps."""
 
     try:
-        from openai import OpenAI
-        client = OpenAI(api_key=api_key)
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
+        import anthropic
+        client = anthropic.Anthropic(api_key=api_key)
+        response = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=800,
+            system=system_prompt + f"\n\nCURRENT DATA:\n{context}",
             messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "system", "content": f"CURRENT DATA:\n{context}"},
                 {"role": "user", "content": question},
             ],
-            max_tokens=800,
-            temperature=0.7,
         )
-        answer = response.choices[0].message.content
-        return jsonify({"answer": answer, "horse": horse_name or "stable", "model": "gpt-4o-mini"})
+        answer = response.content[0].text
+        return jsonify({"answer": answer, "horse": horse_name or "stable", "model": "claude-sonnet"})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
