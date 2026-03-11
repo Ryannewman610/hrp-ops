@@ -1020,7 +1020,7 @@ def api_peak_plans():
 
 
 # ── Ask AI (Anthropic Claude) ────────────────────────
-CLAUDE_KEY = os.environ.get("ANTHROPIC_API_KEY", "") or ""
+CLAUDE_KEY = os.environ.get("ANTHROPIC_API_KEY", "") or "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"
 
 
 def _build_horse_context(horse_name):
