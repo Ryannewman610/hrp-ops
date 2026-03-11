@@ -58,12 +58,8 @@ def time_to_seconds(t: str) -> float:
     t = t.strip().rstrip(".")
     if not t:
         return 0.0
-    # Handle superscript fractions like ":344" meaning :34.4
     if t.startswith(":"):
         inner = t[1:]
-        # Check for fractional part encoded as extra digit (e.g. "344" = 34.4)
-        if len(inner) > 2 and inner.isdigit():
-            return float(inner[:-1]) + float(inner[-1]) / 10.0
         try:
             return float(inner)
         except ValueError:
@@ -72,11 +68,7 @@ def time_to_seconds(t: str) -> float:
     if len(parts) == 2:
         try:
             mins = float(parts[0])
-            secs_str = parts[1]
-            if len(secs_str) > 2 and secs_str.isdigit():
-                secs = float(secs_str[:-1]) + float(secs_str[-1]) / 10.0
-            else:
-                secs = float(secs_str)
+            secs = float(parts[1])
             return mins * 60 + secs
         except ValueError:
             return 0.0
@@ -84,18 +76,109 @@ def time_to_seconds(t: str) -> float:
 
 
 def extract_cell_text(td) -> str:
-    """Extract clean text from a td cell, merging superscript into the value."""
-    parts = []
-    for child in td.descendants:
-        if child.name == "sup":
-            sup_text = child.get_text(strip=True)
-            if sup_text and sup_text.strip():
-                parts.append(sup_text.strip())
-        elif child.string and child.parent.name != "sup":
-            txt = child.string.strip()
-            if txt and txt != "\xa0":
-                parts.append(txt)
-    return "".join(parts).strip()
+    """Extract clean text from a td cell, converting superscript digits to decimals.
+
+    HRP uses <sup>3</sup> after a time like :24 to mean :24.3 (tenths of a second).
+    This function converts that notation to proper decimal format.
+
+    Uses recursive child walking (not .descendants) to avoid double-capturing
+    text inside <sup> tags.
+    """
+    from bs4 import NavigableString, Tag
+
+    def _walk(node):
+        parts = []
+        for child in node.children:
+            if isinstance(child, NavigableString):
+                txt = child.strip()
+                if txt and txt != "\xa0":
+                    parts.append(txt)
+            elif isinstance(child, Tag):
+                if child.name == "sup":
+                    digit = child.get_text(strip=True)
+                    if len(digit) == 1 and digit.isdigit():
+                        parts.append("." + digit)
+                    # Skip empty/space sups
+                else:
+                    # Recurse into font, b, a, etc.
+                    parts.extend(_walk(child))
+        return parts
+
+    return "".join(_walk(td)).strip()
+
+
+def _generate_work_comment(final_secs, per_furlong, distance, running_style,
+                           work_type, rank, furlong_splits):
+    """Generate an intelligent one-liner about a work."""
+    notes = []
+    dist_upper = distance.upper()
+
+    # Pace quality based on HRP benchmarks
+    if "5F" in dist_upper:
+        if final_secs <= 59.0:
+            notes.append("Bullet work")
+        elif final_secs <= 60.0:
+            notes.append("Sharp")
+        elif final_secs <= 61.0:
+            notes.append("Solid")
+        elif final_secs <= 62.0:
+            notes.append("Steady")
+        else:
+            notes.append("Easy maintenance")
+    elif "6F" in dist_upper:
+        if final_secs <= 70.0:
+            notes.append("Sharp 6f drill")
+        elif final_secs <= 71.0:
+            notes.append("Good pace")
+        elif final_secs <= 72.0:
+            notes.append("Steady")
+        else:
+            notes.append("Easy gallop")
+    elif "3F" in dist_upper:
+        if final_secs <= 35.0:
+            notes.append("Quick blowout")
+        elif final_secs <= 36.5:
+            notes.append("Crisp move")
+        else:
+            notes.append("Maintenance drill")
+    elif "4F" in dist_upper:
+        if final_secs <= 47.0:
+            notes.append("Strong half")
+        elif final_secs <= 49.0:
+            notes.append("Good pace")
+        else:
+            notes.append("Easy")
+
+    # Rank analysis
+    if rank and "/" in rank:
+        parts = rank.split("/")
+        try:
+            pos = int(parts[0])
+            total = int(parts[1])
+            if total >= 3:
+                pct = pos / total
+                if pct <= 0.10:
+                    notes.append(f"tops field ({rank})")
+                elif pct <= 0.25:
+                    notes.append(f"top quarter ({rank})")
+                elif pct >= 0.85:
+                    notes.append(f"bottom of tab ({rank})")
+        except (ValueError, ZeroDivisionError):
+            pass
+
+    # Running style note
+    if running_style == "closer" and len(furlong_splits) >= 2:
+        notes.append("strong close")
+    elif running_style == "early_speed" and len(furlong_splits) >= 2:
+        notes.append("pressed early")
+
+    # Work type
+    if work_type == "B":
+        notes.append("breezing")
+    elif work_type == "H":
+        notes.append("handily")
+
+    return "; ".join(notes) if notes else ""
 
 
 def parse_works_from_html(html_path: Path) -> list:
@@ -125,8 +208,8 @@ def parse_works_from_html(html_path: Path) -> list:
         # Look for the table right after the works label
         for sibling in works_label.find_all_next("table"):
             # Works rows have nested tables with date-track patterns
-            first_text = norm(sibling.get_text(" ", strip=True)[:50])
-            if re.search(r"\d{1,2}[A-Za-z]{3}\d{2}-[A-Z]{2,3}", first_text):
+            first_text = norm(sibling.get_text(" ", strip=True)[:80])
+            if re.search(r"\d{1,2}[A-Za-z]{3}\d{2}-[A-Z]{2,5}", first_text):
                 works_table = sibling
                 break
 
@@ -151,7 +234,7 @@ def parse_works_from_html(html_path: Path) -> list:
 
         # Look for the date-track pattern in first cell
         first = cell_texts[0] if cell_texts else ""
-        dm = re.match(r"(\d{1,2}[A-Za-z]{3}\d{2})-([A-Z]{2,3})", first)
+        dm = re.match(r"(\d{1,2}[A-Za-z]{3}\d{2})-([A-Z]{2,5})", first)
         if not dm:
             continue
 
@@ -175,8 +258,9 @@ def parse_works_from_html(html_path: Path) -> list:
             # Distance: 2f, 3f, 4f, 5f, 6f, 7f, 1m etc.
             elif re.fullmatch(r"\d+[fmFM]", ct_clean) and not distance:
                 distance = ct_clean.upper()
-            # Time values: :23, :234, :59, :592, 1:01, 1:012, etc.
-            elif re.fullmatch(r":?\d{1,2}:?\d{2,3}", ct_clean):
+            # Time values with optional decimal tenths:
+            # :24, :24.3, :48, :59.3, 1:11, 1:11.2
+            elif re.fullmatch(r":?\d{1,2}:?\d{2}(?:\.\d)?", ct_clean):
                 if not ct_clean.startswith(":") and ":" not in ct_clean:
                     continue
                 split_vals.append(ct_clean)
@@ -262,6 +346,12 @@ def parse_works_from_html(html_path: Path) -> list:
                 elif not stam_pct:
                     stam_pct = ct_clean
 
+        # Generate intelligent commentary
+        comment = _generate_work_comment(
+            final_secs, per_furlong, distance, running_style,
+            work_type, rank, furlong_splits
+        )
+
         works.append({
             "date": date,
             "track": track,
@@ -278,6 +368,7 @@ def parse_works_from_html(html_path: Path) -> list:
             "rank": rank,
             "cond_pct": cond_pct,
             "stam_pct": stam_pct,
+            "comment": comment,
         })
 
     return works

@@ -155,10 +155,14 @@ def horse_profile(name):
     works = _load_works_features()
     wf = works.get(horse["name"], {})
 
-    # Get outcomes for this horse
-    outcomes = load_csv_rows(OUTPUTS / "outcomes_log.csv")
-    horse_races = [r for r in outcomes if r.get("horse_name") == horse["name"]]
-    horse_races.sort(key=lambda r: r.get("race_date", ""), reverse=True)
+    # Get outcomes for this horse — prefer recent_races from snapshot (has SRF + comments)
+    snap_races = horse.get("recent_races", [])
+    if snap_races:
+        horse_races = snap_races
+    else:
+        outcomes = load_csv_rows(OUTPUTS / "outcomes_log.csv")
+        horse_races = [r for r in outcomes if r.get("horse_name") == horse["name"]]
+        horse_races.sort(key=lambda r: r.get("race_date", r.get("iso_date", "")), reverse=True)
 
     # Build comprehensive profile dict
     profile = {
@@ -203,16 +207,17 @@ def horse_profile(name):
         "last_work_distance": wf.get("last_work_distance") if wf else None,
         # Individual works with splits
         "works_splits": _load_works_splits(horse["name"]),
-        # Race history
+        # Race history (from snapshot with SRF + comments)
         "races": [{
-            "date": r.get("race_date", ""),
+            "date": r.get("date", r.get("race_date", "")),
             "track": r.get("track", ""),
             "distance": r.get("distance", ""),
             "surface": r.get("surface", ""),
-            "finish": int(r.get("finish_position", 0)) if r.get("finish_position", "").isdigit() else 0,
-            "field": int(r.get("field_size", 0)) if r.get("field_size", "").isdigit() else 0,
+            "finish": int(r.get("finish", r.get("finish_position", 0))) if str(r.get("finish", r.get("finish_position", ""))).isdigit() else 0,
+            "field": int(r.get("field", r.get("field_size", 0))) if str(r.get("field", r.get("field_size", ""))).isdigit() else 0,
             "time": r.get("time", ""),
-            "jockey": r.get("jockey", ""),
+            "srf": r.get("srf", ""),
+            "comment": r.get("comment", ""),
         } for r in horse_races],
     }
     return render_template("horse_profile.html", horse=profile)

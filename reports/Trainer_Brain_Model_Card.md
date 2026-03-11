@@ -27,8 +27,6 @@
 | Core N Light | **73.0** | 73.0 | 73 | 73 | — | 1.0% | 30.3 | 🏋️ |
 | Hardline Anvil | **68.0** | 68.0 | 68 | 68 | — | 1.0% | 25.5 | 🛏️ |
 | Kingston Quickstep | **61.0** | 61.0 | 61 | 61 | — | 1.0% | 28.1 | 🔥 |
-| Urshalim Craftwork | **40.0** | 40.0 | 40 | 40 | — | 1.0% | 21.8 | 🔥 |
-| Crowds Ransom | **39.0** | 39.0 | 39 | 39 | — | 1.0% | 21.4 | 🔥 |
 
 ### Unrated (no race history)
 | Horse | Form | Next Action |
@@ -37,30 +35,22 @@
 | Basic Math | ✅ READY | race_target |
 | Blank Sunset | 🔥 PEAKING | race_target |
 | Breath Of The Grayte | ✅ READY | race_target |
-| Caros Compass | 🔥 PEAKING | race_target |
 | Collision Course | ✅ READY | race_target |
 | Cynful Nature | 🏋️ NEEDS_WORK | timed_work |
-| Damascus Honey | 🔥 PEAKING | race_target |
-| Desert Oath | 🔥 PEAKING | race_target |
 | Drinkers Drought | ✅ READY | race_target |
-| Dubai Iron | ✅ READY | race_target |
 | Duke Of York | ✅ READY | race_target |
 | Eyes Of An Indian | 🏋️ NEEDS_WORK | timed_work |
 | Favorite Indian | ✅ READY | race_target |
 | Film The Scene | 🔥 PEAKING | race_target |
 | Gen Xpress | 🔥 PEAKING | race_target |
-| Golden Shuvee | ✅ READY | race_target |
 | Good Crypto | ✅ READY | race_target |
-| Helios Hustle | 🔥 PEAKING | race_target |
 | Hi How Are Ya | ✅ READY | race_target |
 | Hydration | 🔥 PEAKING | race_target |
 | In The Ruff | ✅ READY | race_target |
 | Jinxed Agent | 🏋️ NEEDS_WORK | timed_work |
-| Jurors Verdict | 🔥 PEAKING | race_target |
 | Last Night Out | ✅ READY | race_target |
 | Lil Rocket Man | 🔥 PEAKING | race_target |
 | Looks Like Nicholas | 🔥 PEAKING | race_target |
-| Migoli Moonbeam | 🔥 PEAKING | race_target |
 | Neon Reflection | 🔥 PEAKING | race_target |
 | New York Pharmacist | ✅ READY | race_target |
 | Next On Stage | 🔥 PEAKING | race_target |
@@ -68,7 +58,6 @@
 | Optimus | ✅ READY | race_target |
 | Payment Accepted | 🏋️ NEEDS_WORK | timed_work |
 | Pedal To Metal | ✅ READY | race_target |
-| Port Royal Dash | 🔥 PEAKING | race_target |
 | Royal Timeburst | ✅ READY | race_target |
 | Royal Velocity | ✅ READY | race_target |
 | Sapphires Dream | ✅ READY | race_target |
@@ -76,7 +65,6 @@
 | Silent Fighter | 🏋️ NEEDS_WORK | timed_work |
 | Speed Queen | ✅ READY | race_target |
 | Step Right Up | ✅ READY | race_target |
-| Stormy Sky | 🔥 PEAKING | race_target |
 | Tall Bonsai | 🏋️ NEEDS_WORK | timed_work |
 | The Chance | 🏋️ NEEDS_WORK | timed_work |
 | Triple Love | 🔥 PEAKING | race_target |
@@ -88,7 +76,7 @@
 |--------|-------|
 | Total races | 119 |
 | Races with SRF | 0 |
-| Horses with SRF | 19 |
+| Horses with SRF | 17 |
 | Timed works | 935 |
 | Win rate (actual) | 28.4% |
 

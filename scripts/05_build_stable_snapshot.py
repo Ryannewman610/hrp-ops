@@ -303,7 +303,7 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
             # HRP uses <sup><font>...</font></sup> for margins (e.g. "3/4" lengths behind)
             # which get concatenated into the base text by get_text().
             def cell_text_clean(idx: int) -> str:
-                """Get cell text with <sup> content removed."""
+                """Get cell text with <sup> content removed (for position cells)."""
                 if idx < len(cells):
                     from copy import copy
                     cell_copy = copy(cells[idx])
@@ -312,15 +312,47 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
                     return cell_copy.get_text(strip=True)
                 return ""
 
+            def cell_text_time(idx: int) -> str:
+                """Get cell text with <sup> single digits converted to .X decimal (for time cells).
+
+                HRP uses <sup>3</sup> after :24 to mean :24.3 (tenths of a second).
+                Works HTML:  <font class="Arial7">:24<sup>3</sup></font>
+                Races HTML:  1:09<font class="Arial8"><sup>3</sup></font>
+                """
+                if idx >= len(cells):
+                    return ""
+
+                from bs4 import NavigableString, Tag
+
+                def _walk(node):
+                    parts = []
+                    for child in node.children:
+                        if isinstance(child, NavigableString):
+                            txt = child.strip()
+                            if txt and txt != "\xa0":
+                                parts.append(txt)
+                        elif isinstance(child, Tag):
+                            if child.name == "sup":
+                                digit = child.get_text(strip=True)
+                                if len(digit) == 1 and digit.isdigit():
+                                    parts.append("." + digit)
+                                # Skip empty/space sups
+                            else:
+                                # Recurse into font, b, etc.
+                                parts.extend(_walk(child))
+                    return parts
+
+                return "".join(_walk(cells[idx])).strip()
+
             surface = cell_text_clean(1)   # "fst", "gd", etc.
             # Distance cell: <sup> contains actual distance info (e.g. 70 yards),
             # NOT margin text, so use raw text instead of cell_text_clean.
             distance = cells[2].get_text(strip=True) if len(cells) > 2 else ""
 
-            # Get split times (cells 4-7, width=28 each)
+            # Get split times (cells 4-7, width=28 each) — use time decoder
             splits = []
             for si in range(4, 8):
-                st = cell_text_clean(si)
+                st = cell_text_time(si)
                 if st and re.match(r"[:0-9]", st):
                     splits.append(st)
 
@@ -364,6 +396,58 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
             if not finish_pos or not field_size:
                 continue
 
+            # Generate intelligent race commentary
+            comment_parts = []
+            fp = int(finish_pos)
+            fs = int(field_size)
+
+            # Finish analysis
+            if fp == 1:
+                if fs >= 8:
+                    comment_parts.append("Won vs strong field")
+                elif fs >= 5:
+                    comment_parts.append("Won")
+                else:
+                    comment_parts.append("Won (short field)")
+            elif fp == 2:
+                comment_parts.append("Runner-up" if fs >= 5 else "Place finish")
+            elif fp == 3:
+                comment_parts.append("Show finish")
+            elif fs > 0 and fp <= max(fs // 2, 2):
+                comment_parts.append("Hit the board")
+            elif fs > 0 and fp >= fs:
+                comment_parts.append("Trailed")
+            else:
+                comment_parts.append("Mid-pack")
+
+            # SRF analysis
+            if srf and srf.isdigit():
+                sv = int(srf)
+                if sv >= 93:
+                    comment_parts.append(f"elite SRF {sv}")
+                elif sv >= 88:
+                    comment_parts.append(f"strong SRF {sv}")
+                elif sv >= 83:
+                    comment_parts.append(f"competitive SRF {sv}")
+                elif sv >= 75:
+                    comment_parts.append(f"developing SRF {sv}")
+                else:
+                    comment_parts.append(f"needs improvement SRF {sv}")
+
+            # Class context
+            if race_class:
+                rc = race_class.lower()
+                if "stk" in rc or "grp" in rc:
+                    comment_parts.append("stakes level")
+                elif "alw" in rc:
+                    comment_parts.append("allowance")
+                elif "msw" in rc:
+                    comment_parts.append("maiden special")
+                elif "clm" in rc:
+                    comment_parts.append("claiming")
+
+            race_comment = "; ".join(comment_parts)
+
             races.append({
                 "finish": finish_pos,
                 "field": field_size,
@@ -375,6 +459,7 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
                 "time": final_time,
                 "srf": srf,
                 "race_class": race_class,
+                "comment": race_comment,
             })
 
         # Sort by date descending and keep up to 10

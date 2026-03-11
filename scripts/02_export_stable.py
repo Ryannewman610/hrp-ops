@@ -1,6 +1,7 @@
-﻿import argparse
+import argparse
 import json
 import re
+import shutil
 import time
 from pathlib import Path
 from typing import Dict, List, Set
@@ -438,6 +439,20 @@ def main() -> None:
             context.close()
             browser.close()
             return
+
+        # --- Clean up stale horse directories not in the live roster ---
+        discovered_dirs = {
+            horse_folder_name(parse_horse_name_from_url(h["url"]))
+            for h in horse_links
+        }
+        stale_removed = 0
+        for existing in list(RAW_ROOT.iterdir()):
+            if existing.is_dir() and existing.name != GLOBAL_DIR and existing.name not in discovered_dirs:
+                shutil.rmtree(existing)
+                print(f"  Removed stale: {existing.name}")
+                stale_removed += 1
+        if stale_removed:
+            print(f"  Cleaned up {stale_removed} stale horse directories")
 
         if args.limit is not None:
             if args.limit < 1:
