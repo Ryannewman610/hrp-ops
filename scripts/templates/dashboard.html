@@ -122,26 +122,6 @@
                     </table>
                 </section>
 
-                <!-- Race Fitness Tracker -->
-                <section class="panel" id="fitness-panel">
-                    <div class="panel-header">
-                        <div class="panel-title"><span class="icon">🎯</span> Race Day Fitness Tracker</div>
-                        <span class="panel-badge" id="fitness-badge">—</span>
-                    </div>
-                    <!-- Today's Orders -->
-                    <div id="fitness-today" style="margin-bottom:16px;"></div>
-                    <!-- 7-Day Calendar -->
-                    <div style="overflow-x:auto;">
-                        <table class="rank-table" id="fitness-calendar">
-                            <thead>
-                                <tr id="fitness-cal-head"></tr>
-                            </thead>
-                            <tbody id="fitness-cal-body"></tbody>
-                        </table>
-                    </div>
-                    <!-- Alerts -->
-                    <div id="fitness-alerts" style="margin-top:12px;"></div>
-                </section>
 
                 <!-- Race Calendar -->
                 <section class="panel" id="calendar-panel">
@@ -156,8 +136,6 @@
                                     <th>Horse</th>
                                     <th>Race</th>
                                     <th>Track</th>
-                                    <th>CND</th>
-                                    <th>STA</th>
                                     <th>SRF</th>
                                     <th>Status</th>
                                 </tr>
@@ -258,29 +236,6 @@
                     <div class="twoyo-grid" id="twoyo-grid"></div>
                 </section>
 
-                <!-- Readiness Radar Table -->
-                <section class="panel" id="twoyo-radar-panel">
-                    <div class="panel-header">
-                        <div class="panel-title"><span class="icon">📡</span> Readiness Radar</div>
-                    </div>
-                    <div style="overflow-x:auto;">
-                        <table class="rank-table" id="twoyo-radar-table">
-                            <thead>
-                                <tr>
-                                    <th>Horse</th>
-                                    <th>Stage</th>
-                                    <th>Works</th>
-                                    <th>Con</th>
-                                    <th>CND</th>
-                                    <th>STA</th>
-                                    <th>Location</th>
-                                    <th>Top Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="twoyo-radar-body"></tbody>
-                        </table>
-                    </div>
-                </section>
 
                 <!-- Financial Summary -->
                 <section class="panel" id="financial-panel">
@@ -337,9 +292,7 @@
                         </div>
                         <select id="sort-select" onchange="sortHorses(this.value)" style="background:var(--surface-2);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;font-family:inherit;cursor:pointer">
                             <option value="name">Sort: Name</option>
-                            <option value="cond-desc">Sort: Condition ↓</option>
-                            <option value="stam-desc">Sort: Stamina ↓</option>
-                            <option value="stam-asc">Sort: Stamina ↑</option>
+                            <option value="srf-desc">Sort: SRF Power ↓</option>
                             <option value="elo-desc">Sort: ELO ↓</option>
                             <option value="age-asc">Sort: Age ↑</option>
                         </select>
@@ -562,7 +515,6 @@
                 loadInsights(),
                 loadMetrics(),
                 loadActions(),
-                loadPeakPlans(),
                 loadNominations(),
                 loadStableStats(),
                 loadPlaybook(),
@@ -769,112 +721,6 @@
             }).join('');
         }
 
-        // ── Load Peak Plans (Race Fitness) ─────
-        async function loadPeakPlans() {
-            const data = await fetchJSON('/api/peak-plans');
-            if (!data || !data.plans || data.plans.length === 0) {
-                document.getElementById('fitness-panel').style.display = 'none';
-                return;
-            }
-
-            // Filter to horses that have meaningful actions (not all REST)
-            const activePlans = data.plans.filter(p => {
-                return p.daily_plan && p.daily_plan.some(d =>
-                    d.action === 'RACE' || d.action === 'RACE_TARGET' || d.action === 'WORK');
-            }).sort((a, b) => b.readiness_index - a.readiness_index);
-
-            const allPlans = data.plans.sort((a, b) => b.readiness_index - a.readiness_index);
-            document.getElementById('fitness-badge').textContent =
-                `${activePlans.length} active / ${allPlans.length} total`;
-
-            // ── Today's Orders ──────────────────
-            const todayRaces = [], todayWorks = [], todayRests = [];
-            allPlans.forEach(p => {
-                if (!p.daily_plan || !p.daily_plan[0]) return;
-                const d0 = p.daily_plan[0];
-                const name = p.horse_name;
-                if (d0.action === 'RACE') {
-                    const tr = d0.target_race || {};
-                    todayRaces.push(`<div class="decision-card alert-green">
-                        🏇 <strong>${name}</strong> → ${tr.track || '?'} R#${tr.race_num || '?'}
-                        ${tr.distance || ''} ${tr.race_type || ''}
-                        <span style="float:right;color:var(--text-dim)">${d0.reason || ''}</span>
-                    </div>`);
-                } else if (d0.action === 'WORK') {
-                    todayWorks.push(`<div class="decision-card alert-blue">
-                        🏋️ <strong>${name}</strong> — ${d0.work_type || 'timed'} work
-                        <span style="float:right;color:var(--text-dim)">${d0.reason || ''}</span>
-                    </div>`);
-                } else if (p.stamina < 75 || p.fatigue_proxy >= 50) {
-                    todayRests.push(`<div class="decision-card alert-yellow">
-                        🛏️ <strong>${name}</strong> — REST
-                        <span style="float:right;color:var(--text-dim)">Stam ${p.stamina.toFixed(0)}% · Fat ${p.fatigue_proxy}</span>
-                    </div>`);
-                }
-            });
-
-            let todayHTML = '<div class="decision-section-title">📋 Today\'s Orders</div>';
-            if (todayRaces.length) todayHTML += todayRaces.join('');
-            if (todayWorks.length) todayHTML += todayWorks.join('');
-            if (todayRests.length && (todayRaces.length + todayWorks.length < 8))
-                todayHTML += todayRests.slice(0, 3).join('');
-            if (!todayRaces.length && !todayWorks.length && !todayRests.length)
-                todayHTML += '<div style="color:var(--text-dim);font-size:12px">No actions today</div>';
-            document.getElementById('fitness-today').innerHTML = todayHTML;
-
-            // ── 7-Day Calendar ──────────────────
-            const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            const headRow = document.getElementById('fitness-cal-head');
-            let headHTML = '<th style="min-width:120px">Horse</th><th>RDY</th>';
-            if (activePlans[0] && activePlans[0].daily_plan) {
-                activePlans[0].daily_plan.slice(0, 7).forEach(d => {
-                    const dt = new Date(d.date + 'T12:00:00');
-                    const label = dayNames[dt.getDay()] + ' ' + dt.getDate();
-                    headHTML += `<th style="text-align:center">${label}</th>`;
-                });
-            }
-            headRow.innerHTML = headHTML;
-
-            const actionStyle = {
-                'RACE': { icon: '🏇', bg: 'var(--green-dim)', color: 'var(--green)' },
-                'RACE_TARGET': { icon: '🎯', bg: 'var(--blue-dim)', color: 'var(--blue)' },
-                'WORK': { icon: '🏋️', bg: 'var(--purple-dim)', color: 'var(--purple)' },
-                'REST': { icon: '💤', bg: 'transparent', color: 'var(--text-dim)' },
-            };
-
-            const tbody = document.getElementById('fitness-cal-body');
-            tbody.innerHTML = activePlans.slice(0, 20).map(p => {
-                const rdyColor = p.readiness_index >= 70 ? 'var(--green)' :
-                    p.readiness_index >= 50 ? 'var(--yellow)' : 'var(--red)';
-                let row = `<tr class="rank-row" onclick="openHorseModal('${p.horse_name}')">`;
-                row += `<td class="rank-name" style="font-size:12px">${p.horse_name}</td>`;
-                row += `<td style="text-align:center"><span style="color:${rdyColor};font-weight:700;font-family:'JetBrains Mono';font-size:11px">${p.readiness_index}</span></td>`;
-                p.daily_plan.slice(0, 7).forEach(d => {
-                    const s = actionStyle[d.action] || actionStyle['REST'];
-                    row += `<td style="text-align:center" title="${d.reason || ''}">
-                        <span style="display:inline-block;padding:2px 6px;border-radius:4px;background:${s.bg};color:${s.color};font-size:12px">${s.icon}</span>
-                    </td>`;
-                });
-                row += '</tr>';
-                return row;
-            }).join('');
-
-            // ── Alerts ──────────────────────────
-            let alertHTML = '';
-            if (data.peaking_soon && data.peaking_soon.length) {
-                alertHTML += '<div class="decision-section-title">⚡ Peaking Soon</div>';
-                alertHTML += data.peaking_soon.map(n =>
-                    `<span style="display:inline-block;padding:3px 10px;margin:2px;background:var(--green-dim);color:var(--green);border-radius:999px;font-size:11px;font-weight:600">${n}</span>`
-                ).join('');
-            }
-            if (data.at_risk && data.at_risk.length) {
-                alertHTML += '<div class="decision-section-title" style="margin-top:10px">⚠️ At Risk / Fatigued</div>';
-                alertHTML += data.at_risk.map(n =>
-                    `<span style="display:inline-block;padding:3px 10px;margin:2px;background:var(--red-dim);color:var(--red);border-radius:999px;font-size:11px;font-weight:600">${n}</span>`
-                ).join('');
-            }
-            document.getElementById('fitness-alerts').innerHTML = alertHTML;
-        }
 
         // ── Load Nominations Board ────────────
         async function loadNominations() {
@@ -1715,7 +1561,6 @@
             if (!data || !data.horses) return;
             render2YOPipeline(data);
             render2YOCards(data.horses);
-            render2YORadar(data.horses);
             renderFinancial(data.financial);
             document.getElementById('twoyo-badge').textContent = data.total_2yo + ' horses';
         }
@@ -1825,24 +1670,6 @@
             }).join('');
         }
 
-        function render2YORadar(horses) {
-            const body = document.getElementById('twoyo-radar-body');
-            body.innerHTML = horses.map(h => {
-                const topAction = h.actions.length > 0 ? h.actions[0].action : '—';
-                const condColor = h.condition >= 95 ? 'var(--green)' : h.condition >= 85 ? 'var(--yellow)' : 'var(--red)';
-                const stamColor = h.stamina >= 90 ? 'var(--green)' : h.stamina >= 70 ? 'var(--yellow)' : 'var(--red)';
-                return `<tr>
-                    <td style="font-weight:600">${h.name}</td>
-                    <td>${h.stage_label}</td>
-                    <td>${h.works_count}</td>
-                    <td>${h.consistency}/5</td>
-                    <td style="color:${condColor}">${h.condition}%</td>
-                    <td style="color:${stamColor}">${h.stamina}%</td>
-                    <td>${h.location_type === 'Farm' ? '🌿' : '🏟️'} ${h.location_type}</td>
-                    <td style="font-size:11px;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${topAction}</td>
-                </tr>`;
-            }).join('');
-        }
 
         function renderFinancial(fin) {
             if (!fin) return;

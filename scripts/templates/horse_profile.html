@@ -92,69 +92,6 @@
                 {% endif %}
             </div>
 
-            <!-- Current Status -->
-            <div class="profile-section">
-                <div class="profile-section-title">📊 Current Status</div>
-                <div style="display:flex;flex-direction:column;gap:12px">
-                    {% set cond = horse.condition|replace('%','')|int(default=0) %}
-                    {% set stam = horse.stamina|replace('%','')|int(default=0) %}
-                    {% set cons = horse.consistency|replace('+','')|int(default=0) %}
-                    <div>
-                        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                            <span style="font-size:11px;font-weight:600;color:var(--text-dim)">CONDITION</span>
-                            <span
-                                style="font-size:14px;font-weight:700;font-family:'JetBrains Mono';
-                            {% if cond >= 95 %}color:var(--green){% elif cond >= 80 %}color:var(--text-secondary){% else %}color:var(--yellow){% endif %}">{{
-                                horse.condition }}</span>
-                        </div>
-                        <div style="height:8px;background:rgba(255,255,255,0.04);border-radius:4px;overflow:hidden">
-                            <div
-                                style="height:100%;border-radius:4px;background:linear-gradient(90deg,var(--yellow),var(--green));width:{{ [cond, 110]|min / 1.1 }}%;transition:width 1s">
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                            <span style="font-size:11px;font-weight:600;color:var(--text-dim)">STAMINA</span>
-                            <span
-                                style="font-size:14px;font-weight:700;font-family:'JetBrains Mono';
-                            {% if stam >= 80 %}color:var(--green){% elif stam >= 60 %}color:var(--text-secondary){% elif stam >= 40 %}color:var(--yellow){% else %}color:var(--red){% endif %}">{{
-                                horse.stamina }}</span>
-                        </div>
-                        <div style="height:8px;background:rgba(255,255,255,0.04);border-radius:4px;overflow:hidden">
-                            <div
-                                style="height:100%;border-radius:4px;background:linear-gradient(90deg,var(--red),var(--cyan));width:{{ [stam, 110]|min / 1.1 }}%;transition:width 1s">
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                            <span style="font-size:11px;font-weight:600;color:var(--text-dim)">CONSISTENCY</span>
-                            <span
-                                style="font-size:14px;font-weight:700;font-family:'JetBrains Mono';color:var(--blue)">+{{
-                                cons }}</span>
-                        </div>
-                        <div style="height:8px;background:rgba(255,255,255,0.04);border-radius:4px;overflow:hidden">
-                            <div
-                                style="height:100%;border-radius:4px;background:linear-gradient(90deg,var(--purple),var(--blue));width:{{ [cons * 20, 100]|min }}%;transition:width 1s">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {% if horse.form_factors %}
-                <div style="margin-top:14px;display:flex;gap:4px;flex-wrap:wrap">
-                    {% for f in horse.form_factors %}
-                    <span style="padding:4px 10px;border-radius:6px;font-size:11px;font-weight:500;
-                        {% if 'excellent' in f or 'peak' in f or 'high' in f %}background:var(--green-dim);color:var(--green)
-                        {% elif 'good' in f or 'moderate' in f %}background:var(--blue-dim);color:var(--blue)
-                        {% elif 'low' in f %}background:var(--red-dim);color:var(--red)
-                        {% else %}background:var(--bg-glass);color:var(--text-dim){% endif %}">{{ f }}</span>
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </div>
-
             <!-- SRF Performance -->
             <div class="profile-section">
                 <div class="profile-section-title">⚡ SRF Performance</div>
@@ -222,19 +159,16 @@
 
             <!-- Works Intelligence -->
             <div class="profile-section full-width">
-                <div class="profile-section-title">🏋️ Works Intelligence</div>
-                <div class="stat-grid" style="grid-template-columns:repeat(auto-fill,minmax(80px,1fr))">
+                <div class="profile-section-title">🏇 Works Summary</div>
+                <div class="stat-grid" style="grid-template-columns:repeat(auto-fill,minmax(100px,1fr))">
                     <div class="stat-box">
                         <div class="val">{{ horse.works_count }}</div>
-                        <div class="lbl">Total</div>
+                        <div class="lbl">Total Works</div>
                     </div>
                     <div class="stat-box">
-                        <div class="val">{{ horse.recent_works_14d or '—' }}</div>
-                        <div class="lbl">14 Day</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="val">{{ horse.recent_works_28d or '—' }}</div>
-                        <div class="lbl">28 Day</div>
+                        <div class="val">{{ horse.best_5f_seconds or '—' }}{% if horse.best_5f_seconds %}s{% endif %}
+                        </div>
+                        <div class="lbl">Best 5f</div>
                     </div>
                     <div class="stat-box">
                         <div class="val"
@@ -243,23 +177,6 @@
                             %}—{% endif %} {{ horse.work_trend }}
                         </div>
                         <div class="lbl">Trend</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="val">{{ horse.fitness_index or '—' }}</div>
-                        <div class="lbl">Fitness</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="val">{{ horse.sharpness_index or '—' }}</div>
-                        <div class="lbl">Sharpness</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="val">{{ horse.fatigue_proxy or '—' }}</div>
-                        <div class="lbl">Fatigue</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="val">{{ horse.best_5f_seconds or '—' }}{% if horse.best_5f_seconds %}s{% endif %}
-                        </div>
-                        <div class="lbl">Best 5f</div>
                     </div>
                     <div class="stat-box">
                         <div class="val" style="font-size:11px;
