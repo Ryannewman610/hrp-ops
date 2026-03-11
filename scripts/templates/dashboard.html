@@ -7,7 +7,7 @@
     <title>HRP Command Center</title>
     <link rel="stylesheet" href="/static/dashboard.css">
     <meta name="description"
-        content="HRP Stable Management Dashboard — Power Rankings, Daily Decisions, Horse Intelligence">
+        content="HRP Stable Management Dashboard — Power Rankings, Horse Intelligence">
 </head>
 
 <body>
@@ -307,13 +307,7 @@
         <!-- RIGHT SIDEBAR -->
         <div class="sidebar tab-section" data-tab="analysis">
 
-            <!-- Daily Decisions -->
-            <section class="panel" id="decisions-panel">
-                <div class="panel-header">
-                    <div class="panel-title"><span class="icon">⚡</span> Daily Decisions</div>
-                </div>
-                <div id="decisions-content"></div>
-            </section>
+
 
             <!-- Deep Insights -->
             <section class="panel" id="insights-panel">
@@ -514,7 +508,6 @@
                 loadDecisions(),
                 loadInsights(),
                 loadMetrics(),
-                loadActions(),
                 loadNominations(),
                 loadStableStats(),
                 loadPlaybook(),
@@ -702,24 +695,7 @@
             }
         }
 
-        // ── Load Actions Queue ─────────────────
-        async function loadActions() {
-            const actions = await fetchJSON('/api/actions');
-            if (!Array.isArray(actions) || actions.length === 0) {
-                document.getElementById('actions-panel').style.display = 'none';
-                return;
-            }
-            document.getElementById('actions-panel').style.display = '';
-            document.getElementById('action-count').textContent = actions.length;
-            const pending = actions.filter(a => a.status === 'pending');
-            document.getElementById('actions-content').innerHTML = actions.slice(-5).reverse().map(a => {
-                const statusColor = a.status === 'pending' ? 'var(--yellow)' : a.status === 'ready_for_execution' ? 'var(--blue)' : 'var(--green)';
-                return `<div class="decision-card" style="border-left:3px solid ${statusColor}">
-                    <strong>${a.horse}</strong> · ${a.action} ${a.detail ? '· ' + a.detail : ''}
-                    <div style="font-size:10px;color:var(--text-dim);margin-top:2px">${a.status} · ${a.queued_at}</div>
-                </div>`;
-            }).join('');
-        }
+
 
 
         // ── Load Nominations Board ────────────
@@ -1521,7 +1497,6 @@
 
             closeModal();
             showToast(`✅ Queued: ${type} for ${horse}`);
-            loadActions();
         }
 
         // ── Toast ──────────────────────────────

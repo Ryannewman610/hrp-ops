@@ -202,16 +202,14 @@ def parse_works_from_html(html_path: Path) -> list:
     while parent and parent.name != "td" and parent.name != "div":
         parent = parent.parent
 
-    # Find the works table - it's a table with 740 width that follows Works:
+    # Find the works table — look for a table that contains date-track patterns
+    # Check up to 500 chars of text (some horses have deeper nesting)
     works_table = None
-    if parent:
-        # Look for the table right after the works label
-        for sibling in works_label.find_all_next("table"):
-            # Works rows have nested tables with date-track patterns
-            first_text = norm(sibling.get_text(" ", strip=True)[:80])
-            if re.search(r"\d{1,2}[A-Za-z]{3}\d{2}-[A-Z]{2,5}", first_text):
-                works_table = sibling
-                break
+    for sibling in works_label.find_all_next("table"):
+        table_text = norm(sibling.get_text(" ", strip=True)[:500])
+        if re.search(r"\d{1,2}[A-Za-z]{3}\d{2}-[A-Z]{2,5}", table_text):
+            works_table = sibling
+            break
 
     if not works_table:
         return []
@@ -246,10 +244,8 @@ def parse_works_from_html(html_path: Path) -> list:
         # Extract surface (typically cell index 2)
         surface = ""
         distance = ""
-        time_val = ""
-        split_vals = []
 
-        # Find surface, distance, and times from cell values
+        # Find surface and distance from cell values
         for i, ct in enumerate(cell_texts):
             ct_clean = ct.strip()
             # Surface: fst, gd, sly, my, fm, yl, etc.
@@ -258,23 +254,33 @@ def parse_works_from_html(html_path: Path) -> list:
             # Distance: 2f, 3f, 4f, 5f, 6f, 7f, 1m etc.
             elif re.fullmatch(r"\d+[fmFM]", ct_clean) and not distance:
                 distance = ct_clean.upper()
-            # Time values with optional decimal tenths:
-            # :24, :24.3, :48, :59.3, 1:11, 1:11.2
-            elif re.fullmatch(r":?\d{1,2}:?\d{2}(?:\.\d)?", ct_clean):
-                if not ct_clean.startswith(":") and ":" not in ct_clean:
-                    continue
-                split_vals.append(ct_clean)
 
         if not distance:
             continue
 
-        # The FIRST time value is the time for the listed distance
-        # Subsequent time values are cumulative times for longer distances
-        if not split_vals:
+        # ── HRP time columns (cells 5-8) ──────────────────────────
+        # HRP puts cumulative fractional times in cells 5-8, ordered
+        # from earliest fraction to final time. Examples:
+        #   3f work: [5]=:36.2  (final only)
+        #   4f work: [5]=:24    [6]=:48.1   (3f split, 4f final)
+        #   5f work: [5]=:24    [6]=:47     [8]=:59.2   (3f, 4/5f, final)
+        #   6f work: [5]=:24    [6]=:47     [7]=1:00    [8]=1:12
+        # The LAST non-empty time is always the FINAL time.
+        # Preceding times are intermediate cumulative splits.
+        time_cells = []
+        for ci in (5, 6, 7, 8):
+            if ci < len(cell_texts):
+                ct_clean = cell_texts[ci].strip()
+                if re.fullmatch(r":?\d{1,2}:?\d{2}(?:\.\d)?", ct_clean):
+                    if ct_clean.startswith(":") or ":" in ct_clean:
+                        time_cells.append(ct_clean)
+
+        if not time_cells:
             continue
 
-        final_time = split_vals[0]
-        remaining_splits = split_vals[1:] if len(split_vals) > 1 else []
+        # Last time is the final time for the listed distance
+        final_time = time_cells[-1]
+        intermediate_splits = time_cells[:-1]  # all preceding are cumulative splits
 
         # Calculate seconds
         final_secs = time_to_seconds(final_time)
@@ -287,25 +293,24 @@ def parse_works_from_html(html_path: Path) -> list:
         # Calculate per-furlong rate
         per_furlong = round(final_secs / max(dist_num, 1), 1) if dist_num > 0 else final_secs
 
-        # Calculate furlong splits from cumulative times
-        furlong_splits = []
-        all_times = [final_secs]
-        for rs in remaining_splits:
-            rs_secs = time_to_seconds(rs)
-            if rs_secs > final_secs:
-                all_times.append(rs_secs)
+        # ── Build differential splits from cumulative times ───────
+        # Convert all cumulative times to seconds, then compute diffs
+        cumulative_secs = []
+        for sp in intermediate_splits:
+            sp_secs = time_to_seconds(sp)
+            if sp_secs > 0:
+                cumulative_secs.append(sp_secs)
+        cumulative_secs.append(final_secs)  # add final time at end
 
-        # If we have the base distance time and additional cumulative times,
-        # compute differential splits
-        if len(all_times) > 1:
-            furlong_splits.append(round(all_times[0], 1))
-            for j in range(1, len(all_times)):
-                diff = round(all_times[j] - all_times[j-1], 1)
+        furlong_splits = []
+        if len(cumulative_secs) >= 2:
+            # First split is the first cumulative time (e.g. 3f in :24)
+            furlong_splits.append(round(cumulative_secs[0], 1))
+            # Subsequent splits are differences between consecutive times
+            for j in range(1, len(cumulative_secs)):
+                diff = round(cumulative_secs[j] - cumulative_secs[j-1], 1)
                 if diff > 0:
                     furlong_splits.append(diff)
-        else:
-            # Single cumulative time only — no real splits available
-            furlong_splits = []
 
         # Determine running style from splits
         running_style = "unknown"
