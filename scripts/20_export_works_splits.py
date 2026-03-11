@@ -202,37 +202,41 @@ def parse_works_from_html(html_path: Path) -> list:
     while parent and parent.name != "td" and parent.name != "div":
         parent = parent.parent
 
-    # Find the works table — look for a table that contains date-track patterns
-    # Check up to 500 chars of text (some horses have deeper nesting)
-    works_table = None
-    for sibling in works_label.find_all_next("table"):
-        table_text = norm(sibling.get_text(" ", strip=True)[:500])
-        if re.search(r"\d{1,2}[A-Za-z]{3}\d{2}-[A-Z]{2,5}", table_text):
-            works_table = sibling
-            break
+    # Collect ALL text from leaf <td> elements after the Works: label.
+    # HRP uses varying nesting depths, so instead of matching specific
+    # row structures, we gather a flat stream of cell values and split
+    # them into work entries at each date-track pattern.
+    all_leaf_texts = []
+    for td in works_label.find_all_next("td"):
+        # Only leaf tds (no child tds)
+        if td.find("td"):
+            continue
+        all_leaf_texts.append(extract_cell_text(td))
 
-    if not works_table:
+    if not all_leaf_texts:
         return []
+
+    # Split the flat list into work entries at each date-track pattern
+    # Each date like "5Mar26-AQU" starts a new work entry
+    work_chunks = []
+    current_chunk = None
+    for val in all_leaf_texts:
+        if re.match(r"\d{1,2}[A-Za-z]{3}\d{2}-[A-Za-z]{2,6}$", val.strip()):
+            if current_chunk and len(current_chunk) >= 10:
+                work_chunks.append(current_chunk)
+            current_chunk = [val]
+        elif current_chunk is not None:
+            current_chunk.append(val)
+    if current_chunk and len(current_chunk) >= 10:
+        work_chunks.append(current_chunk)
 
     works = []
 
-    # Each work entry is a nested table row within the outer table
-    # Find all inner tables that represent individual work rows
-    work_rows = works_table.find_all("tr", recursive=True)
-
-    for row in work_rows:
-        cells = row.find_all("td", recursive=False)
-        if len(cells) < 10:
-            continue
-
-        # Extract cell values
-        cell_texts = []
-        for c in cells:
-            cell_texts.append(extract_cell_text(c))
+    for cell_texts in work_chunks:
 
         # Look for the date-track pattern in first cell
         first = cell_texts[0] if cell_texts else ""
-        dm = re.match(r"(\d{1,2}[A-Za-z]{3}\d{2})-([A-Z]{2,5})", first)
+        dm = re.match(r"(\d{1,2}[A-Za-z]{3}\d{2})-([A-Za-z]{2,6})", first)
         if not dm:
             continue
 
