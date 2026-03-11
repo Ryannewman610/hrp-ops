@@ -299,14 +299,14 @@ def main() -> None:
                 break
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
 
-    # 2b. Load SRF data from outcomes log
+    # 2b. SRF data: use recent_races from the snapshot (has SRF from profile HTML)
+    # Fallback: also load outcomes_log if snapshot races are sparse
     outcomes_path = OUTPUTS / "outcomes_log.csv"
     srf_by_horse = defaultdict(list)
     if outcomes_path.exists():
         with open(outcomes_path, encoding="utf-8") as f:
             for row in csv.DictReader(f):
                 srf_by_horse[norm(row.get("horse_name", ""))].append(row)
-        print(f"SRF data loaded: {len(srf_by_horse)} horses")
 
     # 3. Compute predictions + form cycle + SRF power for each horse
     horse_models: Dict[str, Dict] = {}
@@ -327,10 +327,17 @@ def main() -> None:
         rating = elo.get_rating(h_norm)
         h_works = works_by_horse.get(h_norm, [])
         h_races = races_by_horse.get(h_norm, [])
-        h_outcomes = srf_by_horse.get(h_norm, [])
+
+        # SRF source: prefer snapshot recent_races (has SRF from profile HTML),
+        # fall back to outcomes log
+        snap_races = h.get("recent_races", [])
+        if snap_races and any(r.get("srf") for r in snap_races):
+            srf_source = snap_races
+        else:
+            srf_source = srf_by_horse.get(h_norm, [])
 
         form = compute_form_cycle(h, h_works, h_races)
-        srf = compute_srf_rating(h_outcomes)
+        srf = compute_srf_rating(srf_source)
         win_pct = predict_win_probability(srf["power"], rating, form["score"])
         top3_pct = predict_top3_probability(srf["power"], rating, form["score"])
         ev = compute_ev_score(win_pct, top3_pct, srf["power"], form["score"])

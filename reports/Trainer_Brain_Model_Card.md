@@ -10,6 +10,25 @@
 ## Power Rankings (SRF-Based)
 | Horse | SRF Pwr | Avg | Best | Last | Trend | Win% | EV | Form |
 |-------|:-------:|:---:|:----:|:----:|-------|:----:|:--:|------|
+| Harsh Frontier | **96.0** | 94.5 | 99 | 95 | ➡️ | 57.5% | 69.0 | ✅ |
+| Crypto King | **92.9** | 90.9 | 96 | 92 | 📉 | 52.7% | 69.7 | 🔥 |
+| Euclidean | **90.9** | 88.2 | 92 | 92 | ➡️ | 46.7% | 67.5 | 🔥 |
+| Cayuga Lake | **89.8** | 89.1 | 93 | 88 | 📉 | 44.9% | 67.7 | 🔥 |
+| Ideal Sinissippi | **88.5** | 85.1 | 90 | 90 | 📈 | 32.0% | 57.0 | 🛏️ |
+| Captain Cook | **88.2** | 86.9 | 91 | 87 | 📈 | 28.1% | 51.9 | 🛏️ |
+| Cornswaggled | **88.0** | 84.8 | 90 | 89 | 📉 | 35.0% | 61.5 | ✅ |
+| Strike King | **87.8** | 87.2 | 88 | 88 | ➡️ | 26.9% | 50.9 | 🛏️ |
+| Thats Some Bullship | **86.2** | 84.0 | 90 | 85 | 📉 | 32.6% | 61.6 | 🔥 |
+| Trieste Ruler | **85.4** | 85.0 | 89 | 83 | ➡️ | 22.7% | 48.9 | 🛏️ |
+| Lo And Behold | **82.4** | 81.7 | 85 | 81 | 📈 | 22.7% | 53.9 | 🔥 |
+| Class A | **80.7** | 80.1 | 85 | 78 | 📈 | 5.6% | 32.4 | 🛏️ |
+| Sassy Astray | **77.2** | 80.1 | 88 | 67 | 📉 | 1.1% | 31.9 | ✅ |
+| Iron Timekeeper | **73.9** | 74.0 | 75 | 73 | — | 1.0% | 28.6 | 🛏️ |
+| Core N Light | **73.0** | 73.0 | 73 | 73 | — | 1.0% | 30.3 | 🏋️ |
+| Hardline Anvil | **68.0** | 68.0 | 68 | 68 | — | 1.0% | 25.5 | 🛏️ |
+| Kingston Quickstep | **61.0** | 61.0 | 61 | 61 | — | 1.0% | 28.1 | 🔥 |
+| Urshalim Craftwork | **40.0** | 40.0 | 40 | 40 | — | 1.0% | 21.8 | 🔥 |
+| Crowds Ransom | **39.0** | 39.0 | 39 | 39 | — | 1.0% | 21.4 | 🔥 |
 
 ### Unrated (no race history)
 | Horse | Form | Next Action |
@@ -18,42 +37,28 @@
 | Basic Math | ✅ READY | race_target |
 | Blank Sunset | 🔥 PEAKING | race_target |
 | Breath Of The Grayte | ✅ READY | race_target |
-| Captain Cook | 🛏️ REST_REQUIRED | rest |
 | Caros Compass | 🔥 PEAKING | race_target |
-| Cayuga Lake | 🔥 PEAKING | race_target |
-| Class A | 🛏️ REST_REQUIRED | rest |
 | Collision Course | ✅ READY | race_target |
-| Core N Light | 🏋️ NEEDS_WORK | timed_work |
-| Cornswaggled | ✅ READY | race_target |
-| Crowds Ransom | 🔥 PEAKING | race_target |
-| Crypto King | 🔥 PEAKING | race_target |
 | Cynful Nature | 🏋️ NEEDS_WORK | timed_work |
 | Damascus Honey | 🔥 PEAKING | race_target |
 | Desert Oath | 🔥 PEAKING | race_target |
 | Drinkers Drought | ✅ READY | race_target |
 | Dubai Iron | ✅ READY | race_target |
 | Duke Of York | ✅ READY | race_target |
-| Euclidean | 🔥 PEAKING | race_target |
 | Eyes Of An Indian | 🏋️ NEEDS_WORK | timed_work |
 | Favorite Indian | ✅ READY | race_target |
 | Film The Scene | 🔥 PEAKING | race_target |
 | Gen Xpress | 🔥 PEAKING | race_target |
 | Golden Shuvee | ✅ READY | race_target |
 | Good Crypto | ✅ READY | race_target |
-| Hardline Anvil | 🛏️ REST_REQUIRED | rest |
-| Harsh Frontier | ✅ READY | race_target |
 | Helios Hustle | 🔥 PEAKING | race_target |
 | Hi How Are Ya | ✅ READY | race_target |
 | Hydration | 🔥 PEAKING | race_target |
-| Ideal Sinissippi | 🛏️ REST_REQUIRED | rest |
 | In The Ruff | ✅ READY | race_target |
-| Iron Timekeeper | 🛏️ REST_REQUIRED | rest |
 | Jinxed Agent | 🏋️ NEEDS_WORK | timed_work |
 | Jurors Verdict | 🔥 PEAKING | race_target |
-| Kingston Quickstep | 🔥 PEAKING | race_target |
 | Last Night Out | ✅ READY | race_target |
 | Lil Rocket Man | 🔥 PEAKING | race_target |
-| Lo And Behold | 🔥 PEAKING | race_target |
 | Looks Like Nicholas | 🔥 PEAKING | race_target |
 | Migoli Moonbeam | 🔥 PEAKING | race_target |
 | Neon Reflection | 🔥 PEAKING | race_target |
@@ -67,19 +72,14 @@
 | Royal Timeburst | ✅ READY | race_target |
 | Royal Velocity | ✅ READY | race_target |
 | Sapphires Dream | ✅ READY | race_target |
-| Sassy Astray | ✅ READY | race_target |
 | Scarlet Smoke | ✅ READY | race_target |
 | Silent Fighter | 🏋️ NEEDS_WORK | timed_work |
 | Speed Queen | ✅ READY | race_target |
 | Step Right Up | ✅ READY | race_target |
 | Stormy Sky | 🔥 PEAKING | race_target |
-| Strike King | 🛏️ REST_REQUIRED | rest |
 | Tall Bonsai | 🏋️ NEEDS_WORK | timed_work |
-| Thats Some Bullship | 🔥 PEAKING | race_target |
 | The Chance | 🏋️ NEEDS_WORK | timed_work |
-| Trieste Ruler | 🛏️ REST_REQUIRED | rest |
 | Triple Love | 🔥 PEAKING | race_target |
-| Urshalim Craftwork | 🔥 PEAKING | race_target |
 | White Lakes | ✅ READY | race_target |
 | Your Truly | 🏋️ NEEDS_WORK | timed_work |
 
@@ -88,7 +88,7 @@
 |--------|-------|
 | Total races | 119 |
 | Races with SRF | 0 |
-| Horses with SRF | 0 |
+| Horses with SRF | 19 |
 | Timed works | 935 |
 | Win rate (actual) | 28.4% |
 
