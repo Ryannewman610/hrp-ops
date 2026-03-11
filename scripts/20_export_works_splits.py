@@ -304,8 +304,8 @@ def parse_works_from_html(html_path: Path) -> list:
                 if diff > 0:
                     furlong_splits.append(diff)
         else:
-            # Single time - estimate per-furlong
-            furlong_splits = [round(per_furlong, 1)] * dist_num
+            # Single cumulative time only — no real splits available
+            furlong_splits = []
 
         # Determine running style from splits
         running_style = "unknown"
