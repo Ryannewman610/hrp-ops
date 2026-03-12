@@ -962,6 +962,7 @@ def generate_2yo_plan(horse, stage, works, con_val, cond_val, stam_val, at_farm)
     # Gelding check for colts
     if is_colt and con_val < 2 and works > 50:
         actions.append({"priority": "info", "action": "Consider gelding",
+                        "detail": f"Low consistency ({con_val}) — gelding may improve focus"})
     return actions, milestones
 
 
