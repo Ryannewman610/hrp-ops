@@ -228,6 +228,33 @@
                     </div>
                 </section>
 
+                <!-- 2YO Ranker -->
+                <section class="panel" id="twoyo-ranker-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span class="icon">📊</span> 2YO Speed Ranker</div>
+                        <span class="panel-badge" id="ranker-badge">—</span>
+                    </div>
+                    <div style="overflow-x:auto">
+                        <table class="ranker-table" id="ranker-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th onclick="sortRanker('name')" style="cursor:pointer">Name ⇅</th>
+                                    <th onclick="sortRanker('running_style')" style="cursor:pointer">Style ⇅</th>
+                                    <th onclick="sortRanker('best_pfr')" style="cursor:pointer">Best /f ⇅</th>
+                                    <th onclick="sortRanker('trend_slope')" style="cursor:pointer">Trend ⇅</th>
+                                    <th onclick="sortRanker('avg_decel')" style="cursor:pointer">Decel ⇅</th>
+                                    <th onclick="sortRanker('works_count')" style="cursor:pointer">Works ⇅</th>
+                                    <th onclick="sortRanker('max_dist')" style="cursor:pointer">Max Dist ⇅</th>
+                                    <th onclick="sortRanker('avg_work_freq')" style="cursor:pointer">Freq ⇅</th>
+                                    <th onclick="sortRanker('rank_score')" style="cursor:pointer">Score ⇅</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ranker-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
                 <!-- 2YO Dev Cards Grid -->
                 <section class="panel" id="twoyo-cards-panel">
                     <div class="panel-header">
@@ -1531,13 +1558,74 @@
         }
 
         // ── 2YO Development Center ─────────────
+        let _rankerData = []; // Store for sorting
+        let _rankerSortKey = 'rank_score';
+        let _rankerSortAsc = true;
+
         async function load2YOData() {
             const data = await fetchJSON('/api/twoyo');
             if (!data || !data.horses) return;
             render2YOPipeline(data);
+            render2YORanker(data.horses);
             render2YOCards(data.horses);
             renderFinancial(data.financial);
             document.getElementById('twoyo-badge').textContent = data.total_2yo + ' horses';
+        }
+
+        function render2YORanker(horses) {
+            _rankerData = horses;
+            const body = document.getElementById('ranker-body');
+            if (!body) return;
+
+            const styleColors = {
+                'front': 'var(--red, #f87171)',
+                'closer': 'var(--blue, #60a5fa)',
+                'stalker': 'var(--yellow, #fbbf24)',
+                'unknown': 'var(--text-dim)',
+            };
+
+            body.innerHTML = horses.map((h, i) => {
+                const pfrDisplay = h.best_pfr ? h.best_pfr.toFixed(2) + 's' : '—';
+                const pfrColor = h.best_pfr
+                    ? (h.best_pfr <= 11.5 ? 'var(--green)' : h.best_pfr <= 12.5 ? 'var(--yellow)' : 'var(--red)')
+                    : 'var(--text-dim)';
+                const decelColor = h.avg_decel <= 1.0 ? 'var(--green)' : h.avg_decel <= 2.5 ? 'var(--yellow)' : 'var(--red)';
+                const freqDisplay = h.avg_work_freq > 0 ? h.avg_work_freq.toFixed(0) + 'd' : '—';
+                const scoreDisplay = h.rank_score < 900 ? h.rank_score.toFixed(1) : '—';
+                const scoreColor = h.rank_score < 11.0 ? 'var(--green)' : h.rank_score < 12.0 ? 'var(--yellow)' : 'var(--text-dim)';
+
+                return `<tr onclick="window.location='/horse/${encodeURIComponent(h.name)}'" style="cursor:pointer">
+                    <td style="color:var(--text-dim)">${i + 1}</td>
+                    <td><strong>${h.name}</strong></td>
+                    <td style="color:${styleColors[h.style_key] || 'var(--text-dim)'};font-size:12px">${h.running_style}</td>
+                    <td style="color:${pfrColor};font-weight:600">${pfrDisplay}</td>
+                    <td style="font-size:12px">${h.trend_label}</td>
+                    <td style="color:${decelColor}">${h.avg_decel > 0 ? h.avg_decel.toFixed(1) + 's' : '—'}</td>
+                    <td>${h.works_count}</td>
+                    <td>${h.max_dist > 0 ? h.max_dist + 'f' : '—'}</td>
+                    <td>${freqDisplay}</td>
+                    <td style="color:${scoreColor};font-weight:700">${scoreDisplay}</td>
+                </tr>`;
+            }).join('');
+
+            document.getElementById('ranker-badge').textContent = horses.filter(h => h.rank_score < 900).length + ' ranked';
+        }
+
+        function sortRanker(key) {
+            if (_rankerSortKey === key) {
+                _rankerSortAsc = !_rankerSortAsc;
+            } else {
+                _rankerSortKey = key;
+                _rankerSortAsc = key === 'name' ? true : true;
+            }
+            const sorted = [..._rankerData].sort((a, b) => {
+                let va = a[key], vb = b[key];
+                if (va === null || va === undefined) va = key === 'name' ? 'zzz' : 999;
+                if (vb === null || vb === undefined) vb = key === 'name' ? 'zzz' : 999;
+                if (typeof va === 'string') return _rankerSortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+                return _rankerSortAsc ? va - vb : vb - va;
+            });
+            render2YORanker(sorted);
         }
 
         function render2YOPipeline(data) {

@@ -399,6 +399,272 @@ def api_nominations():
     return jsonify(entries)
 
 
+@app.route("/api/twoyo")
+@login_required
+def api_twoyo():
+    """2YO Development Center + Ranker: stages, dev cards, and ranking table.
+
+    Computes from works_splits data:
+    - Running style (front-runner / stalker / closer) from split ratios
+    - Best per-furlong rate and improvement trend
+    - Deceleration rate (first vs last furlong split)
+    - Work volume, frequency, distance progression
+    - Composite ranking score
+    """
+    snap = find_latest_snapshot()
+    all_works = load_json(OUTPUTS / "works_splits.json")
+    wf = _load_works_features()
+
+    horses = []
+    stage_counts = {
+        "pre_training": 0, "foundation": 0, "speed_prep": 0,
+        "race_ready": 0, "race_active": 0,
+    }
+
+    for h in snap.get("horses", []):
+        name = h.get("name", "")
+        if _norm(name) in INACTIVE:
+            continue
+        age = h.get("age", "")
+        if "2" not in str(age):
+            continue
+
+        # ── Basic info ──
+        cond_raw = h.get("condition", "100%").replace("%", "")
+        stam_raw = h.get("stamina", "100%").replace("%", "")
+        try:
+            cond = float(cond_raw)
+        except ValueError:
+            cond = 0
+        try:
+            stam = float(stam_raw)
+        except ValueError:
+            stam = 0
+        con = h.get("consistency", 0)
+        if isinstance(con, str):
+            try:
+                con = int(con.replace("+", "").strip())
+            except ValueError:
+                con = 0
+        rec = h.get("record", {})
+        starts = int(rec.get("starts", 0))
+        wins = int(rec.get("wins", 0))
+        wk = wf.get(name, {})
+        works_count = int(wk.get("total_works", 0))
+        location_type = "farm" if is_farm(h.get("track", "")) else "track"
+
+        # ── Works splits data ──
+        horse_ws = all_works.get(name, {}).get("works", [])
+
+        # ── Compute ranking metrics from splits ──
+        per_furlong_rates = []
+        early_ratios = []  # first split / avg split
+        close_ratios = []  # last split / avg split
+        decel_rates = []
+        distances_worked = set()
+
+        for w in horse_ws:
+            dist_num = int(w.get("distance", "0F").replace("F", "").replace("f", "").replace("M", "").replace("m", ""))
+            if dist_num > 0:
+                distances_worked.add(dist_num)
+                pfr = w.get("final_secs", 0) / dist_num if w.get("final_secs") else 0
+                if pfr > 0:
+                    per_furlong_rates.append(pfr)
+
+            splits = w.get("furlong_splits", [])
+            if len(splits) >= 2:
+                avg_split = sum(splits) / len(splits)
+                if avg_split > 0:
+                    early_ratios.append(splits[0] / avg_split)
+                    close_ratios.append(splits[-1] / avg_split)
+                    decel_rates.append(splits[-1] - splits[0])
+
+        # Running style from split patterns
+        if early_ratios:
+            avg_early = sum(early_ratios) / len(early_ratios)
+            avg_close = sum(close_ratios) / len(close_ratios)
+            if avg_early < 0.95:
+                running_style = "🚀 Front Runner"
+                style_key = "front"
+            elif avg_close < 0.95:
+                running_style = "💨 Closer"
+                style_key = "closer"
+            else:
+                running_style = "⚖️ Stalker"
+                style_key = "stalker"
+        else:
+            running_style = "❓ Unknown"
+            style_key = "unknown"
+
+        # Best per-furlong rate
+        best_pfr = min(per_furlong_rates) if per_furlong_rates else None
+
+        # Improvement trend (slope of per-furlong rates over time)
+        trend_slope = 0.0
+        trend_label = "—"
+        if len(per_furlong_rates) >= 3:
+            # Simple linear regression: negative slope = improving
+            n = len(per_furlong_rates)
+            # Works are newest first, reverse for chronological
+            rates = list(reversed(per_furlong_rates))
+            x_mean = (n - 1) / 2
+            y_mean = sum(rates) / n
+            num = sum((i - x_mean) * (r - y_mean) for i, r in enumerate(rates))
+            den = sum((i - x_mean) ** 2 for i in range(n))
+            if den > 0:
+                trend_slope = num / den
+                if trend_slope < -0.15:
+                    trend_label = "📈 Improving Fast"
+                elif trend_slope < -0.05:
+                    trend_label = "📈 Improving"
+                elif trend_slope > 0.15:
+                    trend_label = "📉 Declining"
+                elif trend_slope > 0.05:
+                    trend_label = "📉 Slowing"
+                else:
+                    trend_label = "➡️ Steady"
+
+        # Avg deceleration
+        avg_decel = sum(decel_rates) / len(decel_rates) if decel_rates else 0
+
+        # Work frequency (avg days between works)
+        work_dates = []
+        for w in horse_ws:
+            try:
+                from datetime import datetime as _dt
+                work_dates.append(_dt.strptime(w["date"], "%Y-%m-%d"))
+            except Exception:
+                pass
+        work_dates.sort()
+        avg_freq = 0
+        if len(work_dates) >= 2:
+            gaps = [(work_dates[i+1] - work_dates[i]).days for i in range(len(work_dates)-1)]
+            avg_freq = sum(gaps) / len(gaps) if gaps else 0
+
+        # Distance progression
+        max_dist = max(distances_worked) if distances_worked else 0
+        dist_prog = sorted(distances_worked) if distances_worked else []
+
+        # ── Development stage ──
+        if starts > 0:
+            stage_key = "race_active"
+            stage_label = "🏁 Racing"
+        elif works_count >= 50 and con >= 4:
+            stage_key = "race_ready"
+            stage_label = "🎯 Race Ready"
+        elif works_count >= 20:
+            stage_key = "speed_prep"
+            stage_label = "⚡ Speed Prep"
+        elif works_count >= 1:
+            stage_key = "foundation"
+            stage_label = "🏋️ Foundation"
+        else:
+            stage_key = "pre_training"
+            stage_label = "🥚 Pre-Training"
+        stage_counts[stage_key] += 1
+
+        # Progress pct (0-100 based on development)
+        progress_pct = min(100, int(works_count / 1.0))  # 100 works = 100%
+
+        # Milestones
+        milestones = {
+            "first_work": works_count >= 1,
+            "fifty_works": works_count >= 50,
+            "hundred_works": works_count >= 100,
+            "consistency_4": con >= 4,
+            "first_race": starts >= 1,
+            "first_win": wins >= 1,
+        }
+
+        # Actions
+        actions = []
+        if works_count == 0:
+            actions.append({
+                "priority": "high",
+                "action": "Start Training",
+                "detail": "Horse has no works yet — begin with 3f breezing works"
+            })
+        elif works_count < 50 and starts == 0:
+            actions.append({
+                "priority": "medium",
+                "action": "Continue Building",
+                "detail": f"{works_count}/50 works toward consistency threshold"
+            })
+        if cond < 90:
+            actions.append({
+                "priority": "warning",
+                "action": "Low Condition",
+                "detail": f"Condition at {cond:.0f}% — needs training/works to build up"
+            })
+        if stam < 70:
+            actions.append({
+                "priority": "warning",
+                "action": "Low Stamina",
+                "detail": f"Stamina at {stam:.0f}% — consider rest day"
+            })
+
+        # Composite ranking score (lower = better)
+        # Weights: per-furlong rate (60%), trend (25%), work volume (15%)
+        rank_score = 999.0
+        if best_pfr:
+            pfr_score = best_pfr  # Lower is better
+            trend_score = trend_slope * 10  # Negative slope = bonus
+            volume_bonus = -min(works_count, 50) * 0.01  # More works = slight bonus
+            rank_score = pfr_score + trend_score + volume_bonus
+
+        horses.append({
+            "name": name,
+            "sex": h.get("sex", "?"),
+            "color": h.get("color", "?"),
+            "height": h.get("height", "?"),
+            "weight": h.get("weight", "?"),
+            "sire": h.get("sire", "?"),
+            "dam": h.get("dam", "?"),
+            "track": h.get("track", "?"),
+            "location_type": location_type,
+            "condition": cond,
+            "stamina": stam,
+            "consistency": con,
+            "works_count": works_count,
+            "starts": starts,
+            "wins": wins,
+            "record": rec,
+            "stage_key": stage_key,
+            "stage_label": stage_label,
+            "progress_pct": progress_pct,
+            "milestones": milestones,
+            "actions": actions,
+            # Ranker metrics
+            "running_style": running_style,
+            "style_key": style_key,
+            "best_pfr": round(best_pfr, 2) if best_pfr else None,
+            "trend_label": trend_label,
+            "trend_slope": round(trend_slope, 3),
+            "avg_decel": round(avg_decel, 1),
+            "avg_work_freq": round(avg_freq, 1),
+            "max_dist": max_dist,
+            "dist_progression": dist_prog,
+            "rank_score": round(rank_score, 2),
+            "total_works_with_splits": len([w for w in horse_ws if w.get("furlong_splits")]),
+        })
+
+    # Sort by rank score (lower = better, 999 = no data at bottom)
+    horses.sort(key=lambda x: x["rank_score"])
+
+    # Financial
+    financial = {
+        "balance": snap.get("balance", "?"),
+        "total_horses": len(snap.get("horses", [])),
+    }
+
+    return jsonify({
+        "horses": horses,
+        "total_2yo": len(horses),
+        "stage_counts": stage_counts,
+        "financial": financial,
+    })
+
+
 @app.route("/api/stable-stats")
 def api_stable_stats():
     """Aggregate stable performance stats."""
