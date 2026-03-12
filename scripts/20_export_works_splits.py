@@ -75,6 +75,27 @@ def time_to_seconds(t: str) -> float:
     return 0.0
 
 
+def _normalize_time(raw: str) -> str:
+    """Normalize HRP time strings that may lack decimal points.
+
+    HRP sometimes merges the tenths digit without a dot:
+        :231  → :23.1       :484  → :48.4       :51 → :51
+        1:052 → 1:05.2      1:123 → 1:12.3      1:05 → 1:05
+    Rule: if the digits after the LAST colon have 3 chars, insert
+    a '.' before the last digit (it's the tenths).
+    """
+    raw = raw.strip()
+    # Find the last colon position
+    colon_pos = raw.rfind(":")
+    if colon_pos == -1:
+        return raw
+    after = raw[colon_pos + 1:]
+    if len(after) == 3 and after.isdigit():
+        # Insert decimal: :231 → :23.1, 052 → 05.2
+        return raw[:colon_pos + 1] + after[:2] + "." + after[2]
+    return raw
+
+
 def extract_cell_text(td) -> str:
     """Extract clean text from a td cell, converting superscript digits to decimals.
 
@@ -202,33 +223,42 @@ def parse_works_from_html(html_path: Path) -> list:
     while parent and parent.name != "td" and parent.name != "div":
         parent = parent.parent
 
-    # Collect ALL text from leaf <td> elements after the Works: label.
-    # HRP uses varying nesting depths, so instead of matching specific
-    # row structures, we gather a flat stream of cell values and split
-    # them into work entries at each date-track pattern.
+    # Collect text from leaf <td> elements in the WORKS section only.
+    # We stop when we encounter the next major section label
+    # (Nominations:, Entries:, Race Results, etc.)
+    SECTION_LABELS = {"Nominations:", "Entries:", "Race Results:",
+                      "Horse Notes:", "NOMINATIONS", "ENTRIES"}
     all_leaf_texts = []
-    for td in works_label.find_all_next("td"):
-        # Only leaf tds (no child tds)
-        if td.find("td"):
-            continue
-        all_leaf_texts.append(extract_cell_text(td))
+    for el in works_label.find_all_next():
+        # Stop at next section boundary (bold label for another section)
+        if el.name == "b":
+            label = el.get_text(strip=True)
+            if any(s in label for s in SECTION_LABELS):
+                break
+        # Only process leaf tds (no child tds)
+        if el.name == "td" and not el.find("td"):
+            all_leaf_texts.append(extract_cell_text(el))
 
     if not all_leaf_texts:
         return []
 
-    # Split the flat list into work entries at each date-track pattern
-    # Each date like "5Mar26-AQU" starts a new work entry
+    # Split the flat list into work entries at each date-track pattern.
+    # Each date like "5Mar26-AQU" starts a new work entry (~24 cells each).
+    # We cap chunk size at 25 to prevent page nav content contaminating data.
+    MAX_CHUNK = 25
     work_chunks = []
     current_chunk = None
     for val in all_leaf_texts:
-        if re.match(r"\d{1,2}[A-Za-z]{3}\d{2}-[A-Za-z]{2,6}$", val.strip()):
+        val_s = val.strip()
+        if re.match(r"\d{1,2}[A-Za-z]{3}\d{2}-[A-Za-z]{2,6}$", val_s):
             if current_chunk and len(current_chunk) >= 10:
-                work_chunks.append(current_chunk)
+                work_chunks.append(current_chunk[:MAX_CHUNK])
             current_chunk = [val]
         elif current_chunk is not None:
-            current_chunk.append(val)
+            if len(current_chunk) < MAX_CHUNK:
+                current_chunk.append(val)
     if current_chunk and len(current_chunk) >= 10:
-        work_chunks.append(current_chunk)
+        work_chunks.append(current_chunk[:MAX_CHUNK])
 
     works = []
 
@@ -262,22 +292,25 @@ def parse_works_from_html(html_path: Path) -> list:
         if not distance:
             continue
 
-        # ── HRP time columns (cells 5-8) ──────────────────────────
-        # HRP puts cumulative fractional times in cells 5-8, ordered
-        # from earliest fraction to final time. Examples:
-        #   3f work: [5]=:36.2  (final only)
-        #   4f work: [5]=:24    [6]=:48.1   (3f split, 4f final)
-        #   5f work: [5]=:24    [6]=:47     [8]=:59.2   (3f, 4/5f, final)
-        #   6f work: [5]=:24    [6]=:47     [7]=1:00    [8]=1:12
-        # The LAST non-empty time is always the FINAL time.
-        # Preceding times are intermediate cumulative splits.
+        # ── Extract time values ──────────────────────────────────
+        # Find ALL time-pattern values that appear AFTER the distance
+        # cell. HRP formats vary: :23, :231 (=:23.1), :51, 1:05,
+        # 1:052 (=1:05.2). Times are cumulative, LAST = final.
+        dist_idx = next((i for i, ct in enumerate(cell_texts)
+                         if re.fullmatch(r"\d+[fmFM]", ct.strip())), -1)
         time_cells = []
-        for ci in (5, 6, 7, 8):
-            if ci < len(cell_texts):
+        if dist_idx >= 0:
+            for ci in range(dist_idx + 1, min(dist_idx + 8, len(cell_texts))):
                 ct_clean = cell_texts[ci].strip()
-                if re.fullmatch(r":?\d{1,2}:?\d{2}(?:\.\d)?", ct_clean):
-                    if ct_clean.startswith(":") or ":" in ct_clean:
-                        time_cells.append(ct_clean)
+                # Match HRP time formats (after extract_cell_text processing):
+                #   :23  :51       → no tenths
+                #   :23.1 :48.4    → with decimal (from <sup> conversion)
+                #   :231 :484      → merged tenths (no <sup> in some HTML)
+                #   1:05 1:11      → minutes:seconds
+                #   1:05.2 1:12.3  → with decimal
+                #   1:052 1:123    → merged tenths
+                if re.fullmatch(r":\d{2}\.?\d?|\d:\d{2}\.?\d?", ct_clean):
+                    time_cells.append(_normalize_time(ct_clean))
 
         if not time_cells:
             continue
