@@ -2221,3 +2221,214 @@ a.horse-name:hover span {
         display: none;
     }
 }
+
+/* ═══════════════════════════════════════════════════
+   PROFESSIONAL POLISH — Premium Refinements
+   ═══════════════════════════════════════════════════ */
+
+/* Alternating table row stripes for all data tables */
+.rank-table tbody tr:nth-child(even),
+.ranker-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.015);
+}
+
+/* Rank medals in ranker table */
+.rank-cell {
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    width: 36px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.ranker-top3 {
+    background: rgba(59, 130, 246, 0.04) !important;
+}
+
+.ranker-top3:hover {
+    background: rgba(59, 130, 246, 0.08) !important;
+}
+
+/* Panel top accent on hover */
+.panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blue), var(--purple), transparent);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+}
+
+.panel:hover::before {
+    opacity: 0.6;
+}
+
+/* Empty state placeholders */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: var(--text-dim);
+    text-align: center;
+}
+
+.empty-state-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    opacity: 0.4;
+}
+
+.empty-state-text {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.empty-state-sub {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    opacity: 0.7;
+}
+
+/* Enhanced panel loading state */
+.panel-loading {
+    position: relative;
+    min-height: 100px;
+}
+
+.panel-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    background-size: 200% 100%;
+    animation: panel-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes panel-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Breadcrumb navigation for horse profile */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    padding: 0 4px;
+}
+
+.breadcrumb a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: var(--blue);
+}
+
+.breadcrumb .sep {
+    color: var(--text-dim);
+    opacity: 0.5;
+    font-size: 10px;
+}
+
+.breadcrumb .current {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Refined back button for horse profile */
+.profile-back {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.profile-back:hover {
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+    background: var(--bg-glass);
+}
+
+/* Thin scrollbar refinement */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}
+
+/* Focus rings for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+/* Subtle text selection color */
+::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: var(--text-primary);
+}
+
+/* ── PRINT STYLES ──────────────────────────────── */
+@media print {
+    body {
+        background: white;
+        color: #1a1a1a;
+    }
+
+    .header,
+    .bottom-nav,
+    .btn-sync,
+    .modal-overlay,
+    #search-container,
+    .tab-bar {
+        display: none !important;
+    }
+
+    .panel {
+        background: white;
+        border: 1px solid #e5e5e5;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .panel::before {
+        display: none;
+    }
+
+    .rank-table td,
+    .rank-table th,
+    .ranker-table td,
+    .ranker-table th {
+        color: #1a1a1a;
+        border-bottom: 1px solid #e5e5e5;
+    }
+}

@@ -263,15 +263,6 @@
                     <div class="twoyo-grid" id="twoyo-grid"></div>
                 </section>
 
-
-                <!-- Financial Summary -->
-                <section class="panel" id="financial-panel">
-                    <div class="panel-header">
-                        <div class="panel-title"><span class="icon">💰</span> Financial Summary</div>
-                    </div>
-                    <div class="financial-grid" id="financial-grid"></div>
-                </section>
-
             </div><!-- /tab:twoyo -->
 
             <!-- TAB: Stable -->
@@ -1568,7 +1559,7 @@
             render2YOPipeline(data);
             render2YORanker(data.horses);
             render2YOCards(data.horses);
-            renderFinancial(data.financial);
+
             document.getElementById('twoyo-badge').textContent = data.total_2yo + ' horses';
         }
 
@@ -1585,6 +1576,8 @@
             };
 
             body.innerHTML = horses.map((h, i) => {
+                const medals = ['🥇', '🥈', '🥉'];
+                const rankDisplay = h.rank_score < 900 ? (i < 3 ? medals[i] : (i + 1)) : '—';
                 const pfrDisplay = h.best_pfr ? h.best_pfr.toFixed(2) + 's' : '—';
                 const pfrColor = h.best_pfr
                     ? (h.best_pfr <= 11.5 ? 'var(--green)' : h.best_pfr <= 12.5 ? 'var(--yellow)' : 'var(--red)')
@@ -1594,8 +1587,8 @@
                 const scoreDisplay = h.rank_score < 900 ? h.rank_score.toFixed(1) : '—';
                 const scoreColor = h.rank_score < 11.0 ? 'var(--green)' : h.rank_score < 12.0 ? 'var(--yellow)' : 'var(--text-dim)';
 
-                return `<tr onclick="window.location='/horse/${encodeURIComponent(h.name)}'" style="cursor:pointer">
-                    <td style="color:var(--text-dim)">${i + 1}</td>
+                return `<tr onclick="window.location='/horse/${encodeURIComponent(h.name)}'" style="cursor:pointer" class="${i < 3 && h.rank_score < 900 ? 'ranker-top3' : ''}">
+                    <td class="rank-cell">${rankDisplay}</td>
                     <td><strong>${h.name}</strong></td>
                     <td style="color:${styleColors[h.style_key] || 'var(--text-dim)'};font-size:12px">${h.running_style}</td>
                     <td style="color:${pfrColor};font-weight:600">${pfrDisplay}</td>
@@ -1734,30 +1727,6 @@
         }
 
 
-        function renderFinancial(fin) {
-            if (!fin) return;
-            const grid = document.getElementById('financial-grid');
-            const runwayColor = fin.runway_months > 6 ? 'var(--green)' : fin.runway_months > 3 ? 'var(--yellow)' : 'var(--red)';
-            grid.innerHTML = `
-                <div class="fin-card">
-                    <div class="fin-label">Balance</div>
-                    <div class="fin-value" style="color:var(--green)">${fin.balance}</div>
-                </div>
-                <div class="fin-card">
-                    <div class="fin-label">Daily Cost</div>
-                    <div class="fin-value">$${fin.daily_cost}/day</div>
-                    <div class="fin-sub">${fin.total_horses} horses × $3</div>
-                </div>
-                <div class="fin-card">
-                    <div class="fin-label">Monthly Burn</div>
-                    <div class="fin-value" style="color:var(--red)">$${fin.monthly_cost.toLocaleString()}/mo</div>
-                </div>
-                <div class="fin-card">
-                    <div class="fin-label">Runway</div>
-                    <div class="fin-value" style="color:${runwayColor}">${fin.runway_months} months</div>
-                </div>
-            `;
-        }
 
         // ── Race Calendar ──────────────────────────
         async function loadCalendar() {
