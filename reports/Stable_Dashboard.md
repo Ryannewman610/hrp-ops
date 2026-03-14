@@ -1,85 +1,80 @@
 # 🏇 Stable Dashboard
-> **Generated:** 2026-03-11 | **Balance:** $211.01 | **Horses:** 69
+> **Generated:** 2026-03-14 | **Balance:** $69.86 | **Horses:** 64
 
 ## Quick Stats
 | Metric | Value |
 |--------|-------|
-| Active Horses | 69 |
-| Balance | $211.01 |
-| With Nominations | 69 |
+| Active Horses | 64 |
+| Balance | $69.86 |
+| With Nominations | 64 |
 
 ## Roster
 | Horse | Track | Cond | Stam | Consist | Mode | Noms |
 |-------|-------|------|------|---------|------|------|
 | American Shorthair | KeaWV | 100% | 100% | 0 | ? | 1 |
-| Basic Math | GleAZ(FtLFL) | 92% | 110% | +5 | ? | 1 |
+| Basic Math | GleAZ | 108% | 74% | +5 | ? | 1 |
 | Blank Sunset | KeaWV | 100% | 100% | +5 | ? | 1 |
-| Breath Of The Grayte | GleAZ(KeaWV) | 93% | 110% | +5 | ? | 1 |
-| Captain Cook | FtLFL | 100% | 66% | +3 | ? | 1 |
-| Caros Compass | TUP | 95% | 110% | +5 | ? | 1 |
-| Cayuga Lake | RivCA | 101% | 100% | +5 | ? | 1 |
-| Class A | KeaWV | 102% | 59% | +1 | ? | 1 |
-| Collision Course | GleAZ(KeaWV) | 90% | 110% | +5 | ? | 1 |
-| Core N Light | FtLFL | 100% | 73% | +2 | ? | 1 |
-| Cornswaggled | LexKY | 100% | 97% | +4 | ? | 1 |
-| Crowds Ransom | CT | 98% | 110% | +5 | ? | 1 |
-| Crypto King | KeaWV | 100% | 94% | +5 | ? | 1 |
-| Cynful Nature | FtLFL | 102% | 93% | 0 | ? | 1 |
-| Damascus Honey | CT | 107% | 95% | +5 | ? | 1 |
-| Desert Oath | CT | 94% | 110% | +5 | ? | 1 |
-| Drinkers Drought | KeaWV | 100% | 100% | +2 | ? | 1 |
-| Dubai Iron | TUP | 94% | 87% | +5 | ? | 1 |
-| Duke Of York | GleAZ(KeaWV) | 89% | 110% | +5 | ? | 1 |
-| Euclidean | GleAZ | 105% | 95% | +5 | ? | 1 |
-| Eyes Of An Indian | FtLFL | 104% | 93% | 0 | ? | 1 |
-| Favorite Indian | KeaWV | 100% | 100% | +2 | ? | 1 |
-| Film The Scene | GleAZ(KeaWV) | 93% | 98% | +5 | ? | 1 |
-| Gen Xpress | KeaWV | 100% | 100% | +4 | ? | 1 |
-| Golden Shuvee | MouWV(TAM) | 78% | 110% | +5 | ? | 1 |
-| Good Crypto | GleAZ(KeaWV) | 90% | 107% | +5 | ? | 1 |
-| Hardline Anvil | KeaWV | 100% | 66% | +4 | ? | 1 |
-| Harsh Frontier | GleAZ(KeaWV) | 87% | 88% | +5 | ? | 1 |
-| Helios Hustle | MouWV(BTP) | 107% | 98% | +5 | ? | 1 |
-| Hi How Are Ya | KeaWV | 100% | 100% | +2 | ? | 1 |
-| HipTag793004736512 | MouWV | ? | ? | ? | ? | 1 |
-| Hydration | FtLFL | 100% | 93% | +5 | ? | 1 |
-| Ideal Sinissippi | KeaWV | 101% | 66% | +3 | ? | 1 |
-| In The Ruff | GleAZ(KeaWV) | 83% | 110% | +4 | ? | 1 |
-| Iron Timekeeper | KeaWV | 100% | 63% | +5 | ? | 1 |
-| Jinxed Agent | GleAZ(KeaWV) | 94% | 102% | 0(2) | ? | 1 |
-| Jurors Verdict | CT | 104% | 86% | +5 | ? | 1 |
-| Kingston Quickstep | KeaWV | 104% | 90% | +5 | ? | 1 |
-| Last Night Out | GleAZ(KeaWV) | 100% | 99% | 0(5) | ? | 1 |
-| Lil Rocket Man | GleAZ(KeaWV) | 99% | 98% | +5 | ? | 1 |
-| Lo And Behold | LexKY | 100% | 100% | +5 | ? | 1 |
-| Looks Like Nicholas | GleAZ(KeaWV) | 96% | 104% | +5 | ? | 1 |
-| Migoli Moonbeam | MouWV(CT) | 97% | 110% | +5 | ? | 1 |
+| Bold Nuke | FtLFL | 107% | 79% | +5 | ? | 1 |
+| Breath Of The Grayte | GleAZ | 100% | 100% | +5 | ? | 1 |
+| Captain Cook | FtLFL | 100% | 85% | +5 | ? | 1 |
+| Cayuga Lake | HemTX(SA) | 105% | 90% | +5 | ? | 1 |
+| Class A | KeaWV | 100% | 76% | +1 | ? | 1 |
+| Collision Course | GleAZ | 107% | 75% | +5 | ? | 1 |
+| Core N Light | FtLFL | 100% | 87% | +4 | ? | 1 |
+| Cornswaggled | FG(BTP) | 107% | 78% | +5 | ? | 1 |
+| Crypto King | KeaWV | 110% | 75% | +5 | ? | 1 |
+| Cynful Intentions | FtLFL | 105% | 82% | 0 | ? | 1 |
+| Cynful Nature | FtLFL | 100% | 100% | 0 | ? | 1 |
+| Desert Oath | FtLFL | 110% | 73% | 0 | ? | 1 |
+| Drinkers Drought | KeaWV | 100% | 100% | +3 | ? | 1 |
+| Duke Of York | GleAZ | 94% | 100% | +5 | ? | 1 |
+| Euclidean | GleAZ | 101% | 100% | +5 | ? | 1 |
+| Eyes Of An Indian | FtLFL | 100% | 100% | 0 | ? | 1 |
+| Favorite Indian | KeaWV | 100% | 100% | +3 | ? | 1 |
+| Film The Scene | GleAZ | 99% | 100% | +5 | ? | 1 |
+| Gen Xpress | KeaWV | 100% | 100% | +5 | ? | 1 |
+| Good Crypto | GleAZ | 98% | 100% | +5 | ? | 1 |
+| Hardline Anvil | KeaWV | 100% | 84% | +5 | ? | 1 |
+| Harsh Frontier | GleAZ | 92% | 100% | +5 | ? | 1 |
+| Hi How Are Ya | KeaWV | 100% | 100% | +3 | ? | 1 |
+| Hole In The Wind | FtLFL | 106% | 81% | 0 | ? | 1 |
+| Hydration | FtLFL | 107% | 81% | +5 | ? | 1 |
+| Ideal Sinissippi | KeaWV | 100% | 83% | +3 | ? | 1 |
+| In The Ruff | GleAZ | 91% | 100% | +4 | ? | 1 |
+| Iron Timekeeper | KeaWV | 100% | 77% | +5 | ? | 1 |
+| Jinxed Agent | GleAZ | 100% | 100% | 0(2) | ? | 1 |
+| Kingston Quickstep | KeaWV | 100% | 100% | +5 | ? | 1 |
+| Last Night Out | GleAZ | 100% | 100% | 0(4) | ? | 1 |
+| Lil Rocket Man | GleAZ | 100% | 100% | +5 | ? | 1 |
+| Lo And Behold | LexKY(BTP) | 99% | 50% | +1 | ? | 1 |
+| Looks Like Nicholas | GleAZ | 100% | 100% | +5 | ? | 1 |
 | Neon Reflection | KeaWV | 100% | 100% | +5 | ? | 1 |
-| New York Pharmacist | GleAZ(KeaWV) | 95% | 100% | +4 | ? | 1 |
-| Next On Stage | GleAZ(KeaWV) | 97% | 107% | +5 | ? | 1 |
-| Nomination | GleAZ(CT) | 101% | 101% | +5 | ? | 1 |
+| New York Pharmacist | GleAZ | 100% | 100% | +4 | ? | 1 |
+| Next On Stage | GleAZ | 100% | 100% | +5 | ? | 1 |
+| Nomination | GleAZ | 100% | 100% | +5 | ? | 1 |
 | Optimus | FtLFL | 100% | 100% | 0 | ? | 1 |
-| Payment Accepted | GleAZ(KeaWV) | 93% | 106% | 0(2) | ? | 1 |
+| Pain Of War | FtLFL | 106% | 82% | 0 | ? | 1 |
+| Payment Accepted | GleAZ | 99% | 100% | 0(2) | ? | 1 |
 | Pedal To Metal | FtLFL | 100% | 100% | 0 | ? | 1 |
-| Port Royal Dash | MouWV(CT) | 95% | 110% | +5 | ? | 1 |
-| Royal Timeburst | GleAZ(KeaWV) | 86% | 110% | +5 | ? | 1 |
-| Royal Velocity | GleAZ(FtLFL) | 91% | 110% | +4 | ? | 1 |
-| Sapphires Dream | GleAZ(KeaWV) | 88% | 110% | +4 | ? | 1 |
-| Sassy Astray | ProKY | 100% | 88% | +1 | ? | 1 |
-| Scarlet Smoke | KeaWV | 100% | 100% | +2 | ? | 1 |
-| Silent Fighter | FtLFL | 105% | 90% | 0 | ? | 1 |
-| Speed Queen | GleAZ(KeaWV) | 90% | 110% | +4 | ? | 1 |
-| Step Right Up | GleAZ(KeaWV) | 85% | 110% | +5 | ? | 1 |
-| Stormy Sky | MouWV(CT) | 91% | 110% | +5 | ? | 1 |
-| Strike King | GleAZ(FtLFL) | 98% | 67% | +1 | ? | 1 |
-| Tall Bonsai | FtLFL | 103% | 90% | 0 | ? | 1 |
-| Thats Some Bullship | RivCA | 100% | 100% | +5 | ? | 1 |
-| The Chance | GleAZ(KeaWV) | 95% | 101% | 0(2) | ? | 1 |
-| Trieste Ruler | FtLFL | 101% | 48% | +4 | ? | 1 |
-| Triple Love | FtLFL | 102% | 86% | +5 | ? | 1 |
-| Urshalim Craftwork | MouWV(CT) | 98% | 110% | +5 | ? | 1 |
-| White Lakes | GleAZ(KeaWV) | 91% | 107% | +5 | ? | 1 |
-| Your Truly | FtLFL | 104% | 88% | 0 | ? | 1 |
+| Royal Timeburst | GleAZ | 93% | 100% | +5 | ? | 1 |
+| Royal Velocity | GleAZ | 110% | 73% | +4 | ? | 1 |
+| Sapphires Dream | GleAZ | 94% | 100% | +4 | ? | 1 |
+| Sassy Astray | ProKY | 100% | 100% | +1 | ? | 1 |
+| Scarlet Smoke | KeaWV | 100% | 100% | +3 | ? | 1 |
+| Silent Fighter | FtLFL | 100% | 100% | 0 | ? | 1 |
+| Southern Consensual | KeaWV | 107% | 61% | +5 | ? | 1 |
+| Speed Queen | GleAZ | 108% | 74% | +4 | ? | 1 |
+| Star Bangled | FtLFL | 106% | 79% | 0 | ? | 1 |
+| Step Right Up | OdeFL(GleAZ) | 93% | 100% | +5 | ? | 1 |
+| Strike King | GleAZ(FtLFL) | 94% | 84% | +1 | ? | 1 |
+| Tall Bonsai | FtLFL | 100% | 100% | 0 | ? | 1 |
+| Thats Some Bullship | RivCA | 104% | 90% | +5 | ? | 1 |
+| The Chance | GleAZ | 110% | 71% | 0(2) | ? | 1 |
+| Trieste Ruler | FtLFL | 100% | 65% | +5 | ? | 1 |
+| Triple Love | FtLFL(GP) | 107% | 76% | +5 | ? | 1 |
+| Vino Rojo | UxbON | 110% | 73% | 0 | ? | 1 |
+| White Lakes | GleAZ | 99% | 100% | +5 | ? | 1 |
+| Your Truly | FtLFL | 100% | 100% | 0 | ? | 1 |
 
 ## Upcoming Races
 | Horse | Date | Track | Race# | Class |
@@ -94,14 +89,23 @@
 | Trieste Ruler | 2026-03-07 00:00:00 | TAM | Clm6.25N3L | ? |
 
 ## ⚠️ Low Stamina
-- **Captain Cook**: 66%
-- **Class A**: 59%
-- **Core N Light**: 73%
-- **Hardline Anvil**: 66%
-- **Ideal Sinissippi**: 66%
-- **Iron Timekeeper**: 63%
-- **Strike King**: 67%
-- **Trieste Ruler**: 48%
+- **Basic Math**: 74%
+- **Bold Nuke**: 79%
+- **Class A**: 76%
+- **Collision Course**: 75%
+- **Cornswaggled**: 78%
+- **Crypto King**: 75%
+- **Desert Oath**: 73%
+- **Iron Timekeeper**: 77%
+- **Lo And Behold**: 50%
+- **Royal Velocity**: 73%
+- **Southern Consensual**: 61%
+- **Speed Queen**: 74%
+- **Star Bangled**: 79%
+- **The Chance**: 71%
+- **Trieste Ruler**: 65%
+- **Triple Love**: 76%
+- **Vino Rojo**: 73%
 
 ## 🎯 Horse Ability Profiles
 | Horse | Speed | Surface | Distance | Wet | Class | W% |
@@ -155,4 +159,4 @@
 - **Ideal Sinissippi** — needs rest or recovery
 
 ---
-*Auto-generated by `06_generate_reports.py` on 2026-03-11*
+*Auto-generated by `06_generate_reports.py` on 2026-03-14*

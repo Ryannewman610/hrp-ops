@@ -1,30 +1,55 @@
-# 📋 Daily Decisions — 2026-03-05
+# 📋 Daily Decisions — 2026-03-14
 
 ## 🏁 Races Coming Up
 *No live entries detected — check nominations in Race_Opportunities.md*
 
 ## ⚡ Must-Do Actions
-- 🔴 **Cornswaggled** — stamina 68%, SCRATCH RISK (<75 = auto-scratch)
-- ⚠️ **Dubai Iron** — stamina 80%, extended rest needed
-- 🔴 **Harsh Frontier** — stamina 54%, SCRATCH RISK (<75 = auto-scratch)
-- ⚠️ **Jurors Verdict** — stamina 79%, extended rest needed
-- 🔴 **Sassy Astray** — stamina 46%, SCRATCH RISK (<75 = auto-scratch)
-- 🔴 **Strike King** — stamina 45%, SCRATCH RISK (<75 = auto-scratch)
-- ⚠️ **Golden Shuvee** — condition 80%, NOT race-ready (need 95%+)
-- 💤 **14 ready 3YOs unraced:** Caros Compass, Core N Light, Damascus Honey, Desert Oath, Dubai Iron
+- 🔴 **Basic Math** — stamina 74%, SCRATCH RISK (<75 = auto-scratch)
+- ⚠️ **Bold Nuke** — stamina 79%, extended rest needed
+- ⚠️ **Class A** — stamina 76%, extended rest needed
+- ⚠️ **Collision Course** — stamina 75%, extended rest needed
+- ⚠️ **Cornswaggled** — stamina 78%, extended rest needed
+- ⚠️ **Crypto King** — stamina 75%, extended rest needed
+- ⚠️ **Cynful Intentions** — stamina 82%, extended rest needed
+- 🔴 **Desert Oath** — stamina 73%, SCRATCH RISK (<75 = auto-scratch)
+- ⚠️ **Hardline Anvil** — stamina 84%, extended rest needed
+- ⚠️ **Hole In The Wind** — stamina 81%, extended rest needed
+- ⚠️ **Hydration** — stamina 81%, extended rest needed
+- ⚠️ **Ideal Sinissippi** — stamina 83%, extended rest needed
+- ⚠️ **Iron Timekeeper** — stamina 77%, extended rest needed
+- 🔴 **Lo And Behold** — stamina 50%, SCRATCH RISK (<75 = auto-scratch)
+- ⚠️ **Pain Of War** — stamina 82%, extended rest needed
+- 🔴 **Royal Velocity** — stamina 73%, SCRATCH RISK (<75 = auto-scratch)
+- 🔴 **Southern Consensual** — stamina 61%, SCRATCH RISK (<75 = auto-scratch)
+- 🔴 **Speed Queen** — stamina 74%, SCRATCH RISK (<75 = auto-scratch)
+- ⚠️ **Star Bangled** — stamina 79%, extended rest needed
+- ⚠️ **Strike King** — stamina 84%, extended rest needed
+- 🔴 **The Chance** — stamina 71%, SCRATCH RISK (<75 = auto-scratch)
+- 🔴 **Trieste Ruler** — stamina 65%, SCRATCH RISK (<75 = auto-scratch)
+- ⚠️ **Triple Love** — stamina 76%, extended rest needed
+- 🔴 **Vino Rojo** — stamina 73%, SCRATCH RISK (<75 = auto-scratch)
+- 💤 **2 ready 3YOs unraced:** Hydration, Triple Love
   → Enter in MSW or maiden claimer races
+- 🔧 **Class A** — consider gelding (avg SRF 80.1, underperforming)
+- 🔧 **Lo And Behold** — consider gelding (avg SRF 81.7, underperforming)
+- 🔧 **Sassy Astray** — consider gelding (avg SRF 80.1, underperforming)
 
 ## 🏅 5f Work Quality Tiers
-- 💎 **ULTRA_RARE** (sub-1:03): Hydration, Iron Timekeeper, Sassy Astray, Trieste Ruler
-- 🏆 **STAKES** (sub-1:04): Cornswaggled, Hardline Anvil, Scarlet Smoke, Strike King, Triple Love
-- 💰 **PAY_SIDE** (sub-1:05): Class A, Drinkers Drought, Favorite Indian, Film The Scene, Harsh Frontier, Hi How Are Ya, Kingston Quickstep
-- 🆓 **FREE_LEVEL** (1:05-1:06): Crowds Ransom, Golden Shuvee, Helios Hustle, Port Royal Dash, Urshalim Craftwork
-- ❓ **QUESTIONABLE** (1:06-1:07): Caros Compass, Crypto King, Desert Oath, Dubai Iron, Ideal Sinissippi, Jurors Verdict, Lo And Behold, Looks Like Nicholas
-- ⛔ **NOT_USEFUL** (1:07+): Blank Sunset, Cayuga Lake, Core N Light, Damascus Honey, Gen Xpress, Neon Reflection, Stormy Sky
+- 💎 **ULTRA_RARE** (sub-1:03): Duke Of York, Good Crypto, Hydration, Iron Timekeeper, Next On Stage, Sassy Astray, Southern Consensual, Trieste Ruler
+- 🏆 **STAKES** (sub-1:04): Basic Math, Bold Nuke, Breath Of The Grayte, Collision Course, Cornswaggled, Hardline Anvil, In The Ruff, New York Pharmacist
+- 💰 **PAY_SIDE** (sub-1:05): Captain Cook, Class A, Drinkers Drought, Favorite Indian, Film The Scene, Harsh Frontier, Hi How Are Ya, Kingston Quickstep
+- 🆓 **FREE_LEVEL** (1:05-1:06): Cynful Intentions, Royal Velocity
+- ❓ **QUESTIONABLE** (1:06-1:07): Crypto King, Cynful Nature, Euclidean, Hole In The Wind, Ideal Sinissippi, Jinxed Agent, Last Night Out, Lo And Behold
+- ⛔ **NOT_USEFUL** (1:07+): American Shorthair, Blank Sunset, Cayuga Lake, Core N Light, Desert Oath, Eyes Of An Indian, Gen Xpress, Neon Reflection
 
 ## 📊 SRF Power Rankings (Top 5)
 | # | Horse | SRF | Trend | Win% | Action |
 |:-:|-------|:---:|:-----:|:----:|--------|
+| 1 | Harsh Frontier | **96.0** | ➡️ | 60.0% | race_target |
+| 2 | Crypto King | **92.9** | 📉 | 51.2% | timed_work |
+| 3 | Euclidean | **90.9** | ➡️ | 46.7% | race_target |
+| 4 | Cayuga Lake | **89.8** | 📉 | 43.4% | race_target |
+| 5 | Ideal Sinissippi | **88.5** | 📈 | 36.5% | timed_work |
 
 ## 📜 Expert Rules (SimRacingForm + Forums)
 - **Race at 95%+ condition** (high > low — 106% beats 94% every time)
@@ -35,8 +60,8 @@
 - **Ship day-of** is viable — no consistency penalty (La Canada Option 4)
 - **Consistency needs 2-4 works+races per 30 days** to climb
 
-## 💰 Balance: $46.63
-Horses: 41 | Upkeep: ~$4.10/day
+## 💰 Balance: $69.86
+Horses: 64 | Upkeep: ~$6.40/day
 
 ---
-*Auto-generated by `daily_decisions.py` on 2026-03-05*
+*Auto-generated by `daily_decisions.py` on 2026-03-14*

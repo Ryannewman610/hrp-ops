@@ -1,5 +1,5 @@
 # 🧠 Trainer Brain — Model Card
-> **Generated:** 2026-03-11 | **Model:** SRF + ELO + Form
+> **Generated:** 2026-03-14 | **Model:** SRF + ELO + Form
 
 ## Model Architecture
 - **SRF Power** (35% weight) — Weighted combination of last, avg, and best SRF
@@ -10,75 +10,83 @@
 ## Power Rankings (SRF-Based)
 | Horse | SRF Pwr | Avg | Best | Last | Trend | Win% | EV | Form |
 |-------|:-------:|:---:|:----:|:----:|-------|:----:|:--:|------|
-| Harsh Frontier | **96.0** | 94.5 | 99 | 95 | ➡️ | 57.5% | 69.0 | ✅ |
-| Crypto King | **92.9** | 90.9 | 96 | 92 | 📉 | 52.7% | 69.7 | 🔥 |
+| Harsh Frontier | **96.0** | 94.5 | 99 | 95 | ➡️ | 60.0% | 71.6 | 🔥 |
+| Crypto King | **92.9** | 90.9 | 96 | 92 | 📉 | 51.2% | 68.3 | 🏋️ |
 | Euclidean | **90.9** | 88.2 | 92 | 92 | ➡️ | 46.7% | 67.5 | 🔥 |
-| Cayuga Lake | **89.8** | 89.1 | 93 | 88 | 📉 | 44.9% | 67.7 | 🔥 |
-| Ideal Sinissippi | **88.5** | 85.1 | 90 | 90 | 📈 | 32.0% | 57.0 | 🛏️ |
-| Captain Cook | **88.2** | 86.9 | 91 | 87 | 📈 | 28.1% | 51.9 | 🛏️ |
-| Cornswaggled | **88.0** | 84.8 | 90 | 89 | 📉 | 35.0% | 61.5 | ✅ |
-| Strike King | **87.8** | 87.2 | 88 | 88 | ➡️ | 26.9% | 50.9 | 🛏️ |
-| Thats Some Bullship | **86.2** | 84.0 | 90 | 85 | 📉 | 32.6% | 61.6 | 🔥 |
+| Cayuga Lake | **89.8** | 89.1 | 93 | 88 | 📉 | 43.4% | 66.3 | 🔥 |
+| Ideal Sinissippi | **88.5** | 85.1 | 90 | 90 | 📈 | 36.5% | 62.1 | 🏋️ |
+| Captain Cook | **88.2** | 86.9 | 91 | 87 | 📈 | 38.6% | 64.5 | 🔥 |
+| Cornswaggled | **88.0** | 84.8 | 90 | 89 | 📉 | 35.0% | 61.5 | 🏋️ |
+| Strike King | **87.8** | 87.2 | 88 | 88 | ➡️ | 28.4% | 53.0 | 🏋️ |
+| Thats Some Bullship | **86.2** | 84.0 | 90 | 85 | 📉 | 31.1% | 59.5 | 🔥 |
 | Trieste Ruler | **85.4** | 85.0 | 89 | 83 | ➡️ | 22.7% | 48.9 | 🛏️ |
-| Lo And Behold | **82.4** | 81.7 | 85 | 81 | 📈 | 22.7% | 53.9 | 🔥 |
-| Class A | **80.7** | 80.1 | 85 | 78 | 📈 | 5.6% | 32.4 | 🛏️ |
+| Lo And Behold | **82.4** | 81.7 | 85 | 81 | 📈 | 9.2% | 34.7 | 🛏️ |
+| Class A | **80.7** | 80.1 | 85 | 78 | 📈 | 8.6% | 36.7 | 🏋️ |
 | Sassy Astray | **77.2** | 80.1 | 88 | 67 | 📉 | 1.1% | 31.9 | ✅ |
-| Iron Timekeeper | **73.9** | 74.0 | 75 | 73 | — | 1.0% | 28.6 | 🛏️ |
-| Core N Light | **73.0** | 73.0 | 73 | 73 | — | 1.0% | 30.3 | 🏋️ |
-| Hardline Anvil | **68.0** | 68.0 | 68 | 68 | — | 1.0% | 25.5 | 🛏️ |
-| Kingston Quickstep | **61.0** | 61.0 | 61 | 61 | — | 1.0% | 28.1 | 🔥 |
+| Iron Timekeeper | **73.9** | 74.0 | 75 | 73 | — | 1.0% | 31.6 | 🏋️ |
+| Core N Light | **73.0** | 73.0 | 73 | 73 | — | 1.0% | 31.3 | ✅ |
+| Hardline Anvil | **68.0** | 68.0 | 68 | 68 | — | 1.0% | 29.5 | 🏋️ |
+| Kingston Quickstep | **61.0** | 61.0 | 61 | 61 | — | 1.0% | 30.1 | 🔥 |
 
 ### Unrated (no race history)
 | Horse | Form | Next Action |
 |-------|------|-------------|
 | American Shorthair | ✅ READY | race_target |
-| Basic Math | ✅ READY | race_target |
+| Basic Math | 🏋️ NEEDS_WORK | timed_work |
 | Blank Sunset | 🔥 PEAKING | race_target |
-| Breath Of The Grayte | ✅ READY | race_target |
-| Collision Course | ✅ READY | race_target |
-| Cynful Nature | 🏋️ NEEDS_WORK | timed_work |
-| Drinkers Drought | ✅ READY | race_target |
-| Duke Of York | ✅ READY | race_target |
-| Eyes Of An Indian | 🏋️ NEEDS_WORK | timed_work |
-| Favorite Indian | ✅ READY | race_target |
+| Bold Nuke | 🏋️ NEEDS_WORK | timed_work |
+| Breath Of The Grayte | 🔥 PEAKING | race_target |
+| Collision Course | 🏋️ NEEDS_WORK | timed_work |
+| Cynful Intentions | 🏋️ NEEDS_WORK | timed_work |
+| Cynful Nature | ✅ READY | race_target |
+| Desert Oath | 🏋️ NEEDS_WORK | timed_work |
+| Drinkers Drought | 🔥 PEAKING | race_target |
+| Duke Of York | 🔥 PEAKING | race_target |
+| Eyes Of An Indian | ✅ READY | race_target |
+| Favorite Indian | 🔥 PEAKING | race_target |
 | Film The Scene | 🔥 PEAKING | race_target |
 | Gen Xpress | 🔥 PEAKING | race_target |
-| Good Crypto | ✅ READY | race_target |
-| Hi How Are Ya | ✅ READY | race_target |
-| Hydration | 🔥 PEAKING | race_target |
+| Good Crypto | 🔥 PEAKING | race_target |
+| Hi How Are Ya | 🔥 PEAKING | race_target |
+| Hole In The Wind | 🏋️ NEEDS_WORK | timed_work |
+| Hydration | 🏋️ NEEDS_WORK | timed_work |
 | In The Ruff | ✅ READY | race_target |
-| Jinxed Agent | 🏋️ NEEDS_WORK | timed_work |
+| Jinxed Agent | ✅ READY | race_target |
 | Last Night Out | ✅ READY | race_target |
 | Lil Rocket Man | 🔥 PEAKING | race_target |
 | Looks Like Nicholas | 🔥 PEAKING | race_target |
 | Neon Reflection | 🔥 PEAKING | race_target |
-| New York Pharmacist | ✅ READY | race_target |
+| New York Pharmacist | 🔥 PEAKING | race_target |
 | Next On Stage | 🔥 PEAKING | race_target |
 | Nomination | 🔥 PEAKING | race_target |
 | Optimus | ✅ READY | race_target |
-| Payment Accepted | 🏋️ NEEDS_WORK | timed_work |
+| Pain Of War | 🏋️ NEEDS_WORK | timed_work |
+| Payment Accepted | ✅ READY | race_target |
 | Pedal To Metal | ✅ READY | race_target |
-| Royal Timeburst | ✅ READY | race_target |
-| Royal Velocity | ✅ READY | race_target |
+| Royal Timeburst | 🔥 PEAKING | race_target |
+| Royal Velocity | 🏋️ NEEDS_WORK | timed_work |
 | Sapphires Dream | ✅ READY | race_target |
-| Scarlet Smoke | ✅ READY | race_target |
-| Silent Fighter | 🏋️ NEEDS_WORK | timed_work |
-| Speed Queen | ✅ READY | race_target |
-| Step Right Up | ✅ READY | race_target |
-| Tall Bonsai | 🏋️ NEEDS_WORK | timed_work |
+| Scarlet Smoke | 🔥 PEAKING | race_target |
+| Silent Fighter | ✅ READY | race_target |
+| Southern Consensual | 🛏️ REST_REQUIRED | rest |
+| Speed Queen | 🏋️ NEEDS_WORK | timed_work |
+| Star Bangled | 🏋️ NEEDS_WORK | timed_work |
+| Step Right Up | 🔥 PEAKING | race_target |
+| Tall Bonsai | ✅ READY | race_target |
 | The Chance | 🏋️ NEEDS_WORK | timed_work |
-| Triple Love | 🔥 PEAKING | race_target |
-| White Lakes | ✅ READY | race_target |
-| Your Truly | 🏋️ NEEDS_WORK | timed_work |
+| Triple Love | 🏋️ NEEDS_WORK | timed_work |
+| Vino Rojo | 🏋️ NEEDS_WORK | timed_work |
+| White Lakes | 🔥 PEAKING | race_target |
+| Your Truly | ✅ READY | race_target |
 
 ## Dataset Stats
 | Metric | Value |
 |--------|-------|
-| Total races | 119 |
+| Total races | 131 |
 | Races with SRF | 0 |
 | Horses with SRF | 17 |
-| Timed works | 935 |
-| Win rate (actual) | 28.4% |
+| Timed works | 1091 |
+| Win rate (actual) | 0% |
 
 ---
-*Auto-generated by `10_fit_trainer_brain.py` on 2026-03-11*
+*Auto-generated by `10_fit_trainer_brain.py` on 2026-03-14*
