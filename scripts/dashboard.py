@@ -426,7 +426,13 @@ def api_twoyo():
         if _norm(name) in INACTIVE:
             continue
         age = h.get("age", "")
-        if "2" not in str(age):
+        # Strict 2yo check: extract numeric age and match exactly 2
+        age_str = str(age).lower().replace("yo", "").strip()
+        try:
+            age_num = int(age_str)
+        except (ValueError, TypeError):
+            continue
+        if age_num != 2:
             continue
 
         # ── Basic info ──
@@ -545,22 +551,10 @@ def api_twoyo():
         max_dist = max(distances_worked) if distances_worked else 0
         dist_prog = sorted(distances_worked) if distances_worked else []
 
-        # ── Development stage ──
-        if starts > 0:
-            stage_key = "race_active"
-            stage_label = "🏁 Racing"
-        elif works_count >= 50 and con >= 4:
-            stage_key = "race_ready"
-            stage_label = "🎯 Race Ready"
-        elif works_count >= 20:
-            stage_key = "speed_prep"
-            stage_label = "⚡ Speed Prep"
-        elif works_count >= 1:
-            stage_key = "foundation"
-            stage_label = "🏋️ Foundation"
-        else:
-            stage_key = "pre_training"
-            stage_label = "🥚 Pre-Training"
+        # ── Development stage (using canonical classify_2yo_stage) ──
+        stage_key, stage_label = classify_2yo_stage(
+            works_count, con, starts > 0
+        )
         stage_counts[stage_key] += 1
 
         # Progress pct (0-100 based on development)
@@ -685,11 +679,15 @@ def api_stable_stats():
         total_wins += w
         total_places += p
         total_shows += sh
+    active_count = sum(
+        1 for h in snap.get("horses", [])
+        if _norm(h.get("name", "")) not in INACTIVE
+    )
     win_pct = (total_wins / total_starts * 100) if total_starts else 0
     itm_pct = ((total_wins + total_places + total_shows) / total_starts * 100) if total_starts else 0
     return jsonify({
         "balance": snap.get("balance", "?"),
-        "total_horses": len(snap.get("horses", [])),
+        "total_horses": active_count,
         "horses_raced": horses_raced,
         "total_starts": total_starts,
         "total_wins": total_wins,
@@ -847,10 +845,18 @@ def api_race_results():
         if _norm(name) in INACTIVE:
             continue
         for race in h.get("recent_races", []):
+            try:
+                finish_val = int(race.get("finish", 0))
+            except (ValueError, TypeError):
+                finish_val = 0
+            try:
+                field_val = int(race.get("field", 0))
+            except (ValueError, TypeError):
+                field_val = 0
             results.append({
                 "horse": name,
-                "finish": int(race.get("finish", 0)),
-                "field": int(race.get("field", 0)),
+                "finish": finish_val,
+                "field": field_val,
                 "date": race.get("date", ""),
                 "track": race.get("track", ""),
                 "distance": race.get("distance", ""),
