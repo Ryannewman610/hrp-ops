@@ -1,80 +1,115 @@
 # 📋 Approval Pack
-> **Generated:** 2026-03-14 | **Model:** ELO + Form Cycle v2
+> **Generated:** 2026-03-16 | **Model:** ELO + Form Cycle v2
 
 ## Instructions
 Review each recommendation. Check box to approve, leave unchecked to skip.
 Only approved items should be manually entered on HRP.
 
 ## 🎯 Recommended Entries (Approval Required)
-- [ ] **Harsh Frontier** → 3/13/2026 TAM R#3 1m Claiming (Field: 5)
-  - EV 71.6 | Win 60.0% | Top3 85.0% | Form: PEAKING
-  - Fit: ⚡ AdjSpd 95 (raw 95, wt 122); 🌿 Turf specialist; Versatile (1m)
-  - Risks: ⚠️ New track TAM (home: GleAZ(KeaWV)); ⚠️ No works at TAM — may need timed work first
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #3 → Enter **Harsh Frontier**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Harsh+Frontier)
-- [ ] **Cayuga Lake** → 3/13/2026 TAM R#2 5f Claiming (Field: 8)
-  - EV 66.3 | Win 43.4% | Top3 85.0% | Form: PEAKING
-  - Fit: ⚡ AdjSpd 95 (raw 95, wt 122); 🏃 Sprint fit (5f); 🔥 PEAKING
-  - Risks: ⚠️ Weak on turf (50%); ⚠️ New track TAM (home: RivCA)
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #2 → Enter **Cayuga Lake**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cayuga+Lake)
-- [ ] **Captain Cook** → 3/13/2026 LRL R#1 1 1/8m Maiden (Field: 6)
-  - EV 64.5 | Win 38.6% | Top3 85.0% | Form: PEAKING
-  - Fit: AdjSpd 89; 🏜️ Dirt preferred; Maiden eligible
-  - Risks: ⚠️ New track LRL (home: FtLFL); ⚠️ No works at LRL — may need timed work first
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **LRL** → Race #1 → Enter **Captain Cook**
+- [ ] **Captain Cook** → 3/16/2026 TUP R#2 6 1/2f Maiden Claiming (Field: 9)
+  - EV 65.9 | Win 40.1% | Top3 85.0% | Form: PEAKING
+  - Fit: AdjSpd 90; 🏜️ Dirt preferred; MCL
+  - Risks: ⚠️ New track TUP (home: FtLFL); ⚠️ No works at TUP — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #2 → Enter **Captain Cook**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Captain+Cook)
-- [ ] **Thats Some Bullship** → 3/13/2026 TAM R#3 1m Claiming (Field: 5)
-  - EV 59.5 | Win 31.1% | Top3 77.8% | Form: PEAKING
-  - Fit: AdjSpd 88; 🌿 Turf specialist; Versatile (1m)
-  - Risks: ⚠️ New track TAM (home: RivCA); ⚠️ No works at TAM — may need timed work first
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TAM** → Race #3 → Enter **Thats Some Bullship**
+- [ ] **Hawaiian Artist** → 3/17/2026 TUP R#3 5f Maiden Claiming (Field: 4)
+  - EV 65.1 | Win 42.5% | Top3 85.0% | Form: PEAKING
+  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Risks: No timed works yet; ⚠️ New track TUP (home: )
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #3 → Enter **Hawaiian Artist**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hawaiian+Artist)
+- [ ] **Cornswaggled** → 3/16/2026 TUP R#5 1m Allowance/Claiming (Field: 6)
+  - EV 64.3 | Win 38.0% | Top3 85.0% | Form: PEAKING
+  - Fit: AdjSpd 88; 🌿 Turf specialist; First allowance try
+  - Risks: ⚠️ Last work at TUP: 61d ago; 📉 Consistency dropping (4, 1 acts/7d)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #5 → Enter **Cornswaggled**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Cornswaggled)
+- [ ] **Warfields Jarred** → 3/16/2026 TUP R#2 6 1/2f Maiden Claiming (Field: 9)
+  - EV 63.1 | Win 37.1% | Top3 85.0% | Form: PEAKING
+  - Fit: MCL; Maiden eligible; Sprint (6 1/2f)
+  - Risks: No timed works yet; ⚠️ New track TUP (home: )
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #2 → Enter **Warfields Jarred**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Warfields+Jarred)
+- [ ] **Thats Some Bullship** → 3/16/2026 TUP R#5 1m Allowance/Claiming (Field: 6)
+  - EV 61.6 | Win 32.6% | Top3 81.5% | Form: PEAKING
+  - Fit: AdjSpd 88; 🌿 Turf specialist; First allowance try
+  - Risks: 📉 Consistency dropping (5, 0 acts/7d); ⚠️ Stale (27d since last work)
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #5 → Enter **Thats Some Bullship**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Thats+Some+Bullship)
-- [ ] **Sassy Astray** → 3/13/2026 BTP R#2 1m Maiden (Field: 7)
-  - EV 31.9 | Win 1.1% | Top3 2.8% | Form: READY
-  - Fit: AdjSpd 82; 🏜️ Dirt preferred; Maiden eligible
-  - Risks: 📉 Consistency dropping (1, 1 acts/7d); ⚠️ Must regular-ship (stamina hit) — deadline -3d
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #2 → Enter **Sassy Astray**
+- [ ] **Sassy Astray** → 3/16/2026 TUP R#2 6 1/2f Maiden Claiming (Field: 9)
+  - EV 34.0 | Win 2.6% | Top3 6.5% | Form: READY
+  - Fit: AdjSpd 82; 🏜️ Dirt preferred; MCL
+  - Risks: ⚠️ New track TUP (home: ProKY); ⚠️ No works at TUP — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #2 → Enter **Sassy Astray**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Sassy+Astray)
-- [ ] **Core N Light** → 3/13/2026 LRL R#3 6f Maiden (Field: 7)
-  - EV 31.3 | Win 1.0% | Top3 2.5% | Form: READY
-  - Fit: AdjSpd 82; 🌿 Turf specialist; Maiden eligible
-  - Risks: ⚠️ New track LRL (home: FtLFL); ⚠️ No works at LRL — may need timed work first
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **LRL** → Race #3 → Enter **Core N Light**
-  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Core+N+Light)
-- [ ] **Kingston Quickstep** → 3/13/2026 BTP R#2 1m Maiden (Field: 7)
+- [ ] **Kingston Quickstep** → 3/16/2026 TUP R#2 6 1/2f Maiden Claiming (Field: 9)
   - EV 30.1 | Win 1.0% | Top3 2.5% | Form: PEAKING
-  - Fit: 🏜️ Dirt preferred; Maiden eligible; 📍 Worked at BTP
-  - Risks: Sprinter going long (1m); ⚠️ Must regular-ship (stamina hit) — deadline -3d
-  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **BTP** → Race #2 → Enter **Kingston Quickstep**
+  - Fit: 🏜️ Dirt preferred; MCL; Maiden eligible
+  - Risks: ⚠️ New track TUP (home: KeaWV); ⚠️ No works at TUP — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #2 → Enter **Kingston Quickstep**
   - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Kingston+Quickstep)
+- [ ] **Sierra** → 3/16/2026 TUP R#2 6 1/2f Maiden Claiming (Field: 9)
+  - EV 28.8 | Win 1.0% | Top3 2.5% | Form: PEAKING
+  - Fit: MCL; Maiden eligible; Sprint (6 1/2f)
+  - Risks: No timed works yet; ⚠️ New track TUP (home: )
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #2 → Enter **Sierra**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Sierra)
+- [ ] **Triple Love** → 3/16/2026 TUP R#2 6 1/2f Maiden Claiming (Field: 9)
+  - EV 8.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 6 works (prepared); MCL; Maiden eligible
+  - Risks: ⚠️ New track TUP (home: FtLFL); ⚠️ No works at TUP — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #2 → Enter **Triple Love**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Triple+Love)
+- [ ] **Hydration** → 3/16/2026 TUP R#2 6 1/2f Maiden Claiming (Field: 9)
+  - EV 7.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: 📋 5 works (prepared); MCL; Maiden eligible
+  - Risks: ⚠️ New track TUP (home: FtLFL); ⚠️ No works at TUP — may need timed work first
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #2 → Enter **Hydration**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Hydration)
+- [ ] **Walk Alone** → 3/17/2026 TUP R#3 5f Maiden Claiming (Field: 4)
+  - EV 7.6 | Win 0.8% | Top3 2.0% | Form: PEAKING
+  - Fit: MCL; Maiden eligible; Sprint (5f)
+  - Risks: No timed works yet; ⚠️ New track TUP (home: )
+  - **Steps:** [Find a Race](https://www.horseracingpark.com/stables/find_race.aspx) → Select **TUP** → Race #3 → Enter **Walk Alone**
+  - [Horse Profile](https://www.horseracingpark.com/stables/horse.aspx?Horse=Walk+Alone)
 
 ## 🏋️ Training / Rest (No Approval Needed)
-- [x] **Basic Math** — 🏋️ Timed Work: Stamina 74% (moderate); Condition 108% (peak)
-- [x] **Bold Nuke** — 🏋️ Timed Work: Stamina 79% (moderate); Condition 107% (peak)
-- [x] **Class A** — 🏋️ Timed Work: Stamina 76% (moderate); Condition 100% (peak)
-- [x] **Collision Course** — 🏋️ Timed Work: Stamina 75% (moderate); Condition 107% (peak)
-- [x] **Cornswaggled** — 🏋️ Timed Work: Stamina 78% (moderate); Condition 107% (peak)
-- [x] **Crypto King** — 🏋️ Timed Work: Stamina 75% (moderate); Condition 110% (peak)
-- [x] **Cynful Intentions** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 105% (peak)
-- [x] **Desert Oath** — 🏋️ Timed Work: Stamina 73% (moderate); Condition 110% (peak)
-- [x] **Hardline Anvil** — 🏋️ Timed Work: Stamina 84% (moderate); Condition 100% (peak)
-- [x] **Hole In The Wind** — 🏋️ Timed Work: Stamina 81% (moderate); Condition 106% (peak)
-- [x] **Hydration** — 🏋️ Timed Work: Stamina 81% (moderate); Condition 107% (peak)
-- [x] **Ideal Sinissippi** — 🏋️ Timed Work: Stamina 83% (moderate); Condition 100% (peak)
-- [x] **Iron Timekeeper** — 🏋️ Timed Work: Stamina 77% (moderate); Condition 100% (peak)
-- [x] **Lo And Behold** — 🛏️ Rest: Stamina 50%
-- [x] **Pain Of War** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 106% (peak)
-- [x] **Royal Velocity** — 🏋️ Timed Work: Stamina 73% (moderate); Condition 110% (peak)
-- [x] **Southern Consensual** — 🛏️ Rest: Stamina 61%
-- [x] **Speed Queen** — 🏋️ Timed Work: Stamina 74% (moderate); Condition 108% (peak)
-- [x] **Star Bangled** — 🏋️ Timed Work: Stamina 79% (moderate); Condition 106% (peak)
-- [x] **Strike King** — 🏋️ Timed Work: Stamina 84% (moderate); Condition 94% (good)
-- [x] **The Chance** — 🏋️ Timed Work: Stamina 71% (moderate); Condition 110% (peak)
-- [x] **Trieste Ruler** — 🛏️ Rest: Stamina 65%
-- [x] **Triple Love** — 🏋️ Timed Work: Stamina 76% (moderate); Condition 107% (peak)
-- [x] **Vino Rojo** — 🏋️ Timed Work: Stamina 73% (moderate); Condition 110% (peak)
+- [x] **Cayuga Lake** — 🛏️ Rest: Stamina 51%
+- [x] **Chief Wolf Shifter** — 🏋️ Timed Work: Stamina 81% (moderate); Condition 108% (peak)
+- [x] **Class A** — 🏋️ Timed Work: Stamina 70% (moderate); Condition 110% (peak)
+- [x] **Comanche Queen** — 🏋️ Timed Work: Stamina 83% (moderate); Condition 106% (peak)
+- [x] **Core N Light** — 🏋️ Timed Work: Stamina 81% (moderate); Condition 104% (peak)
+- [x] **Cup O Joe** — 🏋️ Timed Work: Stamina 84% (moderate); Condition 107% (peak)
+- [x] **Cynful Smart** — 🏋️ Timed Work: Stamina 83% (moderate); Condition 106% (peak)
+- [x] **Devil May Cry** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 106% (peak)
+- [x] **Ebay** — 🛏️ Rest: Stamina 55%
+- [x] **El Prado** — 🏋️ Timed Work: Stamina 84% (moderate); Condition 107% (peak)
+- [x] **Empress Of The West** — 🏋️ Timed Work: Stamina 80% (moderate); Condition 105% (peak)
+- [x] **Falling Behind** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 108% (peak)
+- [x] **Gizmo** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 108% (peak)
+- [x] **Good Crypto** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 106% (peak)
+- [x] **Grandeur Latte** — 🏋️ Timed Work: Stamina 83% (moderate); Condition 106% (peak)
+- [x] **Hard Not To Like** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 107% (peak)
+- [x] **Hardline Anvil** — 🏋️ Timed Work: Stamina 81% (moderate); Condition 107% (peak)
+- [x] **Harsh Frontier** — 🏋️ Timed Work: Stamina 70% (moderate); Condition 108% (peak)
+- [x] **Hawk Soaring** — 🏋️ Timed Work: Stamina 79% (moderate); Condition 107% (peak)
+- [x] **Indian Lady** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 106% (peak)
+- [x] **Iron Timekeeper** — 🏋️ Timed Work: Stamina 73% (moderate); Condition 110% (peak)
+- [x] **Last Night Out** — 🏋️ Timed Work: Stamina 73% (moderate); Condition 110% (peak)
+- [x] **Last Outlaw** — 🏋️ Timed Work: Stamina 77% (moderate); Condition 107% (peak)
+- [x] **Lil Rocket Man** — 🏋️ Timed Work: Stamina 73% (moderate); Condition 110% (peak)
+- [x] **Lo And Behold** — 🏋️ Timed Work: Stamina 75% (moderate); Condition 97% (good)
+- [x] **Love Music** — 🏋️ Timed Work: Stamina 81% (moderate); Condition 108% (peak)
+- [x] **Nomination** — 🏋️ Timed Work: Stamina 74% (moderate); Condition 110% (peak)
+- [x] **Offlikeapromdress** — 🏋️ Timed Work: Stamina 79% (moderate); Condition 107% (peak)
+- [x] **Optimus** — 🏋️ Timed Work: Stamina 82% (moderate); Condition 107% (peak)
+- [x] **Over And Under** — 🏋️ Timed Work: Stamina 78% (moderate); Condition 108% (peak)
+- [x] **Pedal To Metal** — 🏋️ Timed Work: Stamina 84% (moderate); Condition 106% (peak)
+- [x] **Rollerwolf** — 🛏️ Rest: Stamina 68%
+- [x] **Sinissippi Wild** — 🏋️ Timed Work: Stamina 79% (moderate); Condition 107% (peak)
+- [x] **Strike King** — 🏋️ Timed Work: Stamina 79% (moderate); Condition 108% (peak)
+- [x] **White Lakes** — 🏋️ Timed Work: Stamina 81% (moderate); Condition 106% (peak)
 
 ---
-*Approval Pack generated by Trainer Brain v2 — 2026-03-14*
+*Approval Pack generated by Trainer Brain v2 — 2026-03-16*
 *SAFETY: No in-game actions taken. All entries require manual execution.*

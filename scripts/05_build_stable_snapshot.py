@@ -448,6 +448,36 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
 
             race_comment = "; ".join(comment_parts)
 
+            # Extract jockey, weight, odds from the sub-table (width=210 cell)
+            jockey = ""
+            weight = ""
+            odds = ""
+            for c in cells:
+                if c.get("width") == "210":
+                    sub_table = c.find("table")
+                    if sub_table:
+                        sub_cells = sub_table.find_all("td")
+                        for sci, sc in enumerate(sub_cells):
+                            # Jockey is in a link to jockey.aspx
+                            jlink = sc.find("a", href=re.compile(r"jockey\.aspx"))
+                            if jlink:
+                                jockey = jlink.get_text(strip=True)
+                            # Weight is a 3-digit number (width=20, after jockey)
+                            w = sc.get("width", "")
+                            if w == "20" and not weight:
+                                wt = sc.get_text(strip=True)
+                                if re.match(r"\d{2,3}$", wt):
+                                    weight = wt
+                            # Odds is a decimal number (width=32, align=right)
+                            if w == "32" and sc.get("align") == "right":
+                                ot = sc.get_text(strip=True)
+                                if re.match(r"\d+\.\d+$", ot):
+                                    odds = ot
+                    break
+
+            # Build running line from position cells (e.g. "7-5-5-4")
+            running_line = "-".join(position_cells_list) if position_cells_list else ""
+
             races.append({
                 "finish": finish_pos,
                 "field": field_size,
@@ -460,6 +490,10 @@ def parse_horse_dir(horse_dir: Path) -> Dict[str, Any]:
                 "srf": srf,
                 "race_class": race_class,
                 "comment": race_comment,
+                "jockey": jockey,
+                "weight": weight,
+                "odds": odds,
+                "running_line": running_line,
             })
 
         # Sort by date descending and keep up to 10
@@ -503,6 +537,12 @@ def main() -> None:
     # Parse roster for quick summary
     roster = parse_roster_html()
     roster_by_name = {h.get("HORSE NAME", "").lower(): h for h in roster}
+    # Build set of roster horse directory names (replace spaces with underscores)
+    roster_dir_names = set()
+    for h in roster:
+        hname = h.get("HORSE NAME", "")
+        if hname:
+            roster_dir_names.add(hname.replace(" ", "_"))
 
     # Parse individual horse directories
     if not RAW_ROOT.exists():
@@ -514,7 +554,21 @@ def main() -> None:
         if d.is_dir() and d.name != "_global"
     ])
 
-    for horse_dir in horse_dirs:
+    # Filter: only include horses on the current roster (skip stale/sold horses)
+    stale_dirs = []
+    active_dirs = []
+    for d in horse_dirs:
+        if roster_dir_names and d.name not in roster_dir_names:
+            stale_dirs.append(d.name)
+        else:
+            active_dirs.append(d)
+
+    if stale_dirs:
+        print(f"  Skipping {len(stale_dirs)} stale horse(s) not on roster: {', '.join(stale_dirs[:10])}")
+        if len(stale_dirs) > 10:
+            print(f"    ... and {len(stale_dirs) - 10} more")
+
+    for horse_dir in active_dirs:
         try:
             record = parse_horse_dir(horse_dir)
 

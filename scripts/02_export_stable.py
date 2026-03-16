@@ -17,7 +17,7 @@ URLS_PATH = ROOT / "scripts" / "hrp_urls.json"
 AUTH_PATH = ROOT / "inputs" / "export" / "auth.json"
 RAW_ROOT = ROOT / "inputs" / "export" / "raw"
 MANIFEST_PATH = ROOT / "inputs" / "export" / "export_manifest.json"
-DELAY_SECONDS = 6
+DELAY_SECONDS = 2
 GLOBAL_DIR = "_global"
 
 # All horse page types (used in weekly mode)

@@ -1,206 +1,280 @@
 # 📋 Training Plan — Daily Orders
-> **Generated:** 2026-03-14 | **Horses:** 64 | **Window:** 14 days
+> **Generated:** 2026-03-16 | **Horses:** 93 | **Window:** 14 days
 
 ## 🎯 Today's Orders
+### Race Entries
+- 🏇 **Blank Sunset** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Bold Nuke** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Breath Of The Grayte** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Captain Cook** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Cornswaggled** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Euclidean** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Film The Scene** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Gen Xpress** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Good Crypto** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Hi How Are Ya** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Jinxed Agent** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Kingston Quickstep** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Looks Like Nicholas** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Neon Reflection** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Payment Accepted** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Scarlet Smoke** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Southern Consensual** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Speed Queen** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **The Chance** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **Triple Love** → SUN R#1 5f Allowance (Field 7)
+- 🏇 **White Lakes** → SUN R#1 5f Allowance (Field 7)
+
 ### Timed Works
-- 🏋️ **Class A** — timed work (Sharpness 20 — need to work)
-- 🏋️ **Harsh Frontier** — timed work (Sharpness 20 — need to work)
-- 🏋️ **In The Ruff** — timed work (Sharpness 10 — need to work)
-- 🏋️ **Royal Timeburst** — timed work (Sharpness 20 — need to work)
-- 🏋️ **Sapphires Dream** — timed work (Sharpness 20 — need to work)
+- 🏋️ **Happy Birthday** — timed work (Sharpness 10 — need to work)
+- 🏋️ **Lo And Behold** — timed work (Sharpness 25 — need to work)
 - 🏋️ **Step Right Up** — timed work (Sharpness 25 — need to work)
-- 🏋️ **Strike King** — timed work (Sharpness 0 — need to work)
+- 🏋️ **Trieste Ruler** — timed work (Sharpness 0 — need to work)
 
 ### Rest
 - 🛏️ **American Shorthair** — rest (Light day — maintain)
 - 🛏️ **Basic Math** — rest (Light day — maintain)
-- 🛏️ **Blank Sunset** — rest (Light day — maintain)
-- 🛏️ **Bold Nuke** — rest (Light day — maintain)
-- 🛏️ **Breath Of The Grayte** — rest (Light day — maintain)
-- 🛏️ **Captain Cook** — rest (Light day — maintain)
-- 🛏️ **Cayuga Lake** — rest (Light day — maintain)
+- 🛏️ **Bold Extract** — rest (Light day — maintain)
+- 🛏️ **Cayuga Lake** — rest (Stamina 51% < 70% threshold)
+- 🛏️ **Chief Wolf Shifter** — rest (Light day — maintain)
+- 🛏️ **Class A** — rest (Light day — maintain)
 - 🛏️ **Collision Course** — rest (Light day — maintain)
+- 🛏️ **Comanche Queen** — rest (Light day — maintain)
 - 🛏️ **Core N Light** — rest (Light day — maintain)
-- 🛏️ **Cornswaggled** — rest (Light day — maintain)
 - 🛏️ **Crypto King** — rest (Light day — maintain)
+- 🛏️ **Cup O Joe** — rest (Light day — maintain)
 - 🛏️ **Cynful Intentions** — rest (Light day — maintain)
+- 🛏️ **Cynful Native** — rest (Light day — maintain)
 - 🛏️ **Cynful Nature** — rest (Light day — maintain)
+- 🛏️ **Cynful Smart** — rest (Light day — maintain)
+- 🛏️ **Cynful Sweet** — rest (Light day — maintain)
 - 🛏️ **Desert Oath** — rest (Light day — maintain)
+- 🛏️ **Devil May Cry** — rest (Light day — maintain)
 - 🛏️ **Drinkers Drought** — rest (Light day — maintain)
 - 🛏️ **Duke Of York** — rest (Light day — maintain)
-- 🛏️ **Euclidean** — rest (Light day — maintain)
+- 🛏️ **Ebay** — rest (Stamina 55% < 70% threshold)
+- 🛏️ **El Prado** — rest (Light day — maintain)
+- 🛏️ **Empress Of The West** — rest (Light day — maintain)
+- 🛏️ **Evolution** — rest (Light day — maintain)
 - 🛏️ **Eyes Of An Indian** — rest (Light day — maintain)
+- 🛏️ **Falling Behind** — rest (Light day — maintain)
 - 🛏️ **Favorite Indian** — rest (Light day — maintain)
-- 🛏️ **Film The Scene** — rest (Light day — maintain)
-- 🛏️ **Gen Xpress** — rest (Light day — maintain)
-- 🛏️ **Good Crypto** — rest (Light day — maintain)
+- 🛏️ **Gizmo** — rest (Light day — maintain)
+- 🛏️ **Grandeur Latte** — rest (Light day — maintain)
+- 🛏️ **Hard Not To Like** — rest (Light day — maintain)
 - 🛏️ **Hardline Anvil** — rest (Light day — maintain)
-- 🛏️ **Hi How Are Ya** — rest (Light day — maintain)
+- 🛏️ **Harsh Frontier** — rest (Light day — maintain)
+- 🛏️ **Hawaiian Artist** — rest (Light day — maintain)
+- 🛏️ **Hawk Soaring** — rest (Light day — maintain)
 - 🛏️ **Hole In The Wind** — rest (Light day — maintain)
 - 🛏️ **Hydration** — rest (Light day — maintain)
 - 🛏️ **Ideal Sinissippi** — rest (Light day — maintain)
+- 🛏️ **In The Ruff** — rest (Light day — maintain)
+- 🛏️ **Indian Lady** — rest (Light day — maintain)
 - 🛏️ **Iron Timekeeper** — rest (Light day — maintain)
-- 🛏️ **Jinxed Agent** — rest (Light day — maintain)
-- 🛏️ **Kingston Quickstep** — rest (Light day — maintain)
 - 🛏️ **Last Night Out** — rest (Light day — maintain)
+- 🛏️ **Last Outlaw** — rest (Light day — maintain)
 - 🛏️ **Lil Rocket Man** — rest (Light day — maintain)
-- 🛏️ **Lo And Behold** — rest (Stamina 50% < 70% threshold)
-- 🛏️ **Looks Like Nicholas** — rest (Light day — maintain)
-- 🛏️ **Neon Reflection** — rest (Light day — maintain)
+- 🛏️ **Love Music** — rest (Light day — maintain)
 - 🛏️ **New York Pharmacist** — rest (Light day — maintain)
 - 🛏️ **Next On Stage** — rest (Light day — maintain)
 - 🛏️ **Nomination** — rest (Light day — maintain)
+- 🛏️ **Offlikeapromdress** — rest (Light day — maintain)
 - 🛏️ **Optimus** — rest (Light day — maintain)
+- 🛏️ **Over And Under** — rest (Light day — maintain)
 - 🛏️ **Pain Of War** — rest (Light day — maintain)
-- 🛏️ **Payment Accepted** — rest (Light day — maintain)
 - 🛏️ **Pedal To Metal** — rest (Light day — maintain)
+- 🛏️ **Rollerwolf** — rest (Stamina 68% < 70% threshold)
+- 🛏️ **Royal Timeburst** — rest (Light day — maintain)
 - 🛏️ **Royal Velocity** — rest (Light day — maintain)
+- 🛏️ **Sapphires Dream** — rest (Light day — maintain)
 - 🛏️ **Sassy Astray** — rest (Light day — maintain)
-- 🛏️ **Scarlet Smoke** — rest (Light day — maintain)
+- 🛏️ **Sierra** — rest (Light day — maintain)
 - 🛏️ **Silent Fighter** — rest (Light day — maintain)
-- 🛏️ **Southern Consensual** — rest (Stamina 61% < 70% threshold)
-- 🛏️ **Speed Queen** — rest (Light day — maintain)
+- 🛏️ **Sinissippi Wild** — rest (Light day — maintain)
 - 🛏️ **Star Bangled** — rest (Light day — maintain)
+- 🛏️ **Strike King** — rest (Light day — maintain)
 - 🛏️ **Tall Bonsai** — rest (Light day — maintain)
 - 🛏️ **Thats Some Bullship** — rest (Light day — maintain)
-- 🛏️ **The Chance** — rest (Light day — maintain)
-- 🛏️ **Trieste Ruler** — rest (Stamina 65% < 70% threshold)
-- 🛏️ **Triple Love** — rest (Light day — maintain)
 - 🛏️ **Vino Rojo** — rest (Light day — maintain)
-- 🛏️ **White Lakes** — rest (Light day — maintain)
+- 🛏️ **Walk Alone** — rest (Light day — maintain)
+- 🛏️ **Warfields Jarred** — rest (Light day — maintain)
 - 🛏️ **Your Truly** — rest (Light day — maintain)
 
 ## ⚡ Peaking Soon
 These horses have high readiness (≥70) and good stamina (≥85%):
-- **Blank Sunset** — Readiness 78, Sharp 70, Trend: improving
-- **Breath Of The Grayte** — Readiness 70, Sharp 50, Trend: declining
-- **Captain Cook** — Readiness 70, Sharp 60, Trend: improving
-- **Cayuga Lake** — Readiness 79, Sharp 80, Trend: steady
-- **Core N Light** — Readiness 70, Sharp 60, Trend: improving
-- **Cynful Nature** — Readiness 70, Sharp 70, Trend: unknown
-- **Drinkers Drought** — Readiness 76, Sharp 70, Trend: unknown
-- **Euclidean** — Readiness 81, Sharp 80, Trend: improving
-- **Eyes Of An Indian** — Readiness 70, Sharp 70, Trend: unknown
-- **Favorite Indian** — Readiness 76, Sharp 70, Trend: unknown
+- **Basic Math** — Readiness 73, Sharp 60, Trend: declining
+- **Blank Sunset** — Readiness 76, Sharp 90, Trend: improving
+- **Bold Nuke** — Readiness 80, Sharp 90, Trend: improving
+- **Breath Of The Grayte** — Readiness 76, Sharp 90, Trend: improving
+- **Captain Cook** — Readiness 75, Sharp 60, Trend: improving
+- **Collision Course** — Readiness 73, Sharp 60, Trend: declining
+- **Cornswaggled** — Readiness 84, Sharp 90, Trend: improving
+- **Crypto King** — Readiness 73, Sharp 60, Trend: declining
+- **Cynful Intentions** — Readiness 70, Sharp 70, Trend: unknown
+- **Cynful Sweet** — Readiness 70, Sharp 70, Trend: unknown
+- **Desert Oath** — Readiness 70, Sharp 70, Trend: unknown
+- **Drinkers Drought** — Readiness 70, Sharp 80, Trend: unknown
+- **Duke Of York** — Readiness 72, Sharp 80, Trend: improving
+- **Euclidean** — Readiness 78, Sharp 70, Trend: improving
+- **Favorite Indian** — Readiness 70, Sharp 80, Trend: unknown
+- **Film The Scene** — Readiness 76, Sharp 90, Trend: improving
 - **Gen Xpress** — Readiness 78, Sharp 70, Trend: improving
-- **Good Crypto** — Readiness 72, Sharp 70, Trend: steady
-- **Hi How Are Ya** — Readiness 76, Sharp 70, Trend: unknown
-- **Kingston Quickstep** — Readiness 74, Sharp 80, Trend: steady
-- **Lil Rocket Man** — Readiness 73, Sharp 60, Trend: steady
-- **Looks Like Nicholas** — Readiness 73, Sharp 60, Trend: steady
-- **Neon Reflection** — Readiness 70, Sharp 50, Trend: declining
-- **Next On Stage** — Readiness 78, Sharp 70, Trend: improving
-- **Nomination** — Readiness 78, Sharp 70, Trend: improving
-- **Scarlet Smoke** — Readiness 73, Sharp 60, Trend: unknown
-- **Silent Fighter** — Readiness 70, Sharp 70, Trend: unknown
-- **Tall Bonsai** — Readiness 70, Sharp 70, Trend: unknown
+- **Hawaiian Artist** — Readiness 72, Sharp 80, Trend: improving
+- **Hi How Are Ya** — Readiness 76, Sharp 80, Trend: unknown
+- **Hole In The Wind** — Readiness 70, Sharp 70, Trend: unknown
+- **Hydration** — Readiness 70, Sharp 70, Trend: steady
+- **Ideal Sinissippi** — Readiness 70, Sharp 50, Trend: declining
+- **Jinxed Agent** — Readiness 76, Sharp 80, Trend: unknown
+- **Kingston Quickstep** — Readiness 76, Sharp 70, Trend: steady
+- **Looks Like Nicholas** — Readiness 76, Sharp 90, Trend: improving
+- **Neon Reflection** — Readiness 76, Sharp 90, Trend: improving
+- **Pain Of War** — Readiness 70, Sharp 70, Trend: unknown
+- **Payment Accepted** — Readiness 76, Sharp 80, Trend: unknown
+- **Sassy Astray** — Readiness 70, Sharp 80, Trend: steady
+- **Scarlet Smoke** — Readiness 76, Sharp 80, Trend: unknown
+- **Southern Consensual** — Readiness 78, Sharp 90, Trend: improving
+- **Speed Queen** — Readiness 75, Sharp 80, Trend: improving
+- **Star Bangled** — Readiness 70, Sharp 70, Trend: unknown
 - **Thats Some Bullship** — Readiness 70, Sharp 70, Trend: steady
-- **Your Truly** — Readiness 70, Sharp 70, Trend: unknown
+- **The Chance** — Readiness 79, Sharp 80, Trend: unknown
+- **Triple Love** — Readiness 84, Sharp 90, Trend: improving
+- **Vino Rojo** — Readiness 70, Sharp 70, Trend: unknown
+- **Warfields Jarred** — Readiness 72, Sharp 80, Trend: improving
 
 ## ⚠️ At Risk / Fatigue
 These horses have high fatigue (≥60) or low stamina (<75%):
-- **Basic Math** — Fatigue 55, Stamina 74%
-- **Desert Oath** — Fatigue 55, Stamina 73%
-- **Lo And Behold** — Fatigue 60, Stamina 50%
-- **Royal Velocity** — Fatigue 55, Stamina 73%
-- **Southern Consensual** — Fatigue 70, Stamina 61%
-- **Speed Queen** — Fatigue 55, Stamina 74%
-- **The Chance** — Fatigue 55, Stamina 71%
-- **Trieste Ruler** — Fatigue 60, Stamina 65%
-- **Vino Rojo** — Fatigue 55, Stamina 73%
+- **Cayuga Lake** — Fatigue 60, Stamina 51%
+- **Class A** — Fatigue 55, Stamina 70%
+- **Ebay** — Fatigue 70, Stamina 55%
+- **Harsh Frontier** — Fatigue 55, Stamina 70%
+- **Iron Timekeeper** — Fatigue 55, Stamina 73%
+- **Last Night Out** — Fatigue 55, Stamina 73%
+- **Lil Rocket Man** — Fatigue 55, Stamina 73%
+- **Nomination** — Fatigue 55, Stamina 74%
+- **Rollerwolf** — Fatigue 70, Stamina 68%
 
 ## 📅 7-Day View
-| Horse | Sat 14 | Sun 15 | Mon 16 | Tue 17 | Wed 18 | Thu 19 | Fri 20 |
+| Horse | Mon 16 | Tue 17 | Wed 18 | Thu 19 | Fri 20 | Sat 21 | Sun 22 |
 |-------|----|----|----|----|----|----|----|
-| Euclidean | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Cayuga Lake | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Blank Sunset | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Gen Xpress | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Next On Stage | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Nomination | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Drinkers Drought | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Favorite Indian | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Hi How Are Ya | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Kingston Quickstep | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Lil Rocket Man | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Looks Like Nicholas | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Scarlet Smoke | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Bold Nuke | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Cornswaggled | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Good Crypto | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Triple Love | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Breath Of The Grayte | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Captain Cook | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
-| Core N Light | 💤 | 💤 | 💤 | 🏋️ | 💤 | 💤 | 🏋️ |
+| Cornswaggled | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Triple Love | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Bold Nuke | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| The Chance | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Euclidean | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Gen Xpress | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Southern Consensual | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Blank Sunset | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Breath Of The Grayte | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Film The Scene | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Good Crypto | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Hi How Are Ya | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Jinxed Agent | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Kingston Quickstep | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Looks Like Nicholas | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Neon Reflection | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Payment Accepted | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Scarlet Smoke | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| White Lakes | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
+| Captain Cook | 🏇 | 💤 | 💤 | 💤 | 💤 | 💤 | 💤 |
 
 ## 📅 14-Day Summary
 | Horse | Ready | Sharp | Fat | Plan Summary |
 |-------|-------|-------|-----|-------------|
-| Euclidean | 81 | 80 | 30 | `RRRWRRWRRWRRWR` |
-| Cayuga Lake | 79 | 80 | 30 | `RRRWRRWRRWRRWR` |
-| Blank Sunset | 78 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Gen Xpress | 78 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Next On Stage | 78 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Nomination | 78 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Drinkers Drought | 76 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Favorite Indian | 76 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Hi How Are Ya | 76 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Kingston Quickstep | 74 | 80 | 45 | `RRRWRRWRRWRRWR` |
-| Lil Rocket Man | 73 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| Looks Like Nicholas | 73 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| Scarlet Smoke | 73 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| Bold Nuke | 72 | 90 | 55 | `RRRWRRWRRWRRWR` |
-| Cornswaggled | 72 | 90 | 55 | `RRRWRRWRRWRRWR` |
-| Good Crypto | 72 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Triple Love | 72 | 90 | 55 | `RRRWRRWRRWRRWR` |
-| Breath Of The Grayte | 70 | 50 | 30 | `RRRWRRWRRWRRWR` |
-| Captain Cook | 70 | 60 | 35 | `RRRWRRWRRWRRWR` |
-| Core N Light | 70 | 60 | 35 | `RRRWRRWRRWRRWR` |
-| Cynful Nature | 70 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Eyes Of An Indian | 70 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Neon Reflection | 70 | 50 | 30 | `RRRWRRWRRWRRWR` |
-| Silent Fighter | 70 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Tall Bonsai | 70 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Thats Some Bullship | 70 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Your Truly | 70 | 70 | 30 | `RRRWRRWRRWRRWR` |
-| Hardline Anvil | 68 | 60 | 35 | `RRRWRRWRRWRRWR` |
-| Hydration | 68 | 70 | 45 | `RRRWRRWRRWRRWR` |
-| Ideal Sinissippi | 68 | 60 | 35 | `RRRWRRWRRWRRWR` |
-| The Chance | 68 | 80 | 55 | `RRRWRRWRRWRRWR` |
-| American Shorthair | 67 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| Jinxed Agent | 67 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| Last Night Out | 67 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| New York Pharmacist | 67 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| Optimus | 67 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| Pedal To Metal | 67 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| Film The Scene | 66 | 50 | 30 | `RRRWRRWRRWRRWR` |
-| White Lakes | 66 | 50 | 30 | `RRRWRRWRRWRRWR` |
-| Speed Queen | 64 | 80 | 55 | `RRRWRRWRRWRRWR` |
-| Payment Accepted | 63 | 60 | 30 | `RRRWRRWRRWRRWR` |
-| Basic Math | 62 | 60 | 55 | `RRRWRRWRRWRRWR` |
-| Collision Course | 62 | 60 | 55 | `RRRWRRWRRWRRWR` |
-| Crypto King | 62 | 60 | 55 | `RRRWRRWRRWRRWR` |
-| Cynful Intentions | 62 | 70 | 45 | `RRRWRRWRRWRRWR` |
-| Duke Of York | 62 | 50 | 30 | `RRRWRRWRRWRRWR` |
-| Hole In The Wind | 62 | 70 | 45 | `RRRWRRWRRWRRWR` |
-| Iron Timekeeper | 62 | 50 | 45 | `RRRWRRWRRWRRWR` |
-| Pain Of War | 62 | 70 | 45 | `RRRWRRWRRWRRWR` |
-| Sassy Astray | 61 | 40 | 30 | `RRRWRRWRRWRRWR` |
-| Southern Consensual | 60 | 90 | 70 | `RRRRRRRRRRRRRR` |
-| Desert Oath | 58 | 70 | 55 | `RRRWRRWRRWRRWR` |
-| Star Bangled | 58 | 70 | 55 | `RRRWRRWRRWRRWR` |
-| Vino Rojo | 58 | 70 | 55 | `RRRWRRWRRWRRWR` |
-| Royal Velocity | 56 | 60 | 55 | `RRRWRRWRRWRRWR` |
-| Step Right Up | 54 | 25 | 30 | `WRRWRRWRRWRRWR` |
-| Harsh Frontier | 49 | 20 | 30 | `WRRWRRWRRWRRWR` |
-| Royal Timeburst | 49 | 20 | 30 | `WRRWRRWRRWRRWR` |
-| Sapphires Dream | 49 | 20 | 30 | `WRRWRRWRRWRRWR` |
-| Class A | 48 | 20 | 45 | `WRRWRRWRRWRRWR` |
-| In The Ruff | 44 | 10 | 30 | `WRRWRRWRRWRRWR` |
-| Strike King | 36 | 0 | 35 | `WRRWRRWRRWRRWR` |
-| Lo And Behold | 32 | 25 | 60 | `RRRRRRRRRRRRRR` |
-| Trieste Ruler | 28 | 0 | 60 | `RRRRRRRRRRRRRR` |
+| Cornswaggled | 84 | 90 | 30 | `RRRRRRRRRRRRRR` |
+| Triple Love | 84 | 90 | 30 | `RRRRRRRRRRRRRR` |
+| Bold Nuke | 80 | 90 | 30 | `RRRRRRRRRRRRRR` |
+| The Chance | 79 | 80 | 30 | `RRRRRRRRRRRRRR` |
+| Euclidean | 78 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Gen Xpress | 78 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Southern Consensual | 78 | 90 | 35 | `RRRRRRRRRRRRRR` |
+| Blank Sunset | 76 | 90 | 45 | `RRRRRRRRRRRRRR` |
+| Breath Of The Grayte | 76 | 90 | 45 | `RRRRRRRRRRRRRR` |
+| Film The Scene | 76 | 90 | 45 | `RRRRRRRRRRRRRR` |
+| Good Crypto | 76 | 90 | 45 | `RRRRRRRRRRRRRR` |
+| Hi How Are Ya | 76 | 80 | 40 | `RRRRRRRRRRRRRR` |
+| Jinxed Agent | 76 | 80 | 40 | `RRRRRRRRRRRRRR` |
+| Kingston Quickstep | 76 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Looks Like Nicholas | 76 | 90 | 45 | `RRRRRRRRRRRRRR` |
+| Neon Reflection | 76 | 90 | 45 | `RRRRRRRRRRRRRR` |
+| Payment Accepted | 76 | 80 | 40 | `RRRRRRRRRRRRRR` |
+| Scarlet Smoke | 76 | 80 | 40 | `RRRRRRRRRRRRRR` |
+| White Lakes | 76 | 90 | 45 | `RRRRRRRRRRRRRR` |
+| Captain Cook | 75 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Speed Queen | 75 | 80 | 30 | `RRRRRRRRRRRRRR` |
+| Basic Math | 73 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Collision Course | 73 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Crypto King | 73 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Chief Wolf Shifter | 72 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Core N Light | 72 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Duke Of York | 72 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Gizmo | 72 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Grandeur Latte | 72 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Hard Not To Like | 72 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Hawaiian Artist | 72 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Last Night Out | 72 | 90 | 55 | `RRRRRRRRRRRRRR` |
+| Love Music | 72 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Warfields Jarred | 72 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Class A | 70 | 80 | 55 | `RRRRRRRRRRRRRR` |
+| Cynful Intentions | 70 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Cynful Sweet | 70 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Desert Oath | 70 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Drinkers Drought | 70 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Favorite Indian | 70 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Hardline Anvil | 70 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Hawk Soaring | 70 | 80 | 55 | `RRRRRRRRRRRRRR` |
+| Hole In The Wind | 70 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Hydration | 70 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Ideal Sinissippi | 70 | 50 | 30 | `RRRRRRRRRRRRRR` |
+| Offlikeapromdress | 70 | 80 | 55 | `RRRRRRRRRRRRRR` |
+| Optimus | 70 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Pain Of War | 70 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Pedal To Metal | 70 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Sassy Astray | 70 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Star Bangled | 70 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Thats Some Bullship | 70 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| Vino Rojo | 70 | 70 | 30 | `RRRRRRRRRRRRRR` |
+| New York Pharmacist | 68 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Next On Stage | 68 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Nomination | 68 | 80 | 55 | `RRRRRRRRRRRRRR` |
+| American Shorthair | 67 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Cynful Nature | 67 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Eyes Of An Indian | 67 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Royal Velocity | 67 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Silent Fighter | 67 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Tall Bonsai | 67 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Your Truly | 67 | 60 | 30 | `RRRRRRRRRRRRRR` |
+| Royal Timeburst | 66 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Sapphires Dream | 66 | 80 | 45 | `RRRRRRRRRRRRRR` |
+| Evolution | 64 | 60 | 45 | `RRRRRRRRRRRRRR` |
+| Falling Behind | 64 | 60 | 45 | `RRRRRRRRRRRRRR` |
+| Harsh Frontier | 64 | 80 | 55 | `RRRRRRRRRRRRRR` |
+| Iron Timekeeper | 64 | 70 | 55 | `RRRRRRRRRRRRRR` |
+| Last Outlaw | 64 | 80 | 55 | `RRRRRRRRRRRRRR` |
+| Lil Rocket Man | 64 | 70 | 55 | `RRRRRRRRRRRRRR` |
+| Over And Under | 64 | 70 | 55 | `RRRRRRRRRRRRRR` |
+| Sinissippi Wild | 64 | 70 | 55 | `RRRRRRRRRRRRRR` |
+| Strike King | 64 | 70 | 55 | `RRRRRRRRRRRRRR` |
+| Walk Alone | 64 | 60 | 45 | `RRRRRRRRRRRRRR` |
+| Bold Extract | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Comanche Queen | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Cup O Joe | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Cynful Native | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Cynful Smart | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Devil May Cry | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| El Prado | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Empress Of The West | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| In The Ruff | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Indian Lady | 62 | 70 | 45 | `RRRRRRRRRRRRRR` |
+| Cayuga Lake | 58 | 80 | 60 | `RRRRRRRRRRRRRR` |
+| Sierra | 58 | 60 | 45 | `RRRWRRWRRWRRWR` |
+| Rollerwolf | 57 | 80 | 70 | `RRRRRRRRRRRRRR` |
+| Ebay | 49 | 60 | 70 | `RRRRRRRRRRRRRR` |
+| Happy Birthday | 48 | 10 | 30 | `WRRWRRWRRWRRWR` |
+| Lo And Behold | 44 | 25 | 45 | `WRRWRRWRRWRRWR` |
+| Step Right Up | 44 | 25 | 30 | `WRRWRRWRRWRRWR` |
+| Trieste Ruler | 44 | 0 | 35 | `WRRWRRWRRWRRWR` |
 
 ---
-*Training Plan v3 · 2026-03-14*
+*Training Plan v3 · 2026-03-16*
 *SAFETY: No in-game actions taken. All entries require manual execution.*

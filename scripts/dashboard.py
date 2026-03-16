@@ -218,6 +218,9 @@ def horse_profile(name):
             "time": r.get("time", ""),
             "srf": r.get("srf", ""),
             "comment": r.get("comment", ""),
+            "jockey": r.get("jockey", ""),
+            "odds": r.get("odds", ""),
+            "running_line": r.get("running_line", ""),
         } for r in horse_races],
     }
     return render_template("horse_profile.html", horse=profile)
@@ -862,6 +865,12 @@ def api_race_results():
                 "distance": race.get("distance", ""),
                 "surface": race.get("surface", ""),
                 "time": race.get("time", ""),
+                "srf": race.get("srf", ""),
+                "race_class": race.get("race_class", ""),
+                "jockey": race.get("jockey", ""),
+                "odds": race.get("odds", ""),
+                "running_line": race.get("running_line", ""),
+                "comment": race.get("comment", ""),
             })
     results.sort(key=lambda x: x.get("date", ""), reverse=True)
     return jsonify(results)

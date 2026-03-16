@@ -167,6 +167,9 @@
                                     <th>Fin</th>
                                     <th>Field</th>
                                     <th>Time</th>
+                                    <th>SRF</th>
+                                    <th>Class</th>
+                                    <th>Jockey</th>
                                 </tr>
                             </thead>
                             <tbody id="results-body"></tbody>
@@ -979,6 +982,8 @@
                                 <span>${h.age}yo</span>
                                 <span class="dot"></span>
                                 <span>${h.track}</span>
+                                ${starts > 0 ? `<span class="dot"></span><span style="color:var(--green);font-weight:600">${wins}-${parseInt(h.record?.places)||0}-${parseInt(h.record?.shows)||0}</span>` : ''}
+                                ${(h.works_count === 0 && starts === 0) ? '<span style="background:var(--blue);color:#fff;font-size:8px;padding:1px 5px;border-radius:8px;margin-left:4px;font-weight:700">NEW</span>' : ''}
                             </div>
                         </div>
                         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
@@ -1287,7 +1292,7 @@
             document.getElementById('results-badge').textContent = results.length + ' races';
             const tbody = document.getElementById('results-body');
             if (results.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--text-dim);padding:20px">No race results found</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--text-dim);padding:20px">No race results found</td></tr>';
                 return;
             }
             tbody.innerHTML = results.map(r => {
@@ -1297,7 +1302,13 @@
                 else if (r.finish === 3) { finBadge = '🥉'; finColor = '#CD7F32'; }
                 else if (r.finish <= r.field * 0.5) { finColor = 'var(--green)'; }
                 else { finColor = 'var(--red)'; }
-                return `<tr class="rank-row" onclick="window.location='/horse/${encodeURIComponent(r.horse)}'" style="cursor:pointer">
+                const srfColor = r.srf >= 87 ? '#FFD700' : r.srf >= 83 ? 'var(--green)' : r.srf >= 78 ? 'var(--blue)' : 'var(--text-dim)';
+                const notesParts = [];
+                if (r.running_line) notesParts.push('Trip: ' + r.running_line);
+                if (r.odds) notesParts.push('Odds: ' + r.odds);
+                if (r.comment) notesParts.push(r.comment);
+                const notesTitle = notesParts.join(' | ');
+                return `<tr class="rank-row" onclick="window.location='/horse/${encodeURIComponent(r.horse)}'" style="cursor:pointer" title="${notesTitle}">
                     <td class="rank-name"><a href="/horse/${encodeURIComponent(r.horse)}" style="color:var(--text);text-decoration:none" onclick="event.stopPropagation()">${r.horse}</a></td>
                     <td style="font-size:11px">${r.date}</td>
                     <td>${r.track}</td>
@@ -1306,6 +1317,9 @@
                     <td style="font-weight:700;color:${finColor}">${finBadge} ${r.finish}</td>
                     <td style="color:var(--text-dim)">${r.field}</td>
                     <td style="font-family:'JetBrains Mono';font-size:11px">${r.time}</td>
+                    <td style="font-weight:700;color:${srfColor}">${r.srf || '—'}</td>
+                    <td style="font-size:10px;color:var(--text-dim);max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.race_class}">${r.race_class || '—'}</td>
+                    <td style="font-size:10px;color:var(--text-dim)">${r.jockey || '—'}</td>
                 </tr>`;
             }).join('');
         }
