@@ -7,32 +7,32 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 95.4 | AdjSpd 90; 🏜️ Dirt preferred; MCL | ⚠️ New track TUP (home: FtLFL); ⚠️ No works at TUP — may need timed work first |
-| 2 | 3/17/2026 · TUP R1 · 5f Turf · Maiden | 10 | 79.4 | AdjSpd 90; Maiden eligible; 🏃 Sprint fit (5f) | ⚠️ Weak on turf (50%); ⚠️ New track TUP (home: FtLFL) |
+| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 99.4 | AdjSpd 90; 🏜️ Dirt preferred; MCL | ⚠️ New track TUP (home: FtLFL); ⚠️ No works at TUP — may need timed work first |
+| 2 | 3/17/2026 · TUP R1 · 5f Turf · Maiden | 10 | 83.4 | AdjSpd 90; Maiden eligible; 🏃 Sprint fit (5f) | ⚠️ Weak on turf (50%); ⚠️ New track TUP (home: FtLFL) |
 
 ### 🔥 Hawaiian Artist — ELO 1200.0 | Win 42.5% | Top3 85.0% | EV 65.1
 *0W/2S · PRX · Stam 87%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 3/17/2026 · TUP R3 · 5f Turf · Maiden Claiming | 4 | 77.1 | MCL; Maiden eligible; Sprint (5f) | No timed works yet; ⚠️ New track TUP (home: ) |
-| 2 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 71.1 | MCL; Maiden eligible; Sprint (6 1/2f) | No timed works yet; ⚠️ New track TUP (home: ) |
-| 3 | 3/16/2026 · TUP R3 · 1m Turf · Maiden Claiming | 7 | 71.1 | MCL; Maiden eligible; Mid (1m) | No timed works yet; ⚠️ New track TUP (home: ) |
+| 1 | 3/17/2026 · TUP R3 · 5f Turf · Maiden Claiming | 4 | 82.1 | MCL; Maiden eligible; Sprint (5f) | No timed works yet; ⚠️ New track TUP (home: ) |
+| 2 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 76.1 | MCL; Maiden eligible; Sprint (6 1/2f) | No timed works yet; ⚠️ New track TUP (home: ) |
+| 3 | 3/16/2026 · TUP R3 · 1m Turf · Maiden Claiming | 7 | 76.1 | MCL; Maiden eligible; Mid (1m) | No timed works yet; ⚠️ New track TUP (home: ) |
 
 ### 🔥 Cornswaggled — ELO 1200.0 | Win 38.0% | Top3 85.0% | EV 64.3
 *1W/11S · FolLA · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 3/16/2026 · TUP R5 · 1m Turf · Allowance/Claiming | 6 | 102.3 | AdjSpd 88; 🌿 Turf specialist; First allowance try | ⚠️ Last work at TUP: 61d ago; 📉 Consistency dropping (4, 1 acts/7d) |
+| 1 | 3/16/2026 · TUP R5 · 1m Turf · Allowance/Claiming | 6 | 106.3 | AdjSpd 88; 🌿 Turf specialist; First allowance try | ⚠️ Last work at TUP: 61d ago; 📉 Consistency dropping (4, 1 acts/7d) |
 
 ### 🔥 Warfields Jarred — ELO 1200.0 | Win 37.1% | Top3 85.0% | EV 63.1
 *0W/2S · FtLFL · Stam 87%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 67.1 | MCL; Maiden eligible; Sprint (6 1/2f) | No timed works yet; ⚠️ New track TUP (home: ) |
-| 2 | 3/17/2026 · TUP R1 · 5f Turf · Maiden | 10 | 64.1 | Maiden eligible; Sprint (5f); 🔥 PEAKING | No timed works yet; ⚠️ New track TUP (home: ) |
+| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 72.1 | MCL; Maiden eligible; Sprint (6 1/2f) | No timed works yet; ⚠️ New track TUP (home: ) |
+| 2 | 3/17/2026 · TUP R1 · 5f Turf · Maiden | 10 | 69.1 | Maiden eligible; Sprint (5f); 🔥 PEAKING | No timed works yet; ⚠️ New track TUP (home: ) |
 
 ### 🔥 Thats Some Bullship — ELO 1200.0 | Win 32.6% | Top3 81.5% | EV 61.6
 *1W/9S · RivCA · Stam 100%*
@@ -46,34 +46,34 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 40.5 | AdjSpd 82; 🏜️ Dirt preferred; MCL | ⚠️ New track TUP (home: ProKY); ⚠️ No works at TUP — may need timed work first |
-| 2 | 3/16/2026 · TUP R1 · 5 1/2f Dirt · Maiden | 8 | 38.5 | AdjSpd 82; 🏜️ Dirt preferred; Maiden eligible | ⚠️ New track TUP (home: ProKY); ⚠️ No works at TUP — may need timed work first |
-| 3 | 3/17/2026 · TUP R3 · 5f Turf · Maiden Claiming | 4 | 33.5 | AdjSpd 82; MCL; Maiden eligible | ⚠️ Weak on turf (50%); ⚠️ New track TUP (home: ProKY) |
+| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 43.5 | AdjSpd 82; 🏜️ Dirt preferred; MCL | ⚠️ New track TUP (home: ProKY); ⚠️ No works at TUP — may need timed work first |
+| 2 | 3/16/2026 · TUP R1 · 5 1/2f Dirt · Maiden | 8 | 41.5 | AdjSpd 82; 🏜️ Dirt preferred; Maiden eligible | ⚠️ New track TUP (home: ProKY); ⚠️ No works at TUP — may need timed work first |
+| 3 | 3/17/2026 · TUP R3 · 5f Turf · Maiden Claiming | 4 | 36.5 | AdjSpd 82; MCL; Maiden eligible | ⚠️ Weak on turf (50%); ⚠️ New track TUP (home: ProKY) |
 
 ### 🔥 Kingston Quickstep — ELO 1200.0 | Win 1.0% | Top3 2.5% | EV 30.1
 *0W/1S · KeaWV · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 45.6 | 🏜️ Dirt preferred; MCL; Maiden eligible | ⚠️ New track TUP (home: KeaWV); ⚠️ No works at TUP — may need timed work first |
-| 2 | 3/16/2026 · TUP R1 · 5 1/2f Dirt · Maiden | 8 | 43.6 | 🏜️ Dirt preferred; Maiden eligible; 🏃 Sprint fit (5 1/2f) | ⚠️ New track TUP (home: KeaWV); ⚠️ No works at TUP — may need timed work first |
-| 3 | 3/17/2026 · TUP R3 · 5f Turf · Maiden Claiming | 4 | 38.6 | MCL; Maiden eligible; 🏃 Sprint fit (5f) | ⚠️ Weak on turf (50%); ⚠️ New track TUP (home: KeaWV) |
+| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 49.6 | 🏜️ Dirt preferred; MCL; Maiden eligible | ⚠️ New track TUP (home: KeaWV); ⚠️ No works at TUP — may need timed work first |
+| 2 | 3/16/2026 · TUP R1 · 5 1/2f Dirt · Maiden | 8 | 47.6 | 🏜️ Dirt preferred; Maiden eligible; 🏃 Sprint fit (5 1/2f) | ⚠️ New track TUP (home: KeaWV); ⚠️ No works at TUP — may need timed work first |
+| 3 | 3/17/2026 · TUP R3 · 5f Turf · Maiden Claiming | 4 | 42.6 | MCL; Maiden eligible; 🏃 Sprint fit (5f) | ⚠️ Weak on turf (50%); ⚠️ New track TUP (home: KeaWV) |
 
 ### 🔥 Sierra — ELO 1200.0 | Win 1.0% | Top3 2.5% | EV 28.8
 *0W/2S · FtLFL · Stam 85%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 32.8 | MCL; Maiden eligible; Sprint (6 1/2f) | No timed works yet; ⚠️ New track TUP (home: ) |
-| 2 | 3/17/2026 · TUP R1 · 5f Turf · Maiden | 10 | 29.8 | Maiden eligible; Sprint (5f); 🔥 PEAKING | No timed works yet; ⚠️ New track TUP (home: ) |
+| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 31.8 | MCL; Maiden eligible; Sprint (6 1/2f) | No timed works yet; ⚠️ New track TUP (home: ) |
+| 2 | 3/17/2026 · TUP R1 · 5f Turf · Maiden | 10 | 28.8 | Maiden eligible; Sprint (5f); 🔥 PEAKING | No timed works yet; ⚠️ New track TUP (home: ) |
 
 ### 🔥 Triple Love — ELO 1200.0 | Win 0.8% | Top3 2.0% | EV 8.6
 *0W/0S · FtLFL · Stam 100%*
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 25.6 | 📋 6 works (prepared); MCL; Maiden eligible | ⚠️ New track TUP (home: FtLFL); ⚠️ No works at TUP — may need timed work first |
-| 2 | 3/17/2026 · TUP R1 · 5f Turf · Maiden | 10 | 22.6 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track TUP (home: FtLFL); ⚠️ No works at TUP — may need timed work first |
+| 1 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 29.6 | 📋 6 works (prepared); MCL; Maiden eligible | ⚠️ New track TUP (home: FtLFL); ⚠️ No works at TUP — may need timed work first |
+| 2 | 3/17/2026 · TUP R1 · 5f Turf · Maiden | 10 | 26.6 | 📋 6 works (prepared); Maiden eligible; Sprint (5f) | ⚠️ New track TUP (home: FtLFL); ⚠️ No works at TUP — may need timed work first |
 
 ### 🔥 Hydration — ELO 1200.0 | Win 0.8% | Top3 2.0% | EV 7.6
 *0W/0S · FtLFL · Stam 100%*
@@ -88,9 +88,9 @@
 
 | # | Race | Field | Fit | Why | Risks |
 |---|------|-------|-----|-----|-------|
-| 1 | 3/17/2026 · TUP R3 · 5f Turf · Maiden Claiming | 4 | 19.6 | MCL; Maiden eligible; Sprint (5f) | No timed works yet; ⚠️ New track TUP (home: ) |
-| 2 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 13.6 | MCL; Maiden eligible; Sprint (6 1/2f) | No timed works yet; ⚠️ New track TUP (home: ) |
-| 3 | 3/16/2026 · TUP R3 · 1m Turf · Maiden Claiming | 7 | 13.6 | MCL; Maiden eligible; Mid (1m) | No timed works yet; ⚠️ New track TUP (home: ) |
+| 1 | 3/17/2026 · TUP R3 · 5f Turf · Maiden Claiming | 4 | 18.6 | MCL; Maiden eligible; Sprint (5f) | No timed works yet; ⚠️ New track TUP (home: ) |
+| 2 | 3/16/2026 · TUP R2 · 6 1/2f Dirt · Maiden Claiming | 9 | 12.6 | MCL; Maiden eligible; Sprint (6 1/2f) | No timed works yet; ⚠️ New track TUP (home: ) |
+| 3 | 3/16/2026 · TUP R3 · 1m Turf · Maiden Claiming | 7 | 12.6 | MCL; Maiden eligible; Mid (1m) | No timed works yet; ⚠️ New track TUP (home: ) |
 
 ## ❓ Ready — No Matching Races
 | Horse | ELO | Win% | EV | Form |
