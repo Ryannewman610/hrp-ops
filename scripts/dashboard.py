@@ -898,41 +898,45 @@ QUALITY_TIER_SCORES = {
 
 
 def calculate_power_rating(horse, works_feat=None):
-    """Calculate composite Power Rating (0-100) for a horse.
-
-    Components:
-      SRF Best (35%), Win Rate (25%), Works Quality (25%),
-      Consistency (15%).
+    """Calculate composite Power Rating (0-100) based on TRUE HRP ability.
+    
+    Dual-Track System:
+    A) Raced Horses: SRF Best (60%), Consistency (20%), ITM Rate (10%), Works (10%)
+    B) Virgin Horses: Works Quality (70%), Consistency (30%)
+    
+    Fitness (CND/STA) and Win Rate are explicitly excluded as they measure
+    temporary state and class-level placement, not true underlying ability.
     """
     scores = {}
 
-    # 1. SRF Best (35%)
+    # 1. Base Stats
     srf_best = 0
     for r in horse.get("recent_races", []):
         s = r.get("srf", "")
         if s and str(s).isdigit():
             srf_best = max(srf_best, int(s))
-    scores["srf"] = min(100, max(0, (srf_best - 60) * 2.5)) if srf_best > 0 else 0
+            
+    # SRF Curve: 100 at SRF 95 (Stakes), 0 at SRF < 60
+    scores["srf"] = min(100, max(0, (srf_best - 60) * (100 / 35))) if srf_best > 0 else 0
 
-    # 2. Win Rate (25%)
+    # ITM Rate (instead of win rate, better indicator of general competitiveness)
     rec = horse.get("record", {})
     starts = int(rec.get("starts", 0)) if str(rec.get("starts", "0")).isdigit() else 0
     wins = int(rec.get("wins", 0)) if str(rec.get("wins", "0")).isdigit() else 0
     places = int(rec.get("places", 0)) if str(rec.get("places", "0")).isdigit() else 0
     shows = int(rec.get("shows", 0)) if str(rec.get("shows", "0")).isdigit() else 0
-    if starts > 0:
-        scores["win_rate"] = min(100, (wins / starts) * 200 + ((wins + places + shows) / starts) * 50)
-    else:
-        scores["win_rate"] = 0
+    
+    itm_rate = ((wins + places + shows) / starts) if starts > 0 else 0
+    scores["itm_rate"] = itm_rate * 100
 
-    # 3. Works Quality (25%)
+    # Works Quality
     if works_feat:
         tier = works_feat.get("quality_tier", works_feat.get("work_quality_tier", "NO_DATA"))
         scores["works"] = QUALITY_TIER_SCORES.get(tier, 10)
     else:
         scores["works"] = 10
 
-    # 4. Consistency (15%)
+    # Consistency (Permanent trained stat 0-100)
     con = horse.get("consistency", "?")
     try:
         con_val = int(con) if con not in ("?", "", None) else 0
@@ -940,8 +944,18 @@ def calculate_power_rating(horse, works_feat=None):
         con_val = 0
     scores["consistency"] = min(100, con_val)
 
-    power = (scores["srf"] * 0.35 + scores["win_rate"] * 0.25 +
-             scores["works"] * 0.25 + scores["consistency"] * 0.15)
+    # 2. Dual-Track Calculation
+    has_raced = starts > 0 or srf_best > 0
+    
+    if has_raced:
+        power = (scores["srf"] * 0.60 + 
+                 scores["consistency"] * 0.20 + 
+                 scores["itm_rate"] * 0.10 + 
+                 scores["works"] * 0.10)
+    else:
+        # Virgin Logic: Driven entirely by Works and Consistency
+        power = (scores["works"] * 0.70 + 
+                 scores["consistency"] * 0.30)
 
     if power >= 75: tier_label = "ELITE"
     elif power >= 55: tier_label = "CONTENDER"
