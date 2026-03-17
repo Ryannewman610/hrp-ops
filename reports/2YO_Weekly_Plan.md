@@ -1,45 +1,44 @@
-# 2YO Weekly Plan -- 2026-03-02
+# 2YO Weekly Plan — Week of 2026-03-17
 
-## Philosophy
-- Keep all 2YOs in Training Mode
-- Timed works ONLY when BOTH condition AND stamina are 95-105%
-- Use standardized baseline template for clean science (no variable changes)
-- Work every 3 days (WRRWRR cycle) to build consistency
-- 3f baselines first, then step up to 5f after 3 clean baselines
+**Total 2YOs:** 37
 
-## Baseline Work Template
-- Distance: 3f | Surface: Dirt
-- Effort: Breezing | Start: Conservative
-- Pace: Horse Lead | Weight: 120
-- Accessories: None | Meds: None
-
-## 7-Day Schedule
-
-| Horse | Tag | Mon 02 | Tue 03 | Wed 04 | Thu 05 | Fri 06 | Sat 07 | Sun 08 |
-|-------|-----|-----|-----|-----|-----|-----|-----|-----|
-| Film The Scene | [GO] | 5f | -- | -- | 5f | -- | -- | 5f |
-| Looks Like Nicholas | [GO] | 5f | -- | -- | 5f | -- | -- | 5f |
-| Neon Reflection | [GO] | 3f | -- | -- | 3f | -- | -- | 3f |
-| Blank Sunset | [BASELINE] | -- | 3f | -- | -- | 3f | -- | -- |
-| Gen Xpress | [BASELINE] | -- | 3f | -- | -- | 3f | -- | -- |
-| Drinkers Drought | [NEW] | 3f | -- | -- | 3f | -- | -- | 3f |
-| Favorite Indian | [NEW] | 3f | -- | -- | 3f | -- | -- | 3f |
-| Hi How Are Ya | [NEW] | 3f | -- | -- | 3f | -- | -- | 3f |
-| HipTag793004736512 | [NEW] | 3f | -- | -- | 3f | -- | -- | 3f |
-| Scarlet Smoke | [NEW] | 3f | -- | -- | 3f | -- | -- | 3f |
-
-## Per-Horse Notes
-
-- **Film The Scene**: Race-ready consistency -- scout MSW races; Has: Blinkers, Bute
-- **Looks Like Nicholas**: Race-ready consistency -- scout MSW races; Has: Blinkers, Bute
-- **Neon Reflection**: Race-ready consistency -- scout MSW races; Has: Blinkers, Bute
-- **Blank Sunset**: Has: Blinkers, Bute
-- **Gen Xpress**: Has: Blinkers, Bute
-- **Drinkers Drought**: Needs first 3f baseline work
-- **Favorite Indian**: Needs first 3f baseline work
-- **Hi How Are Ya**: Needs first 3f baseline work
-- **HipTag793004736512**: Needs first 3f baseline work
-- **Scarlet Smoke**: Needs first 3f baseline work
-
----
-*Generated 2026-03-02 by 17_build_2yo_dashboard.py*
+## This Week
+| Horse | Track | CND | STA | Action |
+|-------|-------|-----|-----|--------|
+| American Shorthair | KeaWV | 100 | 100 | 4F Breeze (maintain consistency) |
+| Basic Math | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Blank Sunset | KeaWV | 100 | 100 | 4F Breeze (maintain consistency) |
+| Breath Of The Grayte | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Collision Course | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Cynful Nature | FtLFL | 100 | 100 | 4F Breeze (maintain consistency) |
+| Drinkers Drought | KeaWV | 100 | 100 | 4F Breeze (maintain consistency) |
+| Duke Of York | GrINE | 100 | 100 | 4F Breeze (maintain consistency) |
+| Eyes Of An Indian | FtLFL | 100 | 100 | 4F Breeze (maintain consistency) |
+| Favorite Indian | GrINE | 100 | 100 | 4F Breeze (maintain consistency) |
+| Film The Scene | CanMA(TUP) | 100 | 100 | 4F Breeze (maintain consistency) |
+| Gen Xpress | KeaWV | 100 | 100 | 4F Breeze (maintain consistency) |
+| Good Crypto | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Hi How Are Ya | KeaWV | 100 | 100 | 4F Breeze (maintain consistency) |
+| In The Ruff | GrINE | 100 | 100 | 4F Breeze (maintain consistency) |
+| Jinxed Agent | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Last Night Out | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Lil Rocket Man | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Looks Like Nicholas | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Neon Reflection | GrINE | 100 | 100 | 4F Breeze (maintain consistency) |
+| New York Pharmacist | GrINE | 100 | 100 | 4F Breeze (maintain consistency) |
+| Next On Stage | GrINE | 100 | 100 | 4F Breeze (maintain consistency) |
+| Nomination | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Optimus | FtLFL | 100 | 100 | 4F Breeze (maintain consistency) |
+| Payment Accepted | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Pedal To Metal | FtLFL | 100 | 100 | 4F Breeze (maintain consistency) |
+| Royal Timeburst | GrINE | 100 | 100 | 4F Breeze (maintain consistency) |
+| Royal Velocity | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Sapphires Dream | GrINE | 100 | 100 | 4F Breeze (maintain consistency) |
+| Scarlet Smoke | KeaWV | 100 | 100 | 4F Breeze (maintain consistency) |
+| Silent Fighter | FtLFL | 100 | 100 | 4F Breeze (maintain consistency) |
+| Speed Queen | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Step Right Up | OdeFL | 100 | 100 | 4F Breeze (maintain consistency) |
+| Tall Bonsai | FtLFL | 100 | 100 | 4F Breeze (maintain consistency) |
+| The Chance | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| White Lakes | GleAZ | 100 | 100 | 4F Breeze (maintain consistency) |
+| Your Truly | FtLFL | 100 | 100 | 4F Breeze (maintain consistency) |

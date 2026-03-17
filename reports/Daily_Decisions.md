@@ -1,62 +1,45 @@
-# 📋 Daily Decisions — 2026-03-17
+# Daily Decisions — 2026-03-17
+**Generated:** 2026-03-17 | **Stable Size:** 93
 
-## 🏁 Races Coming Up
-*No live entries detected — check nominations in Race_Opportunities.md*
+## 🚨 Priority 1: Condition Alerts
+- ✅ All horses at 95+ condition. No degradation risk.
 
-## ⚡ Must-Do Actions
-- 🔴 **Captain Cook** — stamina 74%, SCRATCH RISK (<75 = auto-scratch)
-- 🔴 **Cayuga Lake** — stamina 61%, SCRATCH RISK (<75 = auto-scratch)
-- ⚠️ **Class A** — stamina 79%, extended rest needed
-- 🔴 **Cynful Nature** — stamina 73%, SCRATCH RISK (<75 = auto-scratch)
-- 🔴 **Ebay** — stamina 62%, SCRATCH RISK (<75 = auto-scratch)
-- 🔴 **Euclidean** — stamina 73%, SCRATCH RISK (<75 = auto-scratch)
-- 🔴 **Eyes Of An Indian** — stamina 73%, SCRATCH RISK (<75 = auto-scratch)
-- 🔴 **Happy Birthday** — stamina 51%, SCRATCH RISK (<75 = auto-scratch)
-- ⚠️ **Harsh Frontier** — stamina 79%, extended rest needed
-- ⚠️ **Ideal Sinissippi** — stamina 77%, extended rest needed
-- ⚠️ **Iron Timekeeper** — stamina 79%, extended rest needed
-- 🔴 **Kingston Quickstep** — stamina 74%, SCRATCH RISK (<75 = auto-scratch)
-- ⚠️ **Last Night Out** — stamina 81%, extended rest needed
-- ⚠️ **Lil Rocket Man** — stamina 83%, extended rest needed
-- ⚠️ **Nomination** — stamina 82%, extended rest needed
-- ⚠️ **Rollerwolf** — stamina 75%, extended rest needed
-- ⚠️ **Silent Fighter** — stamina 75%, extended rest needed
-- 🔴 **Tall Bonsai** — stamina 73%, SCRATCH RISK (<75 = auto-scratch)
-- 🔴 **Trieste Ruler** — stamina 68%, SCRATCH RISK (<75 = auto-scratch)
-- 🔴 **Your Truly** — stamina 74%, SCRATCH RISK (<75 = auto-scratch)
-- 💤 **3 ready 3YOs unraced:** Hydration, Triple Love, Walk Alone
-  → Enter in MSW or maiden claimer races
-- 🔧 **Class A** — consider gelding (avg SRF 80.1, underperforming)
-- 🔧 **Sassy Astray** — consider gelding (avg SRF 80.1, underperforming)
+## 💤 Priority 2: Mandatory Rest (STA < 80)
+- ✅ All horses at 80+ stamina.
 
-## 🏅 5f Work Quality Tiers
-- 💎 **ULTRA_RARE** (sub-1:03): Bold Extract, Duke Of York, Good Crypto, Hydration, Iron Timekeeper, Next On Stage, Sassy Astray, Southern Consensual
-- 🏆 **STAKES** (sub-1:04): Basic Math, Bold Nuke, Breath Of The Grayte, Collision Course, Cornswaggled, Evolution, Happy Birthday, Hardline Anvil
-- 💰 **PAY_SIDE** (sub-1:05): Captain Cook, Class A, Drinkers Drought, Ebay, Favorite Indian, Film The Scene, Harsh Frontier, Hi How Are Ya
-- 🆓 **FREE_LEVEL** (1:05-1:06): Cynful Intentions, Cynful Sweet, Falling Behind, Hard Not To Like, Offlikeapromdress, Rollerwolf, Royal Velocity
-- ❓ **QUESTIONABLE** (1:06-1:07): Crypto King, Cynful Native, Cynful Nature, Cynful Smart, El Prado, Euclidean, Grandeur Latte, Hawaiian Artist
-- ⛔ **NOT_USEFUL** (1:07+): American Shorthair, Blank Sunset, Cayuga Lake, Chief Wolf Shifter, Comanche Queen, Core N Light, Cup O Joe, Desert Oath
+## 💰 Priority 3: Value Plays (High SRF at Farm)
+- **Love Music** (SRF 96) sitting at farm (OdeFL) — SHIP TO TRACK and enter a race!
+- **Sinissippi Wild** (SRF 94) sitting at farm (OdeFL) — SHIP TO TRACK and enter a race!
 
-## 📊 SRF Power Rankings (Top 5)
-| # | Horse | SRF | Trend | Win% | Action |
-|:-:|-------|:---:|:-----:|:----:|--------|
-| 1 | Harsh Frontier | **96.0** | ➡️ | 59.0% | timed_work |
-| 2 | Happy Birthday | **95.4** | 📈 | 52.7% | rest |
-| 3 | Offlikeapromdress | **95.0** | 📈 | 59.0% | race_target |
-| 4 | Last Outlaw | **93.3** | 📉 | 52.4% | race_target |
-| 5 | Crypto King | **92.9** | 📉 | 52.7% | race_target |
+## 📊 Priority 4: Consistency Risk
+- **American Shorthair** (CON 0): Needs 2-4 works this period. Days since last work: 5
+- **Comanche Queen** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Cup O Joe** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Cynful Intentions** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Cynful Native** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Cynful Nature** (CON 0): Needs 2-4 works this period. Days since last work: 2
+- **Cynful Smart** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Cynful Sweet** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Desert Oath** (CON 0): Needs 2-4 works this period. Days since last work: 25
+- **Devil May Cry** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **El Prado** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Empress Of The West** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Eyes Of An Indian** (CON 0): Needs 2-4 works this period. Days since last work: 2
+- **Hole In The Wind** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Indian Lady** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Pain Of War** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Silent Fighter** (CON 0): Needs 2-4 works this period. Days since last work: 2
+- **Star Bangled** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Tall Bonsai** (CON 0): Needs 2-4 works this period. Days since last work: 2
+- **The Chance** (CON 0): Needs 2-4 works this period. Days since last work: 5
+- **Vino Rojo** (CON 0): Needs 2-4 works this period. Days since last work: ?
+- **Your Truly** (CON 0): Needs 2-4 works this period. Days since last work: 2
 
-## 📜 Expert Rules (SimRacingForm + Forums)
-- **Race at 95%+ condition** (high > low — 106% beats 94% every time)
-- **Target 5-7 horse fields** (57%W vs 18% in 10-horse)
-- **3 breezes : 1 handily** ratio for work schedule (Maximum Cool)
-- **Check SB races FIRST** (SB wins don't burn NW conditions)
-- **Max 3 races per 60 days** without works between (Stu's overracing wall)
-- **Ship day-of** is viable — no consistency penalty (La Canada Option 4)
-- **Consistency needs 2-4 works+races per 30 days** to climb
-
-## 💰 Balance: $9.35
-Horses: 93 | Upkeep: ~$9.30/day
-
----
-*Auto-generated by `daily_decisions.py` on 2026-03-17*
+## ⏰ Priority 5: Track Eligibility Expiring
+- **Bold Extract** at UxbON: Last work there 449 days ago. Schedule work ASAP!
+- **Evolution** at RivCA(GP): Last work there 120 days ago. Schedule work ASAP!
+- **Gizmo** at RivCA(FtLFL): Last work there 94 days ago. Schedule work ASAP!
+- **Last Outlaw** at HemTX: Last work there 748 days ago. Schedule work ASAP!
+- **Strike King** at GleAZ: Last work there 302 days ago. Schedule work ASAP!
+- **Trieste Ruler** at FtLFL(GP): Last work there 366 days ago. Schedule work ASAP!
+- **Triple Love** at FtLFL: Last work there 440 days ago. Schedule work ASAP!

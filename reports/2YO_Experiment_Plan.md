@@ -1,115 +1,48 @@
-# 2YO Experiment Plan -- 2026-03-02
+# 2YO Experiment Plan — 2026-03-17
 
-## Hard Rules
-- NO timed work unless Condition 95-105% AND Stamina 95-105%
-- Minimum 10-14 days between works for clean data
-- Change ONE variable at a time between experiments
-- Record all times for comparison
+## Development Protocol
+1. **Phase 1 (Birth - 6 months):** Standard Train to build condition base
+2. **Phase 2 (6-12 months):** Introduce 3F breezes, monitor condition decay
+3. **Phase 3 (12-18 months):** Progress to 4F-5F breezes, establish quality tier
+4. **Phase 4 (18+ months / May of 2YO year):** Race-ready evaluation
 
-## Phase Overview
-
-| Phase | Purpose | Works | Template |
-|-------|---------|-------|----------|
-| A | Baseline speed | 3x identical 3f | Conservative / Horse Lead / Breezing |
-| B | Instruction mapping | 4x varied 5f | Lead / Stalk / Close A / Close B |
-| C | Adds mapping | 4x varied 5f | Blinkers / Shadow Roll / Lasix / Bute |
-| DONE | Race-ready | Maintenance | Best combo from B+C |
-
----
-
-## Current Status Per Horse
-
-| Horse | Sex | Works | Phase | Next Experiment | Meters OK? |
-|-------|-----|-------|-------|-----------------|------------|
-| Film The Scene | f | 5 | B (Instruction mapping (2/4)) | B3-CloseA | YES |
-| Looks Like Nicholas | c | 3 | B (Instruction mapping (0/4)) | B1-Lead | YES |
-| Neon Reflection | c | 2 | A (Baseline 2/3) | A3-Baseline | YES |
-| Blank Sunset | f | 1 | A (Baseline 1/3) | A2-Baseline | YES |
-| Gen Xpress | f | 1 | A (Baseline 1/3) | A2-Baseline | YES |
-| Drinkers Drought | c | 0 | A (Baseline 0/3) | A1-Baseline | YES |
-| Favorite Indian | c | 0 | A (Baseline 0/3) | A1-Baseline | YES |
-| Hi How Are Ya | c | 0 | A (Baseline 0/3) | A1-Baseline | YES |
-| HipTag793004736512 | f | 0 | A (Baseline 0/3) | A1-Baseline | YES |
-| Scarlet Smoke | f | 0 | A (Baseline 0/3) | A1-Baseline | YES |
-
-## Scheduled Next Experiments
-
-### Ready to Work (meters 95-105%)
-
-#### Film The Scene -- B3-CloseA [EXECUTE]
-- Last work: 18d ago
-- Distance: 5f | Surface: Dirt
-- Start: Conservative | Pace: Restrain | Effort: Handily
-- Accessories: None | Meds: None
-
-#### Looks Like Nicholas -- B1-Lead [EXECUTE]
-- Last work: 18d ago
-- Distance: 5f | Surface: Dirt
-- Start: Aggressive | Pace: Horse Lead | Effort: Handily
-- Accessories: None | Meds: None
-
-#### Neon Reflection -- A3-Baseline [EXECUTE]
-- Last work: 18d ago
-- Distance: 3f | Surface: Dirt
-- Start: Conservative | Pace: Horse Lead | Effort: Breezing
-- Accessories: None | Meds: None
-
-#### Blank Sunset -- A2-Baseline [EXECUTE]
-- Last work: 14d ago
-- Distance: 3f | Surface: Dirt
-- Start: Conservative | Pace: Horse Lead | Effort: Breezing
-- Accessories: None | Meds: None
-
-#### Gen Xpress -- A2-Baseline [EXECUTE]
-- Last work: 11d ago
-- Distance: 3f | Surface: Dirt
-- Start: Conservative | Pace: Horse Lead | Effort: Breezing
-- Accessories: None | Meds: None
-
-#### Drinkers Drought -- A1-Baseline [EXECUTE]
-- Last work: never
-- Distance: 3f | Surface: Dirt
-- Start: Conservative | Pace: Horse Lead | Effort: Breezing
-- Accessories: None | Meds: None
-
-#### Favorite Indian -- A1-Baseline [EXECUTE]
-- Last work: never
-- Distance: 3f | Surface: Dirt
-- Start: Conservative | Pace: Horse Lead | Effort: Breezing
-- Accessories: None | Meds: None
-
-#### Hi How Are Ya -- A1-Baseline [EXECUTE]
-- Last work: never
-- Distance: 3f | Surface: Dirt
-- Start: Conservative | Pace: Horse Lead | Effort: Breezing
-- Accessories: None | Meds: None
-
-#### HipTag793004736512 -- A1-Baseline [EXECUTE]
-- Last work: never
-- Distance: 3f | Surface: Dirt
-- Start: Conservative | Pace: Horse Lead | Effort: Breezing
-- Accessories: None | Meds: None
-
-#### Scarlet Smoke -- A1-Baseline [EXECUTE]
-- Last work: never
-- Distance: 3f | Surface: Dirt
-- Start: Conservative | Pace: Horse Lead | Effort: Breezing
-- Accessories: None | Meds: None
-
-## Projected Timeline
-
-| Horse | Phase A Done | Phase B Done | Phase C Done | Race-Ready |
-|-------|-------------|-------------|-------------|------------|
-| Film The Scene | 2026-03-02 | 2026-03-26 | 2026-05-13 | ~2026-05-13 |
-| Looks Like Nicholas | 2026-03-02 | 2026-04-19 | 2026-06-06 | ~2026-06-06 |
-| Neon Reflection | 2026-03-14 | 2026-05-01 | 2026-06-18 | ~2026-06-18 |
-| Blank Sunset | 2026-03-26 | 2026-05-13 | 2026-06-30 | ~2026-06-30 |
-| Gen Xpress | 2026-03-26 | 2026-05-13 | 2026-06-30 | ~2026-06-30 |
-| Drinkers Drought | 2026-04-07 | 2026-05-25 | 2026-07-12 | ~2026-07-12 |
-| Favorite Indian | 2026-04-07 | 2026-05-25 | 2026-07-12 | ~2026-07-12 |
-| Hi How Are Ya | 2026-04-07 | 2026-05-25 | 2026-07-12 | ~2026-07-12 |
-| HipTag793004736512 | 2026-04-07 | 2026-05-25 | 2026-07-12 | ~2026-07-12 |
-| Scarlet Smoke | 2026-04-07 | 2026-05-25 | 2026-07-12 | ~2026-07-12 |
-
----
-*Generated 2026-03-02 by 18_2yo_experiment_scheduler.py*
+## Current 2YO Status
+| Horse | Works | Best Time | Quality | Next Step |
+|-------|-------|-----------|---------|-----------|
+| American Shorthair | 1 | — | — | Continue 4F breezes |
+| Basic Math | 5 | — | — | Evaluate for 5F works |
+| Blank Sunset | 3 | — | — | Continue 4F breezes |
+| Breath Of The Grayte | 8 | — | — | Evaluate for 5F works |
+| Collision Course | 6 | — | — | Evaluate for 5F works |
+| Cynful Nature | 1 | — | — | Continue 4F breezes |
+| Drinkers Drought | 2 | — | — | Continue 4F breezes |
+| Duke Of York | 7 | — | — | Evaluate for 5F works |
+| Eyes Of An Indian | 1 | — | — | Continue 4F breezes |
+| Favorite Indian | 2 | — | — | Continue 4F breezes |
+| Film The Scene | 7 | — | — | Evaluate for 5F works |
+| Gen Xpress | 3 | — | — | Continue 4F breezes |
+| Good Crypto | 8 | — | — | Evaluate for 5F works |
+| Hi How Are Ya | 2 | — | — | Continue 4F breezes |
+| In The Ruff | 5 | — | — | Evaluate for 5F works |
+| Jinxed Agent | 1 | — | — | Continue 4F breezes |
+| Last Night Out | 2 | — | — | Continue 4F breezes |
+| Lil Rocket Man | 6 | — | — | Evaluate for 5F works |
+| Looks Like Nicholas | 5 | — | — | Evaluate for 5F works |
+| Neon Reflection | 4 | — | — | Continue 4F breezes |
+| New York Pharmacist | 3 | — | — | Continue 4F breezes |
+| Next On Stage | 7 | — | — | Evaluate for 5F works |
+| Nomination | 6 | — | — | Evaluate for 5F works |
+| Optimus | 1 | — | — | Continue 4F breezes |
+| Payment Accepted | 1 | — | — | Continue 4F breezes |
+| Pedal To Metal | 1 | — | — | Continue 4F breezes |
+| Royal Timeburst | 4 | — | — | Continue 4F breezes |
+| Royal Velocity | 3 | — | — | Continue 4F breezes |
+| Sapphires Dream | 4 | — | — | Continue 4F breezes |
+| Scarlet Smoke | 2 | — | — | Continue 4F breezes |
+| Silent Fighter | 1 | — | — | Continue 4F breezes |
+| Speed Queen | 5 | — | — | Evaluate for 5F works |
+| Step Right Up | 6 | — | — | Evaluate for 5F works |
+| Tall Bonsai | 1 | — | — | Continue 4F breezes |
+| The Chance | 1 | — | — | Continue 4F breezes |
+| White Lakes | 7 | — | — | Evaluate for 5F works |
+| Your Truly | 1 | — | — | Continue 4F breezes |

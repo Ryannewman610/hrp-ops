@@ -1,32 +1,48 @@
-# 2YO Dashboard -- 2026-03-02
-Snapshot: `2026-03-02` | 2-year-olds: 10
+# 2YO Development Dashboard — 2026-03-17
+**Total 2-Year-Olds:** 37
 
-| Tag | Horse | Sex | Cond | Stam | +Con | Works | Last Work | Track | Phase |
-|-----|-------|-----|------|------|------|-------|-----------|-------|-------|
-| [GO] | Film The Scene | f | 100% | 100% | +5 | 5 | 18d ago | MouWV | Race-ready -- find MSW |
-| [GO] | Looks Like Nicholas | c | 100% | 100% | +5 | 3 | 18d ago | MouWV | Step up to 5f (3 works) |
-| [GO] | Neon Reflection | c | 100% | 100% | +5 | 2 | 18d ago | MouWV | 3f baselines (2/3 done) |
-| [BASELINE] | Blank Sunset | f | 100% | 100% | +2 | 1 | 14d ago | MouWV | 3f baselines (1/3 done) |
-| [BASELINE] | Gen Xpress | f | 100% | 100% | +1 | 1 | 11d ago | MouWV | 3f baselines (1/3 done) |
-| [NEW] | Drinkers Drought | c | 102% | 98% | +0 | 0 | never | MouWV | Needs first 3f baseline |
-| [NEW] | Favorite Indian | c | 104% | 95% | +0 | 0 | never | MouWV | Needs first 3f baseline |
-| [NEW] | Hi How Are Ya | c | 103% | 95% | +0 | 0 | never | MouWV | Needs first 3f baseline |
-| [NEW] | HipTag793004736512 | f | 100% | 100% | +0 | 0 | never | MouWV | Needs first 3f baseline |
-| [NEW] | Scarlet Smoke | f | 100% | 100% | +0 | 0 | never | MouWV | Needs first 3f baseline |
+## Roster
+| Horse | Sex | Track | CND | STA | CON | Works | Quality | Status |
+|-------|-----|-------|-----|-----|-----|-------|---------|--------|
+| American Shorthair | filly | KeaWV | 100 | 100 | 0 | 1 | NOT_USEFUL | Working |
+| Basic Math | filly | GleAZ | 100 | 100 | +5 | 5 | STAKES | Working |
+| Blank Sunset | filly | KeaWV | 100 | 100 | +5 | 3 | NOT_USEFUL | Working |
+| Breath Of The Grayte | filly | GleAZ | 100 | 100 | +5 | 8 | STAKES | Working |
+| Collision Course | colt | GleAZ | 100 | 100 | +5 | 6 | STAKES | Working |
+| Cynful Nature | filly | FtLFL | 100 | 100 | 0 | 1 | QUESTIONABLE | Working |
+| Drinkers Drought | colt | KeaWV | 100 | 100 | +4 | 2 | PAY_SIDE | Working |
+| Duke Of York | gelding | GrINE | 100 | 100 | +5 | 7 | ULTRA_RARE | Working |
+| Eyes Of An Indian | filly | FtLFL | 100 | 100 | 0 | 1 | NOT_USEFUL | Working |
+| Favorite Indian | colt | GrINE | 100 | 100 | +4 | 2 | PAY_SIDE | Working |
+| Film The Scene | filly | CanMA(TUP) | 100 | 100 | +5 | 7 | PAY_SIDE | Working |
+| Gen Xpress | filly | KeaWV | 100 | 100 | +5 | 3 | NOT_USEFUL | Working |
+| Good Crypto | filly | GleAZ | 100 | 100 | +5 | 8 | ULTRA_RARE | Working |
+| Hi How Are Ya | colt | KeaWV | 100 | 100 | +5 | 2 | PAY_SIDE | Working |
+| In The Ruff | filly | GrINE | 100 | 100 | +4 | 5 | STAKES | Working |
+| Jinxed Agent | colt | GleAZ | 100 | 100 | 0(1) | 1 | QUESTIONABLE | Working |
+| Last Night Out | colt | GleAZ | 100 | 100 | 0(3) | 2 | QUESTIONABLE | Working |
+| Lil Rocket Man | colt | GleAZ | 100 | 100 | +5 | 6 | PAY_SIDE | Working |
+| Looks Like Nicholas | colt | GleAZ | 100 | 100 | +5 | 5 | QUESTIONABLE | Working |
+| Neon Reflection | colt | GrINE | 100 | 100 | +5 | 4 | NOT_USEFUL | Working |
+| New York Pharmacist | colt | GrINE | 100 | 100 | +5 | 3 | STAKES | Working |
+| Next On Stage | filly | GrINE | 100 | 100 | +5 | 7 | ULTRA_RARE | Working |
+| Nomination | filly | GleAZ | 100 | 100 | +5 | 6 | STAKES | Working |
+| Optimus | colt | FtLFL | 100 | 100 | +1 | 1 | QUESTIONABLE | Working |
+| Payment Accepted | colt | GleAZ | 100 | 100 | 0(1) | 1 | QUESTIONABLE | Working |
+| Pedal To Metal | colt | FtLFL | 100 | 100 | +1 | 1 | QUESTIONABLE | Working |
+| Royal Timeburst | colt | GrINE | 100 | 100 | +5 | 4 | PAY_SIDE | Working |
+| Royal Velocity | filly | GleAZ | 100 | 100 | +5 | 3 | FREE_LEVEL | Working |
+| Sapphires Dream | filly | GrINE | 100 | 100 | +3 | 4 | PAY_SIDE | Working |
+| Scarlet Smoke | filly | KeaWV | 100 | 100 | +4 | 2 | STAKES | Working |
+| Silent Fighter | filly | FtLFL | 100 | 100 | 0 | 1 | NOT_USEFUL | Working |
+| Speed Queen | filly | GleAZ | 100 | 100 | +5 | 5 | STAKES | Working |
+| Step Right Up | colt | OdeFL | 100 | 100 | +5 | 6 | STAKES | Working |
+| Tall Bonsai | filly | FtLFL | 100 | 100 | 0 | 1 | NOT_USEFUL | Working |
+| The Chance | colt | GleAZ | 100 | 100 | 0 | 1 | QUESTIONABLE | Working |
+| White Lakes | filly | GleAZ | 100 | 100 | +5 | 7 | ULTRA_RARE | Working |
+| Your Truly | filly | FtLFL | 100 | 100 | 0 | 1 | NOT_USEFUL | Working |
 
-### Pedigree Reference
-| Horse | Sire | Dam | Color | Height | Weight | Accessories |
-|-------|------|-----|-------|--------|--------|-------------|
-| Film The Scene | Compress $1.99 | Enigma | B. | 15.3h | 1162lbs | Blinkers, Bute |
-| Looks Like Nicholas | Neon Wolf $23.00 | Bushy Park(2) | Ch. | 15.1h | 1140lbs | Blinkers, Bute |
-| Neon Reflection | Neon Artist $1.65 | Wuheida | B. | 14.3h | 1108lbs | Blinkers, Bute |
-| Blank Sunset | Comanche | Blank Slate | Gr. | 15.1h | 1110lbs | Blinkers, Bute |
-| Gen Xpress | Comanche | Generation X | Gr. | 14.3h | 1105lbs | Blinkers, Bute |
-| Drinkers Drought | Whisky A Go Go $10.00 | Commanding Jewels | B. | 15.0h | 1124lbs | None |
-| Favorite Indian | Comanche | Decisive Charley | Gr. | 15.0h | 1125lbs | None |
-| Hi How Are Ya | Comanche | Astounding | Gr. | 15.0h | 1113lbs | None |
-| HipTag793004736512 | Comanche | Blank Slate | Gr. | 15.0h | 1110lbs | None |
-| Scarlet Smoke | Comanche | Scarlet And Gray | Gr. | 14.3h | 1136lbs | None |
-
----
-*Generated 2026-03-02 by 17_build_2yo_dashboard.py*
+## Key Notes
+- 2YOs available to race starting May of their 2YO year
+- Focus on building consistency through regular 4F-5F breezes
+- Monitor condition closely — yearlings lose 1-10 condition per night

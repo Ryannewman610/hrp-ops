@@ -1,210 +1,655 @@
-# 🏇 Scouting Report — Ire Iron Stables
-> **Data as of:** Feb 23, 2026 (live scrape, today's meters)  
-> **Total roster:** 34 horses  
-> **Honest assessments — no sugarcoating**
+# Scouting Report — Ire Iron Stables
+**Generated:** 2026-03-17 | **Roster:** 93 horses
 
----
+Honest horse-by-horse assessments based on SRF, works, record, and conformation.
 
-## 📊 CURRENT METERS — ALL HORSES (Feb 23)
+### American Shorthair — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-| # | Horse | Age/Sex | Track | Cond | Stam | Cons | Status |
-|---|-------|---------|-------|------|------|------|--------|
-| 1 | **Harsh Frontier** | g.7 | TUP | 104 | 101 | +5 | 🟢 Race-ready |
-| 2 | **Cornswaggled** | g.4 | HOU | 103 | 110 | +5 | 🟢 **RECOVERED** — race-ready! |
-| 3 | **Trieste Ruler** | g.3 | TAM | 101 | 110 | +5 | 🟢 Race-ready (nom 3/7) |
-| 4 | **Crypto King** | g.4 | TP | 101 | 73 | +3 | 🔴 Post-race recovery |
-| 5 | **Sassy Astray** | f.3 | CT | 104 | 55 | +2 | 🔴 Post-race recovery |
-| 6 | **Class A** | c.3 | HOU | 102 | 69 | +3 | 🔴 Post-race recovery |
-| 7 | **Strike King** | g.3 | TUP | 100 | 80 | +2 | 🟡 Post-race recovery |
-| 8 | **Thats Some Bullship** | g.4 | TUP | 100 | 63 | +3 | 🔴 Post-race recovery |
-| 9 | **Cayuga Lake** | g.4 | TUP | 99 | 110 | +5 | 🟢 Post-work, stam topped |
-| 10 | **Lo And Behold** | f.3 | TP | 96 | 110 | +5 | 🟢 Race-ready (nom 2/27) |
-| 11 | Caros Compass | c.3 | MouWV | 100 | 100 | +5 | 🟢 Race-ready |
-| 12 | Core N Light | g.? | MouWV | 100 | 100 | +5 | 🟢 Idle |
-| 13 | Crowds Ransom | c.3 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 14 | Damascus Honey | f.3 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 15 | Desert Oath | c.3 | MouWV | 100 | 100 | +5 | 🟢 Race-ready |
-| 16 | Dubai Iron | f.3 | MouWV | 100 | 100 | +5 | 🟢 Race-ready |
-| 17 | Golden Shuvee | c.3 | MouWV | 100 | 100 | +5 | 🟢 Race-ready |
-| 18 | Hardline Anvil | g.3 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 19 | Helios Hustle | c.3 | MouWV | 100 | 100 | +5 | 🟢 Race-ready |
-| 20 | Hydration | g.? | MouWV | 100 | 100 | +5 | 🟢 Idle |
-| 21 | Ideal Sinissippi | g.3 | MouWV | 100 | 100 | +5 | 🟢 Idle |
-| 22 | Iron Timekeeper | c.3 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 23 | Jurors Verdict | f.3 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 24 | Migoli Moonbeam | f.3 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 25 | Port Royal Dash | f.3 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 26 | Stormy Sky | c.3 | MouWV | 100 | 100 | +5 | 🟢 Race-ready |
-| 27 | Urshalim Craftwork | f.3 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 28 | Kingston Quickstep | f.3 | MouWV | 100 | 100 | +3 | 🟡 Cons still building |
-| 29 | Blank Sunset | f.2 | MouWV | 100 | 100 | 0 | 🟡 2YO, no cons |
-| 30 | Film The Scene | f.2 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 31 | Gen Xpress | f.2 | MouWV | 100 | 100 | 0 | 🟡 2YO, brand new |
-| 32 | Looks Like Nicholas | c.2 | MouWV | 100 | 100 | +5 | 🟢 Ready for work |
-| 33 | Neon Reflection | c.2 | MouWV | 100 | 100 | +5 | 🟢 **RECOVERED** |
-| 34 | Triple Love | g.? | MouWV | 100 | 100 | +5 | 🟢 Idle |
+### Basic Math — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 5 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
 
-> 🟢 = Race/work ready | 🟡 = Needs attention | 🔴 = Recovering, do NOT race
+### Blank Sunset — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 3 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only.
 
----
+### Bold Extract — Grade: **A**
+- **Age/Sex:** ? ? | **Track:** UxbON
+- **SRF:** Best 94 / Last 83 | **Record:** 2-2-1 from 8 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 47 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Elite speed, stakes-caliber.
 
-## ⭐ A-TEAM (Proven Winners)
+### Bold Nuke — Grade: **?**
+- **Age/Sex:** ? f | **Track:** GrINE
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 12 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
 
-### 1. Crypto King — g.4 | TP | 101/73/+3
-**Sire:** Crypto Investor ($1.77) | **Dam:** Tanque Verde | 16.0hh / 1256 lbs  
-**Conformation:** Very Good lumbosacral, Medium humerus, High-Med FLS, Light build  
-**Record:** 12 starts. Won at AQU (Clm25k), EMD (OClm15), PRX (Alw28k). Ran G3 company.  
-**Feb 20 TP R1:** Finished **3rd of 3** in 4+Alw49.00 at 6f (1:08.2). Ran close but couldn't close.  
-**Now:** Stam crashed to **73** post-race. Needs 3-4 days rest before any works, ~7 days to race-ready.  
-**Verdict:** Your **class horse** and the $60 was a steal. Anchor of the stable. Just needs recovery time.  
-**Rating: A**
+### Breath Of The Grayte — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 8 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
 
-### 2. Harsh Frontier — g.7 | TUP | 104/101/+5
-**Sire:** Researched | **Dam:** Smart Mints | 16.1hh / 1274 lbs (biggest in barn)  
-**Conformation:** **Ideal** lumbosacral, **Ideal** humerus, High-Med FLS, Very Good forehand — **best build in barn**  
-**Record:** 13 starts at elite levels — Pincay **G2**, Whitmore **G3**, CD stakes, SA, OP, DMR, GP. Won at DMR.  
-**Now:** 104/101/+5 — in great shape at TUP. Ready to run.  
-**Verdict:** Graded stakes veteran, now 7 and declining from top level but still very talented. Target mid-level Allowance/OClm at western tracks. Don't push into stakes at his age.  
-**Rating: A-**
+### Captain Cook — Grade: **B**
+- **Age/Sex:** 3 gelding | **Track:** FtLFL
+- **SRF:** Best 91 / Last 85 | **Record:** 0-3-3 from 7 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 6 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Solid allowance-level runner.
 
-### 3. Cayuga Lake — g.4 | TUP | 99/110/+5
-**Sire:** Shadow Speed | **Dam:** Frolicsome | 16.0hh / 1245 lbs  
-**Conformation:** Very Good lumbosacral, Medium-Long humerus, Average forehand  
-**Record:** 7 starts. Won at FL (Alw17.00N1X). Multiple tracks: FL, LAD, FP, PRX, BTP.  
-**Now:** **Fully recovered** from post-claim stamina crash. Stam topped at 110! Had a sharp timed work today at TUP (:22/:46/:59, rank 1). Now at TUP ready to race.  
-**Verdict:** $5 claim who's won at the Allowance level. Fully rehabilitated and working sharply. Find him a Clm/Alw spot at TUP within 7-10 days as stam rebuilds from today's work.  
-**Rating: B+**
+### Cayuga Lake — Grade: **A**
+- **Age/Sex:** 4 gelding | **Track:** HemTX
+- **SRF:** Best 93 / Last 87 | **Record:** 1-2-1 from 8 starts
+- **Meters:** CND 100 | STA 100 | CON +2
+- **Works:** 6 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Elite speed, stakes-caliber.
 
----
+### Chief Wolf Shifter — Grade: **A**
+- **Age/Sex:** ? g | **Track:** GrINE(FtLFL)
+- **SRF:** Best 93 / Last 73 | **Record:** 1-2-1 from 8 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 54 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Elite speed, stakes-caliber.
 
-## 🏇 HORSES RECOVERING FROM RECENT RACES
+### Class A — Grade: **B**
+- **Age/Sex:** 3 gelding | **Track:** CT
+- **SRF:** Best 85 / Last 76 | **Record:** 1-2-1 from 9 starts
+- **Meters:** CND 100 | STA 100 | CON +4
+- **Works:** 3 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Solid allowance-level runner.
 
-### 4. Sassy Astray — f.3 | CT | 104/55/+2 🔴
-**Record:** Ran 2/21 CT R2 fMd12.50 at 6.5f — the "2-horse field" spot.  
-**Now:** Stam crashed to **55**, cons dropped to +2. She raced and it took a lot out of her.  
-**Result unclear** from raw data but she was running against only 1 other horse.  
-**Verdict:** Needs **10+ days** of recovery. Do NOT enter until stam > 95. Was she the maiden-breaker? Check the result!  
-**Rating: B-** (pending race result)
+### Collision Course — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 6 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
 
-### 5. Class A — c.3 | HOU | 102/69/+3 🔴
-**Record:** 8 starts, **still maiden** (0 wins). Ran 2/20 HOU R3 Md7.50.  
-**Raw result:** Finished 1¼ lengths back. 8 starts, still maiden across dirt, turf, sprints, routes.  
-**Verdict:** 0-for-8 maiden. Talent ceiling is low. Let him recover (stam 69), then try one more Md5.00 spot. If he can't break his maiden by start #10, consider selling.  
-**Rating: D+**
+### Comanche Queen — Grade: **?**
+- **Age/Sex:** ? f | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-### 6. Strike King — g.3 | TUP | 100/80/+2 🟡
-**Record:** Ran 2/19 TUP R7 OClm10/N2X-N at 6.5f.  
-**Conformation:** Ideal lumbosacral, Ideal humerus (Short-Med), High FLS — **outstanding speed build**  
-**Now:** Stam at 80, cons dropped to +2. Recovering from race.  
-**Verdict:** Great conformation. Needs ~5 days to stam > 95. His race result will tell us a lot about his actual level.  
-**Rating: B**
+### Core N Light — Grade: **D**
+- **Age/Sex:** 3 gelding | **Track:** GrINE
+- **SRF:** Best 73 / Last 73 | **Record:** 0-0-0 from 1 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 6 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Below class, needs development.
 
-### 7. Thats Some Bullship — g.4 | TUP | 100/63/+3 🔴
-**Record:** Ran 2/21 TUP R5 4+Clm7.50 at 1m.  
-**Conformation:** Ideal lumbosacral, Ideal humerus, Very Good forehand  
-**Now:** Stam crashed to **63**. Needs 8+ days recovery.  
-**Verdict:** Good conformation but now needs serious rest. Mid-level claimer at best.  
-**Rating: C+**
+### Cornswaggled — Grade: **B**
+- **Age/Sex:** 4 gelding | **Track:** FolLA
+- **SRF:** Best 90 / Last 79 | **Record:** 1-0-2 from 11 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 2 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Solid allowance-level runner. High-quality morning works.
 
----
+### Crypto King — Grade: **A**
+- **Age/Sex:** 4 gelding | **Track:** KeaWV
+- **SRF:** Best 96 / Last 89 | **Record:** 4-2-1 from 12 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 4 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Elite speed, stakes-caliber.
 
-## 🟢 RACE-READY DEVELOPMENT POOL (at MouWV — all 100/100/+5)
+### Cup O Joe — Grade: **?**
+- **Age/Sex:** ? c | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-> **Massive change from old data:** Almost every horse at MouWV has fully recovered to perfect 100/100/+5 meters. These horses are ALL ready to enter their first races.
+### Cynful Intentions — Grade: **?**
+- **Age/Sex:** ? c | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: FREE_LEVEL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-### Tier 1 — Enter Immediately
+### Cynful Native — Grade: **?**
+- **Age/Sex:** ? f | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-| Horse | Age/Sex | Conformation Highlights | Best Surface/Distance Guess | Rating |
-|-------|---------|------------------------|----------------------------|--------|
-| **Caros Compass** | c.3 | Very Good, Med-Long humerus, Very Good FLS | Dirt, mid-distance | **B** |
-| **Desert Oath** | c.3 | Very Good, Long humerus, Med-Low FLS, Avg-Heavy | Dirt routes (1m+) | **B** |
-| **Dubai Iron** | f.3 | Very Good, Short-Med humerus, High-Med FLS | Dirt sprints (6f) | **B** |
-| **Golden Shuvee** | c.3 | Very Good, **Ideal** humerus+forehand, Light | Dirt, versatile | **B** |
-| **Helios Hustle** | c.3 | Average lumbosacral, Poor forehand, Avg-Heavy | ⚠️ Poor forehand | **B-** |
-| **Stormy Sky** | c.3 | Average lumbosacral, Poor humerus, Heavy | ⚠️ Route plodder | **C+** |
-| **Crowds Ransom** | c.3 | Good, Med humerus, Very Good FLS | Dirt, mid-distance | **C+** |
+### Cynful Nature — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-### Tier 2 — Recovered But Unproven Fillies
+### Cynful Smart — Grade: **?**
+- **Age/Sex:** ? c | **Track:** UxbON
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-| Horse | Age/Sex | Conformation Highlights | Rating |
-|-------|---------|------------------------|--------|
-| **Damascus Honey** | f.3 | Good, Long humerus, Good FLS | **C+** |
-| **Jurors Verdict** | f.3 | Very Good, Med-Long humerus, Good FLS | **C+** |
-| **Migoli Moonbeam** | f.3 | Very Good, High stifles, Average forehand | **C+** |
-| **Port Royal Dash** | f.3 | Average, Short humerus, High-Med FLS | **C** |
-| **Urshalim Craftwork** | f.3 | Very Good, Long humerus, Very Good FLS | **C+** |
-| **Iron Timekeeper** | c.3 | Very Good, High-Mid stifles, **Ideal** forehand | **B-** |
-| **Hardline Anvil** | g.3 | Ideal lumbosacral, Med humerus, High-Med FLS | **B-** |
-| **Kingston Quickstep** | f.3 | Good, Short-Med humerus, High FLS, Poor forehand (+3 cons) | **C** |
+### Cynful Sweet — Grade: **?**
+- **Age/Sex:** ? f | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: FREE_LEVEL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-### Tier 3 — Unknown / Idle
+### Desert Oath — Grade: **?**
+- **Age/Sex:** 3 colt | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 6 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-| Horse | Notes | Rating |
-|-------|-------|--------|
-| **Ideal Sinissippi** | g.3, **Ideal** everything (lumbosacral, humerus, forehand). From LionKing. Why is he idle? | **B** activate NOW |
-| **Core N Light** | Last raced Apr 2025. 10 months idle. | **D** |
-| **Hydration** | Last raced Feb 2025. 12 months idle. Ideal conformation. | **D** — wasted talent |
-| **Triple Love** | Last raced Feb 2025. 12 months idle. | **D** |
+### Devil May Cry — Grade: **?**
+- **Age/Sex:** ? c | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
----
+### Drinkers Drought — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +4
+- **Works:** 2 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Virgin — evaluate by works only.
 
-## 🏇 UPCOMING NOMINATIONS
+### Duke Of York — Grade: **?**
+- **Age/Sex:** 2 gelding | **Track:** GrINE
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 7 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Virgin — evaluate by works only.
 
-### Active
-| Date | Horse | Track | Race | C/S/Cons NOW | Concern |
-|------|-------|-------|------|-------------|---------|
-| **Feb 27** | Lo And Behold | TP | fMd5.00 1-1/16m | 96/110/+5 | 🟢 **EXCELLENT** — 2/10 field |
-| **Feb 28** | Cornswaggled | HOU | Clm7.50N1Y 1m70 | 103/110/+5 | 🟢 **NOW RACE-READY!** |
-| **Mar 7** | Trieste Ruler | TAM | Clm6.25N3L 6f | 101/110/+5 | 🟢 **EXCELLENT** — 2/10 field |
+### Ebay — Grade: **B**
+- **Age/Sex:** ? ? | **Track:** FtLFL
+- **SRF:** Best 86 / Last 83 | **Record:** 0-0-2 from 4 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 26 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Solid allowance-level runner.
 
-### Already Raced (results in tracker)
-| Date | Horse | Track | Race | Result |
-|------|-------|-------|------|--------|
-| Feb 19 | Strike King | TUP | OClm10 6.5f | Raced — stam dropped to 80 |
-| Feb 20 | Class A | HOU | Md7.50 1m | Raced — still maiden, stam 69 |
-| Feb 20 | Crypto King | TP | 4+Alw49 6f | 3rd of 3 — stam 73 |
-| Feb 21 | Sassy Astray | CT | fMd12.50 6.5f | Raced — stam crashed to 55 |
-| Feb 21 | Thats Some Bullship | TUP | Clm7.50 1m | Raced — stam 63 |
+### El Prado — Grade: **?**
+- **Age/Sex:** ? c | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
----
+### Empress Of The West — Grade: **?**
+- **Age/Sex:** ? f | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
-## 🐣 2-YEAR-OLDS (Training Mode at MouWV)
+### Euclidean — Grade: **A**
+- **Age/Sex:** 3 gelding | **Track:** GleAZ
+- **SRF:** Best 92 / Last 89 | **Record:** 2-0-1 from 4 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 5 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Elite speed, stakes-caliber.
 
-| Horse | Sire (Fee) | Cond | Stam | Cons | Conformation | Rating |
-|-------|-----------|------|------|------|-------------|--------|
-| **Blank Sunset** | Comanche | 100 | 100 | 0 | **Ideal** LS + humerus | **B+** Best 2YO build |
-| **Film The Scene** | Compress ($1.99) | 100 | 100 | +5 | Very Good, **Ideal** humerus+forehand | **B** Fully recovered |
-| **Looks Like Nicholas** | Neon Wolf ($23) | 100 | 100 | +5 | Very Good, **Ideal** humerus | **B-** Most expensive sire |
-| **Neon Reflection** | Neon Artist ($1.65) | 100 | 100 | +5 | Very Good, Short-Med humerus, **Ideal** forehand | **C+** Sprint build |
-| **Gen Xpress** | Comanche | 100 | 100 | 0 | Ideal LS, Long humerus | **C+** Route prospect, brand new |
+### Evolution — Grade: **A**
+- **Age/Sex:** ? ? | **Track:** RivCA(GP)
+- **SRF:** Best 94 / Last 81 | **Record:** 1-0-2 from 9 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 40 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Elite speed, stakes-caliber. High-quality morning works.
 
-> All 2YOs are at 100/100 and ready for their next timed works. Schedule a batch work day to compare them head-to-head.
+### Eyes Of An Indian — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
 
----
+### Falling Behind — Grade: **A**
+- **Age/Sex:** ? g | **Track:** GrINE(FtLFL)
+- **SRF:** Best 93 / Last 90 | **Record:** 1-0-3 from 5 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 56 total | Best 5F: — | Quality: FREE_LEVEL
+- **Assessment:** Elite speed, stakes-caliber.
 
-## 📊 POWER RANKINGS
+### Favorite Indian — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GrINE
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +4
+- **Works:** 2 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Virgin — evaluate by works only.
 
-| Tier | Horses |
-|------|--------|
-| **A** | Crypto King (recovering), Harsh Frontier |
-| **B+** | Cayuga Lake, Blank Sunset (2yo) |
-| **B** | Cornswaggled (!), Lo And Behold, Trieste Ruler, Strike King, Caros Compass, Desert Oath, Dubai Iron, Golden Shuvee, Film The Scene, Ideal Sinissippi |
-| **B-** | Helios Hustle, Iron Timekeeper, Hardline Anvil, Sassy Astray (recovering), Looks Like Nicholas |
-| **C+** | Thats Some Bullship, Crowds Ransom, Damascus Honey, Jurors Verdict, Migoli Moonbeam, Urshalim Craftwork, Stormy Sky, Neon Reflection, Gen Xpress |
-| **C** | Kingston Quickstep, Port Royal Dash |
-| **D+** | Class A (0-for-8 maiden) |
-| **D** | Core N Light, Hydration, Triple Love (all idle 10+ months) |
+### Film The Scene — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** CanMA(TUP)
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 7 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Virgin — evaluate by works only.
 
----
+### Gen Xpress — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 3 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only.
 
-## 🎯 TOP 5 IMMEDIATE ACTIONS
+### Gizmo — Grade: **A**
+- **Age/Sex:** ? g | **Track:** RivCA(FtLFL)
+- **SRF:** Best 97 / Last 94 | **Record:** 4-2-0 from 13 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 47 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Elite speed, stakes-caliber.
 
-1. **RUN Cornswaggled Feb 28** — He's **fully recovered** at 103/110/+5! Previous scratch recommendation is REVERSED. He's back to peak form. The Clm7.50N1Y at HOU is a good spot.
+### Good Crypto — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 8 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Virgin — evaluate by works only.
 
-2. **RUN Lo And Behold Feb 27** — 96/110/+5 in a **2-horse field** fMd5.00. Near-guaranteed maiden breaker.
+### Grandeur Latte — Grade: **B**
+- **Age/Sex:** ? g | **Track:** GleAZ(FtLFL)
+- **SRF:** Best 89 / Last 88 | **Record:** 0-1-1 from 2 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 33 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Solid allowance-level runner.
 
-3. **ENTER 4+ race-ready 3YOs in first races** — Caros Compass, Desert Oath, Dubai Iron, Golden Shuvee, Iron Timekeeper, Hardline Anvil all sit at perfect 100/100/+5. They're wasting their fitness. Find them Md or low-claiming spots at any available track.
+### Happy Birthday — Grade: **A**
+- **Age/Sex:** ? g | **Track:** OriOH
+- **SRF:** Best 98 / Last 81 | **Record:** 4-1-1 from 6 starts
+- **Meters:** CND 100 | STA 100 | CON +4
+- **Works:** 68 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Elite speed, stakes-caliber. High-quality morning works.
 
-4. **Activate Ideal Sinissippi** — 100/100/+5 with **Ideal conformation across the board**. This horse should be racing, not sitting at MouWV.
+### Hard Not To Like — Grade: **A**
+- **Age/Sex:** ? f | **Track:** KeaWV(FtLFL)
+- **SRF:** Best 92 / Last 82 | **Record:** 1-1-0 from 5 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 45 total | Best 5F: — | Quality: FREE_LEVEL
+- **Assessment:** Elite speed, stakes-caliber.
 
-5. **REST the post-race horses** — Crypto King (73), Sassy Astray (55), Class A (69), Thats Some Bullship (63), Strike King (80) all need 5-10 days before any activity.
+### Hardline Anvil — Grade: **D**
+- **Age/Sex:** 3 gelding | **Track:** KeaWV
+- **SRF:** Best 68 / Last 68 | **Record:** 0-0-0 from 1 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 3 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Below class, needs development. High-quality morning works.
+
+### Harsh Frontier — Grade: **A**
+- **Age/Sex:** 7 gelding | **Track:** KeaWV
+- **SRF:** Best 99 / Last 98 | **Record:** 7-3-4 from 31 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 4 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Elite speed, stakes-caliber.
+
+### Hawaiian Artist — Grade: **B**
+- **Age/Sex:** ? f | **Track:** PRX
+- **SRF:** Best 90 / Last 90 | **Record:** 0-2-0 from 2 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 29 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Solid allowance-level runner.
+
+### Hawk Soaring — Grade: **B**
+- **Age/Sex:** ? c | **Track:** RivCA(GP)
+- **SRF:** Best 90 / Last 88 | **Record:** 1-1-0 from 3 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 85 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Solid allowance-level runner. High-quality morning works.
+
+### Hi How Are Ya — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 2 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Hole In The Wind — Grade: **?**
+- **Age/Sex:** ? c | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
+
+### Hydration — Grade: **?**
+- **Age/Sex:** 3 colt | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 5 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Ideal Sinissippi — Grade: **B**
+- **Age/Sex:** 3 gelding | **Track:** CT
+- **SRF:** Best 90 / Last 85 | **Record:** 1-0-0 from 7 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 5 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Solid allowance-level runner.
+
+### In The Ruff — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GrINE
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +4
+- **Works:** 5 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
+
+### Indian Lady — Grade: **?**
+- **Age/Sex:** ? f | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
+
+### Iron Timekeeper — Grade: **D**
+- **Age/Sex:** 3 gelding | **Track:** KeaWV
+- **SRF:** Best 75 / Last 75 | **Record:** 0-0-0 from 2 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 6 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Below class, needs development.
+
+### Jinxed Agent — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0(1)
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Kingston Quickstep — Grade: **D**
+- **Age/Sex:** 3 filly | **Track:** KeaWV
+- **SRF:** Best 61 / Last 61 | **Record:** 0-0-0 from 1 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 7 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Below class, needs development.
+
+### Last Night Out — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0(3)
+- **Works:** 2 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Last Outlaw — Grade: **A**
+- **Age/Sex:** ? g | **Track:** HemTX
+- **SRF:** Best 97 / Last 90 | **Record:** 4-0-0 from 10 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 79 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Elite speed, stakes-caliber.
+
+### Lil Rocket Man — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 6 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Lo And Behold — Grade: **B**
+- **Age/Sex:** 3 filly | **Track:** GleAZ(LexKY)
+- **SRF:** Best 90 / Last 79 | **Record:** 1-2-3 from 8 starts
+- **Meters:** CND 100 | STA 100 | CON +3
+- **Works:** 3 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Solid allowance-level runner.
+
+### Looks Like Nicholas — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 5 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Love Music — Grade: **A**
+- **Age/Sex:** ? m | **Track:** OdeFL
+- **SRF:** Best 96 / Last 83 | **Record:** 3-3-2 from 12 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 72 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Elite speed, stakes-caliber.
+
+### Neon Reflection — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GrINE
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 4 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only.
+
+### New York Pharmacist — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GrINE
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 3 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
+
+### Next On Stage — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GrINE
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 7 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Nomination — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 6 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
+
+### Offlikeapromdress — Grade: **A**
+- **Age/Sex:** ? m | **Track:** FtLFL
+- **SRF:** Best 97 / Last 93 | **Record:** 4-1-2 from 16 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 68 total | Best 5F: — | Quality: FREE_LEVEL
+- **Assessment:** Elite speed, stakes-caliber.
+
+### Optimus — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +1
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Over And Under — Grade: **A**
+- **Age/Sex:** ? g | **Track:** FolLA
+- **SRF:** Best 93 / Last 86 | **Record:** 1-0-3 from 4 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 66 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Elite speed, stakes-caliber.
+
+### Pain Of War — Grade: **?**
+- **Age/Sex:** ? f | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
+
+### Payment Accepted — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0(1)
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Pedal To Metal — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +1
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Rollerwolf — Grade: **B**
+- **Age/Sex:** ? f | **Track:** FtLFL
+- **SRF:** Best 90 / Last 89 | **Record:** 1-0-1 from 4 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 47 total | Best 5F: — | Quality: FREE_LEVEL
+- **Assessment:** Solid allowance-level runner.
+
+### Royal Timeburst — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GrINE
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 4 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Royal Velocity — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 3 total | Best 5F: — | Quality: FREE_LEVEL
+- **Assessment:** Virgin — evaluate by works only.
+
+### Sapphires Dream — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GrINE
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +3
+- **Works:** 4 total | Best 5F: — | Quality: PAY_SIDE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Sassy Astray — Grade: **B**
+- **Age/Sex:** 3 filly | **Track:** GrINE
+- **SRF:** Best 88 / Last 88 | **Record:** 0-2-1 from 8 starts
+- **Meters:** CND 100 | STA 100 | CON +4
+- **Works:** 3 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Solid allowance-level runner.
+
+### Scarlet Smoke — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +4
+- **Works:** 2 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
+
+### Sierra — Grade: **D**
+- **Age/Sex:** ? g | **Track:** FtLFL
+- **SRF:** Best 63 / Last 63 | **Record:** 0-0-1 from 2 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 55 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Below class, needs development. High-quality morning works.
+
+### Silent Fighter — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
+
+### Sinissippi Wild — Grade: **A**
+- **Age/Sex:** ? g | **Track:** OdeFL
+- **SRF:** Best 94 / Last 84 | **Record:** 3-0-1 from 6 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 55 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Elite speed, stakes-caliber.
+
+### Southern Consensual — Grade: **?**
+- **Age/Sex:** ? f | **Track:** KeaWV
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 14 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Speed Queen — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 5 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
+
+### Star Bangled — Grade: **?**
+- **Age/Sex:** ? c | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
+
+### Step Right Up — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** OdeFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 6 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
+
+### Strike King — Grade: **B**
+- **Age/Sex:** 3 gelding | **Track:** GleAZ
+- **SRF:** Best 88 / Last 85 | **Record:** 4-0-1 from 6 starts
+- **Meters:** CND 100 | STA 100 | CON +3
+- **Works:** 4 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Solid allowance-level runner. High-quality morning works.
+
+### Tall Bonsai — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
+
+### Thats Some Bullship — Grade: **B**
+- **Age/Sex:** 4 gelding | **Track:** RivCA
+- **SRF:** Best 90 / Last 75 | **Record:** 1-0-1 from 9 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 3 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Solid allowance-level runner.
+
+### The Chance — Grade: **?**
+- **Age/Sex:** 2 colt | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
+
+### Trieste Ruler — Grade: **B**
+- **Age/Sex:** 3 gelding | **Track:** FtLFL(GP)
+- **SRF:** Best 89 / Last 87 | **Record:** 2-2-0 from 7 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 4 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Solid allowance-level runner.
+
+### Triple Love — Grade: **?**
+- **Age/Sex:** 3 gelding | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 6 total | Best 5F: — | Quality: STAKES
+- **Assessment:** Virgin — evaluate by works only. High-quality morning works.
+
+### Vino Rojo — Grade: **?**
+- **Age/Sex:** ? f | **Track:** UxbON
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
+
+### Walk Alone — Grade: **?**
+- **Age/Sex:** ? f | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 20 total | Best 5F: — | Quality: QUESTIONABLE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Warfields Jarred — Grade: **B**
+- **Age/Sex:** ? c | **Track:** FtLFL
+- **SRF:** Best 89 / Last 84 | **Record:** 0-1-1 from 2 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 28 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Solid allowance-level runner.
+
+### White Lakes — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** GleAZ
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON +5
+- **Works:** 7 total | Best 5F: — | Quality: ULTRA_RARE
+- **Assessment:** Virgin — evaluate by works only.
+
+### Your Truly — Grade: **?**
+- **Age/Sex:** 2 filly | **Track:** FtLFL
+- **SRF:** Best 0 / Last 0 | **Record:** 0-0-0 from 0 starts
+- **Meters:** CND 100 | STA 100 | CON 0
+- **Works:** 1 total | Best 5F: — | Quality: NOT_USEFUL
+- **Assessment:** Virgin — evaluate by works only. ⚠️ Consistency at risk.
