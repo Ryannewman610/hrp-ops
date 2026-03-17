@@ -180,6 +180,8 @@ def horse_profile(name):
         "consistency": horse.get("consistency", "?"),
         "accessories": horse.get("accessories", []),
         "record": horse.get("record", {}),
+        "cnd": horse.get("cnd", horse.get("condition", "")),
+        "sta": horse.get("sta", horse.get("stamina", "")),
         # SRF
         "srf_power": rating_info.get("srf_power", 0),
         "srf_best": rating_info.get("srf_best"),

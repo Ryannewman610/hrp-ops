@@ -56,7 +56,30 @@
                         {{ horse.readiness_tag|replace('_',' ') }}
                     </span>
                     {% endif %}
+                    {% if horse.works_count == 0 and (horse.record is not defined or horse.record.starts|default('0') == '0') %}
+                    <span style="margin-left:8px;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;background:rgba(59,130,246,0.2);color:#60a5fa">🆕 NEW</span>
+                    {% endif %}
                 </div>
+                {% if horse.cnd is defined or horse.sta is defined %}
+                <div style="display:flex;gap:16px;margin-top:8px;max-width:400px">
+                    {% if horse.cnd is defined %}
+                    <div style="flex:1">
+                        <div style="font-size:10px;color:var(--text-dim);margin-bottom:2px">CND {{ horse.cnd }}%</div>
+                        <div style="height:6px;border-radius:3px;background:var(--bg-glass);overflow:hidden">
+                            <div style="height:100%;width:{{ horse.cnd }}%;border-radius:3px;background:{% if horse.cnd|int >= 80 %}var(--green){% elif horse.cnd|int >= 50 %}var(--yellow){% else %}var(--red){% endif %}"></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if horse.sta is defined %}
+                    <div style="flex:1">
+                        <div style="font-size:10px;color:var(--text-dim);margin-bottom:2px">STA {{ horse.sta }}%</div>
+                        <div style="height:6px;border-radius:3px;background:var(--bg-glass);overflow:hidden">
+                            <div style="height:100%;width:{{ horse.sta }}%;border-radius:3px;background:{% if horse.sta|int >= 80 %}var(--cyan){% elif horse.sta|int >= 50 %}var(--yellow){% else %}var(--red){% endif %}"></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
             </div>
         </div>
 
@@ -298,6 +321,9 @@
                                 <th>Field</th>
                                 <th>Time</th>
                                 <th>SRF</th>
+                                <th>Jockey</th>
+                                <th>Odds</th>
+                                <th>Trip</th>
                                 <th>Notes</th>
                             </tr>
                         </thead>
@@ -323,7 +349,10 @@
                                     {% elif r.srf|int(default=0) >= 75 %}color:var(--orange)
                                     {% elif r.srf %}color:var(--red)
                                     {% else %}color:var(--text-dim){% endif %}">{{ r.srf or '—' }}</td>
-                                <td style="font-size:10px;color:var(--text-secondary);font-style:italic;max-width:180px">{{ r.comment or '' }}</td>
+                                <td style="font-size:11px;color:var(--text-dim)">{{ r.jockey or '—' }}</td>
+                                <td style="font-size:11px;color:var(--text-dim)">{{ r.odds or '—' }}</td>
+                                <td style="font-size:11px;font-family:'JetBrains Mono';color:var(--cyan)" title="Running positions at each call">{{ r.running_line or '—' }}</td>
+                                <td style="font-size:10px;color:var(--text-secondary);font-style:italic;max-width:220px">{{ r.comment or '' }}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
