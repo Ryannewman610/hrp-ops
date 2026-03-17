@@ -490,22 +490,46 @@ def api_twoyo():
                     close_ratios.append(splits[-1] / avg_split)
                     decel_rates.append(splits[-1] - splits[0])
 
-        # Running style from split patterns
-        if early_ratios:
-            avg_early = sum(early_ratios) / len(early_ratios)
-            avg_close = sum(close_ratios) / len(close_ratios)
-            if avg_early < 0.95:
-                running_style = "🚀 Front Runner"
-                style_key = "front"
-            elif avg_close < 0.95:
-                running_style = "💨 Closer"
-                style_key = "closer"
-            else:
-                running_style = "⚖️ Stalker"
-                style_key = "stalker"
+        # Running style from AI commentary
+        early_mentions = 0
+        close_mentions = 0
+        steady_mentions = 0
+        
+        for w in horse_ws:
+            note = str(w.get("comment", "")).lower()
+            if "early" in note or "front" in note or "pressed" in note:
+                early_mentions += 1
+            if "close" in note or "late" in note or "finish" in note:
+                close_mentions += 1
+            if "steady" in note or "even" in note:
+                steady_mentions += 1
+
+        if early_mentions > close_mentions and early_mentions >= steady_mentions:
+            running_style = "🚀 Front Runner"
+            style_key = "front"
+        elif close_mentions > early_mentions and close_mentions > steady_mentions:
+            running_style = "💨 Closer"
+            style_key = "closer"
+        elif early_mentions > 0 or close_mentions > 0 or steady_mentions > 0:
+            running_style = "⚖️ Stalker/Steady"
+            style_key = "stalker"
         else:
-            running_style = "❓ Unknown"
-            style_key = "unknown"
+            # Fallback to general splits logic if no comments
+            if early_ratios:
+                avg_early = sum(early_ratios) / len(early_ratios)
+                avg_close = sum(close_ratios) / len(close_ratios)
+                if avg_early < 0.98:
+                    running_style = "🚀 Front Runner"
+                    style_key = "front"
+                elif avg_close < 0.98:
+                    running_style = "💨 Closer"
+                    style_key = "closer"
+                else:
+                    running_style = "⚖️ Stalker"
+                    style_key = "stalker"
+            else:
+                running_style = "❓ Unknown"
+                style_key = "unknown"
 
         # Best per-furlong rate
         best_pfr = min(per_furlong_rates) if per_furlong_rates else None
