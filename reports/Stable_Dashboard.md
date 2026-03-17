@@ -1,11 +1,11 @@
 # 🏇 Stable Dashboard
-> **Generated:** 2026-03-16 | **Balance:** $38.99 | **Horses:** 93
+> **Generated:** 2026-03-17 | **Balance:** $9.35 | **Horses:** 93
 
 ## Quick Stats
 | Metric | Value |
 |--------|-------|
 | Active Horses | 93 |
-| Balance | $38.99 |
+| Balance | $9.35 |
 | With Nominations | 93 |
 
 ## Roster
@@ -13,97 +13,97 @@
 |-------|-------|------|------|---------|------|------|
 | American Shorthair | KeaWV | 100% | 100% | 0 | ? | 1 |
 | Basic Math | GleAZ | 100% | 100% | +5 | ? | 1 |
-| Blank Sunset | KeaWV | 104% | 87% | +5 | ? | 1 |
-| Bold Extract | UxbON(GP) | 105% | 86% | +5 | ? | 1 |
-| Bold Nuke | GrINE(FtLFL) | 97% | 101% | +5 | ? | 1 |
-| Breath Of The Grayte | GleAZ | 103% | 87% | +5 | ? | 1 |
-| Captain Cook | FtLFL | 100% | 100% | +5 | ? | 1 |
-| Cayuga Lake | HemTX | 100% | 51% | +2 | ? | 1 |
-| Chief Wolf Shifter | FtLFL | 108% | 81% | +5 | ? | 1 |
-| Class A | CT | 110% | 70% | +4 | ? | 1 |
+| Blank Sunset | KeaWV | 102% | 95% | +5 | ? | 1 |
+| Bold Extract | UxbON | 103% | 96% | +5 | ? | 1 |
+| Bold Nuke | GrINE | 100% | 100% | +5 | ? | 1 |
+| Breath Of The Grayte | GleAZ | 100% | 95% | +5 | ? | 1 |
+| Captain Cook | FtLFL | 110% | 74% | +5 | ? | 1 |
+| Cayuga Lake | HemTX | 100% | 61% | +2 | ? | 1 |
+| Chief Wolf Shifter | GrINE(FtLFL) | 106% | 91% | +5 | ? | 1 |
+| Class A | CT | 108% | 79% | +4 | ? | 1 |
 | Collision Course | GleAZ | 100% | 100% | +5 | ? | 1 |
-| Comanche Queen | FtLFL | 106% | 83% | 0 | ? | 1 |
-| Core N Light | GrINE(GP) | 104% | 81% | +5 | ? | 1 |
+| Comanche Queen | FtLFL | 101% | 92% | 0 | ? | 1 |
+| Core N Light | GrINE | 102% | 88% | +5 | ? | 1 |
 | Cornswaggled | FolLA | 100% | 100% | +5 | ? | 1 |
-| Crypto King | KeaWV | 103% | 99% | +5 | ? | 1 |
-| Cup O Joe | KeaWV | 107% | 84% | 0 | ? | 1 |
+| Crypto King | KeaWV | 101% | 100% | +5 | ? | 1 |
+| Cup O Joe | KeaWV | 103% | 91% | 0 | ? | 1 |
 | Cynful Intentions | FtLFL | 100% | 100% | 0 | ? | 1 |
-| Cynful Native | FtLFL | 106% | 85% | 0 | ? | 1 |
-| Cynful Nature | FtLFL | 100% | 100% | 0 | ? | 1 |
-| Cynful Smart | UxbON | 106% | 83% | 0 | ? | 1 |
-| Cynful Sweet | FtLFL | 100% | 96% | 0 | ? | 1 |
-| Desert Oath | FtLFL | 100% | 98% | 0 | ? | 1 |
-| Devil May Cry | FtLFL | 106% | 82% | 0 | ? | 1 |
-| Drinkers Drought | KeaWV | 102% | 89% | +4 | ? | 1 |
-| Duke Of York | GrINE | 104% | 86% | +5 | ? | 1 |
-| Ebay | FtLFL | 107% | 55% | +5 | ? | 1 |
-| El Prado | KeaWV | 107% | 84% | 0 | ? | 1 |
-| Empress Of The West | KeaWV | 105% | 80% | 0 | ? | 1 |
-| Euclidean | GleAZ | 100% | 100% | +5 | ? | 1 |
-| Evolution | RivCA(GP) | 105% | 85% | +5 | ? | 1 |
-| Eyes Of An Indian | FtLFL | 100% | 100% | 0 | ? | 1 |
-| Falling Behind | FtLFL | 108% | 82% | +5 | ? | 1 |
-| Favorite Indian | GrINE | 103% | 89% | +4 | ? | 1 |
-| Film The Scene | CanMA(TUP) | 103% | 86% | +5 | ? | 1 |
+| Cynful Native | FtLFL | 103% | 93% | 0 | ? | 1 |
+| Cynful Nature | FtLFL | 110% | 73% | 0 | ? | 1 |
+| Cynful Smart | UxbON | 102% | 92% | 0 | ? | 1 |
+| Cynful Sweet | FtLFL | 100% | 100% | 0 | ? | 1 |
+| Desert Oath | FtLFL | 100% | 100% | 0 | ? | 1 |
+| Devil May Cry | FtLFL | 104% | 90% | 0 | ? | 1 |
+| Drinkers Drought | KeaWV | 100% | 96% | +4 | ? | 1 |
+| Duke Of York | GrINE | 101% | 95% | +5 | ? | 1 |
+| Ebay | FtLFL | 105% | 62% | +5 | ? | 1 |
+| El Prado | KeaWV | 103% | 93% | 0 | ? | 1 |
+| Empress Of The West | KeaWV | 102% | 87% | 0 | ? | 1 |
+| Euclidean | GleAZ | 110% | 73% | +5 | ? | 1 |
+| Evolution | RivCA(GP) | 103% | 95% | +5 | ? | 1 |
+| Eyes Of An Indian | FtLFL | 110% | 73% | 0 | ? | 1 |
+| Falling Behind | GrINE(FtLFL) | 106% | 92% | +5 | ? | 1 |
+| Favorite Indian | GrINE | 100% | 97% | +4 | ? | 1 |
+| Film The Scene | CanMA(TUP) | 100% | 94% | +5 | ? | 1 |
 | Gen Xpress | KeaWV | 100% | 100% | +5 | ? | 1 |
-| Gizmo | FtLFL | 108% | 82% | +5 | ? | 1 |
-| Good Crypto | GleAZ | 106% | 82% | +5 | ? | 1 |
-| Grandeur Latte | GleAZ(FtLFL) | 106% | 83% | +5 | ? | 1 |
-| Happy Birthday | OriOH(FtLFL) | 97% | 107% | +5 | ? | 1 |
-| Hard Not To Like | FtLFL | 107% | 82% | +5 | ? | 1 |
-| Hardline Anvil | KeaWV | 107% | 81% | +5 | ? | 1 |
-| Harsh Frontier | KeaWV(CT) | 108% | 70% | +5 | ? | 1 |
-| Hawaiian Artist | PRX | 105% | 87% | +5 | ? | 1 |
-| Hawk Soaring | RivCA(GP) | 107% | 79% | +5 | ? | 1 |
-| Hi How Are Ya | KeaWV | 104% | 90% | +5 | ? | 1 |
+| Gizmo | RivCA(FtLFL) | 106% | 92% | +5 | ? | 1 |
+| Good Crypto | GleAZ | 101% | 91% | +5 | ? | 1 |
+| Grandeur Latte | GleAZ(FtLFL) | 103% | 92% | +5 | ? | 1 |
+| Happy Birthday | OriOH | 110% | 51% | +4 | ? | 1 |
+| Hard Not To Like | KeaWV(FtLFL) | 104% | 91% | +5 | ? | 1 |
+| Hardline Anvil | KeaWV | 105% | 90% | +5 | ? | 1 |
+| Harsh Frontier | KeaWV | 105% | 79% | +5 | ? | 1 |
+| Hawaiian Artist | PRX | 103% | 96% | +5 | ? | 1 |
+| Hawk Soaring | RivCA(GP) | 104% | 88% | +5 | ? | 1 |
+| Hi How Are Ya | KeaWV | 101% | 100% | +5 | ? | 1 |
 | Hole In The Wind | FtLFL | 100% | 100% | 0 | ? | 1 |
 | Hydration | FtLFL | 100% | 100% | +5 | ? | 1 |
-| Ideal Sinissippi | KeaWV | 100% | 100% | +5 | ? | 1 |
-| In The Ruff | GrINE | 101% | 86% | +4 | ? | 1 |
-| Indian Lady | KeaWV | 106% | 82% | 0 | ? | 1 |
-| Iron Timekeeper | KeaWV | 110% | 73% | +5 | ? | 1 |
-| Jinxed Agent | GleAZ | 103% | 91% | 0(1) | ? | 1 |
-| Kingston Quickstep | KeaWV | 100% | 100% | +5 | ? | 1 |
-| Last Night Out | GleAZ | 110% | 73% | 0(3) | ? | 1 |
-| Last Outlaw | HemTX(GP) | 107% | 77% | +5 | ? | 1 |
-| Lil Rocket Man | GleAZ | 110% | 73% | +5 | ? | 1 |
-| Lo And Behold | GleAZ(LexKY) | 97% | 75% | +2 | ? | 1 |
-| Looks Like Nicholas | GleAZ | 104% | 85% | +5 | ? | 1 |
-| Love Music | OdeFL(GP) | 108% | 81% | +5 | ? | 1 |
-| Neon Reflection | GrINE | 105% | 88% | +5 | ? | 1 |
-| New York Pharmacist | GrINE | 103% | 85% | +5 | ? | 1 |
-| Next On Stage | GrINE | 104% | 86% | +5 | ? | 1 |
-| Nomination | GleAZ | 110% | 74% | +5 | ? | 1 |
-| Offlikeapromdress | FtLFL | 107% | 79% | +5 | ? | 1 |
-| Optimus | FtLFL | 107% | 82% | +1 | ? | 1 |
-| Over And Under | FolLA(GP) | 108% | 78% | +5 | ? | 1 |
+| Ideal Sinissippi | CT | 107% | 77% | +5 | ? | 1 |
+| In The Ruff | GrINE | 100% | 93% | +4 | ? | 1 |
+| Indian Lady | KeaWV | 103% | 91% | 0 | ? | 1 |
+| Iron Timekeeper | KeaWV | 108% | 79% | +5 | ? | 1 |
+| Jinxed Agent | GleAZ | 100% | 97% | 0(1) | ? | 1 |
+| Kingston Quickstep | KeaWV | 110% | 74% | +5 | ? | 1 |
+| Last Night Out | GleAZ | 107% | 81% | 0(3) | ? | 1 |
+| Last Outlaw | HemTX | 105% | 87% | +5 | ? | 1 |
+| Lil Rocket Man | GleAZ | 107% | 83% | +5 | ? | 1 |
+| Lo And Behold | GleAZ(LexKY) | 95% | 85% | +3 | ? | 1 |
+| Looks Like Nicholas | GleAZ | 101% | 92% | +5 | ? | 1 |
+| Love Music | OdeFL | 105% | 89% | +5 | ? | 1 |
+| Neon Reflection | GrINE | 102% | 96% | +5 | ? | 1 |
+| New York Pharmacist | GrINE | 101% | 92% | +5 | ? | 1 |
+| Next On Stage | GrINE | 102% | 94% | +5 | ? | 1 |
+| Nomination | GleAZ | 107% | 82% | +5 | ? | 1 |
+| Offlikeapromdress | FtLFL | 105% | 89% | +5 | ? | 1 |
+| Optimus | FtLFL | 104% | 89% | +1 | ? | 1 |
+| Over And Under | FolLA | 106% | 86% | +5 | ? | 1 |
 | Pain Of War | FtLFL | 100% | 100% | 0 | ? | 1 |
-| Payment Accepted | GleAZ | 102% | 90% | 0(1) | ? | 1 |
-| Pedal To Metal | FtLFL | 106% | 84% | +1 | ? | 1 |
-| Rollerwolf | FtLFL(GP) | 110% | 68% | +5 | ? | 1 |
-| Royal Timeburst | GrINE | 102% | 87% | +5 | ? | 1 |
-| Royal Velocity | GleAZ | 102% | 99% | +5 | ? | 1 |
-| Sapphires Dream | GrINE | 103% | 86% | +3 | ? | 1 |
-| Sassy Astray | GrINE | 106% | 87% | +3 | ? | 1 |
-| Scarlet Smoke | KeaWV | 103% | 92% | +4 | ? | 1 |
-| Sierra | FtLFL | 105% | 85% | +5 | ? | 1 |
-| Silent Fighter | FtLFL | 100% | 100% | 0 | ? | 1 |
-| Sinissippi Wild | OdeFL(GP) | 107% | 79% | +5 | ? | 1 |
-| Southern Consensual | KeaWV | 100% | 88% | +5 | ? | 1 |
-| Speed Queen | GleAZ | 101% | 99% | +5 | ? | 1 |
+| Payment Accepted | GleAZ | 100% | 98% | 0(1) | ? | 1 |
+| Pedal To Metal | FtLFL | 102% | 93% | +1 | ? | 1 |
+| Rollerwolf | FtLFL | 107% | 75% | +5 | ? | 1 |
+| Royal Timeburst | GrINE | 100% | 95% | +5 | ? | 1 |
+| Royal Velocity | GleAZ | 100% | 100% | +5 | ? | 1 |
+| Sapphires Dream | GrINE | 101% | 96% | +3 | ? | 1 |
+| Sassy Astray | GrINE | 104% | 97% | +4 | ? | 1 |
+| Scarlet Smoke | KeaWV | 100% | 100% | +4 | ? | 1 |
+| Sierra | FtLFL | 103% | 92% | +5 | ? | 1 |
+| Silent Fighter | FtLFL | 110% | 75% | 0 | ? | 1 |
+| Sinissippi Wild | OdeFL | 106% | 88% | +5 | ? | 1 |
+| Southern Consensual | KeaWV | 100% | 98% | +5 | ? | 1 |
+| Speed Queen | GleAZ | 100% | 100% | +5 | ? | 1 |
 | Star Bangled | FtLFL | 100% | 100% | 0 | ? | 1 |
-| Step Right Up | FtLFL(GleAZ) | 83% | 110% | +5 | ? | 1 |
-| Strike King | GleAZ | 108% | 79% | +2 | ? | 1 |
-| Tall Bonsai | FtLFL | 100% | 100% | 0 | ? | 1 |
+| Step Right Up | OdeFL | 98% | 88% | +5 | ? | 1 |
+| Strike King | GleAZ | 106% | 88% | +3 | ? | 1 |
+| Tall Bonsai | FtLFL | 110% | 73% | 0 | ? | 1 |
 | Thats Some Bullship | RivCA | 100% | 100% | +5 | ? | 1 |
-| The Chance | GleAZ | 100% | 94% | 0 | ? | 1 |
-| Trieste Ruler | FtLFL | 100% | 87% | +5 | ? | 1 |
+| The Chance | GleAZ | 100% | 100% | 0 | ? | 1 |
+| Trieste Ruler | FtLFL(GP) | 110% | 68% | +5 | ? | 1 |
 | Triple Love | FtLFL | 100% | 100% | +5 | ? | 1 |
-| Vino Rojo | UxbON | 101% | 96% | 0 | ? | 1 |
-| Walk Alone | FtLFL | 105% | 89% | +5 | ? | 1 |
-| Warfields Jarred | FtLFL | 106% | 87% | +5 | ? | 1 |
-| White Lakes | GleAZ | 106% | 81% | +5 | ? | 1 |
-| Your Truly | FtLFL | 100% | 100% | 0 | ? | 1 |
+| Vino Rojo | UxbON | 100% | 100% | 0 | ? | 1 |
+| Walk Alone | FtLFL | 103% | 97% | +5 | ? | 1 |
+| Warfields Jarred | FtLFL | 104% | 95% | +5 | ? | 1 |
+| White Lakes | GleAZ | 102% | 88% | +5 | ? | 1 |
+| Your Truly | FtLFL | 110% | 74% | 0 | ? | 1 |
 
 ## Upcoming Races
 | Horse | Date | Track | Race# | Class |
@@ -118,22 +118,23 @@
 | Trieste Ruler | 2026-03-07 00:00:00 | TAM | Clm6.25N3L | ? |
 
 ## ⚠️ Low Stamina
-- **Cayuga Lake**: 51%
-- **Class A**: 70%
-- **Ebay**: 55%
-- **Harsh Frontier**: 70%
-- **Hawk Soaring**: 79%
-- **Iron Timekeeper**: 73%
-- **Last Night Out**: 73%
-- **Last Outlaw**: 77%
-- **Lil Rocket Man**: 73%
-- **Lo And Behold**: 75%
-- **Nomination**: 74%
-- **Offlikeapromdress**: 79%
-- **Over And Under**: 78%
-- **Rollerwolf**: 68%
-- **Sinissippi Wild**: 79%
-- **Strike King**: 79%
+- **Captain Cook**: 74%
+- **Cayuga Lake**: 61%
+- **Class A**: 79%
+- **Cynful Nature**: 73%
+- **Ebay**: 62%
+- **Euclidean**: 73%
+- **Eyes Of An Indian**: 73%
+- **Happy Birthday**: 51%
+- **Harsh Frontier**: 79%
+- **Ideal Sinissippi**: 77%
+- **Iron Timekeeper**: 79%
+- **Kingston Quickstep**: 74%
+- **Rollerwolf**: 75%
+- **Silent Fighter**: 75%
+- **Tall Bonsai**: 73%
+- **Trieste Ruler**: 68%
+- **Your Truly**: 74%
 
 ## 🎯 Horse Ability Profiles
 | Horse | Speed | Surface | Distance | Wet | Class | W% |
@@ -187,4 +188,4 @@
 - **Iron Timekeeper** — needs rest or recovery
 
 ---
-*Auto-generated by `06_generate_reports.py` on 2026-03-16*
+*Auto-generated by `06_generate_reports.py` on 2026-03-17*
