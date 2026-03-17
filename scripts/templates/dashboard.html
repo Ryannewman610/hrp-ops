@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRP Command Center</title>
     <link rel="stylesheet" href="/static/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
     <meta name="description"
         content="HRP Stable Management Dashboard — Power Rankings, Horse Intelligence">
 </head>
@@ -365,6 +366,67 @@
             </section>
 
         </div><!-- /tab:analysis -->
+
+        <!-- TAB: Analytics -->
+        <div class="tab-section" data-tab="analytics" style="display:none">
+
+            <!-- Strategy Recommendations -->
+            <div class="card" style="margin-bottom:16px;border-left:3px solid var(--green)">
+                <div class="card-title">🧠 AI Strategy Recommendations</div>
+                <div id="strategy-recs" style="font-size:13px;line-height:1.8;color:var(--text-secondary)">Loading...</div>
+            </div>
+
+            <!-- Summary KPIs -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:16px" id="analytics-kpis"></div>
+
+            <!-- Charts Row 1 -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+                <div class="card">
+                    <div class="card-title">📊 SRF Distribution</div>
+                    <canvas id="chart-srf" height="200"></canvas>
+                </div>
+                <div class="card">
+                    <div class="card-title">🎯 Works Quality Tiers</div>
+                    <canvas id="chart-works-tier" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- Charts Row 2 -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+                <div class="card">
+                    <div class="card-title">🏆 Class Performance</div>
+                    <canvas id="chart-class" height="200"></canvas>
+                </div>
+                <div class="card">
+                    <div class="card-title">📅 Age Distribution</div>
+                    <canvas id="chart-age" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- Power Rankings Table -->
+            <div class="card">
+                <div class="card-title">⚡ Power Rankings — Complete Stable</div>
+                <div style="overflow-x:auto">
+                    <table class="rank-table" id="rankings-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Horse</th>
+                                <th>Power</th>
+                                <th>Tier</th>
+                                <th>SRF Best</th>
+                                <th>Record</th>
+                                <th>Works</th>
+                                <th>Track</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rankings-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div><!-- /tab:analytics -->
+
     </main>
 
     <!-- Bottom Tab Navigation (mobile only) -->
@@ -389,6 +451,11 @@
                 <span class="nav-icon">🏇</span>
                 Stable
                 <span class="nav-badge" id="badge-stable"></span>
+            </button>
+            <button class="nav-tab" data-target="analytics" onclick="switchTab('analytics', this)">
+                <span class="nav-icon">📈</span>
+                Analytics
+                <span class="nav-badge" id="badge-analytics"></span>
             </button>
             <button class="nav-tab" data-target="analysis" onclick="switchTab('analysis', this)">
                 <span class="nav-icon">📊</span>
@@ -1894,6 +1961,151 @@
             updateBadges();
             updateHealthPills();
         }, 120000);
+
+        // ── Analytics Tab ─────────────────────────
+        let analyticsLoaded = false;
+        let chartInstances = {};
+
+        async function loadAnalytics() {
+            if (analyticsLoaded) return;
+            try {
+                const resp = await fetch('/api/analytics');
+                const data = await resp.json();
+                analyticsLoaded = true;
+                renderAnalytics(data);
+            } catch(e) { console.error('Analytics load error:', e); }
+        }
+
+        function renderAnalytics(data) {
+            const { rankings, charts, recommendations, summary } = data;
+
+            // Strategy Recommendations
+            const recsEl = document.getElementById('strategy-recs');
+            if (recommendations && recommendations.length) {
+                recsEl.innerHTML = recommendations.map(r => {
+                    let icon = '💡', color = 'var(--text-secondary)';
+                    if (r.startsWith('RACE:')) { icon = '🏁'; color = 'var(--green)'; }
+                    else if (r.startsWith('READY:')) { icon = '✅'; color = 'var(--cyan)'; }
+                    else if (r.startsWith('DEVELOP:')) { icon = '🔧'; color = 'var(--yellow)'; }
+                    return `<div style="padding:4px 0;color:${color}">${icon} ${r}</div>`;
+                }).join('');
+            } else { recsEl.innerHTML = '<div style="color:var(--text-dim)">No recommendations yet — need more race data.</div>'; }
+
+            // Summary KPIs
+            const kpiEl = document.getElementById('analytics-kpis');
+            kpiEl.innerHTML = [
+                { label: 'Total Horses', value: summary.total_horses, color: 'var(--text)' },
+                { label: 'Elite', value: summary.elite, color: '#FFD700' },
+                { label: 'Contenders', value: summary.contenders, color: 'var(--green)' },
+                { label: 'Developing', value: summary.developing, color: 'var(--cyan)' },
+                { label: 'Prospects', value: summary.prospects, color: 'var(--blue)' },
+                { label: 'Avg Power', value: summary.avg_power, color: 'var(--text)' },
+                { label: '#1 Horse', value: summary.top_horse, color: '#FFD700' },
+                { label: 'Top Power', value: summary.top_power, color: '#FFD700' },
+            ].map(k => `<div class="kpi-card"><div class="kpi-label">${k.label}</div><div class="kpi-value" style="color:${k.color}">${k.value}</div></div>`).join('');
+
+            // Chart defaults
+            Chart.defaults.color = 'rgba(255,255,255,0.7)';
+            Chart.defaults.borderColor = 'rgba(255,255,255,0.08)';
+
+            // 1. SRF Distribution
+            const srfData = charts.srf_distribution;
+            if (chartInstances.srf) chartInstances.srf.destroy();
+            chartInstances.srf = new Chart(document.getElementById('chart-srf'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(srfData),
+                    datasets: [{
+                        label: 'Horses',
+                        data: Object.values(srfData),
+                        backgroundColor: ['#ef4444','#f97316','#eab308','#22c55e','#06b6d4','#8b5cf6','#FFD700'],
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true, plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+                }
+            });
+
+            // 2. Works Quality Tiers
+            const tierCounts = {};
+            rankings.forEach(r => { tierCounts[r.quality_tier] = (tierCounts[r.quality_tier] || 0) + 1; });
+            const tierOrder = ['STAKES','ULTRA_RARE','ELITE','PREMIUM','STRONG','SOLID','AVERAGE','DEVELOPING','EARLY','NO_DATA'];
+            const tierLabels = tierOrder.filter(t => tierCounts[t]);
+            const tierColors = { STAKES: '#FFD700', ULTRA_RARE: '#c084fc', ELITE: '#a78bfa', PREMIUM: '#22c55e', STRONG: '#06b6d4', SOLID: '#3b82f6', AVERAGE: '#6b7280', DEVELOPING: '#eab308', EARLY: '#f97316', NO_DATA: '#374151' };
+            if (chartInstances.worksTier) chartInstances.worksTier.destroy();
+            chartInstances.worksTier = new Chart(document.getElementById('chart-works-tier'), {
+                type: 'doughnut',
+                data: {
+                    labels: tierLabels,
+                    datasets: [{ data: tierLabels.map(t => tierCounts[t]), backgroundColor: tierLabels.map(t => tierColors[t] || '#6b7280'), borderWidth: 0 }]
+                },
+                options: { responsive: true, plugins: { legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } } } }
+            });
+
+            // 3. Class Performance
+            const classData = charts.class_performance;
+            const classLabels = Object.keys(classData).sort((a,b) => classData[b].starts - classData[a].starts).slice(0, 8);
+            if (chartInstances.classPerf) chartInstances.classPerf.destroy();
+            chartInstances.classPerf = new Chart(document.getElementById('chart-class'), {
+                type: 'bar',
+                data: {
+                    labels: classLabels,
+                    datasets: [
+                        { label: 'Wins', data: classLabels.map(c => classData[c].wins), backgroundColor: '#22c55e', borderRadius: 4 },
+                        { label: 'ITM', data: classLabels.map(c => classData[c].itm), backgroundColor: '#06b6d4', borderRadius: 4 },
+                        { label: 'Starts', data: classLabels.map(c => classData[c].starts), backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: 4 },
+                    ]
+                },
+                options: { responsive: true, indexAxis: 'y', plugins: { legend: { labels: { boxWidth: 10, font: { size: 10 } } } }, scales: { x: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+            });
+
+            // 4. Age Distribution
+            const ageData = charts.age_distribution;
+            const ageLabels = Object.keys(ageData).sort();
+            const ageColors = { '2': '#06b6d4', '3': '#22c55e', '4': '#eab308', '5': '#f97316', '6': '#ef4444', '7': '#8b5cf6' };
+            if (chartInstances.age) chartInstances.age.destroy();
+            chartInstances.age = new Chart(document.getElementById('chart-age'), {
+                type: 'pie',
+                data: {
+                    labels: ageLabels.map(a => a + 'yo'),
+                    datasets: [{ data: ageLabels.map(a => ageData[a]), backgroundColor: ageLabels.map(a => ageColors[a] || '#6b7280'), borderWidth: 0 }]
+                },
+                options: { responsive: true, plugins: { legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } } } }
+            });
+
+            // Power Rankings Table
+            const tbody = document.getElementById('rankings-body');
+            tbody.innerHTML = rankings.map(r => {
+                const tierColors = { ELITE: '#FFD700', CONTENDER: '#22c55e', DEVELOPING: '#06b6d4', PROSPECT: '#3b82f6', UNRANKED: '#6b7280' };
+                const tc = tierColors[r.tier] || '#6b7280';
+                const powerBar = `<div style="display:flex;align-items:center;gap:6px"><span style="font-weight:700;min-width:35px">${r.power}</span><div style="flex:1;height:6px;background:var(--bg-glass);border-radius:3px;min-width:60px"><div style="height:100%;width:${r.power}%;border-radius:3px;background:${tc}"></div></div></div>`;
+                const tierBadge = `<span style="padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;background:${tc}22;color:${tc}">${r.tier}</span>`;
+                const record = r.starts > 0 ? `${r.wins}-${r.itm - r.wins}-${r.starts - r.itm}` : 'Virgin';
+                return `<tr class="rank-row" onclick="window.location='/horse/${encodeURIComponent(r.name)}'" style="cursor:pointer">
+                    <td style="font-weight:700;color:${r.rank <= 3 ? '#FFD700' : 'var(--text-dim)'}">${r.rank}</td>
+                    <td class="rank-name"><a href="/horse/${encodeURIComponent(r.name)}" style="color:var(--text);text-decoration:none" onclick="event.stopPropagation()">${r.name}</a></td>
+                    <td>${powerBar}</td>
+                    <td>${tierBadge}</td>
+                    <td style="font-weight:700;color:${r.srf_best >= 88 ? '#FFD700' : r.srf_best >= 83 ? 'var(--green)' : 'var(--text-dim)'}">${r.srf_best || '\u2014'}</td>
+                    <td style="font-size:12px">${record}</td>
+                    <td style="font-size:11px;color:var(--text-dim)">${r.works_count}</td>
+                    <td style="font-size:11px">${r.track}</td>
+                </tr>`;
+            }).join('');
+
+            // Badge count
+            const badge = document.getElementById('badge-analytics');
+            if (badge && summary.elite > 0) badge.textContent = summary.elite;
+        }
+
+        // Hook into switchTab to load analytics on first view
+        const _origSwitchTab = switchTab;
+        switchTab = function(tabName, btn) {
+            _origSwitchTab(tabName, btn);
+            if (tabName === 'analytics') loadAnalytics();
+        };
 
         // ── Boot ───────────────────────────────
         init().then(() => { lastLoadTime = Date.now(); startLiveTimer(); });

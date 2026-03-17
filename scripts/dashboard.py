@@ -888,6 +888,193 @@ def api_training_plan():
     return jsonify({"content": "No training plan generated yet."})
 
 
+# ── Power Rating & Analytics ────────────────────────────
+
+QUALITY_TIER_SCORES = {
+    "STAKES": 100, "ULTRA_RARE": 95, "ELITE": 90, "PREMIUM": 85,
+    "STRONG": 75, "SOLID": 65, "AVERAGE": 50, "DEVELOPING": 35,
+    "EARLY": 20, "NO_DATA": 10,
+}
+
+
+def calculate_power_rating(horse, works_feat=None):
+    """Calculate composite Power Rating (0-100) for a horse.
+
+    Components:
+      SRF Best (30%), Win Rate (20%), Works Quality (20%),
+      Consistency (15%), Fitness (15%).
+    """
+    scores = {}
+
+    # 1. SRF Best (30%)
+    srf_best = 0
+    for r in horse.get("recent_races", []):
+        s = r.get("srf", "")
+        if s and str(s).isdigit():
+            srf_best = max(srf_best, int(s))
+    scores["srf"] = min(100, max(0, (srf_best - 60) * 2.5)) if srf_best > 0 else 0
+
+    # 2. Win Rate (20%)
+    rec = horse.get("record", {})
+    starts = int(rec.get("starts", 0)) if str(rec.get("starts", "0")).isdigit() else 0
+    wins = int(rec.get("wins", 0)) if str(rec.get("wins", "0")).isdigit() else 0
+    places = int(rec.get("places", 0)) if str(rec.get("places", "0")).isdigit() else 0
+    shows = int(rec.get("shows", 0)) if str(rec.get("shows", "0")).isdigit() else 0
+    if starts > 0:
+        scores["win_rate"] = min(100, (wins / starts) * 200 + ((wins + places + shows) / starts) * 50)
+    else:
+        scores["win_rate"] = 0
+
+    # 3. Works Quality (20%)
+    if works_feat:
+        tier = works_feat.get("quality_tier", works_feat.get("work_quality_tier", "NO_DATA"))
+        scores["works"] = QUALITY_TIER_SCORES.get(tier, 10)
+    else:
+        scores["works"] = 10
+
+    # 4. Consistency (15%)
+    con = horse.get("consistency", "?")
+    try:
+        con_val = int(con) if con not in ("?", "", None) else 0
+    except (ValueError, TypeError):
+        con_val = 0
+    scores["consistency"] = min(100, con_val)
+
+    # 5. Fitness (15%)
+    cnd, sta = 0, 0
+    try: cnd = int(horse.get("cnd", horse.get("condition", 0)))
+    except: pass
+    try: sta = int(horse.get("sta", horse.get("stamina", 0)))
+    except: pass
+    scores["fitness"] = (cnd * 0.6 + sta * 0.4) if (cnd or sta) else 0
+
+    power = (scores["srf"] * 0.30 + scores["win_rate"] * 0.20 +
+             scores["works"] * 0.20 + scores["consistency"] * 0.15 +
+             scores["fitness"] * 0.15)
+
+    if power >= 75: tier_label = "ELITE"
+    elif power >= 55: tier_label = "CONTENDER"
+    elif power >= 35: tier_label = "DEVELOPING"
+    elif power >= 15: tier_label = "PROSPECT"
+    else: tier_label = "UNRANKED"
+
+    return {
+        "power": round(power, 1), "tier": tier_label,
+        "components": {k: round(v, 1) for k, v in scores.items()},
+        "srf_best": srf_best, "starts": starts, "wins": wins,
+        "itm": wins + places + shows,
+    }
+
+
+@app.route("/api/analytics")
+@login_required
+def api_analytics():
+    """Comprehensive analytics: rankings, charts, strategy recommendations."""
+    snap = find_latest_snapshot()
+    horses = snap.get("horses", [])
+    works_features = _load_works_features()
+
+    rankings, srf_dist, readiness = [], [], []
+    class_perf, age_dist = {}, {}
+    works_act = {"labels": [], "recent_14d": [], "recent_28d": []}
+
+    for h in horses:
+        name = h.get("name", "")
+        if _norm(name) in INACTIVE:
+            continue
+        wf = works_features.get(_norm(name), {})
+        pr = calculate_power_rating(h, wf)
+
+        rankings.append({
+            "name": name, "power": pr["power"], "tier": pr["tier"],
+            "components": pr["components"], "srf_best": pr["srf_best"],
+            "starts": pr["starts"], "wins": pr["wins"], "itm": pr["itm"],
+            "age": h.get("age", "?"), "sex": h.get("sex", "?"),
+            "track": h.get("track", "?"),
+            "cnd": h.get("cnd", h.get("condition", "")),
+            "sta": h.get("sta", h.get("stamina", "")),
+            "works_count": int(wf.get("total_works", 0)) if wf else 0,
+            "quality_tier": wf.get("quality_tier", wf.get("work_quality_tier", "NO_DATA")) if wf else "NO_DATA",
+        })
+        if pr["srf_best"] > 0:
+            srf_dist.append(pr["srf_best"])
+        for r in h.get("recent_races", []):
+            rc = r.get("race_class", "")
+            if rc:
+                cl = rc.split("/")[0].split("(")[0][:10]
+                if cl not in class_perf:
+                    class_perf[cl] = {"starts": 0, "wins": 0, "itm": 0}
+                class_perf[cl]["starts"] += 1
+                fin = int(r.get("finish", 0)) if str(r.get("finish", "")).isdigit() else 0
+                if fin == 1: class_perf[cl]["wins"] += 1
+                if fin <= 3: class_perf[cl]["itm"] += 1
+        age = str(h.get("age", "?"))
+        age_dist[age] = age_dist.get(age, 0) + 1
+        cv, sv = 0, 0
+        try: cv = int(h.get("cnd", h.get("condition", 0)))
+        except: pass
+        try: sv = int(h.get("sta", h.get("stamina", 0)))
+        except: pass
+        if cv or sv:
+            readiness.append({"name": name, "cnd": cv, "sta": sv,
+                              "power": pr["power"], "tier": pr["tier"]})
+        if wf:
+            works_act["labels"].append(name[:12])
+            works_act["recent_14d"].append(int(wf.get("recent_works_14d", 0)))
+            works_act["recent_28d"].append(int(wf.get("recent_works_28d", 0)))
+
+    rankings.sort(key=lambda x: x["power"], reverse=True)
+    for i, r in enumerate(rankings):
+        r["rank"] = i + 1
+
+    srf_buckets = {"60-69": 0, "70-74": 0, "75-79": 0, "80-84": 0,
+                   "85-89": 0, "90-94": 0, "95-100": 0}
+    for s in srf_dist:
+        if s >= 95: srf_buckets["95-100"] += 1
+        elif s >= 90: srf_buckets["90-94"] += 1
+        elif s >= 85: srf_buckets["85-89"] += 1
+        elif s >= 80: srf_buckets["80-84"] += 1
+        elif s >= 75: srf_buckets["75-79"] += 1
+        elif s >= 70: srf_buckets["70-74"] += 1
+        else: srf_buckets["60-69"] += 1
+
+    recs = []
+    for r in rankings[:5]:
+        if r["power"] >= 55:
+            note = f"RACE: {r['name']} (Power {r['power']}) — "
+            if r["srf_best"] >= 88: note += f"elite SRF {r['srf_best']}, target stakes"
+            elif r["srf_best"] >= 83: note += f"strong SRF {r['srf_best']}, allowance/open"
+            else: note += "solid form, find optimal class"
+            recs.append(note)
+    race_ready = sorted([r for r in readiness if r["cnd"] >= 70 and r["sta"] >= 60
+                         and r["power"] >= 30], key=lambda x: x["power"], reverse=True)
+    top_names = {r["name"] for r in rankings[:5]}
+    for rr in race_ready[:5]:
+        if rr["name"] not in top_names:
+            recs.append(f"READY: {rr['name']} CND {rr['cnd']}% STA {rr['sta']}% (Power {rr['power']})")
+    for b in [r for r in rankings if r["power"] < 25 and r["works_count"] < 5][:3]:
+        recs.append(f"DEVELOP: {b['name']} needs works ({b['works_count']} total)")
+
+    return jsonify({
+        "rankings": rankings,
+        "charts": {"srf_distribution": srf_buckets, "class_performance": class_perf,
+                    "age_distribution": age_dist, "readiness": readiness,
+                    "works_activity": works_act},
+        "recommendations": recs,
+        "summary": {
+            "total_horses": len(rankings),
+            "elite": len([r for r in rankings if r["tier"] == "ELITE"]),
+            "contenders": len([r for r in rankings if r["tier"] == "CONTENDER"]),
+            "developing": len([r for r in rankings if r["tier"] == "DEVELOPING"]),
+            "prospects": len([r for r in rankings if r["tier"] == "PROSPECT"]),
+            "unranked": len([r for r in rankings if r["tier"] == "UNRANKED"]),
+            "avg_power": round(sum(r["power"] for r in rankings) / max(len(rankings), 1), 1),
+            "top_horse": rankings[0]["name"] if rankings else "",
+            "top_power": rankings[0]["power"] if rankings else 0,
+        },
+    })
+
+
 # ── 2YO Development Center ──────────────────────────────
 
 def classify_2yo_stage(works, consistency, has_raced):
