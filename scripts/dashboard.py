@@ -901,12 +901,12 @@ def calculate_power_rating(horse, works_feat=None):
     """Calculate composite Power Rating (0-100) for a horse.
 
     Components:
-      SRF Best (30%), Win Rate (20%), Works Quality (20%),
-      Consistency (15%), Fitness (15%).
+      SRF Best (35%), Win Rate (25%), Works Quality (25%),
+      Consistency (15%).
     """
     scores = {}
 
-    # 1. SRF Best (30%)
+    # 1. SRF Best (35%)
     srf_best = 0
     for r in horse.get("recent_races", []):
         s = r.get("srf", "")
@@ -914,7 +914,7 @@ def calculate_power_rating(horse, works_feat=None):
             srf_best = max(srf_best, int(s))
     scores["srf"] = min(100, max(0, (srf_best - 60) * 2.5)) if srf_best > 0 else 0
 
-    # 2. Win Rate (20%)
+    # 2. Win Rate (25%)
     rec = horse.get("record", {})
     starts = int(rec.get("starts", 0)) if str(rec.get("starts", "0")).isdigit() else 0
     wins = int(rec.get("wins", 0)) if str(rec.get("wins", "0")).isdigit() else 0
@@ -925,7 +925,7 @@ def calculate_power_rating(horse, works_feat=None):
     else:
         scores["win_rate"] = 0
 
-    # 3. Works Quality (20%)
+    # 3. Works Quality (25%)
     if works_feat:
         tier = works_feat.get("quality_tier", works_feat.get("work_quality_tier", "NO_DATA"))
         scores["works"] = QUALITY_TIER_SCORES.get(tier, 10)
@@ -940,17 +940,8 @@ def calculate_power_rating(horse, works_feat=None):
         con_val = 0
     scores["consistency"] = min(100, con_val)
 
-    # 5. Fitness (15%)
-    cnd, sta = 0, 0
-    try: cnd = int(horse.get("cnd", horse.get("condition", 0)))
-    except: pass
-    try: sta = int(horse.get("sta", horse.get("stamina", 0)))
-    except: pass
-    scores["fitness"] = (cnd * 0.6 + sta * 0.4) if (cnd or sta) else 0
-
-    power = (scores["srf"] * 0.30 + scores["win_rate"] * 0.20 +
-             scores["works"] * 0.20 + scores["consistency"] * 0.15 +
-             scores["fitness"] * 0.15)
+    power = (scores["srf"] * 0.35 + scores["win_rate"] * 0.25 +
+             scores["works"] * 0.25 + scores["consistency"] * 0.15)
 
     if power >= 75: tier_label = "ELITE"
     elif power >= 55: tier_label = "CONTENDER"
